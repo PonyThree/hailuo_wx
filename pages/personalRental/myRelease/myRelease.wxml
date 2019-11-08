@@ -1,0 +1,96 @@
+<!--pages/personalRental/myRelease/myRelease.wxml-->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class="myRelease">
+    <!-- 求租求售 -->
+    <view class="rentList" wx:for="{{myReleaseInfo.demandInfos}}" wx:key="{{item.id}}" > 
+        <i-swipeout i-class="i-swipeout-demo-item" actions="{{actions}}" bind:change="changeRent" data-id="{{item.id}}">
+            <view slot="content" data-id="{{item.id}}" catchtap='wantRentDetail' data-type="{{item.releaseType}}">
+                <view class="i-swipeout-image" style="background:#ff9900;">
+                </view>
+                <view class="i-swipeout-des">
+                    <view class="top">
+                        <view class="myInfo">
+                            <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                            <view class="myPro">
+                                <text style="display:block;font-size:24rpx;color:#333333">{{item.releaserName}}</text>
+                                <text style="font-size:18rpx;color:#777777;">TEL: {{item.releaserMobile}}</text>
+                            </view>
+                        </view>
+                        <view class="dataTime">
+                            <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+                        </view>
+                    </view>
+                    <view class="renInfo">
+                        <view>
+                            <text>{{item.releaseType==1?'求租:':'求售:'}}  {{item.title}}</text>
+                        </view>
+                        <view>
+                            <view class="carInfo">
+                                <view class="right view2">
+                                    <text>期望车位</text>
+                                    <text>{{item.location}}</text>
+                                </view>
+                                <view class="right view2">
+                                    <text>意向价格</text> {{item.minPrice}}
+                                    <text style="color:#777777;font-size:24rpx;">元/月 </text>
+                                    <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>{{item.maxPrice}}
+                                    <text style="color:#777777;font-size:24rpx;">元/月</text>
+                                </view>
+                                <!-- 车位标签 -->
+                                <view class='right view2'>
+                                    <text>意向标签</text>
+                                    <scroll-view scroll-x class="tagList1">
+                                        <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}">{{item}}</text>
+                                    </scroll-view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </i-swipeout>
+    </view>
+    <!-- 出售出租 -->
+    <view class="saleList" wx:for="{{myReleaseInfo.rentalSaleInfos}}" wx:key="{{index}}" >
+        <i-swipeout i-class="i-swipeout-demo-item" actions="{{actions}}" bind:change="changeSale" data-id="{{item.id}}">
+            <view slot="content" data-id="{{item.id}}" catchtap='goSaleDetail' data-type="{{item.releaseType}}">
+                <view class="i-swipeout-image" style="background:#ff9900;">
+                </view>
+                <view class="i-swipeout-des">
+                    <view class="top">
+                        <view class="myInfo">
+                            <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                            <view class="myPro">
+                                <text style="display:block;font-size:24rpx;color:#333333">{{item.releaserName}}</text>
+                                <text style="font-size:18rpx;color:#777777;">TEL: {{item.releaserMobile}}</text>
+                            </view>
+                        </view>
+                        <view class="dataTime">
+                            <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+                        </view>
+                    </view>
+                    <view class="renInfo1">
+                        <view>
+                            <text>{{item.releaseType==1?'出租:':'出售:'}}  {{item.title}}</text>
+                        </view>
+                        <view class="saleInfo">
+                                <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:10rpx;"></image>
+                            <view class="saleCarInfo">
+                                <text>{{item.code}}</text>
+                                <text>{{item.location}}</text>
+                                <view>
+                                    <scroll-view scroll-x class="tagList1">
+                                        <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}" style="color:#999999;font-size:20rpx;">{{item}}</text>
+                                    </scroll-view>
+                                </view>
+                                <text>{{item.sellPrice}}<text style="color:#999999;font-size:28rpx;">元</text></text>
+                            </view>
+                            </view>
+                    </view>
+
+                </view>
+            </view>
+        </i-swipeout>
+    </view>
+    <view style="height:60rpx;"></view>
+</view>

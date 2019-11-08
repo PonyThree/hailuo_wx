@@ -1,0 +1,37 @@
+<!--pages/personalRental/releaseIndex/releaseIndex.wxml-->
+<view class="releaseIndex">
+    <image src="https://china185.com/file/image/20191107/e4bebf226f0a41be88a4416830b7906b.blob" style="width:750rpx;height:1600rpx;position:absolute;z-index:-20;"></image>
+    <view class="jump">
+        <view class="page">
+            <view class="pageItem" catchtap='jumpPage' data-num="1">
+                <image src="/image/r1.png"></image>
+                <text>我要出租车位</text>
+            </view>
+            <view class="pageItem" catchtap='jumpPage' data-num="2">
+                <image src="/image/r2.png"></image>
+                <text>我要租车位</text>
+            </view>
+        </view>
+        <view class="page">
+            <view class="pageItem" catchtap='jumpPage' data-num="3">
+                <image src="/image/r3.png"></image>
+                <text>我要出售车位</text>
+            </view>
+            <view class="pageItem" catchtap='jumpPage' data-num="4">
+                <image src="/image/r4.png"></image>
+                <text>我要买车位</text>
+            </view>
+        </view>
+    </view>
+    <!-- 底部按钮 -->
+    <view class="bomBtns">
+        <image src="/image/dhl.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==0}}"></image>
+        <image src="/image/dhll.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==1}}"></image>
+        <image src="/image/dhlll.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==3}}"></image>
+    </view>
+    <view class="clickItems">
+        <view catchtap='handleClick' data-num="1"></view>
+        <view ></view>
+        <view catchtap='handleClick' data-num="3"></view>
+    </view>
+</view>

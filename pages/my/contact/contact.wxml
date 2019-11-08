@@ -1,0 +1,31 @@
+<!--pages/my/  contact/  contact.wxml-->
+<view>
+  <view class="title">
+    <text>{{projectName}}</text>
+    <view>冻结金
+      <span>
+        <i>￥</i>{{freezeMoney}}</span>
+    </view>
+  </view>
+  <!-- 扫码解冻 -->
+  <view class="content">
+    <view class="main">
+      <view>展示此二维码，由置业顾问扫码解冻</view>
+      <image src="{{money.image}}"></image>
+      <text>{{money.freezeCode}}</text>
+    </view>
+  </view>
+  <!-- 置业顾问信息 -->
+  <view class="info">
+    <image src="https://www.china185.com/static/image/xsjy.png"></image>
+    <view class="detail" catchtap="call">
+      <view>置业顾问：{{consultantlist[0].name}}</view>
+      <view>Tel：{{consultantlist[0].phone}}</view>
+    </view>
+  </view>
+  <!-- 客服热线 -->
+  <!-- <view class="customer">
+    <image src="/image/客服@2x.png"></image>
+    <view>客服热线 400-820-8820</view>
+  </view> -->
+</view>

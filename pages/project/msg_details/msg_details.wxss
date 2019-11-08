@@ -1,0 +1,82 @@
+/* pages/project/msg_details/msg_details.wxss */
+page{
+  background: #ffffff;
+  border-top:1rpx solid #dddddd;
+}
+.top{
+  width: 94%;
+  margin: 0 auto;
+  height: 540rpx;
+}
+.top .title{
+  width: 365rpx;
+  text-align: center;
+  color: #222222;
+  font-size: 36rpx;
+  letter-spacing: 1rpx;
+  margin-left: 175rpx;
+  line-height: 68rpx;
+  float: left;
+}
+.top text{
+  display: inline-block;
+  float: right;
+  color: #777777;
+  font-size: 24rpx;
+  margin-top: 25rpx;
+}
+.top .main{
+  width: 100%;
+  float: left;
+  text-indent: 58rpx;
+  color: #333333;
+  font-size:28rpx;
+  line-height: 48rpx; 
+  margin-top: 10rpx;
+  letter-spacing: 2rpx ;
+}
+/* 订单人信息 */
+.info{
+  width: 94%;
+  margin: 0 auto;
+  height: 150rpx;
+  background: #f2f2f2;
+  border-radius: 10rpx;
+}
+.info image{
+  width: 50rpx;
+  height: 50rpx;
+  float: left;
+  margin: 50rpx 102rpx 50rpx 20rpx;
+} 
+.info .right{
+  width: 520rpx;
+  float: left;
+}
+.info .right image{
+  width: 110rpx;
+  height: 110rpx;
+  margin: 0;
+  display: block;
+  margin: 10rpx 16rpx 0 0;
+  float: left;
+}
+.info .right .content{
+  width: 394rpx;
+  float: left;
+}
+.info view{
+  width:100%;
+  color: #333333;
+  font-size: 28rpx;
+  float: left;
+}
+.info view:first-child{
+  margin-top: 15rpx;
+}
+.info view:last-child{
+  margin-top: 10rpx;
+}
+.info view span{
+  margin-left: 15rpx;
+}

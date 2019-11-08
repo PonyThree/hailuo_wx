@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-steps": "/zan/lib/steps/index",
+    "i-icon": "/dist/icon/index",
+    "van-popup": "/zan/lib/popup/index",
+    "van-icon": "/zan/lib/icon/index" 
+  }
+}

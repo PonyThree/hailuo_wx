@@ -1,0 +1,5 @@
+  <view wx:if='{{!gotop}}' class="retures" bindtap="retures">
+    <image src="/image/sy1@2x.png" style="opacity:{{opacity}}"></image>
+  </view>
+
+  <image wx:if='{{gotop}}'  class="gotop"  catchtap="gotop" src="/image/gotop.png"></image>

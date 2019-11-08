@@ -1,0 +1,18 @@
+<view class="page">
+    <!-- https://m.qpic.cn/psb?/V14LUzso4fbMN8/u1kgGEMjV*fTUhKbipNzpVuF8dGtNwcJz73Zmpgg2fA!/b/dL8AAAAAAAAA&bo=HALgAQAAAAADB90!&rf=viewer_4 -->
+    <van-popup
+    show="{{ showRg }}"
+    overlay="{{ true }}"
+    bind:close="onClose"
+    >
+        <view class="myPop">
+            <image src="/image/popup.png"></image>
+            <view class="desc">
+                <!-- <view>该车位已被认购</view>
+                <view>支付金额已退还</view> -->
+                <view>{{msg}}</view>
+                <view catchtap="close">确 定</view>
+            </view>
+        </view>   
+    </van-popup>
+</view>

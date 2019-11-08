@@ -1,0 +1,136 @@
+/* 项目列表 */
+.plist{
+    width:750rpx; 
+    background-color: #ffffff;
+}
+.items {
+  width: 702rpx;
+  height:auto;
+  padding-top:30rpx;
+  background: white;
+  margin:0 auto;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 40rpx;
+  border-bottom:1px solid #eeeeee;
+  /* background-color: #aaf; */
+  margin-bottom: 30rpx;
+}
+.items>image {
+  height: 180rpx;
+  width: 200rpx;
+  /* margin-top: 40rpx; */
+  border-radius: 8rpx;
+}
+.items>view.desc{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 190rpx;
+  width: 500rpx;
+  overflow: hidden;
+  /* margin-top: 40rpx; */
+  margin-left: 40rpx;
+  position: relative;
+  /* background-color: pink; */
+}
+.items .text1 {
+  display: inline-block;
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: top;
+  margin-top:-6rpx;
+}
+.items .text2 {
+  font-size: 24rpx;
+  color: #333333;
+}
+.items .text2 image{
+    width:18rpx;
+    height:24rpx;
+    margin-right:10rpx;
+}
+.items .text2 text{
+    font-size:24rpx;
+    color:#333333;
+    
+}
+.items .text3 {
+  font-size: 24rpx;
+  color: #999999;
+  /* margin-top: 20rpx; */
+}
+.items .time3 {
+  font-size: 24rpx;
+  color: #fb3b0f;
+  padding-top:4rpx;
+}
+.ty_03{
+  width: 101rpx !important;
+  height: 40rpx !important;
+  position: absolute !important;
+  left: 0rpx;
+  /* top: 40rpx; */
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+/* 扫码组件 */
+.scanCode{
+    position: relative;
+    width: 540rpx;
+    height: 615rpx;
+    overflow: hidden;
+    /* background-color: pink; */
+}
+.scanCode image.bg{
+    position: absolute;
+    width: 100%;
+    height:615rpx;
+    z-index: -1;
+}
+.scanCode .info{
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    height: 260rpx;
+    top: 213rpx;
+    padding-top:60rpx;
+    text-align: center;
+    /* background-color: #aaf; */
+}
+.scanCode .info >view:nth-child(1){
+    color:rgb(51,51,51);
+    font-size: 32rpx;
+}
+ .info .codeImg image{
+    box-sizing: border-box;
+    width:80rpx;
+    height: 74rpx;
+    margin:50rpx 0 30rpx 0;
+    padding:10rpx;
+    /* background-color: #afa; */
+}
+ .info .codeImg >view{
+     font-size: 28rpx;
+     height: 40rpx;
+     line-height: 40rpx;
+     margin-top: -15rpx;
+     /* background-color: pink; */
+     color: rgb(153,153,153)
+}
+.scanCode .btns{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    height: 80rpx;
+    color: #ffffff;
+    font-size:30rpx;
+}

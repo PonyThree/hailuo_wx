@@ -1,0 +1,83 @@
+/* pages/my/binding_phone/binding_phone.wxss */
+.pages{
+  padding-top: 50rpx;
+}
+/* 个人信息 */
+.title{
+  width: 662rpx;
+  height: 110rpx;
+  margin: 0 45rpx 0 45rpx;
+}
+.title image{
+  width: 110rpx;
+  height: 110rpx;
+  float: left;
+}
+.title .info{
+  width: 500rpx;
+  height: 100%;
+  float: left;
+  margin-left: 28rpx;
+}
+.title .info .name{
+  color: #333333;
+  font-size: 27rpx;
+  letter-spacing: 1rpx;
+  margin-top: 31rpx;
+}
+.title .info .tel{
+  color: #333333;
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+  margin-top: 16rpx;
+}
+
+
+/* 输入框 */
+.main{
+  width: 94%;
+  margin: 60rpx auto;
+  border-top:1rpx solid #cccccc;
+}
+.main .phone{
+  width: 100%;
+  height:90rpx; 
+  border-bottom:1rpx solid #cccccc;
+  box-sizing: border-box;
+}
+.main .phone text{
+  height:90rpx; 
+  width: 125rpx;
+  display: inline-block;
+  float: left;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 1rpx;
+}
+.main .phone input{
+  width: 280rpx;
+  font-size: 28rpx;
+  float: left;
+  margin: 18rpx 0 0 150rpx;
+}
+.main .phone button{
+  color: #999999;
+  float:right; 
+  font-size: 22rpx;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  margin-top: 16rpx;
+  letter-spacing: 1rpx;
+}
+.btn{
+ width: 600rpx;
+ height: 90rpx;
+ background: #ab9f67;
+ border-radius: 45rpx;
+ color: #ffffff;
+ font-size: 30rpx;
+ letter-spacing: 2rpx;
+ line-height: 90rpx;
+ margin-top: 305rpx;
+}

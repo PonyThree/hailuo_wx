@@ -1,0 +1,14 @@
+{
+    "usingComponents": {
+        "i-icon": "/dist/icon/index",
+        "i-radio-group": "/dist/radio-group/index",
+        "i-radio": "/dist/radio/index",
+        "van-popup": "/zan/lib/popup/index",
+        "i-input": "/dist/input/index",
+        "carlist": "/component/carlist/carlist",
+        "paySix": "/component/component",
+          "opentime": "/component/opentime/opentime"
+        
+    },
+    "navigationBarTitleText": "出价"
+}

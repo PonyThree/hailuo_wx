@@ -1,0 +1,35 @@
+<!--pages/my/details/details.wxml-->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class="pages">
+  <!-- 出账金额 -->
+  <view class="title">
+    <text>出账金额</text>
+    <text wx:if='{{data.useFor==1 ||data.useFor==4 ||data.useFor==7 ||data.useFor==5 }}'>+{{data.useMoney}}</text>
+    <text wx:else>-{{data.useMoney}}</text>
+
+  </view>
+  <!-- 详细信息 -->
+  <view class="list">
+    <view class="li">
+      <text>类型</text>
+      <view>{{data.useForName}}</view>
+    </view>
+    <view class="li">
+      <text>时间</text>
+      <view style="letter-spacing: 0rpx;">{{data.useTime}}
+      </view>
+    </view>
+    <view class="li">
+      <text>订单号</text>
+      <view style="letter-spacing: 0rpx;">{{data.orderNo}}</view>
+    </view>
+    <view class="li" wx:if='{{data.projectName}}'>
+      <text>收款方</text>
+      <view>{{data.projectName}}</view>
+    </view>
+    <!-- <view class="li">
+      <text>剩余零钱</text>
+      <view style="letter-spacing: 0rpx;">￥{{data.balance}}</view>
+    </view> -->
+  </view>
+</view>

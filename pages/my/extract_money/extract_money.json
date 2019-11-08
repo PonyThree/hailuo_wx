@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-popup": "/zan/lib/popup/index",
+    "pay":"/component/paypassword/paypassword"
+  }
+}

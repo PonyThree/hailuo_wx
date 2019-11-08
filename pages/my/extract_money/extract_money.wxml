@@ -1,0 +1,23 @@
+<!--pages/my/recharge/recharge.wxml-->
+<view>
+  <view class="content">
+    <view class="main">
+      <view class="top">
+        <image src="/image/微信@2x.png"></image>
+        <text>提现到微信账户 {{name}}</text>
+      </view>
+      <view class="bottom">
+        <text>提现金额</text>
+        <view>￥</view>
+        <input type='digit' placeholder='可提现{{moeny.cashMoney}}' bindinput='moeny'></input>
+      </view>
+    </view>
+  </view>
+  <button catchtap='showInputLayer' class="btn">下一步</button>
+</view>
+<!-- 弹出支付密码 -->
+<van-popup show="{{show}}" bind:close="onClose" position="bottom" close-on-click-overlay='fales'	>
+ <pay bindparent='pay'></pay>
+</van-popup>
+
+

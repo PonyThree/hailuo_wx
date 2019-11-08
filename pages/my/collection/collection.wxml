@@ -1,0 +1,65 @@
+<!--pages/my/collection/collection.wxml-->
+<!-- height:{{widHeight}}rpx;position: relative; -->
+<view style="height:{{widHeight}}rpx;position: relative;">
+  <!-- 头部 -->
+  <view class="title">
+    <!-- 收藏个数 -->
+    <view class="number">
+      <view>您已收藏了
+        <span>{{data.length}}</span> 个车位</view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <swiper current="{{currentTab}}" duration="300" style='height:{{widHeight}}rpx'>
+    <!-- 车位收藏 -->
+    <swiper-item>
+      <view class="style" wx:for="{{data}}" wx:key='index'>
+        <!-- <i-checkbox disabled="{{disabled}}" checked="{{checked}}" bindchange="handleChange" color="#a92112" i-class="radio" wx:key="index">
+        </i-checkbox> -->
+        <view class="content {{isChecked?'is_checked':'normal'}}">
+          <view class="project" catchtap='goParkInfoOpened' data-id='{{item.id}}'>
+            <view class="top">
+              <image src="{{item.detailImage[0]}}"></image>
+              <view class="right">
+                <view>
+                  <span>{{item.name}}/{{item.projectName}}/{{item.level1Name}}/{{item.level2Name}}/{{item.level3Name}}/{{item.outsideArea}}m²</span>
+                </view>
+                <view>
+                    <view class="number">
+                        <span>落位人数：{{item.downPlaceNum}}</span>
+                        <span>|</span>
+                        <span>收藏人数：{{item.collectNum}}</span>
+                    </view>
+                </view>
+                <!-- <image src="/image/置顶@2x.png"></image> -->
+                <!-- <view class="good">这是最好的车位！</view> -->
+                <scroll-view class="tagview" scroll-x wx:if="{{item.tagRespDtos.length>0}}">
+                  <text class="tag" wx:for="{{item.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
+                </scroll-view>
+                <view class="money">
+                    <span>{{item.sellPrice}}元</span>
+                    <span>{{item.facePrice}}元</span>
+                </view>
+                <image src="/image/delete.png" style="width:24rpx;height:24rpx;" catchtap='del' class="delImg" data-id="{{item.id}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 收藏为空 -->
+<!-- 全选取消
+  <view class="drawer {{isChecked?'block':'none'}}">
+    <i-radio disabled="{{disabled}}" checked="{{checked1}}" bindchange="handleChange1" color="#a92112" i-class="radios">
+    </i-radio>
+    <text>全选</text>
+    <button>取消收藏</button>
+  </view> -->
+
+</view>
+<view class="main" wx:if='{{data.length<1}}'>
+    <image src="/image/kongbai.png"></image>
+    <text>您还没有收藏心仪车位</text>
+    <button catchtap="goindex">去车位商城看看</button>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/my/frozen/frozen.wxml-->
+<view>
+  <view class="list">
+    <view class="li" wx:for="{{moeny}}" bindtap='gocontact' wx:key='index' data-id='{{item.projectId}}' data-money='{{item.freezeMoney}}' data-projectName='{{item.projectName}}'>
+      <text>{{item.projectName}}</text>
+      <image src="/image/jiantou3.png"></image>
+      <view>冻结金<span>￥{{item.freezeMoney}}</span></view>
+    </view>
+  </view>
+</view>

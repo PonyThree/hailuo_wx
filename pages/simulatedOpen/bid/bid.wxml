@@ -1,0 +1,76 @@
+  <opentime projectId='{{projectId}}' bind:setstatus="setstatus"></opentime>
+  <view style="height:70rpx"></view>
+<view class='page'>
+    <!-- 订单信息 -->
+    <view class="project">
+        <carlist data="{{data}}"></carlist>
+    </view>
+    
+     <!-- 虚拟文字介绍 -->
+    <view class='specTxt'>
+        虚拟房源、虚拟价格、拍下无效
+    </view>
+    <!-- 收藏人数-->
+    <view class="collectNum" catchtap='Collection'>
+      <image src='/image/collect.png'></image>
+      <text>{{data.collectNum}}</text>
+    </view>
+    <!-- 购买方式 -->
+    <view class='purchase'>
+        <view>认购流程</view>
+        <view>线上缴纳认购金，线下签约付尾款</view>
+    </view>
+    <!-- 落位金介绍 -->
+    <view class='processitem'>
+      <view class='processitem1'>
+        <text>售价</text>
+        <text>￥{{data.sellPrice}}</text>
+      </view>
+      <view class='processitem2'>
+        <text>{{data.controlRespDto.buyMoneyName}}</text>
+        <text>￥{{data.controlRespDto.buyMoney}}</text>
+      </view>
+      <view class='processitem3'>
+        <text>线下合同款</text>
+        <text>￥{{data.sellPrice-data.controlRespDto.buyMoney}}</text>
+      </view>
+    </view>
+    <!-- 支付方式 -->
+    <view class='pay'>
+        <view>支付方式</view>
+        <view>
+        <i-panel title="group-水果">
+            <i-radio-group current="{{current}}" bindchange="handleFruitChange" i-class='radio'>
+            <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}" color=' #A92112' wx:key="index">
+            </i-radio>
+            </i-radio-group>
+        </i-panel>
+        </view>
+        <image class='img1' src='/image/lqzf.png'></image>
+        <image class='img2' src='/image/wxzf.png'></image>
+    </view>
+    <!-- 认购订单 -->
+    <view class='purchaseOrder'>
+        <view>
+          认购金:<text >￥{{data.controlRespDto.buyMoney}}</text>
+        </view>
+        <view>
+          车位价:<text >￥{{data.sellPrice}}</text>
+        </view>
+        <view class='confirmBtn'>
+            <view bindtap='goHall'>返回选位大厅</view>  
+            <view catchtap='godropsuccess'>确定认购</view>  
+               
+        </view>
+    </view>
+    <!-- 钱包输入密码 -->
+    <van-popup show="{{show2}}" bind:close="onClose" position="bottom" close-on-click-overlay='fales'	>
+    <view class='paypsw'>
+        <view>请输入支付密码</view>
+
+        <paySix bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" get_focus="{{inputData.get_focus}}" focus_class="{{inputData.focus_class}}" value_num="{{inputData.value_num}}"
+        height="{{inputData.height}}" width="{{inputData.width}}" see="{{inputData.see}}" interval="{{inputData.interval}}">
+    </paySix>
+    </view>
+    </van-popup>
+</view>

@@ -1,0 +1,36 @@
+<!--pages/my/recharge/recharge.wxml-->
+<view>
+  <view class="content">
+    <view class="main">
+      <view class="top">
+        <image src="/image/微信@2x.png"></image>
+        <text>微信</text>
+      </view>
+      <view class="bottom">
+        <text>充值金额</text>
+        <view>￥</view>
+        <input type='digit' bindinput='moeny'></input>
+      </view>
+    </view>
+  </view>
+  <button catchtap='showInputLayer'>下一步</button>
+
+  <!-- 密码输入弹框 -->
+
+  <!-- <view wx:if='{{showPayPwdInput}}'>
+      <view class='bg_layer'></view>
+      <view class='input_main'>
+          <view class='input_title'>
+              <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+              <text>输入支付密码</text>
+          </view>
+          <view class='input_tip'><text>￥5201314</text></view>
+          <view class='input_row' catchtap='getFocus'>
+              <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                  <text wx:if='{{pwdVal.length>i}}'></text>
+              </view>
+          </view>
+          <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+      </view>
+  </view> -->
+</view>

@@ -1,0 +1,37 @@
+<view class='page'>
+  <!-- 搜索 -->
+  <view class='top'>
+    <view class='search'>
+      <view class='radio' bindtap='dorp'>
+        <text>{{radio}}</text>
+        <image class='img1' src='/image/zhankai_03.png'></image>
+      </view>
+      <image class='img2' src='/image/ss_03.png'></image>
+      <view class='img3' wx:if='{{show}}'>
+        <view catchtap='goproject'  style="{{radio=='小区'?'color:#6EC7F1':''}}">小区</view>
+        <view  catchtap='gocar'style="{{radio=='车位'?'color:#6EC7F1':''}}">车位</view>
+      </view>
+      <input placeholder='请输入车位号或小区名' confirm-type="search" bindconfirm='search' auto-focus	></input>
+    </view>
+  </view>
+  <!-- 历史搜索 -->
+  <view class='history'>
+    <view>历史搜索</view> 
+    <image src='/image/sc.png' bindtap='clear'></image>
+  </view>
+  <!-- 小区历史搜索列表 -->
+  <view class='historylist' wx:if="{{radio=='小区'}}">
+   <view wx:for='{{list}}' wx:key='index' data-type='{{item.type}}' data-name='{{item.value}}' catchtap='listsearch'>{{item.value}}</view>
+  </view>
+   <!-- 车位历史搜索列表 -->
+  <view class='historylist'wx:if="{{radio=='车位'}}">
+   <view wx:for='{{list1}}'  wx:key='index'  data-type='{{item.type}}' data-name='{{item.value}}' catchtap='listsearch'>{{item.value}}</view>
+  </view>
+  <!-- <view class='f28 c777' style=' text-align: center'>搜索指定内容</view>
+  <!-- 搜索标签 -->
+  <!-- <view class='lable'>
+    <view>楼盘</view>
+    <view>车位</view>
+    <view>标签</view>
+  </view> --> 
+</view>

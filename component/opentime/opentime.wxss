@@ -1,0 +1,32 @@
+.countDown {
+  position:fixed;
+  top:0;
+  left:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 70rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: rgb(169, 33, 18);
+  background-color: rgb(232, 228, 209);
+  white-space:nowrap;
+  margin-bottom: 100rpx;
+  z-index: 1000;
+}
+
+.countDown image {
+  width: 27rpx;
+  height: 27rpx;
+  /* background-color: pink; */
+  margin-right: 10rpx;
+}
+
+.countDown > view.time {
+  margin-left: 10rpx;
+}
+
+view.time .timeDot {
+  margin: 0 5rpx;
+}

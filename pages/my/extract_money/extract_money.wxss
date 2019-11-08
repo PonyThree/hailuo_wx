@@ -1,0 +1,77 @@
+/* pages/my/recharge/recharge.wxss */
+.content{
+  width: 100%;
+  height: 280rpx;
+  border-top:1rpx solid #f2f2f2;
+  background: #ffffff;
+  font-size: 300rpx
+}
+.content .main{
+  width: 89%;
+  margin: 0 auto;
+}
+.content .main .top{
+  width: 100%;
+  height: 92rpx;
+  border-bottom: 1rpx solid #dddddd;
+}
+.content .main .top image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 16rpx;
+  float: left;
+}
+.content .main .top text{
+  display: inline-block;
+  color: #333333;
+  font-size: 26rpx;
+  float: left;
+  margin: 30rpx 0 0 30rpx;
+}
+.content .main .bottom{
+  width: 100%;
+  height: 182rpx;
+}
+.content .main .bottom text{
+  float: left;
+  display: block;
+  width: 100%;
+  color: #333333;
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+  margin-top: 38rpx;
+}
+.content .main .bottom view{
+  font-size: 41rpx;
+  line-height: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top:35rpx;
+  margin-left: -7rpx;
+}
+.content .main .bottom input{
+  float: left;
+  display: inline-block;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  font-size: 40rpx;
+}
+button{
+  width: 600rpx;
+  height: 80rpx;
+  background: none;
+  margin:200rpx auto;
+  border-radius: 40rpx;
+  border: 1rpx solid #ab9f67;
+  color: #ab9f67;
+  line-height: 80rpx;
+  font-size:  30rpx;
+  letter-spacing: 1rpx;
+}
+
+
+
+
+
+

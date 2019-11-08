@@ -1,0 +1,46 @@
+.page{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+
+}
+page{
+    background: white
+}
+.list{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border-bottom: 1rpx solid #f2f2f2
+}
+.list .title{
+  font-size: 30rpx;
+  width: 500rpx;
+  margin-top: 20rpx
+}
+.list .img{
+  height: 160rpx;
+  width: 200rpx;
+  background: white;
+  border-radius: 10rpx;
+  margin-top: 20rpx
+}
+.list .botoom{
+ display: flex;
+  position: absolute;
+  bottom: 20rpx;
+  font-size: 24rpx;
+ justify-content: space-between;
+ width: 500rpx;
+ text-align: center
+}
+.list .botoom image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.list .botoom text{
+  display: inline-block;
+  margin-right: 20rpx;
+  color: #909090
+}

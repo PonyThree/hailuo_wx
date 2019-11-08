@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-popup": "/zan/lib/popup/index",
+    "van-checkbox": "/zan/lib/checkbox/index"
+  }
+}

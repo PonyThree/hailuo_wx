@@ -1,0 +1,77 @@
+/* component/pickerPlus/pickerPlus.wxss */
+.drawer_wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.drawer_wrap .drawer_box {
+    height: 400rpx;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    z-index: 999;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.drawer_wrap .mask {
+    background-color: rgba(0, 0, 0, .2);
+    width: 100%;
+    height: 100%;
+}
+
+.drawer_wrap .title_box {
+    width: 100%;
+    height: 90rpx;
+    display: flex;
+}
+
+.drawer_wrap .cancel,
+.drawer_wrap .title_text,
+.drawer_wrap .affirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 26rpx;
+}
+
+.drawer_wrap .cancel,
+.drawer_wrap .affirm {
+    color: rgb(0, 121, 254);
+}
+
+.drawer_wrap .cancel {
+    flex: 1;
+}
+
+.drawer_wrap .title_text {
+    flex: 2;
+}
+
+
+.drawer_wrap .affirm {
+    flex: 1;
+
+}
+
+.drawer_wrap .content_box {
+    width: 100%;
+    height: calc(100% - 90rpx);
+}
+
+.drawer_wrap .content_box picker-view {
+    width: 100%;
+    height: 100%;
+}
+
+
+.drawer_wrap .content_box .picker_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

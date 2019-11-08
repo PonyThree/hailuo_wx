@@ -1,0 +1,57 @@
+/* pages/my/aboutMe/aboutMe.wxss */
+page{
+    background-color: #ffffff;
+}
+.topLogo{
+    width: 750rpx;
+    border-top:1px solid rgb(238,238,238);
+}
+.topLogo image{
+    display: block;
+    width:130rpx;
+    height: 130rpx;
+    margin: 60rpx auto 20rpx;
+}
+.topLogo >view{
+    text-align: center;
+    font-size:30rpx;
+    color:rgb(51,51,51);
+    margin-bottom: 70rpx;
+}
+/* 海螺介绍 */
+.desc{
+    width:670rpx;
+    text-indent:2em;
+    margin:0 auto;
+    font-size:30rpx;
+    line-height: 50rpx;
+    padding-bottom:20rpx;
+    border-bottom:1px solid rgb(239,239,239);
+}
+
+.safe{
+    display: flex;
+    flex-direction: column;
+    width: 670rpx;
+    margin: 0 auto;
+}
+.safe >view{
+    height:90rpx;
+    /* background-color: pink; */
+    line-height: 90rpx;
+    font-size: 28rpx;
+    color:rgb(153,153,153);
+    border-bottom: 1px solid rgb(239,239,239);
+}
+.safe >view:nth-child(3):after{
+    display: block;
+    clear: both;
+    content:'';
+}
+.safe >view:nth-child(3) text:nth-child(1){
+    float: left;
+    margin-left:-14rpx;
+}
+.safe >view:nth-child(3) text:nth-child(2){
+    float: right;
+}

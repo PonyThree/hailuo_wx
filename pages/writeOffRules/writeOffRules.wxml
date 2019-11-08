@@ -1,0 +1,11 @@
+<!--pages/writeOffRules/writeOffRules.wxml-->
+<view class="writeOffRules">
+    <view class="rules">
+        <text>
+        <!-- 1. 请在有效期内核销，过期认购核销码自动失效，认购订单同时失效，认购金原路退	回，即时到账；
+        2. 核销前可修改线下签约人、电话及身份证号码，核销后不可修改；
+        3. 请提前联系置业顾问确定线下核销时间，出示认购核销码，由置业顾问扫码核销，		认购成功。 -->
+        {{rules}}
+        </text>
+    </view>
+</view>

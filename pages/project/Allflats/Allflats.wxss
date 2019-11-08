@@ -1,0 +1,430 @@
+/* 搜索 */
+
+.page{
+    width: 750rpx;
+    overflow: hidden
+}
+.top {
+  height: 120rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.top .input {
+  width: 500rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 40rpx;
+  background: white;
+}
+
+.top .input image {
+  width: 21rpx;
+  height: 21rpx;
+  margin-left: 20rpx;
+}
+
+.top .input input {
+  margin-left: 20rpx;
+  width: 400rpx;
+}
+
+/* 项目列表 */
+
+.nearbyprojects {
+
+  border-radius: 10rpx;
+
+}
+
+.items {
+  width: 702rpx;
+  height: 200rpx;
+  background: white;
+  border-radius: 10rpx;
+  margin-left: 24rpx;
+  box-shadow: -5rpx 0 20rpx 2rpx #f2f2f2;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.items>image {
+  height: 160rpx;
+  width: 160rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+}
+
+.items>view {
+  height: 160rpx;
+  width: 500rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  position: relative;
+}
+
+.items .text1 {
+  display: inline-block;
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  width: 150rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.items .text2 {
+  font-size: 24rpx;
+  color: rgb(153, 153, 153);
+  margin-top: 13rpx;
+}
+.items .text3 {
+  font-size: 24rpx;
+  color: rgb(153, 153, 153);
+  margin-top: 35rpx;
+}
+
+.items .time1 {
+  font-size: 24rpx;
+  position: absolute;
+  top: 8rpx;
+  left: 220rpx;
+}
+
+.items .time2 {
+  font-size: 24rpx;
+  position: absolute;
+  top: 8rpx;
+  left: 160rpx;
+  color: rgb(169, 33, 18);
+}
+
+.items .time2 view {
+  width: 30rpx;
+  height: 30rpx;
+  background: rgb(169, 33, 18);
+  float: right;
+  margin-left: 10rpx;
+  color: white;
+  border-radius: 5rpx;
+}
+
+.items .time2 text {
+  float: right;
+  margin-left: 10rpx;
+}
+
+.items .time3 {
+  font-size: 24rpx;
+  position: absolute;
+  top: 8rpx;
+  left: 160rpx;
+  color: rgb(169, 33, 18);
+}
+
+/* 筛选 */
+
+.screen {
+  width: 702rpx;
+  height: 80rpx;
+  background: url(https://www.china185.com/static/image/sx_03.png);
+  background-size: 100% 100%;
+  position: fixed;
+  bottom: 40rpx;
+  left: 24rpx;
+  display: flex;
+}
+
+.screen>view:nth-child(1) {
+  height: 80rpx;
+  width: 230rpx;
+}
+
+.screen>view:nth-child(2) {
+  height: 80rpx;
+  width: 230rpx;
+}
+
+.screen>view:nth-child(3) {
+  height: 80rpx;
+  width: 230rpx;
+}
+
+/* 抽屉页1 */
+.preventTouchMove{
+    top: 0px ; 
+    left:   0px ; 
+    width:  750rpx; 
+    height:   100% ; 
+    overflow:   hidden ; 
+    position:   fixed ; 
+    z-index:   0 ; 
+}
+.democlass {
+}
+.demo {
+  width: 550rpx;
+  height: 400rpx;
+  background: white;
+  z-index: 999;
+}
+.demo .price {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+}
+
+.demo .money {
+  height: 70rpx;
+  width: 490rpx;
+  background: #dddddd;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+
+.demo .input {
+  margin-left: 30rpx;
+  height: 70rpx;
+  width: 490rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.demo .input input:nth-child(1) {
+  width: 200rpx;
+  height: 70rpx;
+  background: #dddddd;
+}
+
+.demo .input input:nth-child(2) {
+  width: 200rpx;
+  height: 70rpx;
+  background: #dddddd;
+}
+
+.demo .confirm {
+  width: 420rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  display: flex;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  margin-top: 40rpx;
+  margin-left: 75rpx;
+}
+
+.demo .confirm>view:nth-child(1) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 35rpx 0 0 35rpx;
+  background: #dddddd;
+  border: none;
+}
+.demo .confirm>view:nth-child(2) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 0rpx 35rpx 35rpx 0;
+  background:#AB9F67;
+  color: white
+}
+.demo .line{
+  height: 1rpx;
+  width: 490rpx;
+  background: #f2f2f2;
+  margin-left: 30rpx;
+  margin-top: 60rpx;
+}
+
+/* 抽屉页2 */
+
+.democlass {
+}
+.demo1 {
+  width: 550rpx;
+  height: 500rpx;
+  background: white;
+  z-index: 999;overflow: auto;
+  position: relative;
+ top:0
+}
+.demo1 .Morescreening {
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: 600;
+ height: 50rpx;
+ line-height: 50rpx
+}
+.demo1 .time{
+ height: 80rpx;
+ font-size: 30rpx;
+ line-height: 80rpx;
+ margin-left: 30rpx;
+  font-weight: 600
+}
+.demo1 .Label{
+  overflow: hidden;
+  font-size: 24rpx
+}
+
+.demo1 .Label> view{
+  width: 143rpx;
+  height: 60rpx;
+  background: #dddddd;
+  border-radius: 5rpx;
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  line-height: 60rpx ;
+  text-align: center
+}
+.demo1 .money {
+  height: 70rpx;
+  width: 490rpx;
+  background: #dddddd;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+.demo1 .input {
+  margin-left: 30rpx;
+  height: 70rpx;
+  width: 490rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.demo1 .input input:nth-child(1) {
+  width: 200rpx;
+  height: 70rpx;
+  background: #dddddd;
+}
+
+.demo1 .input input:nth-child(2) {
+  width: 200rpx;
+  height: 70rpx;
+  background: #dddddd;
+}
+
+.demo1 .confirm {
+  width: 420rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  display: flex;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  margin-top: 40rpx;
+  margin-left: 75rpx;
+}
+
+.demo1 .confirm>view:nth-child(1) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 35rpx 0 0 35rpx;
+  background: #dddddd;
+  border: none;
+}
+.demo1 .confirm>view:nth-child(2) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 0rpx 35rpx 35rpx 0;
+  background:#AB9F67;
+  color: white
+}
+.demo1 .line{
+  height: 1rpx;
+  width: 490rpx;
+  background: #f2f2f2;
+  margin-left: 30rpx;
+  margin-top:20rpx;
+}
+.demo1 .Label2{
+  overflow: hidden
+}
+.demo1 .Label2> view{
+  width: 230rpx;
+  height: 60rpx;
+  background: #dddddd;
+  border-radius: 5rpx;
+  float: left;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+/* 选中样式 */
+.Selection{
+  color: white !important;
+  background: #AB9F67 !important
+}
+/* 选择城市区域 */
+.domo3{
+  height: 800rpx;
+  width: 100%;
+}
+.domo3 swiper{
+  height: 100%;
+  padding-left: 30rpx
+}
+.domo3 .regiontop{
+  margin-top: 30rpx;
+  color: black;font-size: 30rpx;font-weight: 600;
+}
+.domo3 .regionlist{
+ 
+  font-size: 26rpx;
+  width: 100%;
+  font-weight: 600
+}
+.domo3 .regionlist text{
+  padding-right: 50rpx;
+  display: inline-block;
+  margin-top: 28rpx
+}
+.domo3 .line{
+  height: 1rpx;
+  width: 690rpx;
+  background: #f2f2f2;
+  margin-top:40rpx;
+}
+/* //搜索结果为空 */
+.kong{
+  width: 320rpx;
+  height: 200rpx;
+  background-image: url(https://www.china185.com/static/image/kongbai.png) ;
+  background-size: cover;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+
+/* 浮动区域 */
+.quyu{
+  width: 100rpx;
+  height:100rpx;
+  position: fixed;
+bottom: 100rpx;
+right: 50rpx
+}

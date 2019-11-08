@@ -1,0 +1,99 @@
+<!--pages/opening/collection/collection.wxml-->
+<!-- <text>pages/opening/collection/collection.wxml</text> -->
+<view class="page">
+    <!-- 开盘倒计时 -->
+    <view class="countDown">
+          <image src="/image/time.png" ></image>
+          <view class='time'>
+            <span wx:if='{{openStatus==0}}'>开盘倒计时{{msg1}}</span>
+            <span wx:if='{{openStatus==1}}'>热销中...</span>
+            <span wx:if='{{openStatus==2}}'>开盘结束</span>
+          </view>
+    </view>
+    <!-- 蓝湖郡活动介绍 -->
+    <view class='desc'>
+        <view>{{openActivity.projectName}}</view>
+        <view>进行中:  {{endTime}} 结束</view>
+        <view class="enterHall" catchtap='change2'>
+        <text>进入大厅></text>
+        </view>
+    </view>
+    <!-- 已购买 -->
+    <!-- <view class='hadBuy' catchtap='goPaysuccess'>
+        <text>已购买</text>
+        <view>
+            <text>1</text>
+            <i-icon type="enter" size="20" color="#80848f" />
+        </view>
+    </view> -->
+    <!-- 收藏条数 -->
+    <view class='collectNum'>
+        <view>
+            共{{saveNum}}条收藏
+        </view>
+        <view class='colTxt'> 
+            温馨提示: 请从上至下排列意向，若当前意向车位已售，系统将按顺序提供一次意向车位快捷通道。
+        </view>
+    </view>
+    <!-- 收藏选购列表 -->
+    <view class='collectList'>
+        <view class='recomList' wx:for='{{truckSpaces}}' wx:key="index">
+            <view class='collectTil'>
+                <text>{{item.sellStatus==1?'已落位':(item.sellStatus==3||item.sellStatus==2)?'已售出':'可选'}}</text>
+                <image src='/image/delete.png'  catchtap='cancleSave' data-id="{{item.id}}" style="width:32rpx;height:32rpx;"></image>
+                
+            </view>
+            <view class='listTop'>
+                <view class='listImg'>
+                    <image src='{{item.detailImage[0]}}' ></image>
+                </view>
+                <view class='listDesc' >
+                    <view class='listTil'>
+                        <text>{{item.name}}</text>
+                        <text>{{item.level1Name}}/{{item.level2Name}}{{item.level3Name}}/{{item.outsideArea}}㎡</text>
+                    </view>
+                    <view>
+                    
+                        <image src='../../../image/toTop.png' catchtap='topPark' data-id="{{item.id}}" data-status="{{item.sellStatus}}" data-index="{{index}}" wx:if="{{index!==0}}"></image>
+                    </view>
+                    <view class='feature'>
+                        <scroll-view class="listFeature" scroll-x>
+                            <text wx:for="{{item.tagRespDtos}}" wx:key="index">{{item.name}}</text>
+                        </scroll-view>
+                        <view class='rightBuy' bindtap="{{!buttonClicked?'rightBuy':''}}"  data-id="{{item.id}}" data-sub="{{item.ableSub}}"
+                        wx:if='{{item.sellStatus!=2 && item.sellStatus!=3 }}'>
+                            <text>直接抢购</text>
+                        </view>
+                    </view>
+   
+                </view>   
+            </view>
+            <view class='listBom'>
+                <view class='price'>
+                    <text><text class='sale'>售价</text>{{item.sellPrice}}</text>
+                </view>
+                <view>
+                    <text>收藏人数: {{item.collectNum}}  </text>
+                    <text>落位人数: {{item.downPlaceNum}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 底部tabbar -->
+    <view class='bomTab'>
+        <view class="shoucang active" >
+            <image class="shoucangPic" src="/image/wujiaoxing2x.png"></image>
+            <view>我的收藏</view>
+            </view> 
+        <view class="choosePark" bindtap='change2'>
+            <image class="chooseParkPic" src="/image/xuanwei.png"></image>
+            <view>选位大厅</view>
+        </view>  
+    
+    </view>
+    <!-- 订单认购弹窗 -->
+    <popcenter showRg="{{showRg}}"  msg="{{msg}}"></popcenter>
+    <view class='box'>
+    </view>
+
+</view>

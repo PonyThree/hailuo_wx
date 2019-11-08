@@ -1,0 +1,10 @@
+<!--pages/my/login/login.wxml-->
+<view>
+  <view class="title">
+    <image src="/image/touxiang.png"></image>
+    <view>舔狗无敌</view>
+    <text>关联微信号，绑定微信，是否登录</text>
+  </view>
+  <button class="login">确认登录</button>
+  <button class="phone">手机登录</button>
+</view>

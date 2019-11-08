@@ -1,0 +1,80 @@
+/* pages/opening/signAgreement/signAgreement.wxss */
+
+page {
+    /* background-color: rgb(242,242,242); */
+    border-top: 1px solid rgb(242, 242, 242);
+    background-color: rgb(255, 255, 255);
+}
+/* 签购协议文本样式 */
+.agreeTxt{
+    padding: 30rpx 24rpx 0;
+}
+.text {
+    text-indent: 2rem;
+    font-size: 28rpx;
+    line-height: 58rpx;
+    color: rgb(51, 51, 51);
+}
+.bom{
+    position:fixed;
+    bottom: 0;
+    background-color: rgb(242, 242, 242);
+    padding-bottom: 20rpx;
+}
+/* 底部按钮样式 */
+
+.botBtns {
+    width:750rpx;
+    padding: 40rpx 0 0 46rpx;
+    
+}
+
+/* 已阅读按钮样式 */
+.circleBtn {
+    width: 36rpx;
+    height: 36rpx;
+    border-radius: 50%;
+    border: 1px solid rgb(169,33,18);
+    margin-right: 20rpx;
+    position: relative;
+}
+
+/* 内部圆样式 */
+.botBtns .circleBtn view {
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+    background-color: rgb(169,33,18);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute
+}
+
+.botBtns view {
+    display: flex;
+    height: 36rpx;
+    /* background-color: #ff0; */
+    align-items: center;
+}
+
+.botBtns view text {
+    font-size: 28rpx;
+    color: rgb(51, 51, 51);
+}
+/* 同意按钮样式 */
+view.agreeBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:600rpx;
+    height:90rpx;
+    margin:30rpx auto;
+    border-radius:45rpx;
+    background-color: rgb(169,33,18);
+}
+view.agreeBtn text{
+    font-size: 28rpx;
+    color:rgb(255, 255, 255);
+    
+}

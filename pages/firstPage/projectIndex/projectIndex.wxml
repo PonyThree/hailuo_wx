@@ -1,0 +1,164 @@
+
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<!-- 头部图片 -->
+<view class="topPic">
+    <image src="https://china185.com/file/image/20191015/8daade56a6dc47d090f6e627b890e16f.blob" width="350" height="150"></image>
+</view>
+
+<!-- 内容区域 -->
+<view class="contentInfo">
+    <!-- 第一块 搜索和车位信息-->
+    <view class="searchCar">
+        <view class='top' style="font-size:30rpx;">
+            <view bindtap='goSwitchingitems' style="width:5em;overflow:hidden;">{{projectHomeResp.simpleName||titlename}}</view>
+            <view class='img1' bindtap='goSwitchingitems'>
+                <image src='/image/zhankai_03.png' style="width:20rpx;height:11rpx;"></image>
+            </view>
+            <view class='search' bindtap='gosearh' style="width:422rpx;font-size:30rpx">
+                <image class='img2' src='/image/ss_03.png'></image>
+                <text style='font-size:24rpx'>搜索意向小区或车位号</text>
+            </view>
+        </view>
+        <view class="carInfo">
+            <text class="activityTxt" catchtap='goActivity'>秒杀、众筹、拼团活动等你来！</text>
+            <view class="info">
+                <view class="item">
+                    <image src="/image/sz.png"></image>
+                    <text>{{dateUtil.dateFormat2(ProjectInfo.control.startTime)}}开盘 <text style="color:#999999"
+                            wx:if="{{currentDate-ProjectInfo.control.startTime<0}}">(未开盘)</text></text>
+                </view>
+                <view>
+                    <view class="item">
+                        <image src="/image/ren.png"></image>
+                        <text>共{{districtVo.ownerNobuy||0}}位业主</text>
+                    </view>
+                    <view class="item">
+                        <image src="/image/zw.png"></image>
+                        <text>剩{{districtVo.surplusTruckSpace||0}}个可选车位</text>
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="/image/xj.png"></image>
+                    <text wx:if="{{showAvgPrice}}">车位均价{{ProjectInfo.avgPrice}}元/个 <text
+                            style="color:#999999"></text></text>
+                    <text wx:else catchtap='seeAvgPrice'>车位均价***元/个 <text style="color:#999999">(扫码认证后查看)</text></text>
+                </view>
+                <!-- 小区政策 -->
+                <view class='itemJump' wx:if='{{districtVo.policyList.length>0}}'>
+                    <image src='/image/xx.png' style="width:18rpx;height:20rpx;margin-right:10px;"></image>
+                    <swiper autoplay circular indicator-dots="{{false}}" vertical interval='5000'>
+                        <swiper-item wx:for='{{districtVo.policyList}}' wx:key='index'>
+                            <view style="color:#333333;font-size:28rpx;">{{item.policy}}</view>
+                        </swiper-item>
+                    </swiper>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="height:120px"></view>
+    <!-- 现场开盘 模拟开盘 -->
+    <view v-if="{{rehearseOpen==1||localOpen==1}}" class="openBox" style="margin-top:{{rehearseOpen==1||localOpen==1?40:0}}rpx;padding-bottom:{{rehearseOpen==1||localOpen==1?40:0}}rpx;border-bottom:{{rehearseOpen==1||localOpen==1?1:0}}rpx solid #eeeeee;">
+        <view catchtap='gosellectionHall' wx:if="{{rehearseOpen==1}}" data-no="1">
+            <image src="/image/simulated.png"></image>
+            <text>模拟开盘</text>
+        </view>
+        <view class='scene' catchtap='gosellectionHall' wx:if="{{localOpen==1}}" data-no="0" style="margin-left:{{(rehearseOpen==1&&localOpen==1)?40:0}}rpx">
+            <image src="/image/scene.png"></image>
+            <text>现场开盘</text>
+        </view>
+    </view>
+    <!-- 项目动态 -->
+    <view class='hot' wx:if='{{Messages.length>0}}'>
+        <image src='/image/SMDT.png' style="width:130rpx;height:30rpx;"></image>
+        <view class="hotList">
+            <swiper autoplay circular indicator-dots="{{false}}" vertical interval="3000">
+                <swiper-item wx:for='{{Messages}}' wx:key='index'>
+                    <view class="gonggaoTxt">{{item}}</view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="topFix">
+        <!-- 四宫格 -->
+        <view class='navigation' wx:if="{{findlist.length>0}}">
+            <!-- <view catchtap='project' data-id="{{dataid}}" data-localStatus='{{localStatus}}' data-titlename="{{titlename}}">
+                <image src='/image/S_03.png'></image>
+                <view>我的小区</view>
+            </view> -->
+            <view wx:for='{{findlist}}' bindtap='web' data-type='{{item.jumpAddress}}' data-url='{{item.href}}' wx:key='index' wx:if='{{index<4}}'>
+                <image src='{{item.image}}' style="width:80rpx;height:80rpx;;overflow:hidden;"></image>
+                <view>{{item.linkName}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 活动banner -->
+    <swiper indicator-dots="{{activityBanner.length>1?true:false}}" autoplay circular="{{true}}" class='activtyBanner' wx:if="{{activityBanner.length>0}}">
+        <block wx:for="{{activityBanner}}" wx:key="index">
+            <swiper-item bindtap="goPage" data-href="{{item.href}}" data-type="{{item.type}}">
+                <image src="{{item.imgUrl}}" class="slide-image" width="350" height="200" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <swiper indicator-dots="{{activityBanner.length>1?true:false}}" autoplay circular="{{true}}" class='activtyBanner' wx:else>
+        <block>
+            <swiper-item bindtap="goPage" data-type="1">
+                <image src="https://china185.com/file/image/20191028/67d1ba26d2144dab889a2d3c97e5cf20.gif" class="slide-image" width="350" height="200" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 车位分布图 -->
+
+    <view class="carPic" style="border:1px solid #eeeeee;border-radius:10rpx;" catchtap='goCarList'>
+        <image src="https://china185.com/file/image/20191021/c0644fcfa85b48f98ab7545d15d2cdd5.blob"></image>
+        <text catchtap='goCarList'>选车位 ></text>
+
+    </view>
+    <!-- 项目证书 -->
+    <view class='record' wx:if="{{cerList.length>=1}}">
+        <view class="recTop">
+            <text>项目证书</text>
+        </view>
+        <scroll-view class='picList' scroll-x="auto">
+            <view class='list' wx:for="{{cerList}}" wx:key="index" style="margin-right:20rpx;" catchtap="previewImage" data-img='{{item.certImage}}'>
+                <image src="{{item.certImage}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 项目公告 -->
+    <view class="projectBulletin" wx:if="{{miniFindList.length>0}}">
+        <view class="btitle">
+            <text>项目公告 ({{miniFindList.length}})</text>
+            <text catchtap='bulletinReadMore' style="padding:6rpx;" wx:if="{{miniFindList.length>2}}">更多 ></text>
+        </view>
+        <view class="buList">
+            <view class="item" wx:for="{{miniFindList}}" wx:if='{{index<2}}' wx:key="{{item.id}}">
+                <image src="{{item.imageUrl}}"></image>
+                <view class="txt">
+                    <text>{{item.content}}</text>
+                    <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 扫码弹窗验证 -->
+    <van-popup show="{{ showCode }}" overlay="{{ true }}" bind:close="onClose">
+        <view class="scanCode1">
+            <image class="bg1" src="/image/bgCode.png"></image>
+            <view class="info1">
+                <view>车位仅限本小区业主购买</view>
+                <view class="codeImg1">
+                    <image src="/image/sm.png" catchtap='scanCode' style="width:80rpx;height:74rpx;"></image>
+                    <view>
+                        <text>请点击扫码添加本项目</text>
+                    </view>
+                </view>
+            </view>
+            <view class="btns1">
+                <text catchtap='cancle'>取消</text>
+                <text catchtap='confirm'>确定</text>
+            </view>
+        </view>
+    </van-popup>
+    <image src="/image/kefu.png" class="kefu" catchtap='callGw'></image>
+    <view style="height:100rpx;" wx:if="{{miniFindList.length>0}}"></view>
+</view>

@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "action": "allow",
+      "page": "pages/index/index",
+   
+      "matching": "inclusive"
+    },
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

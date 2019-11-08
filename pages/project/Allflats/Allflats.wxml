@@ -1,0 +1,51 @@
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class="page {{hasMask ? 'preventTouchMove' : ' '}}">
+  <!-- 搜索 -->
+  <view class='top'>
+    <view class='input'>
+      <image src='/image/ss_03.png'></image>
+      <input placeholder='请输入小区名称' confirm-type="search" bindconfirm='serch' value='{{projectName}}'></input>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class='nearbyprojects'>
+     <projectlist positionList="{{allproject}}"></projectlist>
+  </view>
+  <!-- 筛选条件 -->
+  <image class="quyu" catchtap="toggleRight3"  src="/image/bb.png"></image> 
+</view>
+
+<!-- 抽屉页3 -->
+<van-action-sheet show="{{showRight3}}" title="选择城市区域" bind:close="onClose">
+  <view class='domo3'>
+    <swiper indicator-dots circular current="{{swiper.current}}">
+      <swiper-item catchtouchmove="stopTouchMove">
+        <view class='regiontop'>热门城市</view>
+        <view class='regionlist'>
+          <text catchtap='ProvinceClick3' data-id='{{item.id}}'  wx:key='index' wx:for='{{HotCity}}'>{{item.name}}</text>
+         
+        </view>
+        <view class='line'></view>
+        <view class='regiontop'>选择省份</view>
+        <view class='regionlist'>
+          <text wx:for='{{list}}' wx:key='index' bindtap='ProvinceClick' data-id='{{item.id}}'>{{item.name}}</text>
+        </view>
+      </swiper-item>
+      <swiper-item catchtouchmove="stopTouchMove">
+
+        <view class='regiontop'>选择市</view>
+        <view class='regionlist'>
+          <text wx:for='{{list1}}' wx:key='index' bindtap='ProvinceClick1' data-id='{{item.id}}'>{{item.name}}</text>
+        </view>
+      </swiper-item>
+      <swiper-item catchtouchmove="stopTouchMove">
+        <view class='regiontop'>选择城市区域</view>
+        <view class='regionlist'>
+          <text wx:for='{{list2}}' wx:key='index' bindtap='ProvinceClick2' data-id='{{item.id}}'>{{item.name}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</van-action-sheet>
+
+<view class='kong' wx:if='{{allproject.length<1}}'></view>

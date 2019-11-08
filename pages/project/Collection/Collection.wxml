@@ -1,0 +1,83 @@
+<view class="page">
+    <!-- 搜索 -->
+    <view class='top'>
+        <!-- <view>车位号:</view> -->
+        <view class='input'>
+            <image src='/image/ss_03.png'></image>
+            <input placeholder='请输入车位号和标签' bindinput='carname' bindconfirm='goserchist'></input>
+        </view>
+    </view>
+    <!-- 你希望车库在那一层 -->
+    <view class='list'>
+        <view>
+            车位所在区域
+        </view>
+        <view class='Label'>
+            <view catchtap='morescreen' class="{{item.isSelected?'active':''}}" wx:for='{{level1}}' data-title='区域' data-index='{{index}}' wx:key='index'>{{item.name}}</view>
+
+        </view>
+    </view>
+    <!-- 你希望车库在那一栋 -->
+    <view class='list'>
+        <view>
+            车位所在楼层
+        </view>
+        <view class='Label'>
+            <view catchtap='morescreen' class="{{item.isSelected?'active':''}}" wx:for='{{level2}}' data-title='楼层' data-index='{{index}}' wx:key='index'>{{item.name}}</view>
+        </view>
+        <!-- <view class='viewmore' bindtap='unfold'>查看更多
+      <i-icon type="{{unfold!=1?'unfold':'packup'}}" style='padding-left:10rpx;' size='18' />
+    </view> -->
+    </view>
+    <!-- 请选择区域 -->
+    <view class='list'>
+        <view>
+            车位所在楼栋
+        </view>
+        <view class='Label'>
+            <view catchtap='morescreen' class="{{item.isSelected?'active':''}}" wx:for='{{level3}}' data-title='楼栋' data-index='{{index}}' wx:key='index'>{{item.name}}</view>
+
+        </view>
+    </view>
+    <!-- 已选车位的价格 -->
+    <view class='list'>
+        <view>
+            车位价格
+        </view>
+
+        <view class='input'>
+            <input type='nuber' class="price" bindinput='minPrice' placeholder='最低价格'></input>
+            <text style="font-size:36rpx;color:#333333;width:60rpx;height:70rpx;line-height:70rpx;">~</text>
+            <input type='nuber' class="price" bindinput='maxPrice' placeholder='最高价格'></input>
+        </view>
+
+
+    </view>
+    <!-- 已选车位的价格 -->
+    <view class='list'>
+        <view>
+            车位面积
+        </view>
+        <view class='input'>
+            <input type='nuber' class="price" bindinput='minArea' placeholder='最小面积'></input>
+            <text style="font-size:36rpx;color:#333333;width:60rpx;height:70rpx;line-height:70rpx;">~</text>
+            <input type='nuber' class="price" bindinput='maxArea' placeholder='最大面积'></input>
+        </view>
+
+
+    </view>
+
+    <!-- 请选择区域 -->
+    <view class='list' wx:for='{{taglist}}' wx:key='index'>
+        <view>
+            {{item.typeName}}
+        </view>
+        <view class='Label'>
+            <view data-index='{{index1}}' catchtap='morescreen' data-title='更多筛选' wx:for='{{item.tagRespDtos}}' wx:for-index='index1' wx:key='index' data-tieleindex='{{index}}' class="{{item.isSelected?'active':''}}">{{item.name}}</view>
+
+        </view>
+    </view>
+
+    <!-- 选择车位 -->
+    <button bindtap='goParkinglist2'>选择车位</button>
+</view>

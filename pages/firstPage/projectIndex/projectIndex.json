@@ -1,0 +1,46 @@
+{
+    "navigationBarTitleText": "海螺找位",
+    "usingComponents": {
+        "van-search": "../../../zan/lib/search/index",
+        "van-tabs": "../../../zan/lib/tabs/index",
+        "van-tab": "../../../zan/lib/tab/index",
+        "i-card": "../../../dist/card/index",
+        "van-card": "../../../zan/lib/card/index",
+        "van-popup": "/zan/lib/popup/index"
+    },
+    "tabBar": {
+        "color": "#666666",
+        "selectedColor": "#E5C478",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "image/index.png",
+                "selectedIconPath": "image/index1.png",
+                "selectedColor": "#E5C478",
+                "text": "商城首页"
+            },
+            {
+                "pagePath": "pages/project/Parkinglist3/Parkinglist3",
+                "iconPath": "image/che.png",
+                "selectedIconPath": "image/che1.png",
+                "selectedColor": "#fff",
+                "text": "找车位"
+            },
+            {
+                "pagePath": "pages/project/msg/msg",
+                "iconPath": "image/msg.png",
+                "selectedIconPath": "image/msg1.png",
+                "selectedColor": "#fff",
+                "text": "消息"
+            },
+            {
+                "pagePath": "pages/my/my/my",
+                "iconPath": "image/my.png",
+                "selectedIconPath": "image/my1.png",
+                "selectedColor": "#fff",
+                "text": "我的"
+            }
+        ]
+    },
+    "enablePullDownRefresh": true
+}

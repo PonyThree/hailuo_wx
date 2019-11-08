@@ -1,0 +1,11 @@
+<view class="container" >
+<image class="logoinPng" src="https://www.china185.com/static/image/logoinPng.png"></image>
+  <view class='btview'>
+    <button class='getappid' type='warn' bindtap='getappid' style='z-index:{{zindex}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登陆</button>
+    <button type='warn'   bindtap='logoin' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权登陆</button>
+    <!-- <button type='warn' plain bindtap='phonelogoin'>返回首页</button> -->
+  </view>
+    <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

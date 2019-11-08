@@ -1,0 +1,182 @@
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class='page'>
+  <!-- 头部状态判定 -->
+  <!-- 代付认购金 -->
+  <view class='confirm' wx:if='{{orderlist.status==1}}'>
+    <image src='/image/dfk.png'></image>
+    <view>待付{{data.controlRespDto.buyMoneyName}}</view>
+    <view>
+      <text>请在倒计时 <text class='fred f24'>{{dateUtil.dateFormat(orderlist.expireTime)}}</text> 前支付{{data.controlRespDto.buyMoneyName}},逾期系统将自动取消订单.</text>
+    </view>
+  </view>
+  <!-- 等待认购中 -->
+  <view class='confirm' wx:if='{{orderlist.status==2}}'>
+    <image src='/image/dfk.png'></image>
+    <view>等待{{data.controlRespDto.buyName}}中</view>
+    <view>
+      <text>您所落位的车位还没有开盘哦,请等待!</text>
+    </view>
+  </view>
+  <!-- 订单失效 -->
+  <view class='confirm' wx:if='{{orderlist.status==3 || orderlist.status==11 || orderlist.status==12}}'>
+    <image src='/image/dfk.png'></image>
+    <view>订单失效</view>
+    <view>
+      <text>您所落位的车位为未及时确认订单或已被人抢先一步购买.您所支付的金额已退回您的钱包</text>
+    </view>
+  </view>
+  <!-- 认购成功 -->
+  <view class='confirm' wx:if='{{orderlist.status==4}}'>
+    <image src='/image/dfk.png'></image>
+    <view>{{data.controlRespDto.buyName}}成功</view>
+    <view>
+      <text>请于 <text class='fred f24'>{{dateUtil.dateFormat(orderlist.expireTime)}}</text> 前到线下支付尾款办理合同手续,逾期系统将自动取消订单.</text>
+    </view>
+  </view>
+  <!-- 认购失效 -->
+  <view class='confirm' wx:if='{{orderlist.status==5}}'>
+    <image src='/image/dfk.png'></image>
+    <view>订单失效</view>
+    <view>
+      <text>您的{{data.controlRespDto.buyName}}倒计时已过期，线上{{data.controlRespDto.buyMoneyName}}金已被扣除，可点击职业顾问询问详情...</text>
+    </view>
+  </view>
+  <!-- 车位已购买 -->
+  <view class='confirm' wx:if='{{orderlist.status==6}}'>
+    <image src='/image/dfk.png'></image>
+    <view>已购买</view>
+    <view>
+      <text>恭喜你购买了自己的车位</text>
+    </view>
+  </view>
+  <!-- 落位成功 -->
+  <view class='confirm' wx:if='{{orderlist.status==7}}'>
+    <image src='/image/dfk.png'></image>
+    <view>落位成功</view>
+    <view>
+      <text>请于 <text class='fred f24'>{{dateUtil.dateFormat(orderlist.expireTime)}}</text> 前到线下支付尾款办理合同手续,逾期系统将自动取消订单.</text>
+    </view>
+  </view>
+  <!-- 认购待审核 -->
+  <view class='confirm' wx:if='{{orderlist.status==8}}'>
+    <image src='/image/dfk.png'></image>
+    <view>{{data.controlRespDto.buyName}}审核中</view>
+    <view>
+      <text>您的订单正在审核中...</text>
+    </view>
+  </view>
+  <!-- 审核不通过 -->
+  <view class='confirm' wx:if='{{orderlist.status==9}}'>
+    <image src='/image/dfk.png'></image>
+    <view>审核未通过</view>
+    <view>
+      <text>请联系客服或置业顾问..</text>
+    </view>
+  </view>
+  <!-- 用户取消订单 -->
+  <view class='confirm' wx:if='{{orderlist.status==10}}'>
+    <image src='/image/dfk.png'></image>
+    <view>取消订单成功</view>
+    <view>
+      <text>您以成功取消订单</text>
+    </view>
+  </view>
+  <!-- 订单人 -->
+  <view class='top' catchtap="{{orderlist.status==6?'':'onshow'}}">
+        <view>订单人: {{userName?userName:''}}</view>
+    <view>预计签约人: {{contractName?contractName:''}} {{contractMobile?contractMobile:''}}</view>
+    <view>身份信息: {{contractIdcard?contractIdcard:''}} </view>
+    <image src='/image/qy.png' class='img1'></image>
+    <i-icon size='22' type="enter" color='rgb(153,153,153)'/>
+  </view>
+  <!-- 订单信息 -->
+  <carlist data="{{data}}"></carlist>
+  <!-- 置业顾问信息 -->
+  <view class="adviser" catchtap='onshow1'>
+    <image src="https://www.china185.com/static/image/xsjy.png"></image>
+    <view class="ownership" catchtap='call'>
+      <text>{{consultantlist[0].name}}</text>
+      <view>Tel:
+        <span>{{consultantlist[0].phone}}</span>
+      </view>
+    </view>
+    <i-icon size='22' type="enter" color='rgb(153,153,153)' />
+  </view>
+    <!-- 认购流程 -->
+  <step youhui="{{data.actityInfo?true:fales}}"  data='{{data}}' wx:if='{{data.controlRespDto.locationStatus || data.controlRespDto.onlineBuyStatus}}'></step>
+  <!-- 支付介绍 -->
+  <view class="payIntroduce">
+    <view>
+      <text wx:if='{{data.controlRespDto.verifyFund==1}}'>线上支付（车位核销后原路返回）</text>
+      <text wx:else>线上支付</text>
+      <text>￥{{orderlist.money}}</text>
+    </view>
+    <view>
+      <text>线下支付</text>
+      <text wx:if='{{data.controlRespDto.verifyFund==0}}'>￥{{data.sellPrice-orderlist.money}}</text>
+      <text wx:else>￥{{data.sellPrice}}</text>
+    </view>
+  </view>
+  <!-- 订单信息描述 -->
+  <view class='Orderdescription'>
+    <view>
+      <view>订单号:</view>
+      <view wx:if='{{orderlist.downPayTime}}'>{{data.controlRespDto.downMoneyName}}支付时间:</view>
+      <view wx:if='{{orderlist.subPayTime}}'>{{data.controlRespDto.buyMoneyName}}支付时间:</view>
+      <view>订单时间:</view>
+    </view>
+    <view>
+      <view>{{orderlist.orderNo}}</view>
+      <view wx:if='{{orderlist.downPayTime}}'>{{dateUtil.dateFormat(orderlist.downPayTime)}}</view>
+      <view wx:if='{{orderlist.subPayTime}}'>{{dateUtil.dateFormat(orderlist.subPayTime)}}</view>
+      <view>{{dateUtil.dateFormat(orderlist.submitTime)}}</view>
+    </view>
+    <image class='img1' src='/image/luowei.png' wx:if='{{orderlist.status==7 ||orderlist.status==1||orderlist.status==2 }}'></image>
+    <image class='img2' src='https://www.china185.com/static/image/rgcg.png' wx:if='{{orderlist.status==4}}'></image>
+    <image class='img2' src='https://www.china185.com/static/image/gmcg.png' wx:if='{{orderlist.status==6}}'></image>
+    <image class='img2' src='/image/ddsx.png' wx:if='{{orderlist.status==3 ||orderlist.status==5 ||orderlist.status==9 ||orderlist.status==11||orderlist.status==12}}'></image>
+
+    <!-- // 1 待付认购金, 2 等待认购中, 3 落位失效(退款成功), 4 审核通过认购成功, 5 认购失效, 6 车位已购买, 7落位成功, 8 认购审核未审核 9 认购审核不通过, 10 用户取消 11 落位因单别人认购了而被取消 12 项目方取消 -->
+  </view>
+</view>
+<!-- 底部状态 -->
+<view class='gopay'>
+  <button bindtap='goindex'>返回首页</button>
+  <button bindtap='gocontrol' wx:if='{{orderlist.status==4 ||orderlist.status==7}}'>核销二维码</button>
+  <button bindtap='goindex' wx:if='{{orderlist.status==3 ||orderlist.status==5 ||orderlist.status==9||orderlist.status==10||orderlist.status==11||orderlist.status==12}}'>重新选位</button>
+</view>
+<!-- 修改订单信息 -->
+<van-popup show="{{ show }}" bind:close="onClose" position='top'>
+  <view class='Personal'>
+    <view class='Title'>修改签约人信息</view>
+    <i-panel title="基础用法">
+      <i-input value="{{ contractName }}" bind:change='value2' title="预计签约人:" maxlength='5' placeholder="名字" />
+      <i-input value="{{ contractMobile }}" bind:change='value3' type="number" title="联系电话:" placeholder="请输入手机号" maxlength="11" />
+      <i-input value="{{ contractIdcard}}" bind:change='value4' type="number" title="身份证号码:" placeholder="请输入身份证号码" maxlength="18" />
+    </i-panel>
+  </view>
+</van-popup>
+
+<!-- 选择职业顾问 -->
+<van-popup show="{{show1}}" bind:close="onClose">
+  <view class='Personal1'>
+
+    <van-radio-group value="{{Personal1}}">
+      <van-cell-group>
+        <van-cell title="{{item.name}} {{item.phone}}" icon="https://www.china185.com/static/image/scbanner_02.png" clickable data-name="{{index}}" data-id='{{item.id}}' bind:click="onClick" wx:for='{{consultantlist}}' wx:key='index'>
+          <van-radio name="{{index}}" />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+</van-popup>
+<!-- 钱包输入密码 -->
+<van-popup show="{{0}}" bind:close="onClose" position="bottom" close-on-click-overlay='fales'>
+  <view class='paypsw'>
+    <view>请输入支付密码</view>
+    <paySix bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" get_focus="{{inputData.get_focus}}" focus_class="{{inputData.focus_class}}" value_num="{{inputData.value_num}}"
+      height="{{inputData.height}}" width="{{inputData.width}}" see="{{inputData.see}}" interval="{{inputData.interval}}">
+    </paySix>
+
+  </view>
+</van-popup>

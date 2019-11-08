@@ -1,0 +1,109 @@
+/* 订单信息 */
+.project {
+  width: 702rpx;
+  height: 272rpx;
+  background: #fff;
+  margin: 20rpx auto;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.project .top {
+  width: 95%;
+  height: 202rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
+}
+
+.project .top image {
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+  margin: 22rpx 30rpx 0 0;
+}
+
+.project .top .right {
+  width: 460rpx;
+  float: right;
+  padding: 0;
+}
+
+.project .top .right .hhh {
+  width: 100%;
+  color: #333;
+  font-size: 30rpx;
+  float: left;
+  margin-top: 18rpx;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project .top .right .hhh span {
+  font-size: 24rpx;
+  font-weight: normal;
+  margin-left: 33rpx;
+}
+
+.project .top .right .good {
+  color: #777;
+  font-size: 25rpx;
+  letter-spacing: 2rpx;
+  padding-top: 5rpx;
+}
+
+.project .top .tagview {
+  width: 100%;
+  height: 90rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.project .top .right .tag {
+  display: inline-block;
+  background: #cdc5a4;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 6rpx 14rpx 10rpx 14rpx;
+  letter-spacing: 2rpx;
+  border-radius: 8rpx;
+  margin-top: 26rpx;
+  margin-right: 20rpx;
+}
+
+.project .bottom {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.project .bottom .money {
+  display: inline-block;
+  float: left;
+  color: #999;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  letter-spacing: 1rpx;
+}
+
+.project .bottom .money span {
+  color: #a92112;
+  font-size: 46rpx;
+  font-weight: 600;
+}
+
+.project .bottom .number {
+  display: inline-block;
+  float: right;
+  color: #333;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  letter-spacing: 1rpx;
+  padding-top: 4rpx;
+  box-sizing: border-box;
+}
+
+.project .bottom .number span {
+  margin-left: 38rpx;
+}

@@ -1,0 +1,131 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/writeOffRules/writeOffRules",
+    "pages/simulatedOpen/collection/collection",
+    "pages/simulatedOpen/bid/bid",
+    "pages/simulatedOpen/sellectionHall/sellectionHall",
+    "pages/simulatedOpen/signAgreement/signAgreement",
+    "pages/simulatedOpen/projectDetails/projectDetails",
+    "pages/opening/bid/bid",
+    "pages/opening/sellectionHall/sellectionHall",
+    "pages/opening/collection/collection",
+    "pages/opening/projectDetails/projectDetails",
+    "pages/opening/signAgreement/signAgreement",
+    "pages/firstPage/parkInfoOpened/parkInfoOpened",
+    "pages/firstPage/projectIndex/projectIndex",
+    "pages/firstPage/Salelogs/Salelogs",
+    "pages/project/msg/msg",
+    "pages/my/my/my",
+    "pages/my/control/control",
+    "pages/my/aboutMe/aboutMe",
+    "pages/my/drop_code/drop_code",
+    "pages/my/safety_center/safety_center",
+    "pages/my/money/money",
+    "pages/my/userAgreement/userAgreement",
+    "pages/my/frozen/frozen",
+    "pages/my/contact/contact",
+    "pages/my/record/record",
+    "pages/my/details/details",
+    "pages/my/recharge/recharge",
+    "pages/my/binding_phone/binding_phone",
+    "pages/my/login/login",
+    "pages/my/collection/collection",
+    "pages/my/opinion/opinion",
+    "pages/my/order/order",
+    "pages/my/ChangePassword/ChangePassword",
+    "pages/my/SetPassword/SetPassword",
+    "pages/my/extract_money/extract_money",
+    "pages/project/Collection/Collection",
+    "pages/project/Allflats/Allflats",
+    "pages/project/Switchingitems/Switchingitems",
+    "pages/project/search/search",
+    "pages/project/Parkinglist2/Parkinglist2",
+    "pages/project/webview/webview",
+    "pages/project/wx_logoin/wx_logoin",
+    "pages/project/Strategy/Strategy",
+    "pages/project/bulletin/bulletin",
+    "pages/project/selection/selection",
+    "pages/order/drop/drop",
+    "pages/order/Agreement/Agreement",
+    "pages/order/subscription/subscription",
+    "pages/order/dropsuccess/dropsuccess",
+    "pages/order/subscriptionsuccess/subscriptionsuccess",
+    "pages/order/realpay/realpay",
+    "pages/project/msg_details/msg_details",
+    "pages/activity/seckill/limitedBuying/limitedBuying",
+    "component/component",
+    "component/popcenter/popcenter",
+    "component/search1/search",
+    "pages/firstPage/addOilSaveMoney/addOilSaveMoney",
+    "pages/personalRental/rentalIndex/rentalIndex",
+    "pages/personalRental/rentalDetails/rentalDetails",
+    "pages/personalRental/saleDetails/saleDetails",
+    "pages/personalRental/rentRelease/rentRelease",
+    "pages/personalRental/saleRelease/saleRelease",
+    "pages/personalRental/rentReDetails/rentReDetails",
+    "pages/personalRental/saleReDetails/saleReDetails",
+    "pages/personalRental/rentCarEdit/rentCarEdit",
+    "pages/personalRental/saleCarEdit/saleCarEdit",
+    "pages/personalRental/wantRent/wantRent",
+    "pages/personalRental/wantBuy/wantBuy",
+    "pages/personalRental/myRelease/myRelease",
+    "pages/personalRental/releaseIndex/releaseIndex",
+    "pages/personalRental/rentReleaseEdit/rentReleaseEdit",
+    "pages/personalRental/saleReleaseEdit/saleReleaseEdit",
+    "pages/personalRental/wtRentEdit/wtRentEdit",
+    "pages/personalRental/wtSaleEdit/wtSaleEdit",
+    "pages/firstPage/loans/loans",
+    "component/pickerPlus/pickerPlus",
+    "pages/firstPage/loans/bank/bank"
+  ],
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#E5C478",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/index.png",
+        "selectedIconPath": "image/index1.png",
+        "selectedColor": "#E5C478",
+        "text": "海螺"
+      },
+      {
+        "pagePath": "pages/firstPage/projectIndex/projectIndex",
+        "iconPath": "image/che.png",
+        "selectedIconPath": "image/che1.png",
+        "selectedColor": "#fff",
+        "text": "我的小区"
+      },
+      {
+        "pagePath": "pages/project/msg/msg",
+        "iconPath": "image/msg.png",
+        "selectedIconPath": "image/msg1.png",
+        "selectedColor": "#fff",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/my/my/my",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my1.png",
+        "selectedColor": "#fff",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "可用于确定当前在哪个位置?"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx44e709992bb7ca24"
+  ]
+}

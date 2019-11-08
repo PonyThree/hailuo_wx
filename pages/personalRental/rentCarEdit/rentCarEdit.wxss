@@ -1,0 +1,322 @@
+/* pages/personalRental/rentCarEdit/rentCarEdit.wxss */
+
+page {
+    background: #fff !important;
+}
+
+.rentCarEdit {
+    width: 750rpx;
+    border-top: 1px solid #eee;
+}
+
+/* 头部图片上传 */
+
+.topPic {
+    width: 750rpx;
+    height: 166rpx;
+    display: flex;
+    margin-top: 40rpx;
+    /* background-color: #AAF; */
+}
+
+/* +按钮 */
+
+.rentCarEdit .plusPic {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 200rpx;
+    height: 162rpx;
+    margin-left: 24rpx;
+    overflow: hidden;
+    border-radius: 6rpx;
+    border: 1px dashed #ccc;
+    margin-right: 50rpx;
+}
+
+.plusPic image {
+    border-radius: 6rpx;
+}
+
+.plusPic image:nth-child(1) {
+    width: 76rpx;
+    height: 78rpx;
+}
+
+.rentCarEdit .picList {
+    width: 450rpx;
+    overflow: hidden;
+    height: 166rpx;
+}
+
+.picList .item {
+    position: relative;
+    display: inline-block;
+    width: 200rpx;
+    height: 166rpx;
+    overflow: hidden;
+    border-radius: 6rpx;
+}
+.upLoadTxt{
+    display: block;
+    color:#777777;
+    font-size:28rpx;
+    margin-top: 126rpx;
+}
+/* 删除x */
+
+.item image:nth-child(2) {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* 租售信息 */
+
+.rentCarEdit .info {
+    width: 702rpx;
+    height: auto;
+    margin: 30rpx 24rpx 0;
+}
+
+.info .singleOne {
+    display: flex;
+    align-items: center;
+    /* background-color: #aaf; */
+}
+
+.info >view {
+    display: flex;
+    border-top: 1px solid #eee;
+    /* margin-bottom: 30rpx; */
+}
+
+.info >view.singleOne {
+    display: flex;
+    height: 90rpx;
+    align-items: center;
+    /* background-color: pink; *//* border-top: 1px solid #eee; *//* border-bottom: 1px solid #eee; */
+}
+
+.info >view>text:nth-child(1) {
+    width: 114rpx;
+    /* background-color: pink; */
+    font-size: 28rpx;
+    text-align: left;
+    color: #333;
+}
+
+.info .singleOne >input {
+    /* width: 400rpx; *//* border:1px solid  #eeeeee; */
+    margin-left: 30rpx;
+    font-size: 28rpx;
+    color: #777;
+}
+
+/* 租金详情选择框 */
+
+.thaw {
+    display: flex;
+    align-items: center;
+    width: 134rpx;
+    height: 100%;
+    float: left;
+    margin-left: 30rpx;
+    font-size: 28rpx;
+}
+
+.thaw text {
+    display: inline-block;
+    color: #777;
+    font-size: 28rpx;
+}
+
+.thaw image {
+    width: 20rpx;
+    height: 11rpx;
+    margin-left: 10rpx;
+}
+
+/* 解冻下拉框选项 */
+
+.opition {
+    background: #fff;
+    width: 158rpx;
+    color: #333;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    position: absolute;
+    top: 70rpx;
+    left: 120rpx;
+    text-align: center;
+    letter-spacing: 4rpx;
+    z-index: 999;
+    box-shadow: 0 0 5px #999;
+    border-radius: 4rpx;
+}
+
+.opition_one {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+/* 意向标签 */
+
+.farTag {
+    display: flex;
+    align-items: center;
+    height: auto;
+    /* padding:20rpx 0; */
+}
+
+.farTag >text.til {
+    width: 140rpx !important;
+    text-align: left;
+}
+
+.tagList {
+    color: #777;
+    padding: 28rpx 0;
+}
+
+/* 单个标签 */
+
+.tagList .tagItem {
+    position: relative;
+    float: left;
+    font-size: 28rpx;
+    margin-right: 10rpx;
+    padding: 5rpx 15rpx;
+    border-radius: 2rpx;
+    margin-top: 6rpx;
+    margin-left: 10rpx;
+    background-color: #f0f0f0;
+}
+
+.tagItem image {
+    position: absolute;
+    top: -12rpx;
+    right: -5rpx;
+}
+
+.addTag {
+    display: inline-block;
+    width: 80rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    padding: 8rpx 10rpx;
+    border: 1px dashed #eee;
+    font-size: 20rpx;
+    margin-top: 20rpx;
+    margin-left: 10rpx;
+    color: #999;
+}
+/* 添加标签弹窗 */
+.demo1 {
+  text-align: center;
+  width: 750rpx;
+  background: #fff;
+  overflow: auto;
+  z-index: 999;
+  position: relative;
+  top: 0;
+  border-radius: 50rpx;
+}
+.demo1 .time {
+  text-align: center;
+  height: 60rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  /* margin-top:10rpx; */
+  margin-top: 67rpx;
+  /* margin-top:198rpx; */
+}
+
+.demo1 .time.price {
+  width: 555rpx;
+  margin: 0 auto;
+  display: block;
+  padding: 12rpx 10rpx;
+  /* border-top: 1px solid #f2f2f2; */
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.demo1 .smallTitle {
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #000;
+  font-size: 28rpx;
+  margin-left: 14rpx;
+  /* margin-bottom: 8rpx; */
+}
+
+.demo1 .Label {
+  text-align: left;
+  overflow: hidden;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+}
+
+.demo1 .Label> view {
+  width: 143rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background: #eeeeee;
+  /* border-radius: 5rpx; */
+  float: left;
+  border:1px solid #eeeeee;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.demo1 .Label> view.active{
+    border:1px solid #e5c478 !important;
+}
+.demo1 .Label2> view.active{
+    border:1px solid #e5c478 !important;
+}
+.demo1 .confirm {
+  width: 420rpx;
+  height: 70rpx;
+  margin: 40rpx auto;
+  border-radius: 35rpx;
+  display: flex;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+
+.demo1 .confirm>view:nth-child(1) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 35rpx 0 0 35rpx;
+  background: #ddd;
+  border: none;
+}
+
+.demo1 .confirm>view:nth-child(2) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 0rpx 35rpx 35rpx 0;
+  background: #E5C478;
+  color: white;
+}
+.releaseBtn {
+    height: 300rpx;
+}
+
+.releaseBtn {
+    display: block;
+    width: 200rpx;
+    height: 70rpx;
+    color: #fff;
+    background-color: #e5c478;
+    text-align: center;
+    line-height: 70rpx;
+    border-radius: 35rpx;
+    margin: 40rpx auto 0;
+}

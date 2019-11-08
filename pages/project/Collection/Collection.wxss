@@ -1,0 +1,126 @@
+/* pages/project/Collection/Collection.wxss */
+
+.page {
+}
+
+/* 搜索 */
+input{
+  border-radius: 3rpx
+}
+.top {
+  height: 120rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+}
+.top .input {
+  width: 500rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 100rpx;
+  background: white;
+}
+
+.top .input image {
+  width: 21rpx;
+  height: 21rpx;
+  margin-left: 20rpx;
+}
+
+.top .input input {
+  margin-left: 20rpx;
+  width: 400rpx;
+}
+
+/* 选择标签 */
+
+.list {
+  width: 702rpx;
+  margin-left: 24rpx;
+  background: white;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.list>view:nth-child(1) {
+  width: 660rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 15rpx;
+  /* border-bottom: 1rpx solid #f2f2f2; */
+}
+
+.list .Label {
+  overflow: hidden;
+}
+/* //输入价格 */
+
+.list .input {
+  /* margin-left: 30rpx; */
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  width: 702rpx;
+  font-size: 24rpx;
+  text-align: center;
+  padding-top: 20rpx;
+  /* background-color: pink; */
+}
+
+.list .input input.price {
+  width: 300rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #eeeeee;
+  /* float: left; */
+  font-size: 24rpx;
+  color: #999999;
+  /* margin-left: 100rpx; */
+}
+.list .Label>view {
+  width:143rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  line-height: 60rpx;
+  background: #eeeeee;
+  float: left;
+  margin-right: 20rpx;
+  margin-left: 24rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  /* padding:0 10rpx; */
+  color:#333333;
+  border:1px solid #eeeeee;
+}
+.list .Label>view.active{
+    border:1px solid #e5c478 !important;
+}
+.list .viewmore {
+  height: 30rpx;
+  text-align: center;
+  color: #999;
+  padding-bottom: 20rpx;
+  line-height: 30rpx;
+  position: relative;
+}
+
+.list .viewmore i-icon {
+  position: absolute;
+  top: -2rpx;
+}
+/* 底部按钮 */
+button {
+  background: #E5C478;
+  color: white;
+  width: 400rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  line-height: 70rpx;
+  margin-top: 40rpx;
+  margin-bottom: 60rpx;
+}

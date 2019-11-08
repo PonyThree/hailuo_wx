@@ -1,0 +1,226 @@
+.page {
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+page{
+    background: #bfb796;
+}
+
+
+/* 订单信息 */
+
+.project {
+  width: 100%;
+  height: 272rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.project .top {
+  width: 95%;
+  height: 202rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
+}
+
+.project .top image {
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+  margin: 22rpx 30rpx 0 0;
+}
+
+.project .top .right {
+  width: 460rpx;
+  float: right;
+  padding: 0;
+}
+
+.project .top .right .hhh {
+  width: 100%;
+  color: #333;
+  font-size: 30rpx;
+  float: left;
+  margin-top: 18rpx;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project .top .right .hhh span {
+  font-size: 24rpx;
+  font-weight: normal;
+  margin-left: 33rpx;
+}
+
+.project .top .right .good {
+  color: #777;
+  font-size: 25rpx;
+  letter-spacing: 2rpx;
+  padding-top: 5rpx;
+}
+
+.project .top .tagview {
+  width: 100%;
+  height: 90rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.project .top .right .tag {
+  display: inline-block;
+  background: #cdc5a4;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 6rpx 14rpx 10rpx 14rpx;
+  letter-spacing: 2rpx;
+  border-radius: 8rpx;
+  margin-top: 26rpx;
+  margin-right: 20rpx;
+}
+
+.project .bottom {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.project .bottom .money {
+  display: inline-block;
+  float: left;
+  color: #999;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  letter-spacing: 1rpx;
+}
+
+.project .bottom .money span {
+  color: #a92112;
+  font-size: 46rpx;
+  font-weight: 600;
+}
+
+.project .bottom .number {
+  display: inline-block;
+  float: right;
+  color: #333;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  letter-spacing: 1rpx;
+  padding-top: 4rpx;
+  box-sizing: border-box;
+}
+
+.project .bottom .number span {
+  margin-left: 38rpx;
+}
+
+/* 落位金支付成功 */
+
+.success {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.success .img1 {
+  position: absolute;
+  width: 70rpx;
+  height: 70rpx;
+  top: 150rpx;
+  right: 40rpx;
+}
+
+.success .successitem {
+  width: 702rpx;
+  background: white;
+  border-radius: 10rpx 10rpx 0 0;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.success .text1 {
+  font-size: 36rpx;
+  margin-top: 30rpx;
+}
+
+.success .text2 {
+  font-size: 28rpx;
+  padding-top: 50rpx;
+}
+
+.success .text3 {
+  font-size: 24rpx;
+  margin-top: 40rpx;
+  width: 500rpx;
+  height: 90rpx;
+  margin-left: 50%;
+  transform: translateX(-60%);
+  text-align: left;
+  line-height: 40rpx;
+}
+
+.buttom {
+  margin-top: 50rpx;
+  width: 500rpx;
+  height: 70rpx;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40rpx;
+}
+
+.buttom view {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
+  border: 1rpx solid #afa470;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  color: #afa470;
+}
+
+/* 置业顾问信息 */
+
+.adviser {
+  width: 702rpx;
+  height: 200rpx;
+  background: white;
+  border-top: 1rpx solid #f2f2f2;
+  overflow: hidden;
+  margin-bottom: 50rpx;
+  border-radius: 0 0 10rpx 10rpx
+
+ 
+}
+.adviser>view{
+  margin-top: 50rpx;
+  width:400rpx;
+  height: 120rpx;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center
+}
+.adviser>view image{
+height: 100rpx;
+width: 100rpx;
+border-radius: 50%;
+margin-right: 20rpx
+
+}
+.adviser>view>view{
+  width: 250rpx;
+  height: 70rpx;
+  font-size: 26rpx
+}
+.adviser>view>view>view{
+  padding-bottom: 10rpx
+}

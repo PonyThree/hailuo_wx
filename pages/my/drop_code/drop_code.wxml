@@ -1,0 +1,68 @@
+<!--pages/my/drop_code/drop_code.wxml-->
+<view class="pages">
+  <!-- 订单信息 -->
+  <view class="info" bindtap='onshow'>
+    <image src="/image/qy.png"></image>
+    <view class="main">
+      <view class="name">订单人：{{userName}}</view>
+      <view class="name1">签约人：{{contractName?contractName:''}}
+        <span>{{contractMobile?contractMobile:''}}</span>
+      </view>
+      <view class="code">身份信息：
+        <i>{{contractIdcard?contractIdcard:''}}</i>
+      </view>
+    </view>
+    <image src="/image/jiantou1.png"></image>
+  </view>
+  <!-- 核销码 -->
+  <view class="drop">
+    <image src="/image/luoweima_03.png" class="img"></image>
+    <!-- <image src="/image/rengouma_03.png" class="img"></image> -->
+    <view class="title">核销码</view>
+    <!-- <view class="title">认购核销码</view> -->
+    <view class="font">展示此二维码，由置业顾问扫码核销</view>
+    <image src="data:image/png;base64,{{data.ewmBase64}}" class="code1"></image>
+    <text class="num">{{data.verifyCode}}</text>
+  </view>
+  <!-- 置业顾问信息 -->
+  <view class="adviser" catchtap='onshow1'>
+    <image src="https://www.china185.com/static/image/xsjy.png"></image>
+    <view class="ownership" catchtap='call'>
+      <text>{{consultantlist[0].name}}</text>
+      <view>Tel:
+        <span>{{consultantlist[0].phone}}</span>
+      </view>
+    </view>
+    <image src="/image/jiantou1.png"></image>
+  </view>
+  <!-- 车位信息 -->
+  <view class="project">
+    <carlist data="{{data.truckSpace}}"></carlist>
+  </view>
+  <!-- 支付信息 -->
+ 
+</view>
+<!-- 修改订单信息 -->
+<van-popup show="{{show}}" bind:close="onClose" position='top'>
+  <view class='Personal'>
+    <view class='Title'>修改支付人信息</view>
+    <i-panel title="基础用法">
+      <i-input value="{{ contractName }}" bind:change='value2' title="预计签约人:" maxlength='5' placeholder="名字" />
+      <i-input value="{{ contractMobile }}" bind:change='value3' type="number" title="联系电话:" placeholder="请输入手机号" maxlength="11" />
+      <i-input value="{{ contractIdcard}}" bind:change='value4' type="number" title="身份证号码:" placeholder="请输入身份证号码" maxlength="18" />
+    </i-panel>
+  </view>
+</van-popup>
+<!-- 选择职业顾问 -->
+<van-popup show="{{show1}}" bind:close="onClose1" close-on-click-overlay='fales'>
+  <view class='Personal1'>
+
+    <van-radio-group value="{{Personal1}}">
+      <van-cell-group>
+        <van-cell title="{{item.name}} {{item.phone}}" icon="https://www.china185.com/static/image/xsjy.png" clickable data-name="{{index}}" data-id='{{item.id}}' bind:click="onClick" wx:for='{{consultantlist}}' wx:key='index'>
+          <van-radio name="{{index}}" checked-color='#A92112' />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+</van-popup>

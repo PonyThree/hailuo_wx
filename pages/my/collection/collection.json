@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+      "i-checkbox-group": "../../../dist/checkbox-group/index",
+      "i-checkbox": "../../../dist/checkbox/index",
+      "i-radio-group": "../../../dist/radio-group/index",
+      "i-radio": "../../../dist/radio/index"
+  }
+}

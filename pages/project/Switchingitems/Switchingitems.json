@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "projectlist":"/component/projectlist/projectlist"
+  }
+}

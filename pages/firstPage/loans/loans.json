@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "pickerPlus": "../../../component/pickerPlus/pickerPlus"
+  },
+  "navigationBarTitleText": "车位贷款"
+}

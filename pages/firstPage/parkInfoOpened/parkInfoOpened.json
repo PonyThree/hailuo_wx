@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "carlist":"/component/carlist/carlist",
+    "goindex": "/component/goindex/goindex",
+    "step":"/component/step/step"
+  },
+  "navigationBarTitleText": "车位详情",
+    "enablePullDownRefresh": true
+}

@@ -1,0 +1,5 @@
+<!--pages/firstPage/loans/bank/bank.wxml-->
+<view class="wrap">
+    <view class="info">可在以下银行金融贷款机构办理贷款、金融等服务</view>
+    <image src="https://china185.com/file/image/20191101/b0ea8058c0974f4ba5b53edcd2dda59f.png" mode="aspectFill"></image>
+</view>

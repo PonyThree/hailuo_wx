@@ -1,0 +1,25 @@
+<!--pages/my/safety_center/safety_enter.wxml-->
+<view class="pages">
+  <view class='list'>
+    <!-- <view class="li" bindtap='jump'>
+      <text>实名认证</text>
+      <image src="/image/jiantou.png"></image>
+    </view> -->
+    <view class="li" bindtap='jump1'>
+      <text>修改支付密码</text>
+      <image src="/image/jiantou.png"></image>
+    </view>
+    <view class="li" bindtap='jump2'>
+      <text>忘记支付密码</text>
+      <image src="/image/jiantou.png"></image>
+    </view>
+    <view class="li" bindtap='jump3'>
+      <text>换账号登录</text>
+      <image src="/image/jiantou.png"></image>
+    </view>
+    <view class="li" bindtap='jump4'>
+      <text>退出登录</text>
+      <image src="/image/jiantou.png"></image>
+    </view>
+  </view>
+</view>

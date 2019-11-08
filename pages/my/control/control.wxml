@@ -1,0 +1,36 @@
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class="pages">
+  <!-- 列表信息 -->
+  <view class="content" wx:for="{{list}}" wx:key='index'>
+    <view class="top" wx:if="{{item.buyType==1}}">已落位</view>
+    <view class="top" wx:if="{{item.buyType==2}}">已认购</view>
+    <view class="main" bindtap="flag" data-id='{{item.id}}'>
+      <!-- 车位信息 -->
+      <view class="left">
+      <view>
+        <image src="/image/hexiaoma.png"></image>
+        <text>车位号</text>
+      </view>
+        <view class="number">{{item.truckSpaceName}}</view>
+      </view>
+      <!-- 项目名称 -->
+      <view class="middle">
+        <view class="name">{{item.projectName}}</view>
+        <view class="data">{{dateUtil.dateFormat1(item.expireTime)}}到期</view>
+      </view>
+      <!-- 按钮 -->
+      <view class="button">立即使用</view>
+    </view>
+    <!-- 查看规则 -->
+    <view class="bottom"  bindtap="searchRel" data-pid='{{item.projectId}}' data-ptype="{{item.buyType}}">
+      <text>查看规则</text>
+      <image src="/image/jiantou.png"></image>
+    </view>
+  </view>
+
+  <view class="blank" wx:if="{{list.length<1 || !list}}">
+    <image src="/image/kongbai.png"></image>
+    <text>还未生成付款码，</text>
+    <text>可够买车位生成核销码。</text>
+  </view>
+</view>

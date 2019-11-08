@@ -1,0 +1,458 @@
+/* pages/activity/seckill/limitedBuying/limitedBuying.wxss */
+page{
+    background-color: #ffffff!important;
+}
+.limitedBuying{
+    position: relative;
+    width: 100%; 
+   
+
+}
+.buyPic{
+    position: absolute;
+    width: 100%;
+    height: 320rpx;
+    overflow: hidden;
+    z-index: 10;
+    /* background-color: #e64d01; */
+}
+.buyPic image{
+    width: 100%;
+    height: 320rpx;
+}
+.limitedBuying .mark{
+    position: absolute;
+    width: 130rpx;
+    height: 50rpx;
+    border-radius: 25rpx 0 0 25rpx;
+    line-height: 50rpx;
+    z-index: 100;
+    font-size: 24rpx;
+    color: #333333;
+    background-color: rgba(255,255,255,.6);
+}
+.mark.mark1{
+    top:20rpx;
+    right: 0;
+}
+.mark.mark2{
+    top:80rpx;
+    right: 0;
+}
+.limitedBuying .mark text{
+    margin-left: 18rpx;
+}
+.buyList{
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 286rpx;
+    overflow: hidden;
+    padding:0 24rpx;
+    border-radius: 40rpx 40rpx 0 0;
+    background-color: #ffffff;
+    /* border-bottom: 1px solid #cccccc; */
+}
+.buyList .timeList{
+    width: 100%;
+    height:auto;
+}
+.buyList .timeList1{
+    width:100%;
+    position: fixed;
+    z-index:20;
+    height:180rpx;
+    top:0;
+    background-color: #ffffff;
+    /* box-shadow: 0 0 5px #888888; */
+}
+.buyList .endActivity{
+  width: 600rpx;
+  height: 530rpx;
+  margin-left: 51rpx;
+  margin-top: 100rpx;
+}
+/* 活动列表头部时间 */
+.timeView{
+    width: 100rpx;
+    overflow-x: hidden;
+    white-space: nowrap;
+    height: 180rpx;
+    /* height: auto; */
+    /* background-color: #aaf; */
+    border-bottom: 1rpx solid #eeeeee
+ 
+}
+.timeView  view.itemTime{
+    text-align: center;
+    width: 33.33%;
+    height: auto;
+    display: inline-block;
+    /* height: 130rpx; */
+    /* background-color: #afa; */
+    /* border-bottom: 1px solid #eeeeee; */
+    color: #333333;
+}
+/* 激活状态颜色修改 */
+.timeView  view.itemTime.active view:nth-child(1){
+    color: #e64d01!important;
+    font-weight: bold !important;
+    font-size: 38rpx !important;
+    background-color: #ffffff!important;
+}
+.timeView  view.itemTime.active view:nth-child(2){
+    color: #e64d01!important;
+    font-size: 28rpx !important;
+    background-color: #ffffff!important;
+}
+.active {
+    background-color: #ffffff!important;
+}
+.timeView  view.itemTime view:nth-child(1){
+    margin-top:45rpx;
+    margin-bottom: 10rpx;
+    font-size: 30rpx;
+}
+.timeView  view.itemTime view:nth-child(2){
+    padding-bottom: 45rpx;
+    font-size: 28rpx;
+}
+/* 抢购状态 */
+.buyStaus{
+    width: 100%;
+    height: auto;
+    /* background-color: pink; */
+}
+.buyStaus view:nth-child(1){
+    width: 100%;
+    text-align: center;
+    margin-top: 40rpx;
+} 
+.buyStaus view:nth-child(1) image{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+    vertical-align: middle;
+}  
+.buyStaus view:nth-child(1) text{
+    color: #e64d01!important;
+    font-weight: bold !important;
+    font-size: 36rpx;
+    vertical-align: middle;
+}
+.buyStaus  view:nth-child(2){
+    position: relative;
+    text-align: center;
+    color:#333333;
+    font-size: 24rpx;
+    margin-top: 30rpx;
+    /* background-color: #aaf; */
+}
+.buyStaus  view:nth-child(2) text.djs{
+    display: inline-block;
+    width:30rpx;
+    height: 30rpx;
+    background-color: #333333;
+    border-radius: 2rpx;
+    padding: 6rpx;
+    color: #ffffff;
+    margin:0 10rpx;
+}
+/* 活动列表 */
+.acList{
+    width: 100%;
+    /* border-bottom: 1px solid #eeeeee; */
+    margin-top: 20rpx;
+    overflow: hidden;
+    padding-bottom: 40rpx;
+    border-radius: 4rpx;
+}
+.item{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40rpx;
+    padding-top:40rpx;
+    /* background-color: pink; */
+    border-bottom: 1px solid #eeeeee;
+    /* margin-bottom: 40rpx; */
+}
+.item .itemPic image{
+    display: inline-block;
+    width: 220rpx;
+    height: 200rpx;
+    border-radius: 4rpx;
+    
+}
+/* 右边信息 */
+.item .itemInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 490rpx;
+    height: 200rpx;
+    padding-left: 40rpx;
+    /* background-color: #afa; */
+}
+.item>.itemInfo>view:nth-child(1){
+    font-size: 30rpx;
+    line-height:48rpx;
+    color: #333333;
+    font-weight: bold;
+}
+/* 标签 */
+.listFeature{
+    width:300;
+    height:55rpx;
+    line-height: 55rpx;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx
+
+    
+}
+.listFeature view {
+  height: 36rpx ;
+  width: 80rpx;
+  border-radius: 2rpx;
+  color: #fb3b0f;
+  border: 1rpx solid #fb3b0f;
+  font-size: 24rpx;
+  text-align: center;
+  display: inline-block;
+  line-height: 36rpx
+
+}
+.listFeature text{
+ font-size: 36rpx;
+ color: #fb3b0f;
+ margin-left: 10rpx;
+ font-weight: 600
+
+}
+
+/* 价格 */
+.price view{
+    display: inline-block;
+    
+}
+.price view:nth-child(1) text:nth-child(1){
+    font-size: 32rpx;
+    color: #333333;
+    /* font-weight: bold; */
+    margin-right: 10rpx;
+}
+.price view:nth-child(1) text:nth-child(2){
+    font-size: 24rpx;
+    color: #333333;
+    font-weight: normal;
+}
+.price view:nth-child(2) text:nth-child(1){
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 20rpx;
+    text-decoration: line-through;
+}
+.price view:nth-child(2) text:nth-child(2){
+    font-size: 24rpx;
+    color: #999999;
+    text-decoration: line-through;
+}
+.price1 text{
+    font-size: 32rpx;
+    font-weight: bold;
+}
+/* 预约人数样式 */
+.reversation{
+    position: absolute;
+    width: 140rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    /* background-color: pink; */
+    text-align: center;
+    font-size: 24rpx;
+    color: #333333;
+    bottom: 92rpx;
+    right: 4rpx;
+}
+/* 按钮 */
+/* 立即预约 */
+.item .btn{
+    position: absolute;
+    right: 5rpx;
+    bottom:45rpx;
+    width: 140rpx;
+    height: 50rpx;
+    z-index:2;
+    line-height: 50rpx;
+    color: #ffffff;
+    font-size: 24rpx;
+    border-radius: 25rpx;
+    background-color: #e64d01;
+}
+/* 已出售 */
+.item .btn1{
+    background-color:rgba(112,112,112,.8);
+}
+.item .btn2{
+    background-color: #e5c478;
+}
+.item .btn3{
+    position: absolute;
+    right: 5rpx;
+    bottom:46rpx;
+    width: 140rpx;
+    height: 50rpx;
+    z-index:2;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    border-radius: 25rpx;
+    background-color: #ffffff;
+    color: #e5c478;
+    border:1px solid #e5c478;
+}
+button{
+    padding: 0;
+}
+/* 遮罩 */
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 240rpx;
+    z-index: 20;
+    padding-bottom: 40rpx;
+    background-color:rgba(107,107,107,.8);
+}
+.mask image{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 109rpx;
+    height: 101rpx;
+}
+/* 规则 */
+.regBox{
+    width: 620rpx;
+    height: 720rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
+}
+.regBox .regTop{
+    width: 620rpx;
+    height: 640rpx;
+    background-color: #fdf9f0;
+}
+.regTop view.title{
+    text-align: center;
+    padding-top: 40rpx;
+    
+}
+.regTop view.title>text{
+    display: inline-block;
+    font-size:36rpx;
+    color: #333333;  
+}
+/* 规则详情 */
+.regTop .info{
+    width: 100%;
+    /* background-color: #afa; */
+    margin-top: 30rpx;
+}
+.regTop .info >text:nth-child(1){
+    display: inline-block;
+    margin-left: 30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    /* background-color: #aaf; */
+    font-size: 30rpx;
+    color: #333333;
+    font-weight: bold;
+    margin-top:-10rpx;
+}
+.info .regDetail{
+    box-sizing: border-box;
+    padding-left: 45rpx;
+    width: 100%;
+    /* background-color: pink; */
+    margin-top:30rpx;
+    font-size: 24rpx;
+    color:#333333;
+}
+.regDetail view.deitem{
+    display: flex;
+    align-items: center;
+    /* background-color: #ffa; */
+    height: 40rpx;
+    margin-bottom: 30rpx;
+}
+.regDetail view.deitem >text:nth-child(1){
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+    line-height: 24rpx;
+    color:#ffffff;
+    text-align: center;
+    font-size: 18rpx;
+    margin-left: 2rpx;
+    border-radius: 12rpx;
+    background-color: #E5C478;
+    margin-right: 20rpx;
+}
+.regDetail view.deitem >text:nth-child(2){
+    font-size: 24rpx;
+    color:#999999;
+    margin-right: 10rpx;
+}
+.regDetail view.deitem >text:nth-child(3){
+    font-size: 24rpx;
+    color:#333333;
+}
+view.speitem >text:nth-child(1){
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+    line-height: 24rpx;
+    color:#ffffff;
+    text-align: center;
+    font-size: 18rpx;
+    margin-left: 2rpx;
+    border-radius: 12rpx;
+    background-color: #E5C478;
+    margin-right: 20rpx;
+}
+view.speitem >text:nth-child(2){
+    font-size: 24rpx;
+    color:#999999;
+    margin-right: 10rpx;
+}
+view.speitem .content{
+    display: block;
+    width: 100%;
+    margin-top: 20rpx;
+}
+view.speitem .content >text{
+    display: block;
+    margin-left:46rpx; 
+}
+view.speitem .content >text:nth-child(2){
+    margin-top: 20rpx;
+}
+.info .end{
+    margin-top: 28rpx;
+    text-align: center;
+    color: #f31f1e;
+}
+.regBom{
+    background-color: #fdd16a;
+    color: #ffffff;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+.van-popup{
+    background: none !important;
+}

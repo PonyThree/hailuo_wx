@@ -1,0 +1,24 @@
+<!--pages/project/msg/msg.wxml-->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+
+<i-swipeout i-class="i-swipeout-demo-item" actions="{{actions}}" wx:for='{{list}}' bind:change='del' id='{{item.id}}' wx:key='index'>
+  <view slot="content">
+    <view class="li"  bindtap="jump" data-msg="{{item.msgBody}}" data-projectName='{{item.projectName}}' data-id="{{item.id}}" data-projectId='{{item.projectId}}' >
+    <view class="redd" wx:if='{{item.dataState==0}}'></view>
+      <image src="{{item.headImage}}"></image>
+      <view class="right">
+        <text>{{item.projectName}}</text>
+        <text>{{dateUtil.dateFormat(item.createTime)}}</text>
+        <view>{{item.msgBody}}</view>
+      </view>
+    </view>
+  </view>
+</i-swipeout>
+<view class="pages">
+  <!-- <!-- 无消息时状态 -->
+  <view class="main" wx:if='{{list.length==0}}'>
+    <image src="/image/kongbai.png"></image>
+    <view>暂无通告</view>
+    <text>平台将为你推送通知状态</text>
+  </view>
+</view>

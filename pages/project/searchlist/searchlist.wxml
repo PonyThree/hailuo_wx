@@ -1,0 +1,69 @@
+<wxs src="../../../utils/indexof.wxs" module="indexof" />
+<view class='page'>
+  <view class="topTime" wx:if='{{!ProjectInfo.openStatus}}'>
+    开盘时间: {{ProjectInfo.startTime}}
+  </view>
+  <!-- 搜索 -->
+  <!-- 项目介绍 -->
+  <view class='information'>
+    <image class="img1" src='{{ProjectInfo.headImage}}'></image>
+    <view>
+      <view>
+        <text class='f36' style=" font-weight: 600">{{ProjectInfo.name}}</text>
+        <image class="img2"></image>
+      </view>
+      <view class='f24 c777 '>
+        <image class="img3" src="/image/wzfb.png"></image>{{ProjectInfo.address}}</view>
+      <view class='f24' style="color:#cccccc">均价
+        <text style='font-size:36rpx;color:#FB3B0F'>{{ProjectInfo.avgPrice}}</text>
+        <text style='color:#FB3B0F'>元/个</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <!-- 车位介绍区域 -->
+    <view class='spec'>
+      <text>总业主数    <text style="color:#333333;margin-right:15rpx">{{carlist.ownerNobuy}}</text>▕</text>
+      <text>可选车位   <text style="color:#333333;margin-right:15rpx">{{carlist.sellingNum}}</text></text>
+      <!-- <text>均价   <text style="color:#333333">{{carlist.avgPrice}}元</text></text> -->
+    </view>
+  </view>
+  <!-- 车位列表1 -->
+  <view class="carlist1" wx:for='{{carlist.truckSpaces}}' wx:key='index'>
+    <view class='cartop1'>
+      <view>{{item.level1Name}}{{item.level2Name}}{{item.level3Name}}
+        <image class="img1" src="/image/fbt2x.png" bindtap='previewImage' data-url='{{item.truckSpaceImages}}'></image>
+      </view>
+
+      <view>
+        <text style="margin-right:30rpx">剩余车位 <text style="color:black">{{item.sellingNum}}</text></text>
+        <text>均价 <text style="color:black">{{item.avgPrice}}元</text></text>
+      </view>
+    </view>
+    <view class="car1" wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
+      <image class='carimg' src='{{item.detailImage[0]}}'></image>
+      <view class="car1right">
+        <view>
+          <text>{{item.name}}   <text style="color:#737373;font-size:30rpx">●</text> {{item.outsideArea}}平米</text>
+        </view>
+        <view>
+          <text>{{item.collectNum}}人收藏 <text decode> ▕ &nbsp;&nbsp;{{item.downPlaceNum}}人落位</text></text>
+        </view>
+        <scroll-view class='tagview' scroll-x>
+          <text class="tag" wx:for="{{item.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
+        </scroll-view>
+        <view>
+          <text style="color:#FB3B0F" decode>{{item.sellPrice}}元&nbsp;&nbsp; </text>
+          <text style="text-decoration:line-through;">{{item.facePrice}}元</text>
+        </view>
+        <view>
+        </view>
+      </view>
+      <view class="ycc" wx:if='{{index==1}}'></view>
+      <view class="line"></view>
+
+    </view>
+
+  </view>
+</view>
+<i-load-more wx:if='{{showloding}}' />

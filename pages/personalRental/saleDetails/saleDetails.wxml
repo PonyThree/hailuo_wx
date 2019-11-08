@@ -1,0 +1,46 @@
+<!--pages/personalRental/saleDetails/saleDetails.wxml-->
+<view class="rentalDels">
+    <view>
+        <image src="{{info.images[0]}}" style="width:750rpx;height:320rpx;"></image>
+    </view>
+    <view class="rentRelease">
+        <text>{{info.title}}</text>
+        <view class="carInfo">
+            <view class="right">
+                <text>车位编号</text>
+                <text>{{info.code}}</text>
+            </view>
+            <view class="right">
+                <text>所在位置</text>
+                <text>{{info.location}}</text>
+            </view>
+            <view class="right">
+                <text>车位大小</text>
+                <text>{{info.outsideArea}}</text>
+            </view>
+            <view class="right">
+                <text>出租价格</text>  {{info.sellPrice}}
+                <text style="color:#777777;font-size:24rpx;margin-left:10rpx;">元/月 (注: 包含物管转让费)</text>
+            </view>
+            <!-- 车位标签 -->
+            <view class='right'>
+                <text>车位标签</text>
+                <scroll-view scroll-x class="tagList1">
+                        <text wx:for="{{info.truckSpaceTagArray}}" wx:key="{{index}}">{{item}}</text>
+                </scroll-view>
+            </view>
+            <view class='right'>
+                <text>车位描述</text>
+                <text>{{info.description||''}}。</text>
+            </view>
+        </view>
+        <view class="relationPer">
+            <image src='/image/F_03.png' style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+            <text>刘老师</text>
+            <text class="phone" catchtap='call' data-phone="{{info.releaserMobile}}">电话咨询</text>
+        </view>
+        <view class="saveInfo">
+            请您确认业主的产权证,身份证等信息后再签订协议。您汇款或者不见面交易,可能涉嫌欺诈。
+        </view>
+    </view>
+</view>

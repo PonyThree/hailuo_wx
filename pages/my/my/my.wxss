@@ -1,0 +1,141 @@
+/* pages/my/my/my.wxss */
+.pages{
+  background: #f2f2f2;
+}
+/* 信息 */
+.top{
+  width: 100%;
+  height: 360rpx;
+  background: #ffffff;
+  border-top: 1rpx solid #f2f2f2;
+}
+/* 个人信息 */
+.title{
+  width: 94%;
+  float: left;
+  margin: 50rpx 24rpx 0 24rpx;
+}
+.title image{
+  width: 110rpx;
+  height: 110rpx;
+  float: left;
+  border-radius: 50%;
+}
+.title .info{
+  width: 500rpx;
+  height: 100%;
+  float: left;
+  margin-left: 28rpx;
+}
+.title .info .name{
+  color: #333333;
+  font-size: 27rpx;
+  letter-spacing: 1rpx;
+  margin-top: 31rpx;
+}
+.title .info .tel{
+  color: #333333;
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+  margin-top: 18rpx;
+}
+.title image:last-child{
+  width: 17rpx;
+  height: 21rpx;
+  float: right;
+  margin-top: 83rpx;
+}
+/* 账户信息 */
+.deatil{
+  width: 100%;
+  height: 115rpx;
+  display: flex;
+  float: left;
+  margin-top: 46rpx;
+}
+.deatil .code{
+  flex: 3
+
+}
+.deatil .money{
+  flex: 3
+}
+.deatil .sign{
+  flex: 3
+}
+.deatil image{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  display: block;
+}
+.deatil text{
+  display: block;
+  font-size: 22rpx;
+  color: #333333;
+  margin-top: 28rpx;
+  text-align: center;
+  letter-spacing: 1rpx;
+}
+/* 各个页面展示信息 */
+.content{
+  width: 100%;
+  background: #ffffff;
+  margin-top: 20rpx;
+}
+.content .li{
+  width: 93%;
+  height: 92rpx;
+  margin-left: 40rpx;
+}
+.li image{
+  margin-top: 28rpx;
+  float: left;
+}
+.li .main{
+  width:90%;
+  height: 100%;
+  border-bottom: 1rpx solid #dddddd ;
+  box-sizing: border-box;
+  float: left;
+  margin-left: 20rpx; 
+}
+.main .text{
+  color: #333333;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  line-height: 92rpx;
+  float: left;
+}
+.main image{
+  width: 17rpx;
+  height: 21rpx;
+  float: right;
+}
+/* 客服热线 */
+.customer{
+  display: inline-block;
+  margin:62rpx 289rpx 60rpx 290rpx;
+}
+.customer image{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+.customer view{
+  float: left;
+  font-size:22rpx;
+  color:  #989898;
+  letter-spacing: 2rpx;
+  margin-left:22rpx;
+  height: 40rpx;
+  line-height: 42rpx;
+  margin-top: 0;
+}
+.showUrl{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}

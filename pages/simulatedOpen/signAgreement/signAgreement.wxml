@@ -1,0 +1,30 @@
+<!--pages/opening/signAgreement/signAgreement.wxml-->
+<!-- <text>pages/opening/signAgreement/signAgreement.wxml</text> -->
+<view class='page'> 
+    <view class='agreeTxt'>
+        <!-- 签购协议文本 -->
+        <!-- 签购协议文本 -->
+        <view class='text'>
+            {{agreeMent}}
+        </view>
+        <!-- <view class='text'>
+            蓝湖郡放省大哭经费扣就是抵抗力是否健康了的设计实电视机反抗了看到了赴京可接受的会计法肯定九分裤加实短裤短裤司法局看电视剧疯狂进食的咖啡机点几十块否健康实留点时间反抗了的设计费家的看法就考虑到设计费进口实的设计费跨境电商。
+        </view> -->
+    </view>
+    <view class='bom'>
+        <!-- 底部按钮 -->
+        <view class='botBtns'>
+            <!-- 同意按钮与文本-->
+            <view>
+                <view class='circleBtn' bindtap='handleDot'>
+                    <view wx:if='{{showDot}}'></view>
+                </view>  
+                <text>已阅读并同意</text>
+            </view>
+        </view>
+        <!-- 同意按钮 -->
+           <view class='agreeBtn' style="{{showDot?'':'background: #cccccc'}}" bindtap='gosellectionHall'>
+      <text style="{{showDot?'':'color: #333333'}}">同意</text>
+    </view>
+    </view>
+</view>

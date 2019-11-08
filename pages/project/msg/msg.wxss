@@ -1,0 +1,92 @@
+/* pages/project/msg/msg.wxss */
+page{
+  background: white;
+  width: 726rpx;
+  padding-left: 24rpx
+}
+.li{
+  width: 710rpx;
+  height: 201rpx;
+  border-bottom: 1rpx solid #ebebeb;
+  overflow: hidden 
+}
+.li image{
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+  margin: 20rpx 28rpx 0 0;
+  border-radius: 10rpx
+}
+.li .redd{
+  width: 20rpx;
+  height: 20rpx;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 20rpx
+}
+.li .right{
+  float: left;
+  width:520rpx;
+  height: 155rpx;
+  overflow: hidden;
+
+  margin-top: 30rpx;
+}
+.li .right text:first-child{
+  color: #222222;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+  float: left;
+}
+.li .right text:nth-child(2){
+  color: #777777;
+  font-size: 24rpx;
+  float: right;
+}
+.li .right view{
+  width: 100%;
+  float: left;
+  height: 100rpx;
+  color: #777777;
+  font-size: 24rpx;
+  margin-top: 30rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+ 
+ white-space:pre-line;
+
+
+}
+/* 无消息时状态 */
+.main{
+  width: 100%;
+  margin-top: 165rpx;
+}
+.main image{
+  width: 320rpx;
+  height: 200rpx;
+  margin: 0 213rpx 48rpx 213rpx;
+  display: block;
+}
+.main view{
+  width: 100%;
+  color: #333333;
+  font-size: 27rpx;
+  text-align: center;
+  letter-spacing: 1rpx;
+}
+.main text{
+  display: block;
+  width: 100%;
+  color: #999999;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  letter-spacing: 1rpx;
+}
+.i-swipeout-demo-item{
+height: 210rpx;
+background: none !important
+}

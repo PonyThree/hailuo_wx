@@ -1,0 +1,18 @@
+ <view class="countDown" bindtap="setstatus" >
+    <image src="/image/time.png"></image>
+    <view class='time' wx:if='{{status==1}}' >
+        开盘倒计时:<text>{{djs}}</text>
+    </view>
+  </view>
+  <view class="countDown" wx:if='{{status==2}}'>
+    <image src="/image/time.png"></image>
+    <view>
+      热销中...
+    </view>
+  </view>
+   <view class="countDown" wx:if='{{status==3}}'>
+    <image src="/image/time.png"></image>
+    <view>
+      开盘结束
+    </view>
+  </view>

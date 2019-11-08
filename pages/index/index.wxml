@@ -1,0 +1,73 @@
+<wxs module="dateUtil" src="../../filter/dateFr.wxs"></wxs>
+<!-- <button open-type='openSetting'>设置定位</button> -->
+
+<!-- <button open-type="openSetting">打开授权</button> -->
+<view class='.page'>
+    <view class="topFix">
+     
+    </view>
+    <!-- banner -->
+    <view class='projectBanner'>
+        <swiper autoplay circular indicator-dots="{{bannerlist.length>1?'1':0}}">
+            <swiper-item wx:for='{{bannerlist}}' wx:key='index' catchtap="jump" data-href="{{item.href}}" data-type="{{item.type}}">
+                <image src='{{item.imgUrl}}'>
+                </image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 公告 -->
+    <view class='hot' wx:if='{{Messages.length>0}}'>
+        <image src='/image/laba.png' style="width:68rpx;height:60rpx;"></image>
+        <swiper autoplay circular indicator-dots="{{false}}" vertical>
+            <swiper-item wx:for='{{Messages}}' wx:key='index'>
+                <view class="gonggaoTxt">{{item}}</view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 哪里车位适合你 -->
+    <!-- <view wx:if='{{!firstEntry}}' class='recommend' bindtap="goCollection" data-first="1"></view> -->
+    <!-- 合作小区 -->
+    <view class='cooperation' wx:if='{{miniFrontShowProjects.length>0}}'>
+        <text class='f30'>优质小区</text>
+        <!-- wx:if='{{miniFrontShowProjects.length>8}}' -->
+        <text class='f28 f153' catchtap="goAllflats" wx:if='{{miniFrontShowProjects.length>8}}'>更多 ></text>
+    </view>
+    <scroll-view wx:if='{{miniFrontShowProjects.length>0}}' class='cooperation_project' scroll-x>
+        <view wx:for='{{miniFrontShowProjects}}' wx:key='index' data-id='{{item.id}}' data-localStatus='{{item.locall}}' catchtap="project" class="listItem">
+            <image src="{{item.joinHandsImage}}"></image>
+            <text class="projectName">{{item.name}}</text>
+            <text class="address">{{item.cityName}}{{item.countyName}}</text>
+        </view>
+    </scroll-view>
+    <!-- 热门主题 -->
+    <view class="cooperation">
+        <text class='f30' style="margin-top:5rpx;">热门主题</text>
+    </view>
+    <view class='soft' wx:if='{{findlists}}'>
+        <view class='img1 imgTxt' bindtap='web' data-url='{{findlists[0].href}}' style='background-image: url({{findlists[0].image}})'>
+            <text>{{findlists[0].linkName}}</text>
+        </view>
+        <view class='img2 imgTxt' bindtap='web' data-url='{{findlists[1].href}}' style='background-image: url({{findlists[1].image}})'>
+            <text>{{findlists[1].linkName}}</text>
+        </view>
+        <view class='img3 imgTxt' bindtap='web' data-url='{{findlists[2].href}}' style='background-image: url({{findlists[2].image}})'>
+            <text>{{findlists[2].linkName}}</text>
+        </view>
+    </view>
+    <view class="projectList">
+        <!-- 项目列表 -->
+        <!-- <view class='cooperation cooperation1'> -->
+        <!-- wx:if='{{positionList.length>4}}' -->
+        <text class='pf30'>小区列表</text>
+        <text class='f28 f153' catchtap="goAllflats" wx:if='{{positionList.length>4}}' wx:if="{{!judgeLocation}}">查看更多 ></text>
+        <!-- </view> -->
+    </view>
+
+    <!-- 引入项目列表插件 -->
+    <projectlist positionList="{{positionList}}" bind:scancode="scancode" wx:if="{{!judgeLocation}}"></projectlist>
+    <button open-type="openSetting" class="getLocation" wx:if="{{judgeLocation}}">
+        <image src="/image/dz.png"></image>
+        <text>请打开定位,获取附近小区信息~</text>
+    </button>
+    <view style="height:20rpx;"></view>
+</view>

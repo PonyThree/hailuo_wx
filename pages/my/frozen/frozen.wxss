@@ -1,0 +1,46 @@
+/* pages/my/frozen/frozen.wxss */
+.list{
+  width: 100%;
+  background: #ffffff;
+  border-top:2rpx solid #f2f2f2;
+}
+.list .li{
+  width: 94%;
+  height: 90rpx;
+  border-bottom: 1rpx  solid #dddddd;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.list .li:last-child{
+  border: none;
+}
+.list .li text{
+  display: inline-block;
+  color: #333333;
+  font-size: 28rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  letter-spacing: 2rpx;
+  float: left;
+}
+.list .li view{
+  display: inline-block;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #777777;
+  font-size: 28rpx;
+  float: right;
+  margin-right: 14rpx;
+  letter-spacing: 1rpx;
+}
+.list .li view span{
+  color: #a92112;
+  margin-left: 20rpx;
+  letter-spacing: 0;
+}
+.list .li image{
+  width: 17rpx;
+  height:21rpx;
+  float: right;
+  margin-top: 35rpx;
+}

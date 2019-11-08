@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-popup": "/zan/lib/popup/index",
+      "van-cell": "/zan/lib/cell/index",
+      "van-cell-group": "/zan/lib/cell-group/index"
+  }
+}

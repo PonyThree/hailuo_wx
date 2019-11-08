@@ -1,0 +1,10 @@
+<!--pages/my/userAgreement/userAgreement.wxml-->
+<!-- <text>pages/my/userAgreement/userAgreement.wxml</text> -->
+<view class="userAgreement">
+    <text>
+        {{agreement}}
+    </text>
+</view>
+
+
+

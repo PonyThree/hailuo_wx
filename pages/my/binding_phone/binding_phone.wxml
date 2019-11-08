@@ -1,0 +1,24 @@
+<!--pages/my/binding_phone/binding_phone.wxml-->
+<view class="pages">
+  <view class="title">
+    <image src="/image/touxiang.png"></image>
+    <view class="info">
+      <view class="name">张毅大傻逼</view>
+      <view class="tel">手机号: 13848483828</view>
+    </view>
+  </view>
+  <!-- 输入框 -->
+  <view class="main">
+    <view class="phone">
+      <text>手机号</text>
+      <!-- <text>新手机号</text> -->
+      <input placeholder='请输入手机号' placeholder-style="color:#cccccc;"></input>
+    </view>
+    <view class="phone">
+      <text>验证码</text>
+      <input placeholder='请输入验证码' placeholder-style="color:#cccccc;"></input>
+      <button>获取验证码</button>
+    </view>
+  </view>
+  <button class="btn">确认</button>
+</view>

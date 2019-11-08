@@ -1,0 +1,44 @@
+page{
+    background-color: #ffffff;
+}
+.myPop{
+    position: relative;
+    width:540rpx;
+    height:480rpx;
+}
+.myPop image{
+    position: absolute;
+    top:0;
+    left:0;
+    width:540rpx;
+    height:480rpx;
+}
+.myPop view.desc{
+    width:100%;
+    bottom:0;
+    position: absolute;
+    z-index:1000;
+    text-align: center;
+}
+.myPop view.desc view:nth-child(1){
+    white-space: wrap;
+    width:50%;
+    /* background-color: pink; */
+    font-size:36rpx;
+    color:rgb(51,51,51);
+    margin-top:30rpx;
+    margin:0 auto;
+    height:auto;
+}
+/* .myPop  view.desc view:nth-child(2){
+    margin-top:30rpx;
+    font-size:28rpx;
+    color:#e4b74f;
+} */
+.myPop view.desc  view:nth-child(2){
+    height:80rpx;
+    font-size:30rpx;
+    color:#ffffff;
+    margin-top:40rpx;
+    line-height: 80rpx;
+}

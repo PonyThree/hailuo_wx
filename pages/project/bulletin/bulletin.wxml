@@ -1,0 +1,21 @@
+<!--pages/project/bulletin/bulletin.wxml-->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class="container">
+    <view class="list">
+        <view class="item" wx:for="{{projectBulletin}}" wx:key="{{item.id}}">
+            <!-- 圆 -->
+            <view class="circle">
+            </view>
+            <!-- 右边内容 -->
+            <view class="content">
+                <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+                <image src="{{item.imageUrl}}" catchtap='goView' data-url="{{[item.imageUrl]}}"></image>
+                <view>
+                    <text>{{item.content}}</text>
+                </view>
+            </view>
+           
+        </view>
+    
+    </view>
+</view>

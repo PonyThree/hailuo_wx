@@ -1,0 +1,172 @@
+/* pages/my/recharge/recharge.wxss */
+.content{
+  width: 100%;
+  height: 280rpx;
+  border-top:1rpx solid #f2f2f2;
+  background: #ffffff;
+}
+.content .main{
+  width: 89%;
+  margin: 0 auto;
+}
+.content .main .top{
+  width: 100%;
+  height: 92rpx;
+  border-bottom: 1rpx solid #dddddd;
+}
+.content .main .top image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 16rpx;
+  float: left;
+}
+.content .main .top text{
+  display: inline-block;
+  color: #333333;
+  font-size: 26rpx;
+  float: left;
+  margin: 30rpx 0 0 30rpx;
+}
+.content .main .bottom{
+  width: 100%;
+  height: 182rpx;
+}
+.content .main .bottom text{
+  float: left;
+  display: block;
+  width: 100%;
+  color: #333333;
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+  margin-top: 38rpx;
+}
+.content .main .bottom view{
+  font-size: 41rpx;
+  line-height: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top:35rpx;
+  margin-left: -7rpx;
+}
+.content .main .bottom input{
+  float: left;
+  display: inline-block;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  font-size: 40rpx;
+}
+button{
+  width: 600rpx;
+  height: 80rpx;
+  background: none;
+  margin:200rpx auto;
+  border-radius: 40rpx;
+  border: 1rpx solid #ab9f67;
+  color: #ab9f67;
+  line-height: 80rpx;
+  font-size:  30rpx;
+  letter-spacing: 1rpx;
+}
+
+
+/* 支付密码css start */
+.bg_layer{
+  position: fixed; 
+  left: 0; 
+  top: 0; 
+  bottom: 0; 
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6); 
+  z-index: 9998;
+}
+.input_main{
+    position: fixed; 
+    left: 76rpx; 
+    bottom: 500rpx; 
+    width: 80%; 
+    height: 394rpx;
+    background-color: #fff; 
+    z-index: 9999;
+}
+.input_title{
+    width: 100%; 
+    height: 90rpx; 
+    line-height: 90rpx; 
+    text-align: center; 
+    font-size: 32rpx; 
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.input_back{
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    width: 80rpx; 
+    height: 90rpx; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.input_back text{
+  width: 20rpx;
+  height: 20rpx;
+  background-color: white;
+  border: 1rpx solid #aaa;
+  border-width: 5rpx 0 0 5rpx;
+  transform: rotate(-45deg);
+}
+
+.input_tip{  
+  margin: 30rpx; 
+  font-size: 50rpx; 
+  text-align: center;
+  color: #888; }
+
+/* 密码掩码模拟 */
+.input_row{
+  width: 506rpx; 
+  margin: 45rpx auto; 
+  height: 77rpx; 
+  position: relative;
+  display: flex; 
+  align-items: center; 
+  border: 1rpx solid #e2e2e2; 
+  border-radius: 10rpx;
+}
+.input_row .pwd_item{
+  flex: 1; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100%; 
+  border-right: 1rpx solid #e2e2e2; 
+  position: relative;
+}
+.pwd_item:nth-last-of-type(1) { 
+  border-right: 0; 
+} 
+.pwd_item text { 
+  width: 30rpx; 
+  height: 30rpx; 
+  border-radius: 30rpx; 
+  background-color: #555;
+}
+
+
+.forget_pwd{ 
+  float: right; 
+  margin: 30rpx; 
+  width: 100rpx; 
+  text-align: right; 
+  font-size: 24rpx; 
+  color: #ff7800;
+}
+
+/* 文本输入框位置: 设置到左边隐藏 */
+.input_control { 
+  position: relative; 
+  left: -300rpx; 
+  bottom: 0;
+  width: 100rpx; 
+  height: 100rpx;
+}

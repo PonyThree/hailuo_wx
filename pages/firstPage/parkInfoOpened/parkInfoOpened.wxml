@@ -1,0 +1,215 @@
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class='page'>
+  <!-- banner图 -->
+  <view class='banner'>
+    <swiper autoplay circular indicator-dots="{{data.truckSpaceDetailImages.length>1?'1':0}}">
+      <swiper-item wx:for='{{data.truckSpaceDetailImages}}' wx:key='index'>
+        <image src='{{item}}'>
+        </image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 黑色阴影 -->
+  <view class='blackInfo' wx:if='{{data.controlRespDto.local}}'>
+    <image src='/image/ellipse.png'></image>
+    <text>限本小区业主购买</text>
+  </view>
+  <!-- 落位情况 -->
+  <view class="fallingInfo">
+    <image src="/image/carList.png" style="width:750rpx;height:120rpx;"></image>
+    <view class="carInfo">
+      <view class='price' wx:if='{{data.sellStatus!=2 && data.sellStatus!=3 }}'>
+        <text wx:if='{{data.actityInfo.actStatus==1}}'>{{data.sellPrice+data.actityInfo.reducePrice}}元</text>
+        <text wx:else>{{data.sellPrice}}元</text>
+        <text>{{data.facePrice}}元</text>
+      </view>
+    </view>
+    <view class="pInfo">
+      <view class='p luowei' wx:if='{{data.sellStatus==0 && data.ableDown}}'>
+        <text>{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}人</text>
+        <text>已落位</text>
+      </view>
+      <view class='p luowei' wx:if='{{data.sellStatus==1 && data.ableDown}}'>
+        <text>{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}人</text>
+        <text>已落位</text>
+      </view>
+      <view class='p sell' wx:if='{{data.sellStatus==2}}'>
+        <text>已售出</text>
+      </view>
+      <view class='p sell' wx:if='{{data.sellStatus==3}}'>
+        <text>已售出</text>
+      </view>
+      <view class='p sell' wx:if='{{data.sellStatus==5}}'>
+        <text>暂停销售</text>
+      </view>
+      <!-- 不能落位倒计时 -->
+      <view class='time time1' wx:if='{{ data.ableDown==false && data.sellStatus==4}}'>
+        <text class='text1'>距开盘 {{djs[0]}}天 {{djs[1]}}:{{djs[2]}}:{{djs[3]}}</text>
+        <!-- <text></text> -->
+      </view>
+      <!-- 已落位倒计时 -->
+      <view class='time time2' wx:if='{{data.ableDown==true && data.sellStatus==4 }}'>
+        <text class="text2">{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}人</text>
+        <text class="text2">已落位</text>
+        <view class='text1'>距开盘 {{djs[0]}}天 {{djs[1]}}:{{djs[2]}}:{{djs[3]}}</view>
+        <!-- <text></text> -->
+      </view>
+    </view>
+  </view>
+  <!-- 活动提示 -->
+  <view class="activityTop" wx:if='{{data.actityInfo.actStatus==2}}'>
+    <image src="/image/ms@2x.png"></image>
+    <text>时间: {{dateUtil.dateFormat4(data.actityInfo.staTime)}}</text>
+    <text style="margin-left:30rpx">秒杀价: ￥</text>
+    <text style="font-size:36rpx;font-weight: 600">{{data.actityInfo.seckillPrice}}</text>
+  </view>
+  <view style=" width: 750rpx;background: white">
+    <view class="carname">
+      <text style="font-size:48rpx;color:black">{{data.name}}</text>
+      <text style="margin-left:20rpx">{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</text>
+    </view>
+  </view>
+  <!-- 分期价格、车位特点、车位热度等信息 -->
+  <view class="threeInfo">
+    <!-- 车位热度 -->
+    <view class='desc parkHot border'>
+      <view class='descTxt hotDesc'>
+        <text>{{data.seeNum}}人浏览</text>
+        <text class="dot">·</text>
+        <text>{{data.consultNum}}人咨询</text>
+        <text class="dot">·</text>
+        <text>{{data.collectNum}}人收藏</text>
+      </view>
+    </view>
+    <!-- 分期价格 -->
+    <view class='desc staging' wx:if='{{data.configDto.whetherShow}}'>
+      <view class='descTxt'>
+        <text>当分期价格为{{data.configDto.payPrice}}元时,最低首付{{data.configDto.lowNum}}元,最长分期{{data.configDto.longTime}},最低还款{{data.configDto.lowPayNub}}元</text>
+      </view>
+    </view>
+  </view>
+  <!-- 步骤条 -->
+  <step wx:if='{{data.controlRespDto.locationStatus || data.controlRespDto.onlineBuyStatus}}' data='{{data}}' show='{{false}}' id='filter-cmp' actityInfo='true'></step>
+  <!-- 所在位置 所属社区等信息 -->
+  <view class='detailInfo'>
+    <view class='detailList'>
+      <view class='dalList'>
+        <text>所在位置</text>
+        <text>{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</text>
+      </view>
+      <view class='dalList'>
+        <text>所属小区</text>
+        <text>{{data.projectInfo.name}}</text>
+      </view>
+      <view class='dalList'>
+        <text>建筑面积</text>
+        <text>{{data.outsideArea}}㎡</text>
+      </view>
+      <view class='dalList' wx:if='{{data.configDto.coverArea}}'>
+        <text>套内面积</text>
+        <text>{{data.insideArea}}㎡</text>
+      </view>
+      <view class='dalList' wx:if='{{data.configDto.openTimeShow}}'>
+        <text>开盘时间</text>
+        <text> {{dateUtil.dateFormat2(data.openStartTime)}}</text>
+      </view>
+      <view class='dalList' wx:if='{{data.configDto.openStatusShow}}'>
+        <text>开盘状态</text>
+        <text wx:if='{{data.openStatus==-1}}'></text>
+        <text wx:if='{{data.openStatus==0}}'>未开盘</text>
+        <text wx:if='{{data.openStatus==1}}'>已开盘</text>
+        <text wx:if='{{data.openStatus==2}}'>开盘结束</text>
+        <text wx:if='{{data.openStatus==3}}'>暂停销售</text>
+      </view>
+      <view class='dalList' wx:for='{{data.expansionValues}}' wx:key='index'>
+        <text>{{item.fieldName}}</text>
+        <text> {{item.value}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 车位特点 -->
+  <view class='parkingF' wx:if='{{data.tagRespDtos.length>0}}'>
+    <view class='desc parkFeature'>
+      <scroll-view class="feature" scroll-x>
+        <view>
+          <text wx:for='{{data.tagRespDtos}}' wx:key='index'>{{item.name}}</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 车位分布图 -->
+  <view class='parkingMap' wx:if='{{data.truckSpaceImages.length>0}}'>
+    <view class='title'>车位分布图</view>
+    <view class='mapPic'>
+      <swiper autoplay circular indicator-dots="{{bannerlist.length>1?'1':0}}">
+        <swiper-item wx:for='{{data.truckSpaceImages}}' wx:key='index'>
+          <image src='{{item}}' bindtap='previewImage1' data-url="{{item}}" data-list="{{data.truckSpaceImages}}">
+          </image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <view class='box'>
+  </view>
+  <!-- 底部tab导航栏 -->
+  <view class='bomTab' wx:if='{{lookup && isInit==1}}'>
+    <view class='telPhone' catchtap='call'>
+      <image src='/image/dianhua.png'></image>
+      <text>置业顾问</text>
+    </view>
+    <view class='fallBuy1'>
+      <view>
+        <text class="ckdd" catchtap='goorder'>查看订单</text>
+      </view>
+    </view>
+  </view>
+  <view class='bomTab' wx:if='{{!lookup && isInit==1}}'>
+    <view class='telPhone' catchtap='call'>
+      <image src='/image/dianhua.png'></image>
+      <text>置业顾问</text>
+    </view>
+    <button class='telPhone' open-type="share">
+      <image src='/image/fenxiang.png'></image>
+      <text>分享</text>
+    </button>
+    <view class="shoucangPic" bindtap='Collection'>
+      <image wx:if='{{!data.collect}}' src='/image/shoucang2x.png'></image>
+      <image wx:else src='/image/wujiaoxing_03.png'></image>
+      <text>收藏</text>
+    </view>
+    <view class='fallBuy' wx:if='{{data.ableDown && data.ableSub }}'>
+      <view>
+        <text catchtap='godrop'>落位</text>
+        <text wx:if='{{data.actityInfo.actStatus==2||data.actityInfo.actStatus==1}}' bindtap="showPrice">计算价格</text>
+        <text catchtap='gosubscription' wx:else>{{data.controlRespDto.buyName}}</text>
+      </view>
+    </view>
+    <view class='fallBuy1' wx:if='{{data.ableDown && !data.ableSub}}'>  
+      <view>
+        <text catchtap='godrop'>落位</text>
+      </view>
+    </view>
+    <view class='fallBuy1 downLocation' wx:if='{{!data.ableDown && data.ableSub}}'>
+      <view>
+        <text wx:if='{{data.actityInfo.actStatus==2||data.actityInfo.actStatus==1}}' bindtap="showPrice">计算价格</text>
+        <text catchtap='gosubscription' wx:else>{{data.controlRespDto.buyName}}</text>
+      </view>
+    </view>
+    <view class='fallBuy1' wx:if='{{!data.ableDown && !data.ableSub}}'>
+      <view>
+        <text catchtap='goback'>不可落位</text>
+      </view>
+    </view>
+  </view>
+
+  <goindex></goindex>
+
+</view>
+<!-- 活动倒计时 -->
+<view class="activityTime" bindtap="showPrice" wx:if='{{data.actityInfo && data.actityInfo.actStatus!=3 && data.sellStatus!=2 &&data.sellStatus!=3 && data.ableSub}}'>
+  <text style="font-size:30rpx">{{data.actityInfo.seckillPrice}}</text>
+  <text> 秒杀价</text>
+  <view wx:if='{{data.actityInfo.actStatus==2}}'>距开始 {{activetiyDjs[0]}} 天 {{activetiyDjs[1]}}: {{activetiyDjs[2]}}: {{activetiyDjs[3]}}</view>
+  <view wx:if='{{data.actityInfo.actStatus==1}}'>距结束 {{activetiyDjs[0]}} 天 {{activetiyDjs[1]}}: {{activetiyDjs[2]}}: {{activetiyDjs[3]}}</view>
+  <view wx:if='{{data.actityInfo.actStatus==0}}'>点击此处,即刻秒杀</view>
+</view>

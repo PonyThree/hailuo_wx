@@ -1,0 +1,135 @@
+/* pages/opening/projectDetails/projectDetails.wxss */
+/* banner图样式 */
+.banner image{
+    width:100%;
+    height: 350rpx;
+}
+/* 介绍头部标题样式 */
+.topTitle{
+    width:750rpx;
+    height:100rpx;
+    font-size:30rpx;
+    padding-left:24rpx;
+    line-height: 100rpx;
+    font-weight:600;
+    color:rgb(51,51,51);
+    background-color:rgb(255,255,255);
+}
+/* 介绍样式 */
+.info{
+    width:702rpx;
+ 
+    /* border:1px solid #ccc; */
+    margin:20rpx 24rpx 20rpx;
+    border-radius:16rpx;
+    overflow: hidden;
+    background-color: rgb(255,255,255);
+}
+.info view:nth-child(1){
+    font-size:30rpx;
+    
+}
+.desc{
+    display: flex;
+    width:662rpx;
+    text-align:center;
+    justify-content: space-around;
+    margin: 24rpx auto 20rpx;
+    padding-bottom:30rpx;
+    border-bottom:1px solid rgb(221,221,221);
+}
+.desc >view{
+    width:220rpx;
+}
+.desc .mab20{
+    margin-bottom: 20rpx;
+}
+.desc view:nth-child(1){
+    font-size: 30rpx;
+    font-weight: bold;
+    color:rgb(51,51,51);
+}
+.desc view:nth-child(2){
+    font-size: 24rpx;
+    font-weight: bold;
+    color:rgb(153,153,153);
+}
+.desc >view.rightLine{
+    position:relative;
+}
+.desc .line{
+    position:absolute; 
+    width:1px;
+    height:66rpx;
+    bottom:0;
+    background-color: rgb(221,221,221);
+}
+.desc text.line1,.desc text.line2{
+    right:0;
+}
+.spec{
+    margin:0rpx 0 20rpx 30rpx;
+    /* background-color: pink; */
+    padding:8rpx 0;
+}
+.spec view{
+    display: flex;
+    /* border:1px solid #ff0; */
+    align-items: center;
+}
+.spec view text{
+    font-size:28rpx;
+    margin-top:10rpx;
+    color:rgb(51,51,51);
+}
+.spec >view text.circle{
+    display: inline-block;
+    width:6rpx;
+    height:6rpx;
+    border-radius:50%;
+    margin-right:10rpx;
+    background-color: rgb(169,33,18);
+}
+/* 车位分布图样式 */
+.parkingMap{
+    box-sizing: border-box;
+    width:702rpx;
+    margin-top:20rpx;
+    margin-left:24rpx;
+    margin-right:24rpx;
+    border-radius:5rpx;
+    padding:0 20rpx 20rpx;
+    background-color: rgb(254,254,254);
+}
+.parkingMap .title{
+    font-size:28rpx;
+    line-height: 90rpx;
+    color:rgb(119,119,119);
+   
+}
+.parkingMap .mapPic image{
+    width:663rpx;
+    height:581rpx;
+}
+/* 车位描述样式 */
+.parkingMap .mapTxt{
+    font-size: 28rpx;
+    line-height: 56rpx;
+    color:rgb(51,51,51);
+}
+/* 选车位按钮样式 */
+view.agreeBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:600rpx;
+    height:90rpx;
+    margin:50rpx auto;
+    border-radius:45rpx;
+    background-color: rgb(169,33,18);
+}
+view.agreeBtn text{
+    font-size: 28rpx;
+    color:rgb(255, 255, 255);
+    
+}

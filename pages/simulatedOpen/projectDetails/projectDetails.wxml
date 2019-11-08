@@ -1,0 +1,68 @@
+<!--pages/opening/projectDetails/projectDetails.wxml-->
+<!-- <text>pages/opening/projectDetails/projectDetails.wxml</text> -->
+<view class="page">
+    <!-- 首页banner图片 -->
+    <!-- banner图 -->
+    <swiper indicator-dots="{{bannerVos.length>1?true:false}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='banner'> 
+        <block wx:for="{{bannerVos}}" wx:key="index">
+            <swiper-item >
+                <image src="{{item.imgUrl}}" class="slide-image" width="350" height="150" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 介绍 -->
+    <!-- 介绍头部标题 -->
+    <view class="topTitle">
+        <text>车位开盘模拟体验场</text>
+        <text>{{name}}</text>
+    </view>
+    <view class='info'>
+        <view  class='desc'>
+            <view class='rightLine'>
+                <view class='mab20'>{{districtVo.compareA}}位</view>
+                <view>户主没买</view>
+                <text class='line line1'></text>
+            </view>
+            <view class='rightLine'>
+                <view class='mab20'>{{districtVo.surplusTruckSpace}}个</view>
+                <view>剩余车辆数</view>
+                <text class='line line2'></text>
+            </view>
+            <view>
+                <view class='mab20'>{{districtVo.compareB}}户抢一位</view>
+                <view>车位配比</view>
+            </view>
+        </view>
+        <view class='spec'>
+            <view wx:for="{{districtVo.policyList}}" wx:key="{{item.id}}">
+                <text class='circle'></text>
+                <text>{{item.policy}}</text>
+            </view>
+            <!-- <view>
+                <text class='circle'></text>
+                <text>平均价格:  130000元/个</text>
+            </view> -->
+        </view>
+    </view>
+    <!-- 车位分布图 -->
+    <view class='parkingMap'>
+        <view class='title'>车位分布图</view>
+       <swiper indicator-dots="{{truckSpaceImages.length>1?true:false}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='banner'>
+        <block wx:for="{{truckSpaceImages}}" wx:key="{{item.id}}">
+            <swiper-item >
+                <image src="{{item}}" class="slide-image" width="350" height="150" />
+            </swiper-item>
+        </block>
+    </swiper>
+    </view>
+    <view class='parkingMap'>
+        <view class='title'>车位描述</view>
+        <view class='mapTxt'>
+            {{description}}
+        </view>
+    </view>
+    <!-- 选车位按钮 -->
+    <view class='agreeBtn' bindtap='gosellectionHall'>
+            <text>选车位</text>
+    </view>
+</view>

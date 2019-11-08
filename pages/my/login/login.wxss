@@ -1,0 +1,45 @@
+/* pages/my/login/login.wxss */
+.title{
+  width: 80%;
+  margin: 150rpx  auto;
+}
+.title image{
+  width: 200rpx;
+  height:200rpx;
+  display: block;
+  margin: 0 auto;
+}
+.title view{
+  text-align: center;
+  font-size: 34rpx;
+  color: #333333;
+  letter-spacing: 1rpx;
+  margin-top: 15rpx;
+}
+.title text{
+  display: block;
+  color: #999999;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 92rpx;
+  letter-spacing: 1rpx;
+}
+button{
+  width:80%;
+  height: 90rpx;
+  border-radius: 45rpx;
+  margin-top:  50rpx;
+  border: none;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  line-height: 90rpx;
+}
+.login{
+  margin-top: 130rpx;
+  background: #ab9f67;
+  color: #ffffff;
+}
+.phone{
+  border: 1rpx solid #ab9f67;
+  color: #ab9f67;
+}

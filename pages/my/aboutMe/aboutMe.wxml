@@ -1,0 +1,21 @@
+<!--pages/my/aboutMe/aboutMe.wxml-->
+<view>
+    <view class="topLogo">
+        <image src='/image/logo.png'></image>
+        <view>海螺找位</view>
+    </view>
+    <view class="desc">
+        <text>海螺找位是由吃豆车生活(重庆)互联网科技有限公司自主研发运营的一款车位营销电商电台。\n 平台已车位营销为主营业务,优化产业中管理、财务等关键节点的经营模式,融合其他车位衍生服务,以线上互联线下服务的O2O模式为产业构建一体化车位营销网络,争当中国车位领域科技服务的领军者。</text>
+    </view>
+    <view class="safe">
+        <view>
+            <text>招商合作: 17725008891</text>
+        </view>
+        <view>
+            <text>版本信息: V1.0.5</text>
+        </view>
+        <view catchtap='goUserAg'>
+            <text>《用户协议》</text><text>></text>
+        </view>
+    </view>
+</view>

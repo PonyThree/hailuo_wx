@@ -1,0 +1,10 @@
+<!--component/search/search.wxml-->
+<view>
+    <view class='top'>
+        <view class='search'  style="width:702rpx">
+            <image class='img2' src='/image/ss_03.png'></image>
+            <input placeholder='请输入车位号或标签' bindblur='gosearch'></input>
+        </view>
+        <!-- <image class='img3' bindtap="goCollection" src='/image/wujiaoxing2x.png' wx:if="{{showStar}}"></image> -->
+    </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "carlist": "/component/carlist/carlist"
+      
+  }
+}

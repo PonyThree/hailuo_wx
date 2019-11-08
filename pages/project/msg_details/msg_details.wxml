@@ -1,0 +1,24 @@
+<!--pages/project/msg_details/msg_details.wxml-->
+<view>
+  <view class="top">
+    <view class="title">{{projectname}}</view>
+    <view class="main">
+      {{msg}}
+    </view>
+  </view>
+  <!-- 订单人信息 -->
+  <view class="info">
+    <image src="/image/material，疑惑，问号@2x.png"></image>
+    <view class="right" catchtap="call">
+      <image src="https://www.china185.com/static/image/xsjy.png"></image>
+      <view class="content">
+        <view>
+          置业顾问:<span>{{list.conPerson}}</span>
+        </view>
+        <view>
+          Tel:<span>{{list.conPhone}}</span>
+        </view>
+      </view>
+    </view> 
+  </view>
+</view>

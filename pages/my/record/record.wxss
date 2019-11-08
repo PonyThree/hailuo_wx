@@ -1,0 +1,42 @@
+/* pages/my/record/record.wxss */
+.list{
+  width: 100%;
+  background: #ffffff;
+  border-top:1rpx solid #f2f2f2;
+}
+.list .li{
+  width: 94%;
+  height:90rpx;
+  border-bottom: 1rpx solid #dddddd;
+  box-sizing: border-box;
+  margin: 0 auto
+}
+.list .li:last-child{
+  border:none;
+}
+.list .li .left{
+  width: 530rpx;
+  height: 90rpx;
+  float: left;
+}
+.list .li .left text{
+  display: block;
+  color: #333333;
+  font-size:28rpx; 
+  letter-spacing: 1rpx;
+  margin-top: 9rpx;
+}
+.list .li .left view{
+  color: #999999;
+  font-size: 22rpx;
+}
+.list .li .left view span{
+  margin-left:20rpx; 
+}
+.list .li .right{
+  display: inline-block;
+  float: right;
+  color: #333333;
+  font-size: 28rpx;
+  margin-top: 26rpx;
+}

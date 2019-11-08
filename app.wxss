@@ -1,0 +1,83 @@
+/**app.wxss**/
+page{
+
+   background: #f8f8f8 !important;
+   height: 100%;
+   -webkit-overflow-scrolling: touch
+
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.f24{
+  font-size: 24rpx;
+}
+.f20{
+  font-size: 20rpx
+}
+.fred{
+ color:  rgb(243,30,31)!important;
+
+}
+.bred{
+  background: rgb(243,30,31)
+}
+.f15{
+  font-size: 20rpx;
+}
+.c777{
+  color: #777
+}
+.c333{
+  color:#333
+}
+.f36{
+  font-size: 36rpx;
+}
+.f28{
+  font-size: 28rpx;
+}
+.f30{
+  font-size: 30rpx;
+}
+.cff{
+  color: #ffffff
+}
+.fh{
+  color: rgb(204, 204,204);
+}
+.ml{
+  margin-left: 20rpx;
+}
+.bccc{
+  background: #cccccc
+}
+.f18{
+  font-size: 18rpx
+}
+border::after{border:none}
+button::after{
+  -webkit-transform: scale(1, 0.5);
+  transform: scale(1, 0.5);
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  display: none;}
+
+.f153{
+  color: rgb(153,153,153)
+
+}
+.active{
+  background: #fdf5e1 !important;
+  color: #e49f00 !important;
+  
+}

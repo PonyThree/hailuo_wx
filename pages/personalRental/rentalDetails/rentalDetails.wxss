@@ -1,0 +1,91 @@
+/* pages/personalRental/rentalDetails/rentalDetails.wxss */
+page{
+
+   background:#ffffff !important;
+}
+.rentalDels{
+    width: 750rpx;
+    background-color: #ffffff;
+    border-top: 1px solid #eeeeee;
+}
+.rentRelease{
+    width: 750rpx;
+    height: auto;
+    /* padding:80rpx 0 0 0; */
+    background-color: #ffffff;
+    /* border-top: 1px solid #eeeeee; */
+}
+.rentRelease >text:nth-child(1){
+    display: block;
+    margin-top: 35rpx;
+    margin-bottom: 28rpx;
+    font-size: 48rpx;
+    color: #333333;
+    font-weight: 500;
+    margin-left: 24rpx;
+}
+.rentRelease >text:nth-child(1){
+    font-size: 48rpx;
+    color: #333333;
+    font-weight: 500;
+}
+.rentRelease .carInfo{
+    margin-left: 24rpx;
+}
+
+.rentRelease .carInfo view{
+    display: flex;
+    align-items: center;
+    height: 60rpx;
+}
+.carInfo view.right>text:nth-child(1){
+    font-size: 24rpx;
+    color: #777777;
+    margin-right:40rpx;
+}
+.scroll-view_H{
+    width: 220rpx;
+    height: 34rpx;
+    overflow:hidden;
+    /* background-color: #aaf; */
+}
+.tagList1{
+    width: 210rpx;
+    height: 34rpx;
+    font-size: 20rpx;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tagList1 text{
+    height: 34rpx;
+    line-height: 34rpx;
+    display: inline-block;
+    padding:0 10rpx;
+    margin-right: 10rpx;
+    background-color: #F0F0F0;
+}
+/* 联系人电话 */
+.relationPer{
+    width: 750rpx;
+    height: 70rpx;
+    margin-top: 90rpx;
+    display: flex;
+    align-items: center;
+}
+.relationPer image{
+    margin-left: 114rpx;
+}
+.relationPer text:nth-child(1){
+    font-size: 28rpx;
+    color: #333333;
+}
+.relationPer text.phone{
+    width: 260rpx;
+    line-height: 70rpx;
+    text-align: center;
+    border-radius: 35rpx;
+    font-size: 30rpx;
+    color: #ffffff;
+    background-color: #e5c478;
+    margin-left: 70rpx;
+}

@@ -1,0 +1,8 @@
+<!--pages/my/opinion/opinion.wxml-->
+<view>
+  <view class="main">
+    <textarea  bindinput="input" />
+  </view>
+  <button bindtap="addData">提交</button>
+</view>
+

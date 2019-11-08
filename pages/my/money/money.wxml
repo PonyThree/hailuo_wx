@@ -1,0 +1,19 @@
+<!--pages/my/money/money.wxml-->
+<view>
+  <!-- 零钱介绍 -->
+  <view class="title">
+    <image src="/image/lingqianjiwshao_03.png"></image>
+    <!-- <text>车位宝零钱介绍</text> -->
+  </view>
+  <!-- 零钱信息 -->
+  <view class="content">
+    <image src="/image/lingqian_03.png"></image>
+    <text>我的零钱</text>
+    <text>￥{{moeny.cashMoney}}</text>
+    <text bindtap='gofrozen'>剩余{{moeny.notCashMoney}}元不可提现?</text>
+    <button class="recharge" bindtap='recharge'>充值</button>
+    <button class="cash" bindtap='extract_money'>提现</button>
+  </view>
+  <!-- 零钱记录 -->
+  <view class='bottom' bindtap="jump">零钱记录</view>
+</view>

@@ -1,0 +1,37 @@
+<view class='recomList' wx:for='{{sellList}}' wx:key="index">
+  <view class='listTop'>
+    <view class='listImg'>
+      <image src='{{item.listImage}}'></image>
+    </view>
+    <view class='listDesc'>
+      <view class='listTil'>
+        <text>{{item.name}}      </text>
+        <text>{{item.outsideArea}}m²</text>
+      </view>
+      <view>
+    
+      </view>
+      <scroll-view class="listFeature" scroll-x>
+        <text wx:for="{{item.tagRespDtos}}" wx:key="index">{{item.name}}</text>
+        <!-- <text>字母车位</text>
+        <text>字母车位</text>
+        <text>靠电梯</text>
+        <text>靠电梯</text>
+        <text>靠电梯</text> -->
+      </scroll-view>
+    </view>
+  </view>
+  <view class='listBom'>
+    <view class='price'>
+      <text>已售出</text>
+    </view>
+    <view>
+      <text>收藏人数: {{item.consultNum}}  </text>
+      <text>落位人数: {{item.downPlaceNum}}</text>
+    </view>
+  </view>
+  <view class='sale'>
+  <text>已售出</text>
+  </view>
+
+</view>

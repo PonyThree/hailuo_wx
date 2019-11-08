@@ -1,0 +1,72 @@
+<!--pages/personalRental/wantRent/wantRent.wxml-->
+<view class="rentCarEdit">
+    <!-- 租售信息 -->
+    <view class="info">
+        <view class="singleOne">
+            <text>标题</text>
+            <input v-model="靠近电梯口" placeholder="请填写"  bindinput="getTil">靠近电梯口</input>
+        </view>
+        <view class="singleOne">
+            <text>期望位置</text>
+            <input v-model="一期二栋3单元" placeholder="请填写" bindinput="getLoc">一期二栋3单元</input>
+        </view>
+        <view class="singleSpecial">
+            <text>租金范围</text>
+            <input placeholder="填写 元/月 " wx:if="{{!checked}}" bindinput="getMinPrice">A-101</input>
+            <text style="color: #777777;font-size:28rpx;padding:0 10rpx;width:32rpx;text-align:center;" wx:if="{{!checked}}">~</text>
+            <input placeholder="填写 元/月" wx:if="{{!checked}}" bindinput="getMaxPrice">A-101</input>
+            <van-checkbox value="{{ checked }}" bind:change="onChange" shape="square" custom-class="" label-class="font-size:28rpx;color:#777777;margin-left:10rpx;">面议</van-checkbox>
+        </view>
+        <view class="farTag">
+            <text class="til">意向标签</text>
+            <view style="width:{{702-150}}rpx">
+                <view class="tagList">
+                    <view class="tagItem" wx:for="{{selectedTags}}" style="margin-bottom:10rpx" data-index="{{index}}" wx:key="{{index}}">
+                        <text>{{item}}</text>
+                        <image src="/image/dell.png" style="width:21rpx;height:21rpx;" catchtap='delTag' data-index="{{index}}"></image>
+                    </view>
+                    <view class="addTag" catchtap='showTags' style="margin-top:{{index>=3?'30':'0'}}rpx">添加标签</view>
+                </view>
+            </view>
+        </view>
+        <view class="singleOne">
+            <text>备注</text>
+            <input placeholder="填写" bindinput="getRemark">绝版电梯口车位,过时不候</input>
+        </view>
+        <view class="singleOne">
+            <text>联系人</text>
+            <input placeholder="我的微信ID" bindinput="getReleaserName">我的微信ID</input>
+        </view>
+        <view class="singleOne">
+            <text>联系电话</text>
+            <input placeholder="填写" bindinput="getPhone">填写</input>
+        </view>
+        <view class="singleOne" style="border-bottom: 1px solid #eee; ">
+            <text>区域</text>
+            <text style="font-size:28rpx;color:#777777;margin-left:30rpx">{{ProjectInfo.name}}</text>
+        </view>
+
+    </view>
+    <!-- 发布按钮 -->
+    <view class="releaseBtn" catchtap='releaseInfo'>
+        发布
+    </view>
+    <van-popup show="{{ showRight1 }}" position="bottom" custom-style="height: 75%;" bind:close="toggleRight1">
+
+        <view class='demo1'>
+
+            <view class='time price'>更多筛选</view>
+            <view class='Label' wx:for='{{taglist}}' wx:key='index'>
+                <text class='smallTitle' wx:if='{{item.tagRespDtos.length>0}}'>{{item.typeName}}</text>
+                <view data-index='{{index1}}' catchtap='morescreen' data-title='更多筛选' wx:for='{{item.tagRespDtos}}' wx:for-index='index1' wx:key='index' data-tieleindex='{{index}}' class="{{item.isSelected?'active':''}}">
+                    {{item.name}}</view>
+            </view>
+            <view class='confirm' style='margin-bottom:50rpx'>
+                <view bindtap='cancle'>取消</view>
+                <view catchtap='corfim' bindtap='zhuan'>确定</view>
+            </view>
+
+        </view>
+    </van-popup>
+    <view style="height:50rpx;"></view>
+</view>

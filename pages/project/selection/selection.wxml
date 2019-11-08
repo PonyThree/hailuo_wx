@@ -1,0 +1,22 @@
+<view class="page">
+  <scroll-view class="top" scroll-x="true">
+    <view wx:for='{{levelOneAndThree}}' wx:key='index' class="{{item.isSelected?'topActive':''}}" bindtap="searchTop" id='{{item.id}}' data-index="{{index}}">{{item.name}}</view>
+  </scroll-view>
+  <view class="centerImage">
+    <movable-area style="height: 100%; width: 100%; background: #FFF7EA;overflow: auto">
+      <movable-view style="background-image: url({{imageDetail.image}});" direction="all" bindscale="onScale" scale scale-min="1" scale-max="15" scale-value="2" out-of-bounds='true'>
+    </movable-view>
+    </movable-area>
+    <view class="right">
+      <view>选楼栋</view>
+      <scroll-view scroll-y="true">
+        <view wx:for='{{levelTwo}}' wx:key='index' class="{{item.isSelected?'rightActive':''}}" id='{{item.id}}' data-index="{{index}}" bindtap="rightActive">{{item.name}} </view>
+      </scroll-view>
+      <view>已选
+        <text style="color:#fb3b0f">{{rightID.length}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="color:#777777;text-align: center;margin-top: 70rpx">根据该区域销控图选择您需要查看的楼栋</view>
+  <button class="button" style="background:{{rightID.length==0?'#cccccc':''}}" bindtap="goParkinglist">确认楼栋 {{count}}</button>
+</view>

@@ -1,0 +1,514 @@
+/* pages/firstPage/parkInfoOpened/parkInfoOpened.wxss */
+/* 引入步骤条css */
+@import '/component/step/step.wxss'; 
+page {
+  position: relative;
+  background-color: rgb(242,242,242);
+}
+.van-popup{ 
+  background: none !important
+}
+
+.page {
+  overflow: hidden;
+}
+
+/* banner样式 */
+
+.banner {
+  width: 100%;
+  height: 360rpx;
+  overflow: hidden;
+}
+.banner swiper {
+  height: 100%
+}
+
+/* banner图片样式 */
+
+.banner image {
+  width: 100%;
+  text-align: center;
+  height: 360rpx;
+}
+/* 头部阴影信息样式 */
+
+.blackInfo {
+  position: absolute;
+  width: 240rpx;
+  height: 40rpx;
+  overflow: hidden;
+  top: 10rpx;
+  right: 0;
+
+}
+
+.blackInfo image {
+  position: absolute;
+  right: 0;
+  width: 240rpx;
+  height: 40rpx;
+}
+
+.blackInfo text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: rgb(255, 255, 255);
+}
+
+/* 落位信息样式 */
+.fallingInfo{
+    position: relative;
+    height:120rpx;
+}
+/* 左边信息 */
+.fallingInfo .carInfo{
+    box-sizing: border-box;
+    height:120rpx;
+    position: absolute;
+    left: 24rpx;
+    top:0;
+}
+.carInfo .price{
+    color:#ffffff;
+    line-height: 120rpx;
+}
+.carInfo .price text:nth-child(1){
+    font-size:48rpx;
+}
+.carInfo .price text:nth-child(2){
+    font-size:24rpx;
+    margin-left:30rpx;
+    text-decoration: line-through;
+}
+.carInfo .price1{
+    margin-left:24rpx;
+    font-size:48rpx;
+    line-height: 120rpx;
+    color:#ffffff;
+}
+/* 右边信息 */
+.pInfo{
+    text-align: right;
+    width:300rpx;
+    box-sizing: border-box;
+    position: absolute;
+    top:0;
+    right: 24rpx;
+    height:120rpx;
+}
+.pInfo .p.sell{
+    font-size:36rpx;
+    color:#ffffff;
+    margin-top:33rpx;
+}
+.pInfo .p.luowei{
+    margin-top:40rpx;
+    font-size:28rpx;
+    color:#ffffff;
+    
+}
+.pInfo .p.luowei text:nth-child(2){
+    margin-left:30rpx;
+}
+/* 倒计时 */
+.pInfo .time{
+    /* margin-top:10rpx; */
+    font-size:24rpx;
+    color:rgb(229,196,120);
+    /* margin-bottom:20rpx; */
+}
+/* 不能落位倒计时 */
+.pInfo .time1{
+    margin-top:45rpx;
+}
+.time2 .text2{
+    font-size:28rpx;
+    color:rgb(254, 254, 254);
+}
+.time2 .text2{
+    display: inline-block;
+    margin-top:16rpx;
+}
+.time2 .text1{
+    margin-top:20rpx;
+}
+/* 活动头部提示 */
+.activityTop{
+  font-size: 28rpx;
+  color: #FB3B0F;
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  background: rgb(254, 254, 254);
+  
+}
+
+.activityTop image{
+  width: 100rpx;
+  height: 50rpx;
+  margin-left: 24rpx;
+  margin-right: 40rpx;
+ 
+
+}
+
+/* 车位名字 */
+.carname{
+  margin-left: 24rpx;
+  background: white;
+  color: #777777;
+  font-size: 28rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+  width: 702rpx
+}
+
+
+
+/* 所在位置 所属社区等信息样式 */
+
+.detailInfo {
+  display: flex;
+  justify-content: center;
+  width: 750rpx;
+  margin:0rpx auto 0;
+  background-color: rgb(254, 254, 254);
+}
+
+.detailList {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 702rpx;
+  margin: 0 auto;
+  padding: 15rpx 0 30rpx;
+  flex-wrap: wrap;
+}
+
+.detailInfo .dalList {
+  box-sizing: border-box;
+  padding:0 20rpx 0 0;
+  min-width: 33.33%;
+  max-width: 33.33%;
+  flex:1;
+  text-align:left;
+  height: 80rpx;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.detailInfo .dalList text:nth-child(1) {
+  font-size:24rpx;
+  color: rgb(119, 119, 119);
+}
+
+.detailInfo .dalList text:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size:30rpx;
+  display: block;
+  color: rgb(51, 51, 51);
+  /* text-align: center; */
+  margin-top: 10rpx;
+  font-weight:bold;
+}
+
+.dalTime {
+  display: flex;
+  box-sizing: border-box;
+  width: 702rpx;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.dalTime .timeList {
+  text-align: center;
+  width: 140rpx;
+  font-size: 24rpx;
+  margin-top: 30rpx;
+  /* border:1px solid #f00; */
+}
+
+.dalTime .timeList text:nth-child(1) {
+  color: rgb(119, 119, 119);
+  text-align: left;
+}
+
+.dalTime .timeList text:nth-child(2) {
+  display: block;
+  color: rgb(51, 51, 51);
+  margin-top: 10rpx;
+}
+
+
+.threeInfo{
+    width: 750rpx;
+    background-color: rgb(254, 254, 254);
+}
+/* 车位热度样式 */
+.desc {
+  width:702rpx;
+  height: 90rpx;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  margin:0 auto;
+  padding:5rpx 0;
+}
+.desc.border{
+    border-bottom:1px solid rgb(239,239,239);
+}
+.desc .title {
+  display: inline-block;
+  font-size: 24rpx;
+  margin-right: 30rpx;
+  color: rgb(119, 119, 119);
+  width: 150rpx;
+}
+.desc .descTxt {
+  display: inline-block;
+  font-size: 26rpx;
+  width: 650rpx;
+}
+.descTxt text {
+  color:rgb(249,56,21);
+  margin-right: 16rpx;
+}
+.descTxt.hotDesc text {
+  color: rgb(51, 51, 51);
+}
+.descTxt.hotDesc{
+    display: flex;
+    align-items: center;
+}
+.hotDesc .dot{
+    color:#999999;
+    font-size:68rpx;
+    vertical-align: middle;
+    margin-top:-8rpx;
+}
+/* 车位特点样式 */
+
+.parkingF {
+  width: 750rpx;
+  background-color: rgb(254, 254, 254);
+}
+
+.parkFeature {
+  display: flex;
+  align-items: center;
+  width:702rxp;
+  height: 90rpx;
+  border-top: 1rpx solid #f2f2f2
+}
+
+.parkFeature .title {
+  width: 116rpx;
+  margin-top:-6rpx;
+}
+
+.parkFeature .feature {
+  width: 520rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 20rpx;
+}
+
+.parkFeature .feature text {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 34rpx;
+  line-height: 34rpx;
+  border-radius: 2rpx;
+  margin-right: 20rpx;
+  padding: 0 8rpx;
+  color: rgb(153,153,153);
+  background-color: rgb(240,240,240);
+}
+
+/* 车位分布图样式 */
+
+.parkingMap {
+  width: 750rpx;
+  margin-top: 20rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  background-color: rgb(254, 254, 254);
+  box-sizing: border-box
+}
+
+.parkingMap .title {
+  font-size: 24rpx;
+  line-height: 90rpx;
+  color: rgb(119, 119, 119);
+}
+
+.parkingMap .mapPic image {
+  width: 100%;
+ height: 100%;
+}
+
+/* 底部导航样式 */
+
+.bomTab {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  width: 750rpx;
+  height: 100rpx;
+  background-color: rgb(255, 255, 255);
+  border-top: 1px solid #f2f2f2;
+}
+/* 电话样式 */
+.telPhone {
+  width: 90rpx;
+  text-align: center;
+  margin-left: 24rpx;
+  font-size: 20rpx;
+  margin-right:15rpx;
+}
+
+.telPhone image {
+  display: block;
+  margin: 15rpx auto 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.telPhone text {
+  color: rgb(119, 119, 119);
+}
+/* 收藏图标样式 */
+.shoucangPic{
+  width:90rpx;
+  text-align: center;
+  font-size: 20rpx;
+  margin-right:50rpx;
+}
+.shoucangPic image{
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+  margin: 15rpx auto 10rpx;
+}
+.shoucangPic text{
+    color: rgb(119, 119, 119);
+}
+/* 落位认购样式 */
+
+.fallBuy {
+  float: right;
+  width: 420rpx;
+  height: 70rpx;
+  margin-top:17rpx;
+  margin-left:-10rpx;
+}
+.fallBuy view{
+    float:left;
+}
+.fallBuy view text {
+  display: block;
+  width: 170rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.fallBuy view text:nth-child(1) {
+  float: left;
+  background-color: rgb(229,196,120);
+  border-radius: 35rpx 0 0 35rpx;
+}
+
+.fallBuy view text:nth-child(2) {
+  float: right;
+  background-color: rgb(249,56,21);
+  border-radius: 0 35rpx 35rpx 0;
+  margin-right:4rpx;
+}
+
+/* 落位认购样式 */
+.fallBuy1{
+    display: flex;
+    align-items: center;
+    width:220rpx;
+    height:70rpx;
+    margin-top:17rpx;
+    margin-left:118rpx;
+}
+.fallBuy1 view{
+    margin-right:24rpx;
+}
+.fallBuy1 view text{
+    display: block;
+    width:220rpx;
+    height:70rpx;
+    font-size:30rpx;
+    color:rgb(255,255,255);
+    text-align: center;
+    line-height: 70rpx;
+}
+.fallBuy1 view text:nth-child(1){
+    float:left;
+    background-color: rgb(229,196,120);
+    border-radius:35rpx;
+}
+.fallBuy1 .ckdd{
+  margin-left: 200rpx
+}
+
+
+.box {
+  width: 750rpx;
+  height: 106rpx;
+  padding: 10rpx;
+}
+.fallBuy1.downLocation view text:nth-child(1) {
+    background-color: rgb(249,56,21)!important;
+    border-radius:35rpx;
+}
+/* 活动图片 */
+.activityTime{
+  height: 80rpx;
+  width: 220rpx;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAABQCAMAAABF9usQAAAARVBMVEVMaXFiUcN3ZeZeS8N4ZuZZQsdXP8l3ZeV3ZuZ3ZeZkVMNgTsNoWMdcSMRmVsRsXM5yYdpbRcVuXtNrWst0Y951ZOFwYNYIxX2TAAAACnRSTlMA////HP//seRdBbPU7gAAAV5JREFUeNrt3Flug2AMRWH39qe2Ow/Q/S+1IUpqIgRVpT6QUw4ruPoYX7AfapnuHq/ffR57P/dSfZx6nPRc3U+7uehh0u20p0lv57pZdwvZWuneH6tpWx3XHY5Za8v6YehP4/pty3W/k8sYxvrrkFugW51GlMuQhgEp11yHaHLFpoEp55J4cnVKQuVaSDy52saTq208udqGlXMJK+cSVi4lrFwLceVcXLmUuHIhrlwKLBfiyqXAciGuXAos5wLLCSyXAss5WS7Ack1guRRYLslyTpZzslyQ5YIsJ7Kcdrn9mtvvlvtzbn9D+e9y+1fBtco1spwFWM6cLJdkOSPLmZPlkixnAZazJMtZgOUsyXIWYDlLspw5WM5agOUssXJjjpUb863J/aGctSDK1TqiXK0jytU6nlzVHChXOVCuyoDK1anJkys8pFzNQ8rVPKBcld4j5Wqf8+TmvwzZuNxCX8coxCC5qT4qAAAAAElFTkSuQmCC) ;
+  position: fixed;
+  right: 0;
+  bottom: 130rpx;
+  background-position: center;
+  background-size: cover;
+  font-size: 18rpx;
+  color: white;
+  padding-left: 25rpx;
+  box-sizing: border-box
+}
+
+button {
+  font-size: 28rpx;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+input{
+  outline: none;
+  border: none;
+  list-style: none;
+}
+button::after {
+border: none;
+}

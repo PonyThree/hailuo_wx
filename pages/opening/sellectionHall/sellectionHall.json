@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+      "i-icon": "/dist/icon/index",
+      "i-drawer": "/dist/drawer/index",
+      "i-button": "/dist/button/index",
+      "goindex": "/component/goindex/goindex",
+        "i-load-more": "/dist/load-more/index"
+  },
+  "navigationBarTitleText": "选位大厅",
+    "enablePullDownRefresh": true
+  
+}

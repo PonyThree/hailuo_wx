@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "van-popup": "/zan/lib/popup/index",
+      "van-tag": "/zan/lib/tag/index"
+  },
+  "enablePullDownRefresh": true
+}

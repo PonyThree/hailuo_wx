@@ -1,0 +1,77 @@
+.van-step__title>view:nth-child(1){
+   color:  #333333 !important;
+   font-size: 28rpx !important;
+   font-weight: 600
+}
+.van-step__title>view:nth-child(2){
+   font-size: 24rpx !important;
+
+}
+.van-step__circle {
+  width: 15rpx !important;
+  height:15rpx !important;
+  background: #E5C478 !important
+}
+.van-steps{
+  margin-bottom: 20rpx !important;
+  margin-left: 20rpx !important
+}
+.gmlc{
+  background: white;
+  font-size: 26rpx;
+  color: #999999;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  align-items: center;
+  height: 90rpx;
+}
+.youhui{
+  height: 90rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  align-items: center;
+  color: #999999;
+  padding: 0 24rpx;
+  margin-bottom: 20rpx;
+  border-radius: 5rpx
+}
+
+/* 弹出层 */
+.prop{
+  width: 550rpx;
+  height: 550rpx;
+  border-radius: 10rpx;
+  padding: 0 24rpx;
+  background: #FDF9F0; 
+}
+.prop van-icon{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx
+}
+/* .van-popup{
+ background:none !important;
+} */
+._bottom{
+  height: 80rpx;
+  position: absolute;
+  width: 100%;
+  background: #FDD16A;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 10rpx 10rpx;
+  display: flex;
+
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #ffffff
+}
+._bottom>view{
+  flex: 1;
+  text-align: center
+}
+
+

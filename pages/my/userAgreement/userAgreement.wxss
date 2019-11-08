@@ -1,0 +1,10 @@
+/* pages/my/userAgreement/userAgreement.wxss */
+.userAgreement{
+    box-sizing: border-box;
+    width: 750rpx;
+    font-size:30rpx;
+    line-height: 50rpx;
+    color:#333333;
+    text-indent: 2em;
+    padding:40rpx;
+}

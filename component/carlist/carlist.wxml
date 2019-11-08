@@ -1,0 +1,23 @@
+  <!-- 订单信息 -->
+  <view class="project">
+    <view class="top">
+      <image src="{{data.truckSpaceListImages[0]}}"></image>
+      <view class="right">
+        <view class="hhh">{{data.name}}/
+          <span>{{data.projectInfo.name}}/{{data.level1Name}}/{{data.level2Name}}/{{data.level3Name}}/{{data.outsideArea}}m²</span>
+        </view>
+        <!-- <view class="good">这是最好的车位！</view> -->
+        <scroll-view class='tagview' scroll-x>
+          <text class="tag" wx:for="{{data.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
+          </scroll-view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="money">售价
+        <span>{{data.sellPrice}}元</span>
+      </view>
+      <view class="number">  <text wx:if='{{data.ableDown}}'>落位人数：{{data.downPlaceNum}}</text>
+        <span>收藏人数：{{data.collectNum}}</span>
+      </view>
+    </view>
+  </view>

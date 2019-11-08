@@ -1,0 +1,22 @@
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class='page'>
+  <!-- 订单信息 -->
+   <carlist data="{{data}}"></carlist>
+  <!-- 支付成功信息 -->
+  <view class='success'>
+    <view class='successitem'>
+      <view class='text2'>实付
+        <text style='color:#A92112'>￥ {{orderlist.money}}</text>
+      </view>
+      <view class='text3'>请在 {{dateUtil.dateFormat(orderlist.expireTime)}}前支付{{data.controlRespDto.buyMoneyName}},逾期系统将自动取消订单,请尽快支付</view>
+      <image class='img1' bindtap="gocode" src='/image/ewm.png'></image>
+      <view class='buttom'>
+        <view bindtap='goindex'>返回首页</view>
+        <view bindtap='subscription' wx:if='{{data.ableSub}}'>去认购</view>
+        <view bindtap='gopepole' wx:else>订单中心</view>
+
+      </view>
+    </view>
+
+  </view>
+</view>

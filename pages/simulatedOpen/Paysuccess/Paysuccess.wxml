@@ -1,0 +1,23 @@
+  <!-- 订单信息 -->
+  <view class="project">
+    <view class="top">
+      <image src="/image/cwt_03.png"></image>
+      <view class="right">
+        <view class="hhh">A-061
+          <span>华宇天街/A组团/5栋3层/11m²</span>
+        </view>
+        <view class="good">这是最好的车位！</view>
+        <scroll-view class='tagview' scroll-x>
+          <text class="tag" wx:for="{{10}}">靠电梯</text>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="money">售价
+        <span>10.7万</span>
+      </view>
+      <view class="number">落位人数：2
+        <span>收藏人数：18</span>
+      </view>
+    </view>
+  </view>

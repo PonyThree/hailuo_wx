@@ -1,0 +1,296 @@
+/* pages/opening/bid/bid.wxss */
+page{
+    background-color: rgb(242,242,242);
+}
+/* 开盘倒计时样式 */
+.countDown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:750rpx;
+    height:70rpx;
+    font-size:24rpx;
+    line-height: 24rpx;
+    color:rgb(169,33,18);
+    background-color: rgb(232,228,209);
+
+}
+.countDown image{
+    width:27rpx;
+    height:27rpx;
+    margin-right:10rpx;
+}
+.countDown > view.time{
+   margin-left:10rpx;
+}
+view.time .timeDot{
+    margin:0 5rpx;
+}
+/* 订单信息 */
+.project {
+  /* width: 702rpx;
+  height: 272rpx;
+  background: #fff;
+  margin: 20rpx auto;
+  border-radius: 15rpx;
+  overflow: hidden; */
+}
+/* 订单消息 */
+.collectNum{
+    z-index:6;
+    position:fixed;
+    text-align: center;
+    width:90rpx;
+    height:40rpx;
+    line-height: 40rpx;
+    border-radius:20rpx 0 0 20rpx;
+    background-color: rgb(196,188,148);
+    top:20rpx;
+    font-size:26rpx;
+    right:0;
+}
+.collectNum >image{
+    width:26rpx;
+    height:24rpx;
+    margin-right:10rpx;
+}
+.collectNum text{
+    color:rgb(169,33,18);
+}
+/* 虚拟文字介绍 */
+.specTxt{
+    color:rgb(169,33,18);
+    text-align: center;
+    width:702rpx;
+    height:90rpx;
+    margin:20rpx auto;
+    font-size:30rpx;
+    line-height: 90rpx;
+    border-radius:10rpx;
+    background-color: rgb(255,255,255);
+}
+/* 购买方式 */
+.purchase{
+  box-sizing: border-box;
+  display: flex;
+  padding:0 20rpx;
+  justify-content: space-between;
+  width:702rpx;
+  height:90rpx;
+  margin:0 auto;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  border-radius:10rpx;
+  background-color: rgb(255,255,255);
+
+}
+.purchase >view:nth-child(1){
+  color:rgb(119,119,119);
+}
+.purchase >view:nth-child(2){
+  color:rgb(51,51,51);
+}
+/* 落位金介绍 */
+ .processitem {
+  width: 702rpx;
+  margin:0 auto;
+  background: white;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+ .processitem .processitem1 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+}
+
+ .processitem .processitem2 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+}
+
+ .processitem .processitem3 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+/* 支付方式 */
+.pay {
+  width: 702rpx;
+  height: 273rpx;
+  margin:20rpx auto 20rpx;
+  background: white;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.pay .radio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom:10rpx;
+}
+.pay>view:first-child {
+  padding-top: 34rpx;
+  font-size: 36rpx;
+  margin-left: 24rpx;
+}
+
+.pay>view:nth-child(2) {
+  width: 600rpx;
+  height: 200rpx;
+  padding-left: 80rpx;
+}
+
+.pay .img1 {
+  position: absolute;
+  width: 37rpx;
+  height: 37rpx;
+  left: 40rpx;
+  top: 108rpx;
+}
+
+.pay .img2 {
+  position: absolute;
+  width: 37rpx;
+  height: 37rpx;
+  left: 40rpx;
+  top: 230rpx;
+}
+/* 认购订单样式 */
+.purchaseOrder{
+  text-align: center;
+  box-sizing: border-box;
+  width:702rpx;
+  height:261rpx;
+  padding-top:40rpx;
+  padding-bottom:10rpx;
+  margin:0 auto 20rpx;
+  /* background-color: pink; */
+  border-radius: 10rpx;
+  background-color: rgb(255,255,255);
+}
+.purchaseOrder >view:nth-child(1){
+    font-size:36rpx;
+    color:rgb(51,51,51);
+}
+.purchaseOrder >view:nth-child(1) text{
+    color:rgb(169,33,18);
+    margin-left:20rpx;
+}
+.purchaseOrder >view:nth-child(2){
+    font-size:28rpx;
+    color:rgb(153,153,153);
+    margin-top:20rpx;
+    margin-bottom:40rpx;
+}
+.purchaseOrder >view:nth-child(2) text{
+    margin-left:20rpx;
+}
+.confirmBtn{
+    display: flex;
+    justify-content: space-between;
+    width:500rpx;
+    height:60rpx;
+    margin:0 auto;
+    font-size:28rpx;
+    line-height: 60rpx;
+}
+.confirmBtn >view{
+    text-align: center;
+    width:200rpx;
+    height:60rpx;
+    border-radius:30rpx;
+}
+.confirmBtn >view:nth-child(1){
+    box-sizing: border-box;
+    border:1px solid rgb(171,159,103);
+    background-color: rgb(255,255,255);
+    color:rgb(171,159,103);
+}
+.confirmBtn >view:nth-child(2){
+    background-color: rgb(171,159,103);
+    color:rgb(255,255,255);
+}
+/* 底部tabbar样式 */
+.bomTab{
+    display: flex;
+    justify-content: space-around;
+    position:fixed;
+    bottom:0;
+    width:750rpx;
+    height:90rpx;
+    background-color: rgb(255,255,255);
+
+}
+/* 收藏样式 */
+.bomTab .shoucang{
+    display: flex;
+    height:80rpx;
+    margin-top:5rpx;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: pink; */
+    align-items: center;
+}
+.bomTab .shoucang >image{
+    width:40rpx;
+    height:38rpx;
+    margin-bottom:5rpx;
+    
+}
+.bomTab .shoucang >view{
+    text-align: center;
+    font-size: 24rpx;
+    color:rgb(51,51,51);
+}
+.bomTab .shoucang.active >view{
+    color:rgb(171,159,103);
+}
+/* 选位大厅样式 */
+
+.bomTab .choosePark {
+  display: flex;
+  height: 80rpx;
+  margin-top: 5rpx;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: pink; */
+  align-items: center;
+  background: none !important;
+}
+
+.bomTab .choosePark >image {
+  width: 38rpx;
+  height: 38rpx;
+  margin-bottom: 5rpx;
+}
+
+.bomTab .choosePark >view {
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.bomTab .choosePark.active >view {
+  color: rgb(171, 159, 103);
+}
+.box{
+    width:750rpx;
+    height:80rpx;
+    padding:5rpx;
+}
+/* 钱包支付密码 */
+.paypsw{
+  height: 500rpx !important
+}
+.paypsw>view{
+  text-align: center;
+  padding: 100rpx 0
+}

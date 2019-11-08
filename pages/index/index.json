@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "projectlist":"/component/projectlist/projectlist",
+    "van-notify": "/zan/lib/notify/index"
+  },
+  "enablePullDownRefresh": true
+}

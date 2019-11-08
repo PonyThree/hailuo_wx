@@ -1,0 +1,264 @@
+/* pages/personalRental/rentalIndex/rentalIndex.wxss */
+page{
+   font-family: 'Microsoft Yahei';
+   background:#ffffff !important;
+}
+.rentalPage{
+    position: relative;
+    width: 750rpx;
+    background-color: #ffffff;
+}
+/* 头部搜索 */
+.search{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    width: 750rpx;
+    height: 109rpx;
+    border-top:1px solid #eeeeee;
+    padding: 0 24rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #999999;
+    box-shadow:0px 0px 5px #888888;
+}
+/* 选中状态 */
+.item.tapActive{
+    position: relative;
+    color: #333333;
+}
+.item.tapActive .line{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70rpx;
+    margin: auto;
+    width: 60rpx;
+    height: 6rpx;
+    border-radius: 3rpx;
+    background-color: #E5C478;
+
+}
+/* 租售列表 */
+.rentalList{
+    /* box-sizing: border-box; */
+    width: 750rpx;
+    /* padding: 46rpx 24rpx 0; */
+    /* background-color: #faf; */
+}
+.rentalList .rentalItem{
+    position: relative;
+    width: 704rpx;
+    height: 360rpx;
+    overflow: hidden;
+    /* background-color: #afa; */
+    margin-right:24rpx;
+    margin-left:24rpx;
+    border-bottom: 1px solid #eeeeee;
+}
+/* 头部 */
+ .top{
+    width: 704rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70rpx;
+}
+.rentalItem .top >view{
+    display: flex;
+    align-items: center;
+}
+.rentalItem .top >text{
+    color:rgb(119,119,119);
+    font-size:24rpx;
+}
+.rentalItem .top view >text{
+    color: rgb(51,51,51);
+    font-size:28rpx;
+}
+/* 中间信息 */
+.rentalItem .renInfo{
+    position: relative;
+    width: 704rpx;
+    height: 256rpx;
+    margin-left: 30rpx;
+    /* background-color: pink; */
+}
+.rentalItem .renInfo >view:nth-child(1){
+    padding:14rpx 0;
+    font-size: 36rpx;
+}
+.rentalItem .renInfo >view:nth-child(1) >text{
+    color: rgb(51,51,51);
+    height: 36rpx;
+    font-weight: 500;
+}
+.rentalItem .renInfo >view:nth-child(2){
+    display: flex;
+    padding:0 2rpx 2rpx;
+}
+.rentalItem .renInfo .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(51,51,51);
+}
+.renInfo .info >text:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 36rpx;
+    font-weight: 600;
+    
+}
+.renInfo .info >text:nth-child(2){
+    font-size: 24rpx;
+    /* padding:10rpx 0 16rpx; */
+    padding: 10rpx 0;
+}
+.scroll-view_H{
+    width: 210rpx;
+    height: 34rpx;
+    margin-bottom: 10rpx;
+}
+.renInfo .info .tagList1{
+    width: 210rpx;
+    height: 34rpx;
+    font-size: 20rpx;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tagList1 text{
+    height: 34rpx;
+    line-height: 34rpx;
+    display: inline-block;
+    padding:0 10rpx;
+    margin-right: 10rpx;
+    background-color: #F0F0F0;
+}
+.renInfo image.call{
+    position: absolute;
+    bottom: 0;
+    right: 30rpx;
+}
+/* 求租标签样式 */
+.carInfo{
+    /* margin-left: 24rpx; */
+}
+
+.carInfo view{
+    display: flex;
+    align-items: center;
+}
+.carInfo .view2{
+    height: 50rpx;
+    margin:10rpx 0;
+    
+}
+.carInfo view.right>text:nth-child(1){
+    font-size: 24rpx;
+    color: #777777;
+    margin-right:40rpx;
+}
+.scroll-view_H{
+    width: 220rpx;
+    height: 34rpx;
+    overflow:hidden;
+    /* background-color: #aaf; */
+}
+.tagList1{
+    width: 210rpx;
+    height: 34rpx;
+    font-size: 20rpx;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tagList1 text{
+    height: 34rpx;
+    line-height: 34rpx;
+    display: inline-block;
+    padding:0 10rpx;
+    margin-right: 10rpx;
+    background-color: #F0F0F0;
+}
+/* 底部按钮 */
+.bomBtns{
+    position: fixed;
+    bottom: 0;
+    height: 130rpx;
+    overflow: hidden;
+    z-index:99;
+    /* background-color: #ffffff; */
+}
+.clickItems{
+    width: 750rpx;
+    position: fixed;
+    bottom: 0;
+    height: 130rpx;
+    z-index: 999;
+}
+.clickItems view{
+    position: absolute;
+    bottom: 0;
+    /* border:1px solid #000000; */
+    height:100rpx;
+}
+.clickItems view:nth-child(1){
+    left:30rpx;
+    width: 120rpx;
+}
+.clickItems view:nth-child(2){
+    left:310rpx;
+    height: 128rpx;
+    width: 120rpx;
+}
+.clickItems view:nth-child(3){
+    right: 33rpx;
+    width: 120rpx;
+}
+.choseList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 672rpx;
+    height: 300rpx;
+    padding: 10rpx;
+    z-index: 99999!important;
+    margin : 110rpx auto 0;
+    /* border:1px solid #000; */
+}
+.choseList view{
+    display: flex;
+    justify-content: space-between;
+}
+.choseList view text{
+    display:block;
+    text-align: center;
+    width:  300rpx;
+    height: 120rpx;
+    font-size: 32rpx;
+    line-height: 120rpx;
+    color: #E5C478;
+    border-radius: 10rpx;
+    box-shadow: 0 0 10rpx 3rpx rgba(0,0,0,.15);
+    background-color: #ffffff;
+}
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    margin: 80rpx auto 0;
+    /* background-color: pink; */
+}
+ image.myClose{
+    position: absolute;
+    z-index: 99999!important;
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    /* margin: auto 0; */
+}

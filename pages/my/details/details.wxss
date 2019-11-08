@@ -1,0 +1,59 @@
+/* pages/my/details/details.wxss */
+.pages{
+  width: 100%;
+  background: #ffffff;
+  border-top: 1rpx solid #f2f2f2;
+}
+/* 出账金额 */
+.title{
+  width: 94%;
+  margin: 0 auto;
+  height: 92rpx;
+  border-bottom:1rpx solid #dddddd;
+  box-sizing: border-box;
+}
+.title text{
+  display: inline-block;
+  height: 92rpx;
+  line-height: 92rpx;
+}
+.title text:first-child{
+  color: #333333;
+  font-size: 30rpx;
+  letter-spacing: 1rpx;
+  float: left;
+}
+.title text:last-child{
+  float: right;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+/* 详细信息 */
+.list{
+  width: 100%;
+  background: #ffffff;
+  padding-bottom: 20rpx;
+}
+.list .li{
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  margin: 40rpx auto;
+}
+.list .li text{
+  display: inline-block;
+  float: left;
+  color:#999999;
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+}
+.list .li view{
+  display: inline-block;
+  float: right;
+  color: #333333;
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+}
+.list .li view span{
+  margin-left: 10rpx;
+}

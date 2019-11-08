@@ -1,0 +1,186 @@
+page {
+    background: #ffffff !important;
+    box-sizing: border-box;
+}
+
+.top {
+    height: 100rpx;
+    width: 702rpx;
+    font-size: 36rpx;
+    margin-left: 24rpx;
+    display: flex;
+    color:#333333;
+    align-items: center;
+    font-weight:500;
+    justify-content: space-between;
+}
+
+.top view {
+    width: 120rpx;
+    height: 50rpx;
+    background: rgb(171, 159, 103);
+    border-radius: 25rpx;
+    text-align: center;
+    line-height: 50rpx;
+    color: white;
+}
+
+/* 以添加列表 */
+.addto .list {
+    /* height: 220rpx; */
+    width: 702rpx;
+    background: white;
+    border-radius: 10rpx;
+    /* margin:30rpx auto; */
+    margin-bottom: 30rpx;
+    margin-left: 24rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+}
+
+.addto .choice {
+    width: 662rpx;
+    height: 50rpx;
+    margin-left: 20rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #f2f2f2;
+    justify-content: space-betweent;
+}
+
+/* 查看更多
+ */
+
+.Seemore {
+    color: #cccccc;
+    font-size: 32rpx;
+    text-align: center;
+    margin-top: 40rpx;
+}
+
+/* 项目列表 */
+
+.items {
+    width: 702rpx;
+    height: 220rpx;
+    background: white;
+    border-radius: 10rpx;
+    /* margin:0 auto; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.items>image.pImg {
+    height: 160rpx;
+    width: 180rpx;
+    margin-left: 30rpx;
+    border-radius: 10rpx;
+}
+
+/* 列表内容 */
+
+.items>view.desc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160rpx;
+    width: 420rpx;
+    margin-left: 30rpx;
+}
+
+.items .text1 {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: top;
+    margin-top: -4rpx;
+}
+
+.items .text2 {
+    font-size: 20rpx;
+    color: #333;
+}
+
+.items .text2 image {
+    width: 18rpx;
+    height: 24rpx;
+    margin-right: 10rpx;
+    margin-top: 0rpx;
+}
+
+.items .text2 text {
+    font-size: 20rpx;
+    color: #777;
+}
+
+.items .text3 {
+    font-size: 20rpx;
+    color: #999;
+}
+
+.items .time3 {
+    font-size: 20rpx;
+    color: #fb3b0f;
+    padding-top: 4rpx;
+}
+
+/* 删除图片 */
+
+.items .delImg {
+    display: inline-block;
+}
+
+.items .delImg image {
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    right: 20rpx;
+    bottom: 0;
+    margin-top: 4rpx;
+    vertical-align: bottom;
+}
+
+/* 扫码添加楼盘 */
+
+.scanner {
+    /* height: 400rpx; */
+    width: 100%;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.scanner>view:first-child {
+    padding-top: 80rpx;
+}
+
+.scanner button {
+    width: 500rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-radius: 45rpx;
+    margin-top: 75rpx;
+    font-size: 30rpx;
+    color: white;
+    background: #e5c478;
+    margin-bottom:70rpx;
+}
+
+/* 附近项目 */
+.nearTop{
+    width:726rpx;
+    /* background-color: #ff0; */
+    font-size: 36rpx;
+    /* margin-left: 24rpx; */
+    padding-left:24rpx;
+    /* margin-top:40rpx; */
+    color:#333333;
+    font-weight:500;
+    background-color: #ffffff;
+    height:100rpx;
+    line-height: 100rpx;
+}

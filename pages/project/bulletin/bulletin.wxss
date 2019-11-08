@@ -1,0 +1,53 @@
+/* pages/project/bulletin/bulletin.wxss */
+.container{
+    border-top:1px solid rgb(238,238,238);
+    padding:30rpx 0 0;
+    background-color: #ffffff;
+}
+.list{
+    width: 702rpx;
+    margin: 0 24rpx;
+    padding-bottom:50rpx;
+}
+.item{
+    position: relative;
+    border-left: 1px solid rgb(204,204,204);
+}
+/* 右边圆 */
+.item .circle{
+    position: absolute;
+    width: 10rpx;
+    height:10rpx;
+    border-radius: 50%;
+    top: 40rpx;
+    left: -5rpx;
+    background-color: rgb(229,196,120);
+}
+/* 修改第一个样式圆 */
+.item:nth-child(1) .circle{
+    top: 0;
+}
+/* 左边内容 */
+.item .content{
+    width: 652rpx;
+    margin-left: 40rpx;
+    border-bottom: 1px solid rgb(238,238,238);
+    padding-bottom: 40rpx;
+}
+.item .content >text:nth-child(1){
+    display: block;
+    padding-top: 30rpx;
+    font-size: 24rpx;
+    color: rgb(153,153,153);
+}
+/* 修改第一个右边顶部文字 */
+.item:nth-child(1) .content >text:nth-child(1){
+    padding-top: 0;
+}
+.item .content >image{
+    display:block;
+    width: 360rpx;
+    height: 180rpx;
+    border-radius: 4rpx;
+    margin: 30rpx 0;
+}

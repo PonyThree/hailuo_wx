@@ -1,0 +1,33 @@
+/* pages/my/safety_center/safety_enter.wxss */
+.pages{
+  background: #f2f2f2;
+}
+.list{
+  width: 100%;
+  background: #ffffff;
+  border-top: 2rpx solid #f2f2f2;
+}
+.list .li{
+  width:94%;
+  height: 89rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #dddddd; 
+}
+.list .li:last-child{
+  border-bottom: 0;
+}
+.list .li text{
+  display: inline-block;
+  float: left;
+  height: 100%;
+  color: #333333;
+  font-size: 26rpx;
+  line-height:89rpx; 
+  letter-spacing: 2rpx;
+}
+.list .li image{
+  width: 17rpx;
+  height: 21rpx;
+  float: right;
+  margin-top: 36rpx;
+}

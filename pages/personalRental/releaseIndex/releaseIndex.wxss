@@ -1,0 +1,69 @@
+/* pages/personalRental/releaseIndex/releaseIndex.wxss */
+page{
+    
+}
+/* 底部按钮 */
+.bomBtns{
+    position: fixed;
+    bottom: 0;
+    height: 130rpx;
+    overflow: hidden;
+    z-index:99;
+    /* background-color: #ffffff; */
+}
+.clickItems{
+    width: 750rpx;
+    position: fixed;
+    bottom: 0;
+    height: 130rpx;
+    z-index: 999;
+}
+.clickItems view{
+    position: absolute;
+    bottom: 0;
+    /* border:1px solid #000000; */
+    height:100rpx;
+}
+.clickItems view:nth-child(1){
+    left:30rpx;
+    width: 120rpx;
+}
+.clickItems view:nth-child(2){
+    left:310rpx;
+    height: 128rpx;
+    width: 120rpx;
+}
+.clickItems view:nth-child(3){
+    right: 33rpx;
+    width: 120rpx;
+}
+/* 中间跳转 */
+.jump{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 220rpx;
+    width: 460rpx;
+    height: 460rpx;
+    margin:0 auto;
+    
+}
+.jump .page{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+.page .pageItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.page .pageItem image{
+    width: 140rpx;
+    height: 140rpx;
+    margin-bottom: 20rpx;
+}
+.page .pageItem text{
+    font-size: 26rpx;
+    color: #333333;
+}

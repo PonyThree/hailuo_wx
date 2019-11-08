@@ -1,0 +1,52 @@
+/* component/search/search.wxss */
+.top{
+  border-top: 1rpx solid #f2f2f2;
+
+  display: flex;
+  align-items: center;
+  width: 720rpx;
+  height: 70rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+  padding:35rpx 10rpx 10rpx 10rpx;
+  justify-content: center;
+}
+.top>.img1{
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+  height: 11rpx;
+  width: 20rpx
+}
+.top .img2{
+  width: 28rpx;
+  height: 28rpx;
+}
+.top .img3{
+  width: 40rpx;
+  height: 38rpx;
+  margin-left: 35rpx;
+}
+.top .img4{
+    width: 37rpx;
+    height: 37rpx;
+}
+.top .search{
+  width: 300rpx;
+  height: 70rpx;
+  padding-left: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  border-radius: 35rpx;
+  background: #f2f2f2;
+  margin-left:9rpx;
+  color:#999999
+}
+.top .search>input{
+  display: inline-block;
+  height: 60rpx;
+  width: 60%;
+  margin-left: 30rpx;
+  margin-right: 40rpx;
+
+}

@@ -1,0 +1,5 @@
+/* pages/writeOffRules/writeOffRules.wxss */
+.writeOffRules{
+    font-size:28rpx;
+    padding: 30rpx 24rpx 0;
+}

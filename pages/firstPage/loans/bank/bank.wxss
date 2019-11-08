@@ -1,0 +1,23 @@
+/* pages/firstPage/loans/bank/bank.wxss */
+.wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wrap .info {
+    text-align: center;
+    width: 100%;
+    line-height: 30rpx;
+    height: 30rpx;
+    font-size: 30rpx;
+    white-space: nowrap;
+    color: #333;
+    margin: 60rpx 0;
+}
+
+.wrap image {
+    width: 573rpx;
+    height: 260rpx;
+}

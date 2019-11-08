@@ -1,0 +1,172 @@
+<!--pages/personalRental/rentalIndex/rentalIndex.wxml-->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view class="rentalPage">
+    <!-- 头部搜索 -->
+    <view class="search">
+        <view class="item {{num==1?'tapActive':''}}" catchtap='handleTap' data-num="1">
+            <text>租车位</text>
+            <view class="{{num==1?'line':''}}"></view>
+        </view>
+        <view class="item {{num==2?'tapActive':''}}" catchtap='handleTap' data-num="2">
+            <text>售车位</text>
+            <view class="{{num==2?'line':''}}"></view>
+        </view>
+        <view class="item {{num==3?'tapActive':''}}" catchtap='handleTap' data-num="3">
+            <text>求租发布</text>
+            <view class="{{num==3?'line':''}}"></view>
+        </view>
+        <view class="item {{num==4?'tapActive':''}}" catchtap='handleTap' data-num="4">
+            <text>求售发布</text>
+            <view class="{{num==4?'line':''}}"></view>
+        </view>
+    </view>
+    <!-- 租售列表 -->
+    <!-- 租 -->
+    <view class="rentalList" wx:if="{{num==1}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{item.id}}" catchtap='rentalDels' data-id="{{item.id}}">
+            <view class="top">
+                <view>
+                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <text>{{item.releaserName}}</text>
+                </view>
+                <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+            </view>
+            <view class="renInfo">
+                <view>
+                    <text>{{item.title}}</text>
+                </view>
+                <view>
+                    <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:10rpx;" wx:if="{{item.images.length>0}}"></image>
+                    <view class="info">
+                        <text>{{item.code}}</text>
+                        <text>{{item.location}}</text>
+                        <scroll-view scroll-x class="tagList1" wx:if="{{item.truckSpaceTagArray.length>0}}">
+                            <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}" style="font-size: 20rpx;background-color: #F0F0F0;">{{item}}</text>
+                        </scroll-view>
+                        <text><text style="color:#FB3B0F;font-size:32rpx;">{{item.sellPrice}}</text> 元/月</text>
+                        <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 售 -->
+    <view class="rentalList" wx:if="{{num==2}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{item.id}}" catchtap='saleDels' data-id="{{item.id}}">
+            <view class="top">
+                <view>
+                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <text>{{item.releaserName}}</text>
+                </view>
+                <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+            </view>
+            <view class="renInfo">
+                <view>
+                    <text>{{item.title}}</text>
+                </view>
+                <view>
+                    <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:4rpx;"></image>
+                    <view class="info">
+                        <text>{{item.code}}</text>
+                        <text>{{item.location}}</text>
+                        <scroll-view scroll-x class="tagList1" wx:if="{{item.truckSpaceTagArray.length>0}}">
+                            <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}" style="font-size: 20rpx;background-color: #F0F0F0;" >{{item}}</text>
+                        </scroll-view>
+                        <text><text style="color:#FB3B0F;font-size:32rpx;">{{item.sellPrice}}</text> 元/月</text>
+                        <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 求租发布 -->
+    <view class="rentalList" wx:if="{{num==3}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{index}}" catchtap='rentRelease' data-id="{{item.id}}">
+            <view class="top">
+                <view>
+                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <text>{{item.releaserName}}</text>
+                </view>
+                <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+            </view>
+            <view class="renInfo">
+                <view>
+                    <text>{{item.title}}</text>
+                </view>
+                <view>
+                    <view class="carInfo">
+                        <view class="right view2">
+                            <text>期望车位</text>
+                            <text>{{item.location}}</text>
+                        </view>
+                        <view class="right view2">
+                            <text>意向价格</text> {{item.minPrice}}
+                            <text style="color:#777777;font-size:24rpx;">元/月 </text>
+                            <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>{{item.maxPrice}}
+                            <text style="color:#777777;font-size:24rpx;">元/月</text>
+                        </view>
+                        <!-- 车位标签 -->
+                        <view class='right view2'>
+                            <text>意向标签</text>
+                            <scroll-view scroll-x class="tagList1">
+                                <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}">{{item}}</text>
+                            </scroll-view>
+                        </view>
+                    </view>
+                </view>
+                <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 求售发布 -->
+    <view class="rentalList" wx:if="{{num==4}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{index}}" catchtap='saleReDels' data-id="{{item.id}}">
+            <view class="top">
+                <view>
+                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <text>{{item.releaserName}}</text>
+                </view>
+                <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
+            </view>
+            <view class="renInfo">
+                <view>
+                    <text>{{item.title}}</text>
+                </view>
+                <view>
+                    <view class="carInfo">
+                        <view class="right view2">
+                            <text>期望车位</text>
+                            <text>{{item.location}}</text>
+                        </view>
+                        <view class="right view2">
+                            <text>意向价格</text>{{item.minPrice}}
+                            <text style="color:#777777;font-size:24rpx;">元/月 </text>
+                            <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>{{item.maxPrice}}
+                            <text style="color:#777777;font-size:24rpx;">元/月</text>
+                        </view>
+                        <!-- 车位标签 -->
+                        <view class='right view2'>
+                            <text>车位标签</text>
+                            <scroll-view scroll-x class="tagList1">
+                                <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}">{{item}}</text>
+                            </scroll-view>
+                        </view>
+                    </view>
+                </view>
+                <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
+            </view>
+        </view>
+    </view>
+    <view style="height:140rpx;"></view>
+    <!-- 底部按钮 -->
+    <view class="bomBtns">
+        <image src="/image/dhl.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==0}}"></image>
+        <image src="/image/dhll.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==1}}"></image>
+        <image src="/image/dhlll.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==3}}"></image>
+    </view>
+    <view class="clickItems">
+        <view catchtap='handleClick' data-num="1"></view>
+        <view catchtap='handleClick' data-num="0"></view>
+        <view catchtap='handleClick' data-num="3"></view>
+    </view>
+</view>

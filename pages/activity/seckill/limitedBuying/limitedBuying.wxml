@@ -1,0 +1,148 @@
+<wxs module="dateUtil" src="../../../../filter/dateFr.wxs"></wxs>
+<view class="limitedBuying">
+  <!-- 图片 -->
+  <view class="buyPic">
+    <image src="{{activityImg}}" style="width:100%;height:320rpx;"></image>
+  </view>
+  <!-- 抢购列表 -->
+  <view class="buyList" wx:if='{{topList.length>0}}'>
+    <!-- 开盘时间滑动栏 -->
+    <view class="{{scrollTop>156?'timeList1':'timeList'}}">
+      <scroll-view class="timeView" scroll-x style="width: 100%">
+        <view class="itemTime {{type==index?'active' : ''}}" bindtap='changeItem' data-type="{{index}}" wx:for='{{topList}}' data-actId='{{item.id}}' wx:key='index'>
+          <view>{{dateUtil.dateFormat3(item.startTime)}} </view>
+          <view wx:if='{{item.actStatus==1}}'>抢购中</view>
+          <view wx:else>未开始</view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 火热抢购中 -->
+    <view class="buyStaus" wx-if="{{carList.actStatus==2}}">
+      <view>
+        <image src="/image/dqg.png"></image>
+        <text style="color:#e5c478!important;">秒 杀 预 热 中</text>
+
+      </view>
+      <view>
+        距开始
+        <text class="djs">{{djs[0]}}</text>
+        <text>天</text>
+        <text class="djs">{{djs[1]}}</text>
+        <text>时</text>
+        <text class="djs">{{djs[2]}}</text>
+        <text>分</text>
+        <text class="djs">{{djs[3]}}</text>
+        <text>秒</text>
+      </view>
+    </view>
+    <view class="buyStaus" wx-if="{{carList.actStatus==1}}">
+      <view>
+        <image src="/image/hotbuy.png"></image>
+        <text>火 热 抢 购 中</text>
+      </view>
+      <view>
+        距结束
+        <text class="djs">{{djs[0]}}</text>
+        <text>天</text>
+        <text class="djs">{{djs[1]}}</text>
+        <text>时</text>
+        <text class="djs">{{djs[2]}}</text>
+        <text>分</text>
+        <text class="djs">{{djs[3]}}</text>
+        <text>秒</text>
+      </view>
+    </view>
+    <!-- 活动车位列表 -->
+    <view class="acList">
+      <view class="item" wx:for="{{carList.list}}" wx:key='index' bindtap="goCarDetail" data-carid="{{item.truckSpaceId}}">
+        <!-- 图片 -->
+        <view class="itemPic">
+          <image src="{{item.carImagePath}}"></image>
+        </view>
+        <!-- 车位信息 -->
+        <view class="itemInfo">
+          <view>
+            <text>{{item.name}}/{{item.areaSpace}}m²/{{item.projectName}}/{{item.level1Name}}{{item.level2Name}}{{item.level3Name}}</text>
+          </view>
+          <view>
+            <view class="listFeature">
+              <view>秒杀价</view>
+              <text>￥{{item.seckillPrice}}</text>
+            </view>
+
+          </view>
+          <!-- 当不为已售时显示售价 -->
+          <view class="price" wx:if="{{status!=2}}">
+            <view>
+              <text>{{item.sellPrice}}</text>
+              <text>元</text>
+            </view>
+            <view>
+              <text>{{item.facePrice}}</text>
+              <text>元</text>
+            </view>
+          </view>
+          <view wx:if="{{status==2}}" class="price1">
+            <text>已出售</text>
+          </view>
+        </view>
+        <!-- 按钮 -->
+        <view>
+          <view class="reversation">
+            <text>{{item.subscribeNnb}}人预约</text>
+          </view>
+
+        </view>
+        <button class="btn" wx-if="{{ (carList.actStatus==0 ||carList.actStatus==1)&&item.truckSpaceStatus!=2 }}">立即抢购</button>
+        <button class="btn btn1" wx-if="{{item.truckSpaceStatus==2 && carList.actStatus==1}}">已出售</button>
+
+        <form report-submit='true' bindsubmit='registerFormSubmit'>
+          <button class="btn btn2" wx-if="{{item.subscribeStatus==2 && carList.actStatus==2}}" data-carid='{{item.truckSpaceId}}' data-type="1" catchtap="Reserve" form-type='submit'>提前预约</button>
+        </form>
+
+
+        <button class="btn btn3" wx-if="{{item.subscribeStatus==1 && carList.actStatus==2}}" data-carid='{{item.truckSpaceId}}' data-type="2" catchtap="Reserve">已预约</button>
+        <!-- 已售遮罩 -->
+        <view class="mask" wx-if="{{status==2}}">
+          <image src="/image/saled.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 活动结束提示 -->
+  <view class="buyList" wx:if='{{topList.length==0}}'>
+    <image class="endActivity" bindtap="goindex" src="/image/JSS.png"></image>
+  </view>
+  <!-- 规则 -->
+  <button class="mark mark1" catchtap='showRegular'>
+    <text>活动规则</text>
+  </button>
+  <button class="mark mark2" catchtap='shareAc' open-type='share'>
+    <text>分享活动</text>
+  </button>
+  <van-popup show="{{ showRegular }}" bind:close="onClose">
+    <view class="regBox">
+      <view class="regTop">
+        <view class="title">
+          <text>活动规则</text>
+        </view>
+        <view class="info">
+          <text>规则详情</text>
+          <view class="regDetail">
+            <view class="speitem">
+              <text>1</text>
+              <text>活动内容:</text>
+              <view class="content">
+                <text>{{activityRule.content}}</text>
+              </view>
+            </view>
+            <view class="end">活动车位数量有限,抢完即止。</view>
+          </view>
+        </view>
+      </view>
+      <view class="regBom" catchtap='close'>
+        <text>我知道了</text>
+      </view>
+    </view>
+  </van-popup>
+</view>

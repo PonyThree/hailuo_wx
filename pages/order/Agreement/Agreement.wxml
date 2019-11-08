@@ -1,0 +1,12 @@
+
+<view class='page'> 
+    <view class='agreeTxt'>
+        <!-- 签购协议文本 -->
+        <view class='text'>
+           <text>
+               {{agreeMent}}
+            </text> 
+        </view>
+    </view>
+   
+</view>

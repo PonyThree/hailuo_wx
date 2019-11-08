@@ -1,0 +1,14 @@
+<!--pages/my/record/record.wxml-->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
+<view>
+  <view class="list"> 
+    <view class="li" wx:for="{{list}}" bindtap="jump" wx:key='index' data-id='{{item.recordId}}'>
+      <view class="left">
+        <text>{{item.useForName}}</text>
+        <view>{{item.useTime}}</view>
+      </view>
+            <view class="right" wx:if='{{item.useFor==1 ||item.useFor==4 ||item.useFor==7 ||item.useFor==5 }}'>+{{ item.useMoney}}</view>
+      <view class="right"  wx:else>-{{item.useMoney}}</view>   
+    </view>
+  </view>
+</view>

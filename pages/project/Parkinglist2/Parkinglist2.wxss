@@ -1,0 +1,681 @@
+/* pages/firstPage/chooseParkingA/chooseParkingA.wxss */
+
+/* 隐藏的信息块样式 */
+page {
+  position: relative;
+ background: white !important;
+  height: 100%;
+  width: 100%;
+-webkit-overflow-scrolling: touch;
+}
+.page{
+  width: 100%;
+
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background:white;
+}
+.title-container {
+  width: 200rpx;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background: red;
+}
+.capsule {
+  position: fixed;
+  left: 0;
+}
+.capsule i-icon{
+  margin-left: 10rpx
+}
+.capsule .topBtn{
+    width: 130rpx!important;
+    height: 40rpx;
+    border-radius: 20rpx;
+    line-height: 40rpx;
+    display: inline-block;
+    padding: 0;
+    font-size:12px !important;
+    color: #333333;
+    background-color: #eeeeee;
+    margin-left: 20rpx
+
+}
+.title {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.addClass{
+  position: fixed !important;
+  top: 84px;
+}
+/* 搜索 */
+.topTime{
+  height: 90rpx;
+  background: #fdefcd;
+  text-align: center;
+  line-height:90rpx;
+  font-size: 28rpx;
+  color:#FB3B0F;
+ 
+}
+
+
+
+/* 项目介绍 */
+
+.information {
+  display: flex;
+  align-items: center;
+  height: 220rpx;
+  background: white;
+  /* border-top: 1rpx solid #f2f2f2; */
+  
+}
+
+.information .img1 {
+  width: 160rpx;
+  height: 140rpx;
+  margin-left: 20rpx;
+  margin-right: 40rpx;
+  border-radius: 4rpx
+}
+.information .img2{
+  width: 30rpx;
+  height: 30rpx
+}
+.information .img3{
+  width: 18rpx;
+  height: 24rpx;
+  margin-right: 10rpx
+}
+
+.information>view>view {
+  padding-top: 10rpx;
+}
+/* 筛选 */
+.screen{
+  width: 93%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding: 20rpx  24rpx 0 24rpx;
+  background: white;
+  z-index: 5;
+  position: relative;
+  box-shadow:  -2rpx 6rpx 8rpx 2rpx rgba(0,0,0,.1);
+   
+ 
+}
+/* .selectItem{
+    width: 650rpx;
+    display: flex;
+    justify-content: space-between;
+} */
+.screenactivity{
+   color: #e49f00 !important; 
+}
+.screen>view{
+  flex: 2;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  overflow: hidden;
+
+}
+.screen>view:nth-child(1){
+    margin-left:0;
+}
+.screen image{
+   display: inline-block;vertical-align: middle;
+ 
+}
+.screen .dropList{
+  width: 750rpx;
+  background: #F8F8F8;
+  height: 0;
+  position: absolute;
+  top:100%;
+  left: 0;
+  transition:  height 0.2s ;
+ 
+}
+.showdropList{
+  border-top: 1rpx solid #f2f2f2;
+  height: 200rpx !important;
+
+}
+.showdropList>view{
+  width: 143rpx;
+height: 60rpx;
+border-radius: 30rpx;
+background: #eeeeee;
+float: left;
+border: 1px solid #eeeeee;
+margin-top: 10rpx;
+margin-left: 10rpx;
+line-height: 60rpx;
+text-align: center;
+
+}
+
+/* 车位介绍区域样式 */
+
+.spec {
+  box-sizing: border-box;
+  width: 750rpx;
+  font-size: 30rpx;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #f2f2f2
+}
+.spec>text{
+  float: left;
+  padding: 0 15rpx;
+  margin-left:4rpx;
+  color: #B0B0B0
+}
+.spec image{
+  width: 24rpx;
+  height: 28rpx;
+  text-align: center
+}
+
+
+/* 车位列表1样式 */
+.carlist1{
+  padding: 0 24rpx
+}
+/* 已售出样式 */
+.car1 .ycc{
+  position: absolute;
+  width: 702rpx;
+  height: 260rpx;
+  background-image: url('https://www.china185.com/static/image/ysc2x.png');
+  background-position: center;
+  background-size: 100% 100%;
+  top: -30rpx
+}
+.cartop1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60rpx
+}
+.cartop1>view:nth-child(1){
+  color: 36rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+
+}
+.cartop1 .img1{
+  width:42rpx;
+  height: 32rpx;
+  margin-left: 10rpx
+}
+.cartop1>view:nth-child(2){
+ font-size: 24rpx;
+ color: #B0B0B0
+}
+.car1{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60rpx;
+  position: relative;
+}
+.carimg{
+  width: 240rpx;
+  height: 200rpx;
+  border-radius: 5rpx;
+
+}
+.car1right{
+  
+  width: 400rpx
+}
+.car1right>view:nth-child(1){
+  font-size: 36rpx;
+  font-weight: 600
+}
+.car1right>view:nth-child(2){
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  color: #999999
+
+}
+.car1right>view:nth-child(4){
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  color: #999999
+}
+/* 成车位哦标签 */
+.tagview {
+  width: 380rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 52rpx;
+  
+}
+ .tag {
+  display: inline-block;
+  background: rgb(240,240,240);
+  color: #999999;
+  font-size: 20rpx;
+  padding: 6rpx 10rpx 6rpx 10rpx;
+  letter-spacing: 2rpx;
+  margin-right: 20rpx;
+  border-radius: 4rpx
+}
+.line{
+  height: 1rpx;
+  width: 702rpx;
+  background: #cccccc;
+  position: absolute;
+  bottom: -30rpx
+
+}
+/* 车位列表2样式 ----------------------------------------------*/
+/* 区域图片 */
+.regionImg{
+  width: 702rpx;
+  height: 240rpx;
+  margin-bottom: 10rpx;
+  background-position: center ;
+  background-size: cover
+  
+}
+.carlist2{
+  padding: 0 20rpx
+}
+.Status{
+  width: 750rpx; 
+  /* height: 110rpx; */
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-around
+}
+.Status1{
+  width: 702rpx;
+  margin:0 24rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+.Status .cfx{
+  width: 120rpx;
+  height: 50rpx;
+  border-radius:25rpx;
+  text-align: center;
+  color:#999999;
+  border:1px solid #999999;
+}
+.Status .cfx.active1{
+    color:#ffffff!important;
+    font-size: 28rpx!important;
+    background-color: #48964a!important;
+    border:1px solid #48964a!important;
+}
+.Status .cfx.active3{
+    color:#ffffff!important;
+    font-size: 28rpx!important;
+    background-color: #999999!important;
+    border:1px solid #999999!important;
+}
+.Status .cfx.active2{
+    color:#ffffff!important;
+    font-size: 28rpx!important;
+    background-color: #e5c478!important;
+    border:1px solid #e5c478!important;
+}
+.carlist2 .cartop1{
+  margin-bottom: 50rpx
+}
+.car2list{
+  overflow: hidden
+}
+.carlist2 .car2{
+  width: 152rpx
+;height: 161rpx;
+float: left;
+background-size: 100% 100%;
+background-position: center;
+margin-right: 31rpx;
+margin-bottom: 30rpx;
+position: relative
+}
+.car2 .mbc2{
+  height: 100%;
+  width: 100%;
+  background:rgba(0,0,0,.6);
+  position: absolute;
+  left: 0;top: 0;
+  border-radius: 4rpx
+}
+.car2 .mbc2>image{
+  width: 85rpx;
+  height: 79rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.car2 .activity>image{
+ width: 25%;
+  height: 35%;
+  position: absolute;
+ left: -5rpx;
+ top:-13rpx;
+}
+.carlist2 .car2:nth-child(4n){
+ margin: 0
+}
+.car2>view:nth-child(1){
+  text-align: center;
+  width: 152rpx;
+  height: 50rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: white;
+  padding-top: 8rpx
+}
+.car2>view:nth-child(2){
+  margin-top: 3rpx;
+  display: flex;
+  color: rgb(119,119,119);
+  font-size: 18rpx;
+  justify-content: space-around;
+}
+.car2>view:nth-child(3){
+  font-size: 28rpx;
+  color: #FB3B0F;
+  text-align: center;
+}
+.car2>view:nth-child(4){
+ font-size: 24rpx;
+  color: rgb(153,153,153);
+  text-align: center;
+  text-decoration:line-through
+}
+/* 车位列表3样式 ----------------------------------------------*/
+
+.car2list{
+  padding-top: 10rpx;
+  overflow: hidden;
+
+}
+.carlist2 .car3{
+  position: relative;
+  width: 100rpx
+;height: 100rpx;
+float: left;
+background-size: 100% 100%;
+background-position: center;
+margin-right: 20rpx;
+margin-bottom: 30rpx
+}
+.carlist2 .car3:nth-child(6n){
+margin-bottom: 30rpx;
+margin-right: 0
+}
+.car3>view:nth-child(1){
+  text-align: center;
+  width: 100rpx;
+  height: 30rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: white;
+  padding-top: 3rpx
+}
+.car3>view:nth-child(2){
+  margin-top: 4rpx;
+  color: #FB3B0F;
+  text-align: center;
+  font-size: 24rpx
+}
+.car3>view:nth-child(3){
+ font-size: 20rpx;
+  color: rgb(153,153,153);
+  text-align: center;
+  text-decoration:line-through;
+}
+.car3 .mbc3{
+  height: 100rpx;
+  width: 100rpx;
+  background:rgba(0,0,0,.6);
+  position: absolute;
+  left: 0;top: 0;
+  border-radius: 3rpx
+}
+
+.car3 .mbc3>image{
+  width: 52rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: 0
+
+}
+.car3 .activity>image{
+  width: 25%;
+  height: 35%;
+  position: absolute;
+ left: -3rpx;
+ top: -10rpx;
+ 
+}
+/* 筛选列表样式 */
+.shaixuan image {
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 702rpx;
+  height: 80rpx;
+  z-index: 10;
+}
+
+.hidBox {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 703rpx;
+  opacity: 1;
+  height: 80rpx;
+  z-index: 10;
+  border-radius: 40rpx 40rpx 40rpx 40rpx;
+}
+.hidBox view {
+  flex: 1;
+  height: 80rpx;
+  /* border:1px solid #00f; */
+}
+.hidBox>view:nth-child(1){
+  flex:2
+}
+.hidBox>view:nth-child(2){
+  flex:2
+}
+.hidBox>view:nth-child(3){
+  flex:2
+}
+.hidBox>view:nth-child(4){
+  flex:1
+}
+
+
+
+/* 抽屉页2 */
+
+.demo-container {
+  z-index: 99;
+}
+
+.demo1 {
+  text-align: center;
+  width: 620rpx;
+  background: #fff;
+  overflow: auto;
+  z-index: 999;
+  position: relative;
+  top: 0;
+  border-radius: 50rpx;
+}
+
+.demo2 {
+  text-align: center;
+  /* height: 600rpx; */
+  height: 746rpx;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.demo1 .time {
+  text-align: center;
+  height: 60rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  /* margin-top:10rpx; */
+  margin-top: 67rpx;
+  /* margin-top:198rpx; */
+}
+
+.demo1 .time.price {
+  width: 555rpx;
+  margin: 0 auto;
+  display: block;
+  padding: 12rpx 10rpx;
+  /* border-top: 1px solid #f2f2f2; */
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.demo1 .smallTitle {
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #000;
+  font-size: 28rpx;
+  margin-left: 14rpx;
+  /* margin-bottom: 8rpx; */
+}
+
+.demo1 .Label {
+  text-align: left;
+  overflow: hidden;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+}
+
+.demo1 .Label> view {
+  width: 143rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background: #eeeeee;
+  /* border-radius: 5rpx; */
+  float: left;
+  border:1px solid #eeeeee;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.demo1 .Label> view.active{
+    border:1px solid #e5c478 !important;
+}
+.demo1 .Label2> view.active{
+    border:1px solid #e5c478 !important;
+}
+.demo1 .input {
+  display: flex;
+  justify-content: space-between;
+  /* margin-left: 30rpx; */
+  margin: 10rpx auto 0;
+  height: 70rpx;
+  width: 490rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.demo1 .input input.price {
+  width: 300rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #eeeeee;
+  /* float: left; */
+  font-size: 24rpx;
+  color: #999999;
+  /* margin-left: 100rpx; */
+}
+
+.demo1 .confirm {
+  width: 420rpx;
+  height: 70rpx;
+  margin: 40rpx auto;
+  border-radius: 35rpx;
+  display: flex;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+
+.demo1 .confirm>view:nth-child(1) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 35rpx 0 0 35rpx;
+  background: #ddd;
+  border: none;
+}
+
+.demo1 .confirm>view:nth-child(2) {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 0rpx 35rpx 35rpx 0;
+  background: #E5C478;
+  color: white;
+}
+.demo1 .line {
+  height: 1rpx;
+  /* width: 490rpx; */
+  background: #f2f2f2;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+.demo1 .Label2 {
+  text-align: center;
+  overflow: hidden;
+}
+.demo1 .Label2> view {
+  width: 400rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  border:1px solid #eeeeee;
+  border-radius: 40rpx;
+  background: #eeeeee;
+  color:#333333;
+  /* border-radius: 5rpx; */
+  margin-top: 20rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+i-drawer {
+  z-index: 99;
+}

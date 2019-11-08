@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "i-icon": "/dist/icon/index",
+          "opentime": "/component/opentime/opentime"
+    },
+    "navigationBarTitleText": "收藏"
+}

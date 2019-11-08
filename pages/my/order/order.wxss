@@ -1,0 +1,207 @@
+/* pages/my/order/order.wxss */
+/* 搜索 */
+.search{
+  width: 440rpx;
+  height: 60rpx;
+  background: #ffffff;
+  border-radius: 6rpx;
+  margin: 20rpx auto;
+}
+.search image{
+  width: 21rpx;
+  height: 21rpx;
+  margin-left: 20rpx;
+  float: left;
+  margin-top: 20rpx;
+}
+.search input{
+  width: 375rpx;
+  float: right;
+  font-size: 22rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+/* 切换栏 */
+.tab{
+  width: 100%;
+  height:80rpx;
+  background: #ffffff; 
+}
+.tabs{
+  color: black !important;
+  font-size: 28rpx !important
+}
+.tabs1{
+  color:#A92112 !important;
+  font-size: 30rpx !important
+}
+.tabcustom{
+  height: 1000rpx !important;
+  overflow: hidden
+}
+/* 切换内容 */
+.content{
+  width: 94%;
+  height: 460rpx;
+  background: #ffffff;
+  border-radius:10rpx;
+  margin:  18rpx auto;
+}
+.head{
+  width: 95%;
+  height: 70rpx;
+  margin: 0 auto;
+}
+.head text{
+  display: inline-block;
+  color: #777777;
+  font-size: 28rpx;
+  height: 100%;
+  line-height: 70rpx;
+  float: left;
+}
+.head image{
+  width: 36rpx;
+  height: 36rpx;
+  float: right;
+  padding: 16rpx 32rpx;
+  margin-right: -32rpx
+}
+.project{
+  width:95%;
+  height: 272rpx;
+  margin: 0 auto;
+  border-radius: 15rpx;
+}
+.project .top{
+  width: 100%;
+  height: 202rpx;
+  margin: 0 auto;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+}
+.project .top .tagview{
+  width: 100%;
+  height: 56rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top:90rpx
+}
+.project .top image{
+  width:160rpx;
+  height: 160rpx; 
+  float: left;
+  margin: 22rpx 20rpx 0 22rpx;
+  border-radius: 10rpx
+
+}
+.project .top .right{
+  width: 450rpx;
+  float: right;
+}
+.project .top .right view{
+  width: 94.5%;
+  color: #333333;
+  font-size: 30rpx;
+  float:left;
+  margin-top: 10rpx;
+}
+.project .top .right view>span{
+  font-size: 24rpx;
+  font-weight: normal;
+  margin-left: 28rpx; 
+}
+.project .top .right image{
+  width: 26rpx;
+  height: 30rpx;
+  float: right;
+  margin: 18rpx 0 0 0;
+}
+.project .top .right .good{
+  color: #777777;
+  font-size: 25rpx;
+  float: left;
+  letter-spacing: 2rpx;
+  margin-top:6rpx;
+}
+.project .top .right .tag{
+  display: inline-block;
+  background: #cdc5a4;
+  color: #ffffff;
+  font-size: 22rpx;
+  padding: 4rpx 14rpx 6rpx 14rpx;
+  letter-spacing: 2rpx;
+  border-radius: 8rpx;
+  margin-top: 14rpx;
+  margin-right: 20rpx;
+}
+.project .top .right .number{
+  display: inline-block;
+  color: #333333;
+  font-size: 24rpx;
+  /* letter-spacing: 1rpx; */
+  
+}
+.project .top .right .number span{
+margin-right: 38rpx;
+  float: right;
+}
+
+.project .bottom{
+  width: 100%;
+  height: 80rpx;
+  margin: 0 auto; 
+  border-bottom: 1rpx solid #dddddd;
+}
+.project .bottom .money{
+  display: inline-block;
+  float: left;
+  color: #999999;
+  font-size: 24rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  letter-spacing: 1rpx;
+  float: right;
+}
+.project .bottom .money i{
+  color: #a92112;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.project .bottom .money span{
+  color: #a92112;
+  font-size: 46rpx;
+  font-weight: 600;
+}
+.project .btn{
+  width: 100%;
+  height: 99rpx;
+}
+.project .btn button{
+  width: 180rpx;
+  height: 60rpx;
+  background: #ffffff;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  letter-spacing: 1rpx;
+  float: right;
+  line-height: 60rpx;
+  border: 1rpx solid #999999;
+  color: #999999;
+  margin: 22rpx 0 0 18rpx;
+}
+.btnconfim{
+  border: 1rpx solid #ab9f67 !important;
+  color: #ab9f67 !important;
+}
+/* 无订单时样式 */
+.none{
+  color: #999999;
+  font-size:28rpx;
+  letter-spacing: 1rpx;
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+
+

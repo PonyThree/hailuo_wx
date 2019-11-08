@@ -1,0 +1,43 @@
+<view style="background:#ffffff;margin-top:20rpx;margin-bottom:20rpx" >
+  <view bindtap="bind" class="gmlc">
+    <text>购买流程</text>
+    <text wx:if='{{!type}}'>﹀</text>
+    <text wx:else>︿</text>
+  </view>
+  <van-steps wx:if='{{type}}' steps="{{ steps }}" active="{{ -1 }}" direction="vertical" active-color="#f44" />
+</view>
+
+<view class="youhui" wx:if='{{youhui}}' catchtap="showPrice">
+  <view>活动优惠</view>
+  <view>已优惠
+    <text>￥{{data.actityInfo.reducePrice}}</text>
+    <i-icon size='20' type="enter" color='rgb(153,153,153)' />
+  </view>
+</view>
+<van-popup catchtap="onClose" show="{{show}}" bind:close="onClose">
+  <view class="prop">
+  <van-icon size="25px" name="close" />
+    <view style="color:#333333;font-size:36rpx;padding-top:40rpx; text-align: center">活动优惠</view>
+    <view style="font-size:28rpx;margin-top:60rpx;width:480rpx">
+      <text>原价: </text>
+      <text style=""> ￥{{data.actityInfo.seckillPrice+data.actityInfo.reducePrice}}</text>
+    </view>
+    <view style="border-bottom: 1rpx solid #cccccc;margin-top:30rpx"></view>
+    <view style=" font-size:28rpx;margin-top:30rpx;display: flex;justify-content: space-between">
+      <text style="color:#999999">秒杀优惠</text>
+      <text>- ￥{{data.actityInfo.reducePrice}}</text>
+    </view>
+    <view style="border-bottom: 1rpx solid #cccccc;margin-top:30rpx"></view>
+    <view style="font-size:28rpx;margin-top:30rpx;overflow: hidden;text-align:right">
+      <text>车位最终价: </text>
+      <text style="color:#e64d01;font-size:38rpx"> ￥{{data.actityInfo.seckillPrice}}</text>
+    </view>
+    <view class="_bottom">
+    <view catchtap="onClose" wx:if='{{actityInfo && data.actityInfo!=null && data.actityInfo.actStatus==2 }}'>去参加活动</view>
+    <view bindtap="gosubscription"  wx:if='{{actityInfo && data.actityInfo.actStatus==2}}'>直接购买</view>
+    <view bindtap="gosubscription" wx:if='{{(actityInfo && data.actityInfo.actStatus==1)||(actityInfo && data.actityInfo.actStatus==0)}}'>一键秒杀</view>
+    <view bindtap="onClose" wx:if='{{!actityInfo && data.actityInfo!=null}}' >确定</view>
+    </view>
+
+  </view>
+</van-popup>
