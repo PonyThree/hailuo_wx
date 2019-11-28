@@ -1,8 +1,10 @@
 {
   "usingComponents": {
-    "carlist":"/component/carlist/carlist",
     "goindex": "/component/goindex/goindex",
-    "step":"/component/step/step"
+    "i-toast": "/dist/toast/index",
+    "i-button": "/dist/button/index",
+    "van-popup": "/zan/lib/popup/index",
+    "van-icon": "/zan/lib/icon/index"
   },
   "navigationBarTitleText": "车位详情",
     "enablePullDownRefresh": true

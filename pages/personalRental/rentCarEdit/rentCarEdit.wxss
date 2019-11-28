@@ -85,7 +85,20 @@ page {
     align-items: center;
     /* background-color: #aaf; */
 }
-
+.info >view.singleOne.singleSpecial{
+    height: auto;
+    padding: 30rpx 0;
+}
+.info >view.singleOne.singleSpecial textarea{
+    width: 550rpx!important;
+    margin-left:24rpx;
+    color: #777777;
+    font-size: 28rpx;
+    padding: 0 6rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+}
 .info >view {
     display: flex;
     border-top: 1px solid #eee;
@@ -319,4 +332,18 @@ page {
     line-height: 70rpx;
     border-radius: 35rpx;
     margin: 40rpx auto 0;
+}
+.van-checkbox__icon {
+    display: block;
+    font-size: 14px;
+    width: 16px!important;
+    height: 16px !important;
+    color: transparent;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    transition: 0.2s;
+}
+.van-icon.van-icon.van-icon-success.van-icon-success{
+    line-height: 10px!important;
 }

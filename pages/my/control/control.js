@@ -5,7 +5,9 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+      hasUse:true,
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -85,8 +87,9 @@ Page({
     flag(e) {
         console.log(e)
         let id = e.currentTarget.dataset.id
+        let type = e.currentTarget.dataset.type
         wx.navigateTo({
-            url: '/pages/my/drop_code/drop_code?id=' + id,
+          url: '/pages/my/drop_code/drop_code?id=' + id + "&type=" + type,
         })
     },
     //查看核销码规则

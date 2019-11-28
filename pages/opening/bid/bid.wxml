@@ -1,7 +1,5 @@
-<!--pages/opening/bid/bid.wxml-->
-<!-- <text>pages/opening/bid/bid.wxml</text> -->
+<wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
 <view class='page'>
-  <!-- 开盘倒计时 -->
   <view class="countDown" wx:if='{{openStatus==0}}'>
 
     <image src="/image/time.png"></image>
@@ -25,107 +23,33 @@
     </view>
   </view>
   <!-- 订单人 -->
-  <view class='top' catchtap='onshow'>
-    <view>订单人: {{userName}}</view>
-    <view>线下签约人: {{contractName}} {{contractMobile}}</view>
-    <view>身份信息: {{contractIdcard}}</view>
-    <image src='/image/qy.png' class='img1'></image>
-    <i-icon size='22' type="enter" color='rgb(153,153,153)' />
-    <!-- 收藏人数-->
-    <view class="collectNum" catchtap='Collection'>
-      <image src='/image/collect.png'></image>
-      <text>{{data.collectNum}}</text>
-    </view>
+  <purchaseInformation id='getContract' data="{{data}}" style='margin-top:80rpx' />
+  <orderStep step='2' data='{{data.controlRespDto}}' />
+
+  <view class="Agreement">
+    <text style="font-size:28rpx;color:#000000;margin-left:20rpx;">同意</text>
+    <text catchtap="goAgreement" style="font-size:28rpx;color:#000000;margin-left:-100rpx;">《车位{{data.controlRespDto.buyName}}协议》<text style="color:#e5c478;margin-left:10rpx;">点击阅读</text></text>
+    <!-- <view>
+      <view></view>
+    </view> -->
+    <i-checkbox i-class='Agreement-radio' checked="{{Agreement}}" color='#FA6D39' bindchange="handleAnimalChange">
+    </i-checkbox>
   </view>
-  <!-- 订单信息 -->
-  <view style='width:702rpx;margin-left:24rpx'>
-    <carlist data="{{data}}"></carlist>
-  </view>
-  <!-- 购买方式 -->
-  <view class='purchase'>
-    <view>{{buyName}}流程</view>
-    <view>线上缴纳{{buyName}}金，线下签约付尾款</view>
-  </view>
-  <!-- 落位金介绍 -->
-  <view class='processitem'>
-    <view class='processitem1'>
-      <text>售价</text>
-      <text>￥{{data.sellPrice}}</text>
-    </view>
-    <view class='processitem2'>
-      <text wx:if='{{data.controlRespDto.verifyFund==1}}'>线上支付（车位核销后原路返回）</text>
-      <text wx:else>线上支付</text>
-      <text>￥{{data.controlRespDto.buyMoney}}</text>
-    </view>
-    <view class='processitem3'>
-      <text>线下支付合同款</text>
-      <text wx:if='{{data.controlRespDto.verifyFund==1}}'>￥ {{data.sellPrice}}</text>
-      <text wx:else>￥ {{data.sellPrice-data.controlRespDto.buyMoney}}</text>
-    </view>
-  </view>
-  <!-- 支付方式 -->
-  <view class='pay'>
-    <view>支付方式</view>
+  <!-- 确定支付 -->
+  <view class='gopay'>
     <view>
-      <i-panel title="group-水果">
-        <i-radio-group current="{{current}}" bindchange="handleFruitChange" i-class='radio'>
-          <i-radio wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}" color=' #A92112'>
-          </i-radio>
-        </i-radio-group>
-      </i-panel>
+      <view>支付金额:
+        <text style="color:#FA6D39">{{data.controlRespDto.buyMoney}}</text>
+      </view>
+      <view style="color:#979797;font-size:24rpx;font-weight:500" wx:if='{{data.controlRespDto.verifyFund==1}}'>核销后退至支付账户</view>
     </view>
-    <image class='img1' src='/image/lqzf.png'></image>
-    <image class='img2' src='/image/wxzf.png'></image>
-  </view>
-  <!-- 认购订单 -->
-  <view class='purchaseOrder'>
-    <view>
-      {{buyName}}金:
-      <text>￥{{data.controlRespDto.buyMoney}}</text>
-    </view>
-    <view>
-      车位价:
-      <text>￥{{data.sellPrice}}</text>
-    </view>
-    <view class='confirmBtn'  catchtap='change2'>
-      <view catchtap="goHall">返回选位大厅</view>
-      <view catchtap='godropsuccess'>确定{{buyName}}</view>
-    </view>
-  </view>
-  <!-- 底部tabbar -->
-  <view class='bomTab'>
-    <view class="shoucang " catchtap='change1'>
-      <image class="shoucangPic" src="/image/shoucang_collect.png"></image>
-      <view>我的收藏</view>
-    </view>
-    <view class="choosePark" catchtap='goHall'>
-      <image class="chooseParkPic" src="/image/xuanwei.png"></image>
-      <view>选位大厅</view>
-    </view>
-  </view>
-  <view class='box'>
+    <button form-type='submit' style="{{Agreement?'':'background: #cccccc'}}" bindtap='godropsuccess'>确定</button>
   </view>
 </view>
-<!-- 修改订单人信息 -->
-<van-popup show="{{ show }}" bind:close="onClose" position='top'>
-  <view class='Personal'>
-    <view class='Title'>修改支付人信息</view>
-    <i-panel title="基础用法">
-      <i-input value="{{ contractName }}" bind:change='value2' maxlength='5' title="预计签约人:" placeholder="名字" />
-      <i-input value="{{ contractMobile }}" bind:change='value3' maxlength='11' type="number" title="联系电话:" placeholder="请输入手机号" />
-      <i-input value="{{ contractIdcard }}" bind:change='value4' type="number" title="身份证号码:" placeholder="请输入身份证号码" maxlength="18" />
-    </i-panel>
-  </view>
-</van-popup>
-<!-- 钱包输入密码 -->
-<van-popup show="{{show2}}" bind:close="onClose" position="bottom" close-on-click-overlay='fales'>
-  <view class='paypsw'>
-    <view>请输入支付密码</view>
-
-    <paySix bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" get_focus="{{inputData.get_focus}}" focus_class="{{inputData.focus_class}}" value_num="{{inputData.value_num}}"
-      height="{{inputData.height}}" width="{{inputData.width}}" see="{{inputData.see}}" interval="{{inputData.interval}}">
-    </paySix>
-  </view>
-</van-popup>
 <!-- 订单认购弹窗 -->
-<popcenter showRg="{{showRg}}"  msg="{{msg}}"></popcenter>
+<popcenter showRg="{{showRg}}" msg="{{msg}}"></popcenter>
+<view class="collectNum" catchtap='Collection'>
+  <image src='/image/xsc.png' wx:if='{{data.collect}}'></image>
+  <image src='/image/xsc1.png' wx:else></image>
+  <text>{{data.collectNum}}</text>
+</view>

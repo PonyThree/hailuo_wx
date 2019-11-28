@@ -1,26 +1,101 @@
 /* pages/my/control/control.wxss */
 
 .pages {
-    background: #f2f2f2;
+    background: #f7f7f7;
     padding-top: 1rpx;
     padding-bottom: 100rpx;
 }
 page{
-     background: #f2f2f2 !important;
+     background: #f7f7f7 !important;
 }
 
 /* 列表信息 */
 
 .content {
-    width: 94%;
-    height: 254rpx;
+    display: flex;
+    justify-content: space-between;
+    width: 686rpx;
+    height:217rpx;
+    margin:24rpx auto 0;
+    overflow: hidden;
     background: #fff;
-    margin: 22rpx 24rpx 0 24rpx;
-    border-radius: 12rpx;
-    /* box-shadow: 2rpx 6rpx 0.2rpx #dcdcdc; */
+    border-radius: 10rpx;
     box-shadow: -5px 5px 5px -4px #dcdcdc, 5px 5px 5px -4px #dcdcdc;
 }
-
+/* 左边信息 */
+.content .left{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  width: 172rpx;
+  height: 217rpx;
+}
+.left image{
+  width: 87rpx;
+  height: 99rpx;
+  margin:0 40rpx 10rpx;
+}
+.left view{
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+/* 右边信息 */
+.content .rightInfo{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 514rpx;
+  height: 217rpx;
+  /* background-color: pink; */
+  overflow: hidden;
+}
+.rightInfo >view{
+  width: 480rpx;
+  overflow: hidden;
+}
+.rightInfo >view .name{
+  font-size: 30rpx;
+  color: #1B1B1B;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+/* 时间 */
+.rightInfo >view .time{
+  width: 100%;
+  font-size: 26rpx;
+  color: #9F9F9F;
+  padding-bottom: 10rpx;
+  border-bottom:1px dashed #D4D4D4;
+}
+/* 规则 */
+.rightInfo >view .regular{
+  display: flex;
+  align-items: center;
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+  color: #757575;
+}
+.regular text:nth-child(1){
+  margin-right: 10rpx;
+}
+/* 使用按钮 */
+.rightInfo .btns text{
+  position: absolute;
+  width: 130rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  right: 24rpx;
+}
 .content .top {
     width: 102rpx;
     height: 41rpx;
@@ -43,7 +118,7 @@ page{
 
 /* 车位信息 */
 
-.main .left {
+/* .main .left {
     box-sizing: border-box;
     width: 25%;
     height: 120rpx;
@@ -80,11 +155,11 @@ page{
     letter-spacing: 2rpx;
     width: 190rpx;
     text-align: center;
-}
+} */
 
 /* 项目名称 */
 
-.main .middle {
+/* .main .middle {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -107,11 +182,11 @@ page{
     color: #777;
     font-size: 24rpx;
     text-align: center;
-}
+} */
 
 /* 按钮 */
 
-.main .button {
+/* .main .button {
     box-sizing: border-box;
     width: 27%;
     height: 70rpx;
@@ -125,11 +200,11 @@ page{
     border-radius: 32rpx;
     padding-left: 10rpx;
     margin-top: 22rpx;
-}
+} */
 
 /* 查看规则 */
 
-.content .bottom {
+/* .content .bottom {
     width: 89%;
     background: pink;
     margin: 4rpx auto 0;
@@ -149,7 +224,7 @@ page{
     height: 21rpx;
     float: right;
     margin-top: 20rpx;
-}
+} */
 
 /* 无核销码页面 */
 

@@ -6,9 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show1:true,
     code: "", //兑换码
     mobile: null, //用户电话号码
-    status: true, //是否输入过兑换码
+    status: 3, //是否输入过兑换码
     carportBool: false, //是否展示选择车位信息
     seckillBool: false, //是否有秒杀活动
     carportData: [], //被选购车位数据
@@ -56,7 +57,7 @@ Page({
    */
   gainScene: function () {
     let result = wx.getLaunchOptionsSync()
-    if (result.scene === 1047 || result.scene === 1011) {
+    if (result.scene === 1047 ) {
       this.setData({
         sceneBool: true
       })
@@ -118,7 +119,7 @@ Page({
    * 验证手机号是否正确
    */
   verifyMobile: function (mobile) {
-  
+
     wx.request({
       url: this.data.url + '/eatbeancar-life-points/refuelRecord/checkCode',
       method: "post",
@@ -128,27 +129,27 @@ Page({
       },
       success: (res) => {
         wx.hideLoading()
-        console.log(res)
-        if(res.data.code==0){
-          console.log(res.data)
+    
+        if (res.data.code == 0) {
+
           let type = res.data.data.type
-          let mobile=res.data.data.mobile
+          let mobile = res.data.data.mobile
           if (type == 0) {
             this.setData({
-              status: true,
+              status: 0,
               mobile
             })
 
-          } else if (type==1) {
+          } else if (type == 1) {
             this.setData({
-              status: false,
+              status: 1,
               mobile
             })
 
           }
-          
+
         }
-     
+
       }
     })
   },
@@ -165,7 +166,8 @@ Page({
    */
   carportClear: function () {
     this.setData({
-      carportBool: false
+      carportBool: false,
+      seckillBool:false
     })
   },
   /**
@@ -173,9 +175,9 @@ Page({
    */
   // async
   judegMobile: function () {
-    let tel =wx.getStorageSync('user').mobile
+    let tel = wx.getStorageSync('user').mobile
     this.verifyMobile(tel)
-   
+
   },
   /**
    * 获取输入的电话号码
@@ -195,51 +197,95 @@ Page({
    * 立即加油 
    */
   instantlyAddOil: function () {
-    // if (!this.data.status) {
-    //   wx.showToast({
-    //     title: '您已兑换过了!',
-    //     icon: 'none'
-    //   })
-    //   return false;
-    // }
-    // console.log("@@@@@@@", this.data.code);
 
     if (!this.data.code) {
       wx.showToast({
         title: '请输入兑换码!',
         icon: 'none'
       })
-      return false;
+      return ;
     }
     console.log('验证加油码开始')
-    wx.request({
-      url: this.data.url + '/eatbeancar-life-points/refuelRecord/checkCode_0',
-      method: "POST",
-      data: {
-        code: this.data.code,
-        mobile: this.data.mobile,
-        source: 1
-      },
-      success: (res) => {
-        let result = res.data;
-        if (result.code === 1) {
-          console.log("#######", result.msg);
+    app.http('post', '/activity/auth0/dataTurn/get/',{num:this.data.code}).then(res=>{
+      if(res.data.code==0 && res.data.data){  //通过批次号换兑换码
+        this.setData({
+          dataTurn:res.data.data
+        })
+        wx.request({
+          url: this.data.url + '/eatbeancar-life-points/refuelRecord/checkCode_0',
+          method: "POST",
+          data: {
+            code: res.data.data.code,
+            mobile: this.data.mobile,
+            source: 1
+          },
+          success: (res) => {
+            let result = res.data;
+            if (result.code === 1) {
+              wx.showToast({
+                title: result.msg,
+                icon: 'none'
+              })
+              this.setData({
+                status: 0
+              })
+            } else if (result.code == 0) {
 
-          wx.showToast({
-            title: result.msg,
-            icon: 'none'
-          })
-          this.setData({
-            status: true
-          })
-        } else if (result.code === 0) {
-          this.setData({
-            status: false,
-          }, )
-        
-        }
+            wx.showToast({
+              title: '恭喜您获得加油会员资格',
+            })
+              let data = this.data.dataTurn
+              app.http('post', '/activity/auth0/dataTurn/changeStatus',data)  //更改批次号状态
+              this.setData({
+                status: 1,
+              })
+
+            }
+          }
+        })
+
+      }
+      else if (res.data.code==0 && res.data.data==null){  //直接通过兑换码
+        wx.request({
+          url: this.data.url + '/eatbeancar-life-points/refuelRecord/checkCode_0',
+          method: "POST",
+          data: {
+            code: this.data.code,
+            mobile: this.data.mobile,
+            source: 1
+          },
+          success: (res) => {
+            let result = res.data;
+            if (result.code === 1) {
+              wx.showToast({
+                title: result.msg,
+                icon: 'none'
+              })
+              this.setData({
+                status: 0
+              })
+            } else if (result.code == 0) {
+
+              wx.showToast({
+                title: '恭喜您获得加油会员资格',
+              })
+           
+              this.setData({
+                status: 1,
+              })
+
+            }
+          }
+        })
+      }
+      else{
+        wx.showToast({
+          title: '请输入正确的兑换码',
+          icon:'none'
+        })
       }
     })
+  
   },
   /**
    *拨打电话 
@@ -287,38 +333,17 @@ Page({
         projectId
       },
       success: (res) => {
-        let {
-          nuber,
-          listMsg
-        } = res.data.data;
-        let carportData = this.data.carportData;
-        let count = 1;
-        let index = 0;
-        let tempArr = [];
 
-        if (listMsg) {
-          listMsg.forEach(item => {
-            if (count < 3) {
-              tempArr.push(item);
-              count++;
-            } else if (count === 3) {
-              tempArr.push(item);
-              carportData.push(tempArr);
-              tempArr = [];
-              index++;
-              count = 1;
-            }
-          })
-        }
-
-
-
+      if(res.data.code==0){
         this.setData({
-          carportData,
-          nuber,
+          carportData:res.data.data,
           seckillBool: false,
           carportBool: true
         })
+
+      }
+   
+       
       }
     })
   },
@@ -357,13 +382,11 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  },
+  onPullDownRefresh: function () {},
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享

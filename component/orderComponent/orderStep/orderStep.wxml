@@ -1,0 +1,44 @@
+ <view class="step" style="margin-top:30rpx">
+    <view class="dashed {{step==1?'stepListON':''}}"  wx:if='{{stepdata.locationStatus}}'>
+      <view>
+        <text class="yuan {{step==1?'yuanactive':''}}">
+          </text>
+        <view class="title">落位 <text wx:if='{{step==1}}'>:进行中</text></view>
+      </view>
+      <view class="stepList ">
+        <view>
+          <text>支付落位金{{dasfas}}</text>
+          <text>￥{{stepdata.downMoney}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="dashed  {{step==2?'stepListON':''}}" wx:if='{{stepdata.onlineBuyStatus}}'>
+      <view  >
+        <text class="yuan {{step==2?'yuanactive':''}}">
+          </text>
+        <view class="title">{{stepdata.buyName}}<text wx:if='{{step==2}}'>:进行中</text></view>
+      </view>
+      <view class="stepList " wx:if='{{stepdata.onlineBuyStatus}}'>
+        <view>
+          <text>认购金(落位金可抵扣{{stepdata.buyMoneyName}})</text>
+          <text>￥{{stepdata.buyMoney}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="dashed {{step==3?'stepListON':''}}">
+      <view>
+        <text class="yuan {{step==3?'yuanactive':''}}">
+          </text>
+        <view class="title">线下核销</view>
+      </view>
+      <view class="stepList ">
+        <view>
+          <text>线下核销,签约.</text>
+          <text> </text>
+        </view>
+     
+
+      </view>
+    </view>
+    <view class="dashedfff"></view>
+  </view>

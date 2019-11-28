@@ -1,65 +1,33 @@
 <wxs src="../../../utils/indexof.wxs" module="indexof" />
 <view class='page'>
-  <view class="navbar" style="{{'height: ' + navigationBarHeight+'px'}}">
-    <view style="{{'height: ' + statusBarHeight+'px'}}">
-      <view class="capsule">
-        <view style="display:flex;align-items:center;{{'margin-top:' + (statusBarHeight-28)+'px'}}">
-          <i-icon type="return" size="26" color="#000000" catchtap='goBack' />
-          <button class="topBtn" catchtap='refreshChose'>重选楼栋</button>
-          <view class='title' style="margin-left:100rpx">{{ProjectInfo.name}}</view>
-        </view>
-      </view>
-    </view>
-
-  </view>
-  <view style="{{'height: ' + navigationBarHeight+'px'}};"></view>
-  <view class="topTime" wx:if='{{!ProjectInfo.openStatus}}'>
+  <!-- <view class="topTime" wx:if='{{!ProjectInfo.openStatus}}'>
     开盘时间: {{ProjectInfo.startTime}}
-  </view>
-  <!-- 搜索 -->
-  <search bind:gosearch="handlesearch"></search>
-  <!-- 项目介绍 -->
-  <!-- <view class='information' bindtap="goprojectIndex">
-    <image class="img1" src='{{ProjectInfo.headImage}}'></image>
-    <view>
-      <view>
-        <text class='f36' style=" font-weight: 600">{{ProjectInfo.name}}</text>
-        <image class="img2"></image>
-      </view>
-      <view class='f24 c777 '>
-        <image class="img3" src="/image/wzfb.png"></image>{{ProjectInfo.address}}</view>
-      <view class='f24' style="color:#cccccc">均价
-        <text style='font-size:36rpx;color:#FB3B0F'>{{ProjectInfo.avgPrice}}</text>
-        <text style='color:#FB3B0F'>元/个</text>
-      </view>
-    </view>
   </view> -->
+  <!-- 搜索 -->
   <view>
-    <!-- 车位介绍区域 -->
-    <!-- <view class='spec'>
-      <text>总业主数    <text style="color:#333333;margin-right:15rpx">{{carlist.ownerNobuy}}</text>▕</text>
-      <text>可选车位   <text style="color:#333333;margin-right:15rpx">{{carlist.sellingNum}}</text></text>
-   
-    </view> -->
-    <!-- 车位筛选 -->
-    <view class="screen" style="{{scrollTop>statusBarHeight?'position:fixed;top:'+statusBarHeight+'px':''}}">
+    <search bindrefreshChose='refreshChose' bindgosearch="handlesearch"></search>
+  </view>
 
+  <!-- 项目介绍 -->
+  <view>
+    <view class="screen">
       <view class="dropList  {{showdropList==1?'showdropList':''}}">
-        <view wx:for='{{activitySerch}}' class="{{item.active?'active':''}}" wx:key='index' catchtap="activitySerch"
-          data-type="{{item.type}}">{{item.name}}</view>
+        <view wx:for='{{activitySerch}}' class="{{item.active?'active':''}}" wx:key='index' catchtap="activitySerch" data-type="{{item.type}}">{{item.name}}</view>
       </view>
       <view catchtap="whole" class="{{serchActivty==0?'screenactivity':''}}">全部</view>
       <view bindtap='sort' style="margin-left:-8rpx;">价格
         <image wx:if='{{sortType==1}}' style="width:18rpx;height:23rpx;" src="/image/sheng.png"></image>
         <image wx:else style="width:18rpx;height:23rpx;" src="/image/jiang.png"></image>
       </view>
-      <view bindtap='activitySerch' style="margin-left:6rpx" data-type="1"
-        class="{{serchActivty==2?'screenactivity':''}}">秒杀
+      <view bindtap='activitySerch' style="margin-left:6rpx" data-type="1" class="{{serchActivty==2?'screenactivity':''}}">秒杀
         <image style="width:36rpx;height:40rpx;margin-top:-24rpx;margin-left:-6rpx;" src="/image/fire.gif"></image>
       </view>
       <view bindtap='moreSelect' style="flex:3" style="margin-left:-16rpx">筛选车位
-        <image style="width:22rpx;height:24rpx;" src="/image/sxcw.png"></image>
+        <image style="width:15rpx;height:7rpx; position: relative" src="/image/zh.png"></image>
+      
       </view>
+      <!-- 标签筛选组件 -->
+      <screnList showRight1="{{showRight1}}" tagList='{{taglist}}' bindcorfim='corfim'></screnList>
       <view bindtap='changeShow' wx:if='{{SwitchList==3}}' style="flex:1; display: flex;justify-content: flex-end">
         <image style="width:30rpx;height:30rpx; " src="/image/qh.png"></image>
       </view>
@@ -73,66 +41,70 @@
   </view>
   <view class="Status">
     <view class="Status1" bindtap="screen" data-id="2">
-      <view class="cfx {{currentId==2?'active1':''}}" style="color:#48964a;border:1px solid #48964a;">
+      <view class="cfx {{currentId==2?'active1':''}}">
         <text>可预定</text>
       </view>
     </view>
     <view class="Status1" bindtap="screen" data-id="3">
-      <view class="cfx {{currentId==3?'active2':''}}" style="color:#e5c478;border:1px solid #e5c478;">
+      <view class="cfx {{currentId==3?'active1':''}}">
         <text>已收藏</text>
       </view>
     </view>
     <view class="Status1" bindtap="screen" data-id="4">
-      <view class="cfx {{currentId==4?'active3':''}}">
+      <view class="cfx {{currentId==4?'active1':''}}">
         <text>已售出</text>
       </view>
     </view>
     <view class="Status1" bindtap="screen" data-id="5">
-      <view class="cfx {{currentId==5?'active3':''}}">
+      <view class="cfx {{currentId==5?'active1':''}}">
         <text>已落位</text>
       </view>
       <!-- <view>已落位</view> -->
     </view>
   </view>
   <!-- 车位列表1 -->
-  <view class="carlist1" wx:if='{{SwitchList==3}}' wx:for='{{carlist.truckSpaces}}' wx:key='index'>
-    <view class='cartop1'>
-      <view>{{item.level1Name}}{{item.level2Name}}{{item.level3Name}}
-        <image class="img1" src="/image/fbt2x.png" wx:if='{{item.truckSpaceImages}}' bindtap='previewImage'
-          data-url='{{item.truckSpaceImages}}'></image>
+  <scroll-view class="carlist2" wx:if='{{SwitchList==3}}' >
+    <view wx:for='{{carlist.truckSpaces}}' wx:key='index'>
+      <view class='cartop1'>
+        <view>{{item.level1Name}}{{item.level2Name}}{{item.level3Name}}
+          <image lazy-load class="img1" src="/image/fbt2x.png" wx:if='{{item.truckSpaceImages}}' bindtap='previewImage' data-url='{{item.truckSpaceImages}}'></image>
+        </view>
+        <view>
+          <text style="margin-right:20rpx">可选车位 <text style="color:black">{{item.sellingNum}}</text></text>
+        </view>
       </view>
-      <view>
-        <text style="margin-right:20rpx">可选车位 <text style="color:black">{{item.sellingNum}}</text></text>
-        <!-- <text>均价 <text style="color:black">{{item.avgPrice}}元</text></text> -->
+      <view class="car1" wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
+        <image class='carimg' src='{{item.listImage[0]}}'></image>
+        <view class="car1right">
+          <view>
+            <text>{{item.name}}</text>
+          </view>
+          <view>
+            <text>{{item.outsideArea}}m²▕ {{item.collectNum}}人收藏 <text decode> ▕ &nbsp;&nbsp;{{item.downPlaceNum}}人落位</text></text>
+          </view>
+          <scroll-view class='tagview' scroll-x>
+            <text class="tag" wx:for="{{item.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
+          </scroll-view>
+          <!-- 已售车位不展示价格 -->
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>
+            <text style="color:#FA6D39" decode> ￥{{item.sellPrice}}元&nbsp;&nbsp; </text>
+            <text style="text-decoration:line-through;">￥{{item.facePrice}}元</text>
+          </view>
+          <view wx:else>
+            <text>已售</text>
+          </view>
+          <view>
+          </view>
+        </view>
+        <image src="/image/ys.png" wx:if='{{item.sellStatus==2 ||item.sellStatus==3}}' class="ycc"></image>
       </view>
     </view>
-    <view class="car1" wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
-      <image class='carimg' src='{{item.listImage[0]}}'></image>
-      <view class="car1right">
-        <view>
-          <text>{{item.name}} <text style="color:#737373;font-size:30rpx">●</text> {{item.outsideArea}}平米</text>
-        </view>
-        <view>
-          <text>{{item.collectNum}}人收藏 <text decode> ▕ &nbsp;&nbsp;{{item.downPlaceNum}}人落位</text></text>
-        </view>
-        <scroll-view class='tagview' scroll-x>
-          <text class="tag" wx:for="{{item.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
-        </scroll-view>
-        <!-- 已售车位不展示价格 -->
-        <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>
-          <text style="color:#FB3B0F" decode>{{item.sellPrice}}元&nbsp;&nbsp; </text>
-          <text style="text-decoration:line-through;">{{item.facePrice}}元</text>
-        </view>
-        <view wx:else>
-          <text>已售</text>
-        </view>
-        <view>
-        </view>
-      </view>
-      <view class="ycc" wx:if='{{item.sellStatus==2 ||item.sellStatus==3}}'></view>
-      <view class="line"></view>
+    <view style="padding-top:120rpx">
+      <i-load-more wx:if='{{showloding}}' />
+      <i-load-more tip="没有更多数据了!" loading="{{ false }}" wx:if='{{tip ||!carlist.hasData}}' />
+      <i-load-more bindtap='tip' tip="点击或上拉加载更多!" loading="{{ false }}" wx:if='{{!tip&&!showloding&&carlist.hasData==true}}' />
     </view>
-  </view>
+  </scroll-view> 
   <!-- 车位列表2 -->
   <view class="carlist2" wx:if='{{SwitchList==2}}'>
     <view wx:for='{{carlist.truckSpaces}}' wx:key='index'>
@@ -140,31 +112,22 @@
         <view>{{item.level1Name}}{{item.level2Name}}{{item.level3Name}}
         </view>
         <view>
-          <text style="margin-right:20rpx">可选车位 <text style="color:black">{{item.sellingNum}}</text></text>
+          <text style="fon-size:30rpx; margin-right:20rpx">可选车位 <text style="color:black">{{item.sellingNum}}</text></text>
           <!-- <text>均价 <text style="color:black">{{item.avgPrice}}元</text></text> -->
         </view>
       </view>
       <!-- 车库区域图 -->
-      <image class="regionImg" bindtap='previewImage' data-url='{{item.truckSpaceImages}}'
-        wx:if='{{item.truckSpaceImages.length>0}}' style=" background-image: url({{item.truckSpaceImages}})"></image>
+      <image class="regionImg" lazy-load bindtap='previewImage' data-url='{{item.truckSpaceImages}}' wx:if='{{item.truckSpaceImages.length>0}}' style=" background-image: url({{item.truckSpaceImages}})"></image>
       <view class="car2list">
-        <view class="car2"
-          style="background-image:url({{item.sellStatus==2 ||item.sellStatus==3 ?'https://www.china185.com/static/image/xtk3.png':''}} {{item.sellStatus==-1?'https://www.china185.com/static/image/xtk1.png':''}}{{item.sellStatus==0||item.sellStatus==1?'https://www.china185.com/static/image/xtk2.png':''}})"
-          wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
-          <view>{{item.name}}</view>
-          <view>
+        <view class="car2" wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>{{item.name}}</view>
+          <view wx:else style="background: #B4B4B4;color:#FFFFFF">{{item.name}}</view>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>￥{{item.facePrice}}</view>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>￥{{item.sellPrice}}</view>
+          <view wx:else style="margin-top:30rpx;color:#999999;font-size:32rpx;text-decoration:none">已售</view>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>
             <text>收藏 {{item.collectNum}}</text>
             <text>落位 {{item.downPlaceNum}}</text>
-          </view>
-          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>{{item.sellPrice}}</view>
-          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>{{item.facePrice}}</view>
-          <view wx:else style="margin-top:20rpx;color:#999999">已售</view>
-          <!-- 已售蒙版 -->
-          <view class="mbc2" wx:if='{{item.sellStatus==2 || item.sellStatus==3}}'>
-            <image src="/image/ys.png"></image>
-          </view>
-          <view class="mbc2" wx:if='{{item.sellStatus==1}}'>
-            <image src="/image/ylw.png"></image>
           </view>
           <!-- 活动标识 -->
           <view class="activity" wx:if='{{item.activityStatus==1 && (item.sellStatus!=2&&item.sellStatus!=3)}}'>
@@ -173,9 +136,15 @@
         </view>
       </view>
     </view>
+
+    <view style="padding-top:120rpx">
+      <i-load-more wx:if='{{showloding}}' />
+      <i-load-more tip="没有更多数据了!" loading="{{ false }}" wx:if='{{tip ||!carlist.hasData}}' />
+      <i-load-more bindtap='tip' tip="点击或上拉加载更多!" loading="{{ false }}" wx:if='{{!tip&&!showloding&&carlist.hasData==true}}' />
+    </view>
   </view>
   <!-- 车位列表3 -->
-  <view class="carlist2" wx:if='{{SwitchList==1}}'>
+  <scroll-view  scroll-y	bindscrolltolower='bindscrolltolower'  class="carlist2" wx:if='{{SwitchList==1}}'>
     <view wx:for='{{carlist.truckSpaces}}' wx:key='index'>
       <view class='cartop1'>
         <view>{{item.level1Name}}{{item.level2Name}}{{item.level3Name}}
@@ -186,23 +155,15 @@
         </view>
       </view>
       <!-- 车库区域图 -->
-      <image class="regionImg" bindtap='previewImage' data-url='{{item.truckSpaceImages}}'
-        wx:if='{{item.truckSpaceImages.length>0}}' style=" background-image: url({{item.truckSpaceImages}})"></image>
+      <image class="regionImg" lazy-load bindtap='previewImage' data-url='{{item.truckSpaceImages}}' wx:if='{{item.truckSpaceImages.length>0}}' style=" background-image: url({{item.truckSpaceImages}})"></image>
       <view class="car2list">
-        <view class="car3"
-          style="background-image:url({{item.sellStatus==2 ||item.sellStatus==3 ?'https://www.china185.com/static/image/xtk3.png':''}} {{item.sellStatus==-1?'https://www.china185.com/static/image/xtk1.png':''}}{{item.sellStatus==0||item.sellStatus==1?'https://www.china185.com/static/image/xtk2.png':''}})"
-          wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
-          <view>{{item.name}}</view>
-          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>{{item.sellPrice}}</view>
-          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>{{item.facePrice}}</view>
-          <view wx:else style="margin-top:20rpx;color:#999999">已售</view>
-          <!-- 已售蒙版 -->
-          <view class="mbc3" wx:if='{{item.sellStatus==2 ||item.sellStatus==3}}'>
-            <image src="/image/ys.png"></image>
-          </view>
-          <view class="mbc3" wx:if='{{item.sellStatus==1}}'>
-            <image src="/image/ylw.png"></image>
-          </view>
+        <view class="car3" wx:for='{{item.nodeRespDtos}}' wx:key='index' catchtap='goCarDetails' data-carid='{{item.id}}'>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>{{item.name}}</view>
+          <view wx:else style="background: #B4B4B4;color:#FFFFFF">{{item.name}}</view>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>￥{{item.facePrice}}</view>
+          <view wx:if='{{item.sellStatus!=2 &&item.sellStatus!=3}}'>￥{{item.sellPrice}}</view>
+          <view wx:else style="margin-top:10rpx;color:#999999;font-size:28rpx;text-decoration:none;">已售</view>
+
           <!-- 活动标识 -->
           <view class="activity" wx:if='{{item.activityStatus==1&& (item.sellStatus!=2&&item.sellStatus!=3)}}'>
             <image src="/image/msbq.png"></image>
@@ -210,66 +171,13 @@
         </view>
       </view>
     </view>
-  </view>
-  <!-- 没有筛选结果 -->
-  <view wx:if='{{carlist.truckSpaces.length<1}}' style='text-align: center;margin-top: 100rpx;font-size: 30rpx'>没有筛选到内容
-  </view>
-
-  <!-- 更多筛选抽屉 -->
-
-  <!-- 抽屉页1 -->
-  <!-- <i-drawer i-class="democlass" mask-closable='true'  bind:close='moreSelect' mode="left" visible="{{showRight1}}">
-    <view class="demo-container">
-      <view class='demo1'>
-
-        <view class='time price'>更多筛选</view>
-        <view class='Label' wx:for='{{taglist}}' wx:key='index'>
-          <text class='smallTitle' wx:if='{{item.tagRespDtos.length>0}}'>{{item.typeName}}</text>
-          <view data-index='{{index1}}' catchtap='morescreen' data-title='更多筛选' wx:for='{{item.tagRespDtos}}' wx:for-index='index1' wx:key='index' data-tieleindex='{{index}}' class="{{item.isSelected?'active':''}}">{{item.name}}</view>
-        </view>
-        <view class='time price'>选择价格</view>
-        <view class='input'>
-          <input type='nuber' class="price" bindinput='minPrice' placeholder='最低价格'></input>
-          <text style="font-size:36rpx;height:70rpx;width:60rpx;line-height:70rpx;color:#333333;">~</text>
-          <input type='nuber' class="price" bindinput='maxPrice' placeholder='最高价格'></input>
-        </view>
-        <view class='confirm' style='margin-bottom:50rpx'>
-          <view bindtap='toggleRight1'>取消</view>
-          <view catchtap='corfim' bindtap='zhuan'>确定</view>
-        </view>
-      </view>
+    <view style="padding-top:120rpx">
+      <i-load-more wx:if='{{showloding}}' />
+      <i-load-more tip="没有更多数据了!" loading="{{ false }}" wx:if='{{tip ||!carlist.hasData}}' />
+      <i-load-more bindtap='tip' tip="点击或上拉加载更多!" loading="{{ false }}" wx:if='{{!tip&&!showloding&&carlist.hasData==true}}' />
     </view>
-  </i-drawer> -->
-
-  <van-popup show="{{ showRight1 }}" position="right" custom-style="height: 75%;" bind:close="toggleRight1">
-
-    <view class='demo1'>
-
-      <view class='time price'>更多筛选</view>
-      <view class='Label' wx:for='{{taglist}}' wx:key='index'>
-        <text class='smallTitle' wx:if='{{item.tagRespDtos.length>0}}'>{{item.typeName}}</text>
-        <view data-index='{{index1}}' catchtap='morescreen' data-title='更多筛选' wx:for='{{item.tagRespDtos}}'
-          wx:for-index='index1' wx:key='index' data-tieleindex='{{index}}' class="{{item.isSelected?'active':''}}">
-          {{item.name}}</view>
-      </view>
-      <view class='time price'>选择价格</view>
-      <view class='input'>
-        <input type='nuber' class="price" bindinput='minPrice' placeholder='最低价格'></input>
-        <text style="font-size:36rpx;height:70rpx;width:60rpx;line-height:70rpx;color:#333333;">~</text>
-        <input type='nuber' class="price" bindinput='maxPrice' placeholder='最高价格'></input>
-      </view>
-      <view class='confirm' style='margin-bottom:50rpx'>
-        <view bindtap='toggleRight1'>取消</view>
-        <view catchtap='corfim' bindtap='zhuan'>确定</view>
-      </view>
-
-    </view>
-  </van-popup>
-  <i-load-more wx:if='{{showloding}}' />
+  </scroll-view>
 </view>
 
-<i-load-more tip="没有更多数据了!" loading="{{ false }}" wx:if='{{tip}}' />
-<i-load-more bindtap='tip' tip="点击或上拉加载更多!" loading="{{ false }}"
-  wx:if='{{!tip&&!showloding&&carlist.hasData==true}}' />
 
 <goindex gotop='{{true}}'></goindex>

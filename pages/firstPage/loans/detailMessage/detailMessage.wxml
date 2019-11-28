@@ -1,0 +1,44 @@
+<view class="wrap">
+    <view class="head_img">
+        <image src="https://www.china185.com/static/image/dk.png" mode="aspectFill"></image>
+    </view>
+    <view class="content_box">
+        <view class="title">您的贷款信息</view>
+        <view class="item user_name">
+            <label>您的姓名:</label>
+            <view class="form_box">
+                {{detailData.loanName}}
+            </view>
+        </view>
+        <view class="item tel">
+            <label>手机号码:</label>
+            <view class="form_box">
+                {{detailData.loanPhone}}
+            </view>
+        </view>
+        <view class="item money">
+            <label>贷款金额:</label>
+            <view class="form_box">
+                {{detailData.loanMoney}}
+            </view>
+        </view>
+        <view class="item deadline">
+            <label>申请期限:</label>
+            <view class="form_box">
+                {{detailData.loanTime}}
+            </view>
+        </view>
+        <view class="item location">
+            <label>意向区域:</label>
+            <view class="form_box">
+                {{detailData.regionInfo}}
+            </view>
+        </view>
+        <view class="item car">
+            <label>车辆情况:</label>
+            <view class="form_box">
+                {{detailData.carType}}
+            </view>
+        </view>
+    </view>
+</view>

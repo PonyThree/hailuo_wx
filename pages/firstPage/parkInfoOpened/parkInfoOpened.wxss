@@ -3,7 +3,7 @@
 @import '/component/step/step.wxss'; 
 page {
   position: relative;
-  background-color: rgb(242,242,242);
+  background-color: #F0F0F0;
 }
 .van-popup{ 
   background: none !important
@@ -12,24 +12,255 @@ page {
 .page {
   overflow: hidden;
 }
-
+/* 新版活动提示 */
+.notification{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 750rpx;
+  height: 46rpx;
+  color: #ffffff;
+  font-size: 24rpx;
+  padding:6rpx 32rpx 8rpx;
+  background-color: #FA6D39;
+}
+.notification .dateTime{
+  display: flex;
+  align-items: center;
+  margin-left:30rpx;
+}
+.notification .dateTime text{
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 6rpx;
+  background-color: #D64E1C;
+}
 /* banner样式 */
 
 .banner {
   width: 100%;
-  height: 360rpx;
+  height: 400rpx;
   overflow: hidden;
 }
 .banner swiper {
-  height: 100%
+  position: relative;
+  height: 100%;
 }
+.i-btn-ghost {
+color: #fff!important;
+background: #FA6D39!important;
+}
+
 
 /* banner图片样式 */
 
 .banner image {
   width: 100%;
   text-align: center;
-  height: 360rpx;
+  height: 400rpx;
+}
+/* 秒杀活动价格优惠 */
+.banner .spikeDownSub{
+  position: absolute;
+  width: 750rpx;
+  overflow: hidden;
+  height: 144rpx;
+  bottom: 50rpx;
+  z-index: 999;
+}
+.spikeDownSub image:nth-child(1){
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width:750rpx;
+  height:144rpx;
+}
+/* 秒杀优惠价格 */
+.spikeDownSub .spikePrice{
+  position: absolute;
+  width: 470rpx;
+  height: 96rpx;
+  /* background-color: pink; */
+  color: #ffffff;
+  top: 48rpx;
+  z-index: 99;
+}
+.spikePrice{
+  display: flex;
+  align-items: center;
+}
+.spikePrice .price{
+  text-align: center;
+  /* width: 130rpx; */
+  width: auto;
+  height: 96rpx;
+  padding:0 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.spikePrice .price:nth-child(1){
+  margin-left: 27rpx;
+}
+.spikePrice .price  text:nth-child(1){
+  display: block;
+  font-size: 20rpx;
+}
+.spikePrice .price  text:nth-child(2){
+  font-size: 26rpx;
+}
+.spikePrice image.jiantou{
+  width:14rpx;
+  height:32rpx;
+  text-align: center;
+}
+.spikePrice image.jiantou.marl10{
+  margin-left: 10rpx;
+}
+/* 预计到手价 */
+.spikeDownSub  .EstimatedPrice{
+  position: absolute;
+  box-sizing: border-box;
+  width: 270rpx;
+  color: #ffffff;
+  /* background-color: pink; */
+  /* border: 1px  solid #000000; */
+  /* top: 0; */
+  right:0;
+  bottom: 0;
+  z-index: 99;
+  text-align: center;
+  height: 142rpx;
+}
+.EstimatedPrice view.txt{
+  /* display: block; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50rpx;
+  font-size: 20rpx;
+  margin-left: 24rpx;
+  /* background-color: pink; */
+  text-align: center;
+}
+.EstimatedPrice view.txt text{
+ line-height: 50rpx;
+}
+.EstimatedPrice >view{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 56rpx;
+  text-align: center;
+  align-items: flex-start;
+  margin-top: -8rpx;
+  margin-left: 10rpx;
+
+}
+.EstimatedPrice >view text:nth-child(1){
+  font-size: 20rpx;
+  margin-right: 5rpx;
+}
+.EstimatedPrice >view text:nth-child(2){
+  font-size: 56rpx;
+  font-weight: bold;
+  margin-top: -15rpx;
+}
+/* 直降 */
+.EstimatedPrice .fallPrice{
+  width: 168rpx;
+  height: 24rpx;
+  /* margin: 6rpx auto 0; */
+  border-radius: 12rpx;
+  background-color: #ffffff;
+  color: #FA6D39;
+  text-align: center;
+  margin-left: 74rpx;
+  margin-top: 10rpx;
+}
+/* 车位人数已满价格 */
+.specialPrice .noDown{
+  height: 56rpx;
+  /* background-color: pink; */
+}
+.specialPrice .noDown >text{
+  font-size: 20rpx;
+  color: #000000;
+  display: block;
+}
+.specialPrice .noDown >text text{
+  text-decoration: line-through;
+}
+.specialPrice .noDown >text:nth-child(2) text{
+  margin-left:14rpx;
+}
+.fallPrice text{
+  display: block;
+  width: 168rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  font-size: 20rpx;
+  text-align: center;
+}
+/* 车位人数已满倒计时 */
+.fallingInfo .spikeDjs{
+  position: absolute;
+  right: 32rpx;
+  width: 214rpx;
+  height: 84rpx;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+.spikeDjs >text{
+  display: block;
+  height: 33rpx;
+  font-size: 24rpx;
+  color: #1B1B1B;
+  margin-bottom: 8rpx;
+  line-height: 33rpx;
+}
+.spikeDjs .djs{
+  width: 100%;
+  height: 44rpx;
+  background-color: #1B1B1B;
+  color: #ffffff;
+  font-size: 28rpx;
+  line-height: 44rpx;
+  border-radius: 8rpx;
+}
+.downNum{
+  position: absolute;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  right: 220rpx;
+  text-align: center;
+  margin:auto;
+  z-index: 99;
+  width: 80rpx;
+  height: 90rpx;
+  /* background-color: #aaf; */
+}
+.downNum >text{
+  display: block;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1B1B1B;
+  margin-top: 10rpx;
+}
+.downNum view>text{
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #757575;
 }
 /* 头部阴影信息样式 */
 
@@ -65,23 +296,62 @@ page {
 
 /* 落位信息样式 */
 .fallingInfo{
+  margin-top: -2rpx;
+    width: 750rpx;
     position: relative;
     height:120rpx;
 }
-/* 左边信息 */
+/* 新版左边信息 */
 .fallingInfo .carInfo{
     box-sizing: border-box;
     height:120rpx;
     position: absolute;
-    left: 24rpx;
+    left: 32rpx;
     top:0;
+}
+/* 原价 */
+.carInfo .priceInfo{
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #1B1B1B;
+
+}
+.priceInfo >text{
+  font-size: 22rpx;
+}
+text.originPrice{
+  text-decoration: line-through;
+}
+/* 特惠价 */
+.priceInfo .specialPrice{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.priceInfo .specialPrice >text:nth-child(1){
+  font-size: 42rpx;
+  font-weight: bold;
+  margin-right: 22rpx;
+}
+.priceInfo .specialPrice >text:nth-child(2){
+  display: inline-block;
+  text-align: center;
+  width: 86rpx;
+  height: 32rpx;
+  font-size: 24rpx;
+  border: 1px solid #1B1B1B;
+  border-radius: 6rpx;
 }
 .carInfo .price{
     color:#ffffff;
     line-height: 120rpx;
 }
 .carInfo .price text:nth-child(1){
-    font-size:48rpx;
+    font-size:42rpx;
+    color:#1B1B1B;
+    font-weight: bold;
 }
 .carInfo .price text:nth-child(2){
     font-size:24rpx;
@@ -90,7 +360,7 @@ page {
 }
 .carInfo .price1{
     margin-left:24rpx;
-    font-size:48rpx;
+    font-size:42rpx;
     line-height: 120rpx;
     color:#ffffff;
 }
@@ -101,7 +371,7 @@ page {
     box-sizing: border-box;
     position: absolute;
     top:0;
-    right: 24rpx;
+    right: 32rpx;
     height:120rpx;
 }
 .pInfo .p.sell{
@@ -140,40 +410,86 @@ page {
 .time2 .text1{
     margin-top:20rpx;
 }
-/* 活动头部提示 */
-.activityTop{
-  font-size: 28rpx;
-  color: #FB3B0F;
-  display: flex;
-  align-items: center;
-  height: 120rpx;
-  background: rgb(254, 254, 254);
-  
-}
 
-.activityTop image{
-  width: 100rpx;
-  height: 50rpx;
-  margin-left: 24rpx;
-  margin-right: 40rpx;
- 
-
-}
-
-/* 车位名字 */
-.carname{
-  margin-left: 24rpx;
+/* 车位信息 */
+.shareInfo{
+  position: relative;
+  width: 750rpx;
+  height:160rpx;
   background: white;
+}
+/* 左边车位名字 位置 标签*/
+.carname{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  box-sizing: border-box;
+  margin-left: 32rpx;
   color: #777777;
   font-size: 28rpx;
-  height: 120rpx;
-  line-height: 120rpx;
-  border-bottom: 1rpx solid #f2f2f2;
-  width: 702rpx
+  padding-top:20rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #E1E1E1;
+  width: 688rpx;
+  height:160rpx;
+  /* background-color: pink; */
 }
-
-
-
+/* 标签 */
+.tagview{
+  width:470rpx;
+  overflow-x: auto;
+  margin-top:12rpx;
+  white-space: nowrap;
+  /* background-color: pink; */
+}
+.tagview text{
+  display: inline-block;
+  height: 36rpx;
+  font-size: 22rpx;
+  line-height: 36rpx;
+  color: #FA6D39;
+  border-radius:6rpx;
+  /* margin:0 15rpx; */
+  margin-left:15rpx;
+  padding:4rpx 8rpx;
+  border: 1px solid #FA6D39;
+  background-color: #ffffff;
+  
+}
+.tagview text:nth-child(1){
+  margin: 0;
+}
+/* 右边收藏分享 */
+.shareAndSave{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin:auto;
+  width: 220rpx;
+  height: 88rpx;
+  border-left:1px solid #D8D8D8;
+}
+.shareAndSave view,.shareAndSave button.share{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.shareAndSave button.share{
+  margin-left: 40rpx;
+}
+.shareAndSave view.collect{
+  margin-left: 50rpx;
+}
+button.share text,.shareAndSave view text{
+  font-size: 24rpx;
+  color: #757575;
+  padding-top: 15rpx;
+}
 /* 所在位置 所属社区等信息样式 */
 
 .detailInfo {
@@ -188,7 +504,7 @@ page {
   display: flex;
   justify-content: flex-start;
   box-sizing: border-box;
-  width: 702rpx;
+  width: 688rpx;
   margin: 0 auto;
   padding: 15rpx 0 30rpx;
   flex-wrap: wrap;
@@ -226,7 +542,7 @@ page {
 .dalTime {
   display: flex;
   box-sizing: border-box;
-  width: 702rpx;
+  width: 688rpx;
   margin: 0 auto;
   justify-content: space-between;
 }
@@ -250,23 +566,20 @@ page {
   margin-top: 10rpx;
 }
 
-
+/* 浏览人数 */
 .threeInfo{
+    position: relative;
     width: 750rpx;
+    height: 130rpx;
     background-color: rgb(254, 254, 254);
 }
 /* 车位热度样式 */
 .desc {
-  width:702rpx;
-  height: 90rpx;
-  margin-top: 20rpx;
+  width:688rpx;
+  height: 130rpx;
   display: flex;
   align-items: center;
   margin:0 auto;
-  padding:5rpx 0;
-}
-.desc.border{
-    border-bottom:1px solid rgb(239,239,239);
 }
 .desc .title {
   display: inline-block;
@@ -297,6 +610,181 @@ page {
     vertical-align: middle;
     margin-top:-8rpx;
 }
+/* 车位贷款 */
+.threeInfo .carLoans{
+  position: absolute;
+  width: 210rpx;
+  height: 52rpx;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin:auto;
+}
+/* 购买流程 */
+.steps{
+  width: 750rpx;
+  box-sizing: border-box;
+  height: 286rpx;
+  background-color: #ffffff;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.steps .sptop{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 30rpx;
+  margin:0 32rpx;
+  padding-top: 36rpx;
+  color: #313131;
+  font-weight: bold;
+  height: 42rpx;
+}
+/* 流程图片 */
+.steps .sptop image{
+  width:38rpx;
+  height:40rpx;
+  margin-left: 16rpx;
+}
+.steps .spPic{
+  width: 582rpx;
+  margin: 34rpx auto 10rpx;
+}
+/* 流程关键字 */
+.steps .spInfo{
+  display: flex;
+  justify-content: space-between;
+  width: 628rpx;
+  margin: 0 auto;
+}
+.spInfo .item{
+  display: flex;
+  flex-direction: column;
+  /* width: 168rpx; */
+  height: 80rpx;
+}
+.spInfo .item:nth-child(2){
+  text-align: center;
+}
+.spInfo .item:nth-child(3){
+  text-align:right;
+}
+.spInfo .item text:nth-child(1){
+  font-size: 26rpx;
+  color: #1B1B1B;
+}
+.spInfo .item:nth-child(1) text:nth-child(2){
+  /* margin-left:-14rpx; */
+  text-align: center;
+  padding-top: 10rpx
+}
+.spInfo .item:nth-child(2) text:nth-child(1){
+  margin-left: -8rpx;
+}
+.spInfo .item:nth-child(2) text:nth-child(2){
+  margin-left: -8rpx;
+}
+.spInfo .item text:nth-child(2){
+  font-size: 24rpx;
+  color: #AAAAAA;
+}
+/* 拼团优惠活动信息列表 */
+/* .fightGroupInfo{
+  width: 750rpx;
+  height: 964rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+}
+.fightGroupInfo .groupTil{
+  
+} */
+/* 车位介绍信息 */
+.spaceIntro{
+  width: 750rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  padding: 24rpx 0
+}
+/* 第一区块 */
+.spaceIntro .title{
+  display: flex;
+  align-items: centrer;
+  height: 42rpx;
+  margin-left: 32rpx;
+}
+.spaceIntro .title text:nth-child(1){
+  font-size: 30rpx;
+  color: #313131;
+  margin-right: 16rpx;
+  line-height: 42rpx;
+  font-weight: bold;
+}
+.spaceIntro .title text:nth-child(2){
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #FA6D39;
+}
+.intro{
+  width: 688rpx;
+  height: auto;
+  margin:0  auto ;
+  background-color: #ffffff;
+}
+.introItem.introItem1{
+  margin-top: 40rpx;
+}
+.introItem{
+  height: 50rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  margin-bottom: 26rpx;
+}
+.introItem:last-child{
+  margin-bottom: 0;
+}
+.introItem >text:nth-child(1){
+  color: #757575;
+  margin-right: 54rpx;
+}
+.introItem >text:nth-child(2){
+   color: #1B1B1B;
+   font-weight: bold;
+}
+.noTitle{
+  width: 750rpx;
+  padding:30rpx 0 36rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+}
+/* 车位标签样式 */
+.introItem2 .introTags{
+  display: inline-block;
+  white-space: nowrap;
+  overflow-x: auto;
+  height: 40rpx;
+  width: 510rpx;
+  margin-top:-4rpx;
+}
+.introItem.introItem2{
+  display: flex;
+  align-items: center;
+  height: 50rpx;
+}
+.introTags text{
+  display: inline-block;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  /* padding:0 6rpx; */
+  padding:4rpx 8rpx;
+  background-color: #F6F6F6;
+  font-size: 24rpx;
+  color: #1B1B1B;
+  margin-left: 15rpx;
+}
+.introTags text:nth-child(1){
+  margin:0;
+}
 /* 车位特点样式 */
 
 .parkingF {
@@ -307,7 +795,7 @@ page {
 .parkFeature {
   display: flex;
   align-items: center;
-  width:702rxp;
+  width:688rxp;
   height: 90rpx;
   border-top: 1rpx solid #f2f2f2
 }
@@ -336,164 +824,145 @@ page {
   background-color: rgb(240,240,240);
 }
 
-/* 车位分布图样式 */
-
-.parkingMap {
-  width: 750rpx;
-  margin-top: 20rpx;
-  padding-left: 24rpx;
-  padding-right: 24rpx;
-  background-color: rgb(254, 254, 254);
-  box-sizing: border-box
-}
-
-.parkingMap .title {
-  font-size: 24rpx;
-  line-height: 90rpx;
-  color: rgb(119, 119, 119);
-}
-
-.parkingMap .mapPic image {
-  width: 100%;
- height: 100%;
-}
-
-/* 底部导航样式 */
-
-.bomTab {
+/
+/* 新版底部导航 */
+.bomTab{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
-  z-index: 1000;
-  width: 750rpx;
-  height: 100rpx;
-  background-color: rgb(255, 255, 255);
-  border-top: 1px solid #f2f2f2;
+  z-index: 999;
+  /* box-sizing: border-box; */
+  width: 686rpx;
+  height: 110rpx;
+  padding:0 32rpx;
+  margin: 0 auto;
+  /* margin-left: 32rpx; */
+  opacity: 1;
+  /* background-color: #afa; */
+  background: rgba(255,255,255,1);
+  box-shadow: 0px -6px 6px 0px rgba(187,187,187,0.16);
 }
-/* 电话样式 */
-.telPhone {
-  width: 90rpx;
+.bomTab >view{
+  height: 90rpx;
+}
+/* 大型按钮样式 */
+.bomTab >view.bigBtn{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 534rpx;
   text-align: center;
-  margin-left: 24rpx;
-  font-size: 20rpx;
-  margin-right:15rpx;
+  font-size: 28rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+}
+/* 只落位  */
+.bomTab >view.bigBtn.downSpace{
+  background-color: #FFD46A;
+  color: #1B1B1B;
+}
+/* 只认购 */
+.bomTab >view.bigBtn.subscription{
+  background-color: #FA6D39;
+  color: #ffffff;
+}
+/*不能落位 该车位已售出 */
+.bomTab >view.bigBtn.saleOut{
+  background-color: #AAAAAA;
+  color: #ffffff;
 }
 
-.telPhone image {
-  display: block;
-  margin: 15rpx auto 10rpx;
-  width: 40rpx;
-  height: 40rpx;
+/* 只开启认购 */
+.bomTab >view.bigBtn.onlySubscription{
+  background-color: #AAAAAA;
+  color: #ffffff;
 }
-
-.telPhone text {
-  color: rgb(119, 119, 119);
+/* 只开启落位认购 */
+.bomTab view.middleBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 236rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
 }
-/* 收藏图标样式 */
-.shoucangPic{
-  width:90rpx;
-  text-align: center;
-  font-size: 20rpx;
-  margin-right:50rpx;
+.bomTab view.middleBtn.downSpace{
+  color: #1B1B1B;
+  background-color: #FFD46A;
 }
-.shoucangPic image{
-  display: block;
-  width: 40rpx;
-  height: 40rpx;
-  margin: 15rpx auto 10rpx;
+.bomTab view.middleBtn.spikeBtn{
+  background-color: #AAAAAA;
+  color: #ffffff;
 }
-.shoucangPic text{
-    color: rgb(119, 119, 119);
+/* 不能落位 落位次数已满 */
+view.middleBtn.downSpaceOver{
+  background-color: #AAAAAA;
+  color: #ffffff;
 }
-/* 落位认购样式 */
-
-.fallBuy {
-  float: right;
-  width: 420rpx;
-  height: 70rpx;
-  margin-top:17rpx;
-  margin-left:-10rpx;
+view.middleBtn.spikeBtn1{
+  background-color:#FA6D39;
+  color: #ffffff; 
 }
-.fallBuy view{
-    float:left;
-}
-.fallBuy view text {
-  display: block;
-  width: 170rpx;
-  height: 70rpx;
-  font-size: 30rpx;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  line-height: 70rpx;
-}
-
-.fallBuy view text:nth-child(1) {
-  float: left;
-  background-color: rgb(229,196,120);
-  border-radius: 35rpx 0 0 35rpx;
-}
-
-.fallBuy view text:nth-child(2) {
-  float: right;
-  background-color: rgb(249,56,21);
-  border-radius: 0 35rpx 35rpx 0;
-  margin-right:4rpx;
-}
-
-/* 落位认购样式 */
-.fallBuy1{
-    display: flex;
-    align-items: center;
-    width:220rpx;
-    height:70rpx;
-    margin-top:17rpx;
-    margin-left:118rpx;
-}
-.fallBuy1 view{
-    margin-right:24rpx;
-}
-.fallBuy1 view text{
-    display: block;
-    width:220rpx;
-    height:70rpx;
-    font-size:30rpx;
-    color:rgb(255,255,255);
-    text-align: center;
-    line-height: 70rpx;
-}
-.fallBuy1 view text:nth-child(1){
-    float:left;
-    background-color: rgb(229,196,120);
-    border-radius:35rpx;
-}
-.fallBuy1 .ckdd{
-  margin-left: 200rpx
-}
-
-
-.box {
-  width: 750rpx;
-  height: 106rpx;
-  padding: 10rpx;
-}
-.fallBuy1.downLocation view text:nth-child(1) {
-    background-color: rgb(249,56,21)!important;
-    border-radius:35rpx;
-}
-/* 活动图片 */
-.activityTime{
-  height: 80rpx;
-  width: 220rpx;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAABQCAMAAABF9usQAAAARVBMVEVMaXFiUcN3ZeZeS8N4ZuZZQsdXP8l3ZeV3ZuZ3ZeZkVMNgTsNoWMdcSMRmVsRsXM5yYdpbRcVuXtNrWst0Y951ZOFwYNYIxX2TAAAACnRSTlMA////HP//seRdBbPU7gAAAV5JREFUeNrt3Flug2AMRWH39qe2Ow/Q/S+1IUpqIgRVpT6QUw4ruPoYX7AfapnuHq/ffR57P/dSfZx6nPRc3U+7uehh0u20p0lv57pZdwvZWuneH6tpWx3XHY5Za8v6YehP4/pty3W/k8sYxvrrkFugW51GlMuQhgEp11yHaHLFpoEp55J4cnVKQuVaSDy52saTq208udqGlXMJK+cSVi4lrFwLceVcXLmUuHIhrlwKLBfiyqXAciGuXAos5wLLCSyXAss5WS7Ack1guRRYLslyTpZzslyQ5YIsJ7Kcdrn9mtvvlvtzbn9D+e9y+1fBtco1spwFWM6cLJdkOSPLmZPlkixnAZazJMtZgOUsyXIWYDlLspw5WM5agOUssXJjjpUb863J/aGctSDK1TqiXK0jytU6nlzVHChXOVCuyoDK1anJkys8pFzNQ8rVPKBcld4j5Wqf8+TmvwzZuNxCX8coxCC5qT4qAAAAAElFTkSuQmCC) ;
+/* 当前车位只能落位后认购 提示消息 */
+.bomTab view.middleBtn.point{
   position: fixed;
-  right: 0;
-  bottom: 130rpx;
-  background-position: center;
-  background-size: cover;
-  font-size: 18rpx;
-  color: white;
-  padding-left: 25rpx;
-  box-sizing: border-box
+  bottom: 116rpx;
+  justify-content: flex-start;
+  right: 32rpx;
+  font-size: 20rpx!important;
+  /* background-image: url('https://china185.com/file/image/20191119/089a0c5890324280958f6dc746903c97.png'); */
+  color: #ffffff;
+}
+.bomTab view.middleBtn.point image{
+  width: 235rpx;
+  height: 105rpx;
+  position: absolute;
+  z-index: 10;
+}
+.bomTab view.middleBtn.point text{
+  position: absolute;
+  z-index: 99;
+  text-align: center;
+  padding-top: 8rpx;
+}
+.bomTab view.middleBtn text:nth-child(1){
+  font-size: 28rpx;
+}
+.bomTab view.middleBtn text:nth-child(2){
+  font-size: 26rpx;
+}
+/* 只开启认购 */
+/* 职业顾问 */
+.bomTab >view.consultant{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width:80rpx;
+  height: 90rpx;
+  margin-right: 60rpx;
+}
+.bomTab >view.consultant text{
+  font-size: 20rpx;
+  padding-top: 4rpx;
+  color: #1B1B1B;
+}
+.bomTab >view.downSpace text{
+  color: #1B1B1B;
+}
+.zygw{
+width: 686rpx;
+opacity: 1;
+background: rgba(255,212,106,1);
+border-radius: 10rpx;
+font-size: 28rpx;
+text-align: center;
+line-height: 89rpx;
+
 }
 
 button {
@@ -512,3 +981,4 @@ input{
 button::after {
 border: none;
 }
+

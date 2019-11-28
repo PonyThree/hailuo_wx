@@ -1,6 +1,7 @@
 // pages/firstPage/parkInfoOpened/parkInfoOpened.js
 const app = getApp()
 var timer, actiivityTimer
+const { $Toast } = require('../../../dist/base/index');
 Page({
 
   /**
@@ -8,7 +9,12 @@ Page({
    */
   data: {
     opacity: 1,
-    isInit: false
+    isInit: false,
+    stepsList:[
+      { id: '1', name: '线上付款', content:'(落位、认购)'},
+      { id: '2', name: '系统审核', content:''},
+      { id: '3', name: '线下签约', content:'(结清 尾款)'},
+    ]
 
   },
 
@@ -21,7 +27,7 @@ Page({
     })
     else {
       this.setData({
-        carid: '3684616801641037824'
+        carid: '3706756970963795968'
       })
     }
 
@@ -315,5 +321,23 @@ Page({
       }, 1000)
     }
   },
+  // 认购之前验证
+  clickInfo(){
+    $Toast({
+      content: '该车位只能落位后认购'
+    })
+  },
+  //去常见问题页面
+  goProblem(){
+    wx.navigateTo({
+      url: '/pages/firstPage/commonProblem/commonProblem',
+    })
+  },
+  // 去车位贷款
+  goLoans(){
+    wx.navigateTo({
+      url: '/pages/firstPage/loans/loans',
+    })
+  }
 
 })

@@ -2,7 +2,7 @@
 <wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
 <view class="myRelease">
     <!-- 求租求售 -->
-    <view class="rentList" wx:for="{{myReleaseInfo.demandInfos}}" wx:key="{{item.id}}" > 
+    <view class="rentList" wx:for="{{myReleaseInfo.demandInfos}}" wx:key="{{item.id}}" wx:if="{{myReleaseInfo.demandInfos.length>=1}}">
         <i-swipeout i-class="i-swipeout-demo-item" actions="{{actions}}" bind:change="changeRent" data-id="{{item.id}}">
             <view slot="content" data-id="{{item.id}}" catchtap='wantRentDetail' data-type="{{item.releaseType}}">
                 <view class="i-swipeout-image" style="background:#ff9900;">
@@ -10,7 +10,7 @@
                 <view class="i-swipeout-des">
                     <view class="top">
                         <view class="myInfo">
-                            <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                            <image src="https://china185.com/file/image/20191111/84eda2de1a3d48359265e7903d850d4d.blob" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
                             <view class="myPro">
                                 <text style="display:block;font-size:24rpx;color:#333333">{{item.releaserName}}</text>
                                 <text style="font-size:18rpx;color:#777777;">TEL: {{item.releaserMobile}}</text>
@@ -31,11 +31,19 @@
                                     <text>{{item.location}}</text>
                                 </view>
                                 <view class="right view2">
-                                    <text>意向价格</text> {{item.minPrice}}
-                                    <text style="color:#777777;font-size:24rpx;">元/月 </text>
-                                    <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>{{item.maxPrice}}
-                                    <text style="color:#777777;font-size:24rpx;">元/月</text>
+                                    <text>车位价格</text>
+                                    <view class="" wx:if="{{item.minPrice!=0}}">
+                                        <text style="margin-right:10rpx;">{{item.minPrice}}</text>
+                                        <text style="color:#999999;font-size:28rpx;margin-left:10rpx;">{{item.releaseType==1?'元/月':'元'}}</text>
+                                        <text style="color:#777777;font-size:24rpx;margin:0 20rpx;">~</text>
+                                        <text style="margin-right:10rpx;">{{item.maxPrice}}</text>
+                                        <text style="color:#777777;font-size:28rpx;margin-left:10rpx;">{{item.releaseType==1?'元/月':'元'}}</text>
+                                    </view>
+                                    <text style="color: #333333;font-size:28rpx;line-height:2rpx;" wx:if="{{item.minPrice==0}}">
+                                    面议
+                                </text>
                                 </view>
+
                                 <!-- 车位标签 -->
                                 <view class='right view2'>
                                     <text>意向标签</text>
@@ -51,15 +59,15 @@
         </i-swipeout>
     </view>
     <!-- 出售出租 -->
-    <view class="saleList" wx:for="{{myReleaseInfo.rentalSaleInfos}}" wx:key="{{index}}" >
-        <i-swipeout i-class="i-swipeout-demo-item" actions="{{actions}}" bind:change="changeSale" data-id="{{item.id}}">
+    <view class="saleList" wx:for="{{myReleaseInfo.rentalSaleInfos}}" wx:key="{{index}}" wx:if="{{myReleaseInfo.rentalSaleInfos.length>=1}}">
+        <i-swipeout i-class="i-swipeout-demo-item item2" actions="{{actions}}" bind:change="changeSale" data-id="{{item.id}}">
             <view slot="content" data-id="{{item.id}}" catchtap='goSaleDetail' data-type="{{item.releaseType}}">
                 <view class="i-swipeout-image" style="background:#ff9900;">
                 </view>
                 <view class="i-swipeout-des">
                     <view class="top">
                         <view class="myInfo">
-                            <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                            <image src="https://china185.com/file/image/20191111/84eda2de1a3d48359265e7903d850d4d.blob" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
                             <view class="myPro">
                                 <text style="display:block;font-size:24rpx;color:#333333">{{item.releaserName}}</text>
                                 <text style="font-size:18rpx;color:#777777;">TEL: {{item.releaserMobile}}</text>
@@ -70,27 +78,50 @@
                         </view>
                     </view>
                     <view class="renInfo1">
-                        <view>
+                        <view class="tilLogo">
                             <text>{{item.releaseType==1?'出租:':'出售:'}}  {{item.title}}</text>
+                            <!-- 审核中logo -->
+                            <view wx:if="{{item.modifyTime==null}}">
+                                <image src="https://china185.com/file/image/20191113/20ce7adf5cfd40d39a66b3e244a503c8.blob" wx:if="{{(currentTime-(item.createTime+120000))<0}}"></image>
+                            </view>
+                            <view wx:if="{{item.modifyTime!=null}}">
+                                <image src="https://china185.com/file/image/20191113/20ce7adf5cfd40d39a66b3e244a503c8.blob" wx:if="{{(currentTime-(item.modifyTime+120000))<0}}"></image>
+                            </view>
                         </view>
                         <view class="saleInfo">
-                                <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:10rpx;"></image>
+                            <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:10rpx;"></image>
                             <view class="saleCarInfo">
                                 <text>{{item.code}}</text>
                                 <text>{{item.location}}</text>
                                 <view>
-                                    <scroll-view scroll-x class="tagList1">
+                                    <scroll-view scroll-x class="tagList1 tagList2">
                                         <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}" style="color:#999999;font-size:20rpx;">{{item}}</text>
                                     </scroll-view>
                                 </view>
-                                <text>{{item.sellPrice}}<text style="color:#999999;font-size:28rpx;">元</text></text>
+                                <text wx:if="{{item.sellPrice!=0}}">{{item.sellPrice}}<text style="color:#999999;font-size:28rpx;margin-left:10rpx;">{{item.releaseType==1?'元/月':'元'}}</text></text>
+                                <text wx:if="{{item.sellPrice==0}}" style="color: #333333;font-size:28rpx;line-height:2rpx;">面议</text>
                             </view>
-                            </view>
+                        </view>
                     </view>
 
                 </view>
             </view>
         </i-swipeout>
     </view>
-    <view style="height:60rpx;"></view>
+    <view style="height:140rpx;"></view>
+    <!-- 底部按钮 -->
+    <view class="bomBtns">
+        <image src="https://china185.com/file/image/20191114/cf4366a69fb54e0e92dd682f22e83c80.png" style="width:750rpx;height:130rpx;" ></image>
+    </view>
+    <view class="clickItems">
+        <view catchtap='handleClick' data-num="1"></view>
+        <view catchtap='handleClick' data-num="0"></view>
+    </view>
 </view>
+<!-- 暂无消息 -->
+    <view class="promptInfo" wx:if="{{myReleaseInfo.demandInfos.length==0&&myReleaseInfo.rentalSaleInfos.length==0}}">
+      <image src="/image/noInfo.png"></image>
+      <view>
+        <text>您暂未发布任何消息，\n请去发布</text>
+      </view>
+    </view>

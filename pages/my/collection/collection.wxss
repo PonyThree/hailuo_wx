@@ -1,12 +1,155 @@
 /* pages/my/collection/collection.wxss */
 page{
-  height: 100%;
+  /* height: 100%; */
+  background-color: #F0F0F0!important;
 }
-.title{
+/* 收藏信息列表 */
+.saveList{
+  width: 750rpx;
+  background-color: #F0F0F0;
+}
+/* 单个 */
+.list{
+  position: relative;
+  width: 686rpx;
+  height: 336rpx;
+  margin:30rpx 32rpx 0;
+  border-radius: 10rpx; 
+  overflow: hidden;
+  background-color: #ffffff;
+}
+/* 头部信息 */
+.info{
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 636rpx;
+  height: 206rpx;
+  margin:30rpx auto 0;
+  border-radius: 10rpx;
+  background-color: #F5F5F5;
+
+}
+.info image.pic{
+  width:166rpx;
+  height:156rpx;
+  margin-left: 20rpx;
+  margin-right: 24rpx;
+  border-radius: 10rpx;
+}
+.info .rightInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400rpx;
+  height: 156rpx;
+  overflow: hidden;
+}
+.rightInfo >text:nth-child(1){
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.rightInfo >view{
   width: 100%;
-  background: #ffffff;
-  border-top: 1rpx solid #dddddd;
+  height: 34rpx;
+  line-height: 34rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #757575;
+  margin:10rpx auto 14rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+/* 标签 */
+.rightInfo .tagview{
+  width: 100%;
+  height: 70rpx;
+  /* background-color: #afa; */
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.tagview text.tag{
+  display: inline-block;
+  color: #1B1B1B;
+  font-size: 20rpx;
+  text-align: center;
+  background-color: #FFFDF3;
+  border: 1px solid #F1E4A1;
+  padding:4rpx 18rpx;
+  letter-spacing: 2rpx;
+  margin-right: 20rpx;
+  border-radius: 6rpx;
+}
+.tagview text:nth-child(1){
+  margin-left: 0;
+}
+/* 删除按钮 */
+.delImg{
+  position: absolute;
+  top: 30rpx;
+  right: 20rpx;
+  width: 24rpx;
+  z-index: 30;
+  height: 24rpx;
+}
+/* 底部信息 */
+.bomInfo{
+  width: 636rpx;
+  height: 100rpx;
+  margin:0 auto;
+  display: flex;
+  justify-content: space-between;
+  line-height: 100rpx;
+}
+.price{
+  display: flex;
+}
+.price >view:nth-child(1) >text:nth-child(1){
+  font-size: 28rpx;
+  color: #757575;
+  margin-right: 10rpx;
+}
+.price >view:nth-child(1) >text:nth-child(2){
+  font-size: 23rpx;
+  color: #FA5D43;
+  margin-right: 4rpx;
+}
+.price >view:nth-child(1) >text:nth-child(3){
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FA5D43;
+}
+.price >view:nth-child(2){
+  display: inline-block;
+  margin-left: 24rpx;
+}
+.price >view:nth-child(2) text{
+  font-size: 24rpx;
+  text-decoration: line-through;
+  color: #ABABAB;
+}
+/* 收藏个数 */
+.num text{
+  font-size: 24rpx;
+  color: #757575;
+}
+.num text:nth-child(1){
+  margin-right: 24rpx;
+}
+.list >image{
+  position: absolute;
+  top: -1rpx;
+  right: -1rpx;
+  width: 63rpx;
+  height: 59rpx;
+}
+/* .title{
+  width: 100%;
+  background:#F0F0F0;
+  border-top: 1rpx solid #dddddd;
+} */
+
 /* 收藏个数 */
 .title .number{
   width: 94%;

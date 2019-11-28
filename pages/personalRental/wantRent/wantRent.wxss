@@ -1,4 +1,5 @@
 /* pages/personalRental/wantRent/wantRent.wxss */
+
 /* pages/personalRental/rentCarEdit/rentCarEdit.wxss */
 
 page {
@@ -15,7 +16,7 @@ page {
 .rentCarEdit .info {
     width: 702rpx;
     height: auto;
-    margin:0 24rpx 0;
+    margin: 0 24rpx 0;
 }
 
 .info .singleOne {
@@ -34,15 +35,29 @@ page {
     display: flex;
     height: 90rpx;
     align-items: center;
-    /* background-color: pink; *//* border-top: 1px solid #eee; *//* border-bottom: 1px solid #eee; */
 }
-
+.info >view.singleOne.singleSpecial{
+    height: auto;
+    padding: 30rpx 0;
+    /* background-color: #ffa; */
+}
+.info >view.singleOne.singleSpecial textarea{
+    width: 550rpx!important;
+    margin-left:24rpx;
+    color: #777777;
+    font-size: 28rpx;
+    padding: 0 10rpx;
+    line-height: 34rpx;
+    /* background-color: #aaf; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+}
 .info >view>text:nth-child(1) {
     width: 114rpx;
     /* background-color: pink; */
     font-size: 28rpx;
     text-align: left;
-    
 }
 
 .info .singleOne >input {
@@ -51,25 +66,29 @@ page {
     font-size: 28rpx;
     color: #777;
 }
-.info >view.singleSpecial{
+
+.info >view.singleSpecial {
     display: flex;
     align-items: center;
     height: 90rpx;
     line-height: 90rpx;
 }
-.info view.singleSpecial text{
+
+.info view.singleSpecial text {
     display: block;
     width: 140rpx;
 }
-.info view.singleSpecial >input{
+
+.info view.singleSpecial >input {
     width: 140rpx;
     font-size: 28rpx;
     color: #777;
 }
+
 /* 租金详情选择框 */
 
 .thaw {
-    width:auto;
+    width: auto;
     display: flex;
     align-items: center;
     height: 100%;
@@ -81,8 +100,8 @@ page {
 .thaw text {
     /* width: 200rpx; */
     display: inline-block;
-    color: #777777;
-    padding:0 10rpx;
+    color: #777;
+    padding: 0 10rpx;
     font-size: 28rpx;
 }
 
@@ -114,22 +133,22 @@ page {
     height: 60rpx;
     line-height: 60rpx;
 }
-.van-checkbox{
-    margin-left:30rpx;
-    
-    
+
+.van-checkbox {
+    margin-left: 30rpx;
 }
-.van-checkbox__icon-wrap,.van-checkbox__label{
+
+.van-checkbox__icon-wrap, .van-checkbox__label {
     font-size: 28rpx;
-    color: #777777!important;
+    color: #777 !important;
 }
+
 /* 意向标签 */
 
 .farTag {
-    /* display: flex; */
-    /* align-items: center; */
+    /* display: flex; *//* align-items: center; */
     height: auto;
-    padding-top:30rpx;
+    padding-top: 30rpx;
     /* padding:20rpx 0; */
 }
 
@@ -142,7 +161,7 @@ page {
 .tagList {
     color: #777;
     /* padding: 28rpx 0; */
-    padding-bottom:28rpx;
+    padding-bottom: 28rpx;
 }
 
 /* 单个标签 */
@@ -193,123 +212,148 @@ page {
     border-radius: 35rpx;
     margin: 120rpx auto 0;
 }
+
 /* 添加标签弹窗 */
+
 .demo1 {
-  text-align: center;
-  width: 750rpx;
-  background: #fff;
-  overflow: auto;
-  z-index: 999;
-  position: relative;
-  top: 0;
-  border-radius: 50rpx;
+    text-align: center;
+    width: 750rpx;
+    background: #fff;
+    overflow: auto;
+    z-index: 999;
+    position: relative;
+    top: 0;
+    border-radius: 50rpx;
 }
+
 .demo1 .time {
-  text-align: center;
-  height: 60rpx;
-  font-size: 30rpx;
-  line-height: 60rpx;
-  /* margin-top:10rpx; */
-  margin-top: 67rpx;
-  /* margin-top:198rpx; */
+    text-align: center;
+    height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    /* margin-top:10rpx; */
+    margin-top: 67rpx;
+    /* margin-top:198rpx; */
 }
 
 .demo1 .time.price {
-  width: 555rpx;
-  margin: 0 auto;
-  display: block;
-  padding: 12rpx 10rpx;
-  /* border-top: 1px solid #f2f2f2; */
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+    width: 555rpx;
+    margin: 0 auto;
+    display: block;
+    padding: 12rpx 10rpx;
+    /* border-top: 1px solid #f2f2f2; */
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
 }
 
 .demo1 .smallTitle {
-  display: block;
-  height: 50rpx;
-  line-height: 50rpx;
-  color: #000;
-  font-size: 28rpx;
-  margin-left: 14rpx;
-  /* margin-bottom: 8rpx; */
+    display: block;
+    height: 50rpx;
+    line-height: 50rpx;
+    color: #000;
+    font-size: 28rpx;
+    margin-left: 14rpx;
+    /* margin-bottom: 8rpx; */
 }
 
 .demo1 .Label {
-  text-align: left;
-  overflow: hidden;
-  font-size: 24rpx;
-  margin-top: 15rpx;
+    text-align: left;
+    overflow: hidden;
+    font-size: 24rpx;
+    margin-top: 15rpx;
 }
 
 .demo1 .Label> view {
-  width: 143rpx;
-  height: 60rpx;
-  border-radius: 30rpx;
-  background: #eeeeee;
-  /* border-radius: 5rpx; */
-  float: left;
-  border:1px solid #eeeeee;
-  margin-top: 20rpx;
-  margin-left: 30rpx;
-  line-height: 60rpx;
-  text-align: center;
+    width: 143rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    background: #eee;
+    /* border-radius: 5rpx; */
+    float: left;
+    border: 1px solid #eee;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    line-height: 60rpx;
+    text-align: center;
 }
-.demo1 .Label> view.active{
-    border:1px solid #e5c478 !important;
+
+.demo1 .Label> view.active {
+    border: 1px solid #e5c478 !important;
 }
-.demo1 .Label2> view.active{
-    border:1px solid #e5c478 !important;
+
+.demo1 .Label2> view.active {
+    border: 1px solid #e5c478 !important;
 }
+
 .demo1 .confirm {
-  width: 420rpx;
-  height: 70rpx;
-  margin: 40rpx auto;
-  border-radius: 35rpx;
-  display: flex;
-  text-align: center;
-  line-height: 70rpx;
-  font-size: 28rpx;
+    width: 420rpx;
+    height: 70rpx;
+    margin: 40rpx auto;
+    border-radius: 35rpx;
+    display: flex;
+    text-align: center;
+    line-height: 70rpx;
+    font-size: 28rpx;
 }
 
 .demo1 .confirm>view:nth-child(1) {
-  width: 200rpx;
-  height: 70rpx;
-  border-radius: 35rpx 0 0 35rpx;
-  background: #ddd;
-  border: none;
+    width: 200rpx;
+    height: 70rpx;
+    border-radius: 35rpx 0 0 35rpx;
+    background: #ddd;
+    border: none;
 }
 
 .demo1 .confirm>view:nth-child(2) {
-  width: 200rpx;
-  height: 70rpx;
-  border-radius: 0rpx 35rpx 35rpx 0;
-  background: #E5C478;
-  color: white;
+    width: 200rpx;
+    height: 70rpx;
+    border-radius: 0rpx 35rpx 35rpx 0;
+    background: #e5c478;
+    color: white;
 }
+
 /* 底部按钮 */
-.btns{
+
+.btns {
     display: flex;
     justify-content: space-between;
     width: 400rpx;
     height: 70rpx;
-    margin:60rpx auto 0;
+    margin: 60rpx auto 0;
 }
-.btns text{
+
+.btns text {
     text-align: center;
     display: block;
     width: 200rpx;
     height: 70rpx;
     line-height: 70rpx;
-    
     font-size: 30rpx;
 }
-.btns text:nth-child(1){
-    color:#333333;
-    border-radius:35rpx 0  0 35rpx;
-    background-color: #dddddd;
+
+.btns text:nth-child(1) {
+    color: #333;
+    border-radius: 35rpx 0 0 35rpx;
+    background-color: #ddd;
 }
-.btns text:nth-child(2){
-    color:#ffffff;
-    border-radius: 0   35rpx 35rpx 0;
+
+.btns text:nth-child(2) {
+    color: #fff;
+    border-radius: 0 35rpx 35rpx 0;
     background-color: #e5c478;
+}
+
+.van-checkbox__icon {
+    display: block;
+    font-size: 14px;
+    width: 16px!important;
+    height: 16px !important;
+    color: transparent;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    transition: 0.2s;
+}
+.van-icon.van-icon.van-icon-success.van-icon-success{
+    line-height: 10px!important;
 }

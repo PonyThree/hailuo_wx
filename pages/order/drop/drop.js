@@ -42,8 +42,6 @@ Page({
                     this.setData({
                         data: res.data.data
                     })
-                    this.getPersonal() //获取职业顾问信息
-                    this.getuserinfo() //获取签约人信息
                     this.getmoeny() //查询项目可用余额
                     this.getorder(this.data.carid) //根据车位ID判断有无订单
                 }
@@ -106,22 +104,18 @@ Page({
             })
             return
         }
+      var data = this.selectComponent("#getContract").getContract()
+          data.truckSpaceId = this.data.data.id
 
         if (this.data.data.controlRespDto.downMoney == 0) { //0元
+          data.downSpaceType=3
             wx.request({
                 url: app.url + '/product/auth0/userDownTruckSpace',
                 method: "post",
                 header: {
                     token: app.gettoken()
                 },
-                data: {
-                    "truckSpaceId": this.data.data.id,
-                    contractIdcard: this.data.contractIdcard,
-                    contractMobile: this.data.contractMobile,
-                    contractName: this.data.contractName,
-                    downSpaceType: 3
-
-                },
+                data: data,
                 success: res => {
                     if (res.data.code == 0) {
                         wx.navigateTo({
@@ -147,6 +141,7 @@ Page({
             return
         }
         if (this.data.data.freeDownNum != 0) { //免费落位
+          data.downSpaceType=3
             wx.showModal({
                 title: '您还可以免费落' + this.data.data.freeDownNum + '个位',
                 content: '是否确定订单',
@@ -158,14 +153,7 @@ Page({
                             header: {
                                 token: app.gettoken()
                             },
-                            data: {
-                                "truckSpaceId": this.data.data.id,
-                                contractIdcard: this.data.contractIdcard,
-                                contractMobile: this.data.contractMobile,
-                                contractName: this.data.contractName,
-                                downSpaceType: 3
-
-                            },
+                            data:data,
                             success: res => {
                                 if (res.data.code == 0) {
                                     wx.navigateTo({
@@ -191,6 +179,7 @@ Page({
         }
 
         if (this.data.current != '微信支付') { //钱包支付
+        data.downSpaceType=1
             if (!this.data.payPassword) { //判断有无支付密码
                 wx.showModal({
                     title: '您还未设置支付密码',
@@ -220,14 +209,7 @@ Page({
                 header: {
                     token: app.gettoken()
                 },
-                data: {
-                    "truckSpaceId": this.data.data.id,
-                    contractIdcard: this.data.contractIdcard,
-                    contractMobile: this.data.contractMobile,
-                    contractName: this.data.contractName,
-                    downSpaceType: 1
-
-                },
+                data: data,
                 success: res => {
                     if (res.data.code == 0) {
                         console.log(res)
@@ -246,20 +228,14 @@ Page({
             wx.showLoading({
                 title: '加载中',
             })
+            data.downSpaceType=2
             wx.request({
                 url: app.url + '/product/auth0/userDownTruckSpace',
                 method: "post",
                 header: {
                     token: app.gettoken()
                 },
-                data: {
-                    "truckSpaceId": this.data.data.id,
-                    contractIdcard: this.data.contractIdcard,
-                    contractMobile: this.data.contractMobile,
-                    contractName: this.data.contractName,
-                    downSpaceType: 2
-
-                },
+                data:data,
                 success: res => {
                     wx.hideLoading()
                     if (res.data.code == 0) {
@@ -343,35 +319,7 @@ Page({
         });
     },
 
-    // 修改签约人信息
 
-    onshow() {
-        this.setData({
-            show: true
-        });
-    },
-    onClose() {
-        this.setData({
-            show: false,
-            show2: false,
-            show1: false
-        });
-    },
-    //选择职业顾问
-    onshow1() {
-        this.setData({
-            show1: true
-        });
-    },
-    onClick(e) {
-        console.log(e)
-        this.setData({
-            Personal1: e.currentTarget.dataset.name,
-            Personalid: e.currentTarget.dataset.id,
-            show1: false
-        })
-        this.bindPersonal(e.currentTarget.dataset.id)
-    },
     //倒计时结束关闭页面
     countdown(time) {
       clearInterval(timeint);
@@ -395,66 +343,10 @@ Page({
             }
         }, 1000)
     },
-    //修改签约人信息
-    value2(e) {
-        console.log(e)
-        let value = e.detail.detail.value
-        this.setData({
-            contractName: value
-        })
-    },
-    value3(e) {
-        let value = e.detail.detail.value
-        this.setData({
-            contractMobile: value
-        })
-    },
-    value4(e) {
-        let value = e.detail.detail.value
-        this.setData({
-            contractIdcard: value
-        })
-    },
+    
 
-    //获取职业顾问信息
-    getPersonal() {
+   
 
-        wx.request({
-            url: app.url + '/consultant/auth0/consultant/findByProject',
-            method: 'get',
-            header: {
-                token: app.gettoken()
-            },
-            data: {
-                projectId: this.data.data.projectId
-            },
-            success: res => {
-                if (res.data.code == 0) {
-                    this.setData({
-                        consultantlist: res.data.data
-                    })
-                }
-            }
-        })
-    },
-    //获取签约人信息
-    getuserinfo() {
-        wx.request({
-            url: app.url + '/order/auth0/orderForm/findDownSpace',
-            method: 'get',
-            header: {
-                token: app.gettoken()
-            },
-            data: {
-                truckSpaceId: this.data.data.projectId
-            },
-            success: res => {
-                if (res.data.code == 0) {
-
-                }
-            }
-        })
-    },
     //查询项目可用余额
     getmoeny() {
         wx.request({
@@ -548,26 +440,7 @@ Page({
             complete: function(res) {},
         })
     },
-    //绑定专属职业顾问
-    bindPersonal(consultantId) {
-        wx.request({
-            url: app.url + '/project/auth0/projectUser/setConsultantForProjectUser',
-            method: 'get',
-            header: {
-                token: app.gettoken(),
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: {
-                projectId: this.data.data.projectId,
-                consultantId: consultantId
-            },
-            success: res => {
-                this.getPersonal()
-            }
-        })
-    },
-
-
+   
     //根据车位ID获取订单信息
     getorder(id) {
         wx.request({
@@ -604,8 +477,5 @@ Page({
         })
 
     },
-
-
-
 
 })

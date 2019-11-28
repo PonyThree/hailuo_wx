@@ -5,21 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    pageSize:1
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(e) {
+    if(e.from){
+      this.setData({
+      go:e.from
+      })
+    }
     
     this.setData({
       projectId: e.projectId || '3702765637613912064'
     })
 
     wx.request({ //获取区域
-      url: app.url + '/product/auth0/projectArea/levelInfo/' + this.data.projectId,
-      method: 'post',
+      url: app.url + '/product/auth0/truckSpaceImage/getRegionList?projectId=' + this.data.projectId,
+      method: 'get',
       header: {
         token: app.gettoken()
       },
@@ -32,7 +37,6 @@ Page({
             }
           this.setData({
             levelOneAndThree: levelOneAndThree,
-            levelThree: res.data.data.levelThree,
             levelTwo: res.data.data.levelTwo
           })
             if (levelOneAndThree.length > 0) {
@@ -150,9 +154,23 @@ Page({
     
     wx.setStorageSync('searchcriteria', searchcriteria)
     this.insertOrUpdate()
-    wx.navigateTo({
-      url: '/pages/project/Parkinglist2/Parkinglist2?projectId='+this.data.projectId,
-    })
+    if(this.data.go=='zskp'){  //跳转到真实开盘
+      wx.navigateTo({
+        url: '/pages/opening/sellectionHall/sellectionHall?projectId=' + this.data.projectId,
+      })
+    }
+    else if(this.data.go='mnkp'){
+      wx.navigateTo({
+        url: '/pages/simulatedOpen/sellectionHall/sellectionHall?projectId=' + this.data.projectId,
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/project/Parkinglist2/Parkinglist2?projectId=' + this.data.projectId,
+      })
+    }
+    
+  
 
 
   },

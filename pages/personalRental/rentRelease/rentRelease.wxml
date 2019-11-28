@@ -1,51 +1,31 @@
 <!--pages/personalRental/rentCarEdit/rentCarEdit.wxml-->
 <view class="rentCarEdit">
     <!-- 头部图片上传 -->
-    <view class="topPic">
-        <view class="plusPic" catchtap='upLoadPic'>
-            <image src="/image/plus.png"></image>
-        </view>
-        <view class="picList">
-            <view class="item" wx:for="{{picList}}" style="margin-left:{{index>0?'50':'0'}}rpx" wx:key="{{index}}" wx:if="{{index<=1}}">
-                <image src="{{item.path}}" style="width:225rpx;height:166rpx;"></image>
-                <image src="/image/del.png" style="width:30rpx;height:30rpx;" catchtap='delPic' data-id="{{index}}"></image>
-            </view>
-            <view wx:if="{{picList.length<=0}}">
-                <text class="upLoadTxt">上传照片</text>
-            </view>
-        </view>
-    </view>
+    <rentalUpload picList="{{picList}}" bind:rentalUpload="rentalUpload" showType="{{showType}}"></rentalUpload>
     <!-- 租售信息 -->
     <view class="info">
         <view class="singleOne">
             <text>标题</text>
-            <input v-model="form.title" placeholder="请填写" bindinput='getTil' maxlength='17'>靠近电梯口</input>
+            <input placeholder="请填写" bindinput="getTil" maxlength='17'></input>
         </view>
         <view class="singleOne">
             <text>车位位置</text>
-            <input v-model="form.location" placeholder="请填写" bindinput='getLoc'>一期二栋3单元</input>
+            <input v-model="form.location" placeholder="请填写" bindinput='getLoc' maxlength='17'></input>
         </view>
         <view class="singleOne">
             <text>车位编号</text>
-            <input v-model="form.code" placeholder="请填写" bindinput='getCode'>A-101</input>
+            <input v-model="form.code" placeholder="请填写" bindinput='getCode'></input>
         </view>
         <view class="singleOne">
             <text>车位大小</text>
-            <input placeholder="请填写" v-model="form.outsideArea" bindinput="getSize">21㎡</input>
+            <input placeholder="请填写" type="number" v-model="form.outsideArea" bindinput="getSize" maxlength='2'></input>
+            <text style="font-size:28rpx;color:#777777;margin-left:-200rpx;">㎡</text>
         </view>
         <view style="height:{{opition==true?'180':'90'}}rpx;display:flex;align-items:center;position:relative;">
             <text>租金详情</text>
-            <!-- 下拉框 -->
-            <!-- <view class="thaw " bindtap='bindShowThaw'>
-                <text>{{info.typePrice}}</text>
-                <image src="/image/zhankai@2x.png"></image>
-            </view> -->
-            <!-- 下拉框显示内容 -->
-            <!-- <view class="opition" wx:if="{{option}}">
-                <view class="opition_one" bindtap="myOpition" data-name="{{item.id}}" wx:for="{{typeList}}" wx:key="{{item.id}}">{{item.value}}</view>
-            </view> -->
-            <input placeholder="请填写  元/月 " style="font-size:28rpx;color:#777777;margin-left:30rpx;" bindinput="getSellPrice"></input>
-            <!-- <text style="font-size:28rpx;color:#777777;">元/月</text> -->
+      
+            <input type="number" placeholder="请填写" style="font-size:28rpx;color:#777777;margin-left:30rpx;" bindinput="getSellPrice"></input>
+            <text style="font-size:28rpx;color:#777777;margin-left:-160rpx;">元/月</text>
         </view>
         <view class="farTag">
             <text class="til">意向标签</text>
@@ -59,17 +39,18 @@
                 </view>
             </view>
         </view>
-        <view class="singleOne">
+        <view class="singleOne singleSpecial" wx:if="{{show}}">
             <text>车位描述</text>
-            <input placeholder="请填写" bindinput="getDescription">绝版电梯口车位,过时不候</input>
+            <!-- <input placeholder="请填写" bindinput="getDescription">绝版电梯口车位,过时不候</input> -->
+            <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请填写"  placeholder-style='font-size:28rpx;padding-left:20rpx;color:#777777;'/>
         </view>
         <view class="singleOne">
             <text>联系人</text>
-            <input placeholder="我的微信ID" bindinput="getreleaserName">我的微信ID</input>
+            <input bindinput="getreleaserName" style="z-index:1;" placeholder="请填写"></input>
         </view>
         <view class="singleOne">
             <text>电话号码</text>
-            <input placeholder="联系人电话" bindinput="getPhone"></input>
+            <input placeholder="联系人电话" bindinput="getPhone" type="number" maxlength='11'></input>
         </view>
         <view class="singleOne" style="border-bottom: 1px solid #eee; ">
             <text>区域</text>

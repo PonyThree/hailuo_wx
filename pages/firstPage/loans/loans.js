@@ -37,7 +37,9 @@ Page({
       "https://china185.com/file/image/20191029/2fab721e881d4b4b836bd43a06bb36e2.png",
       "https://china185.com/file/image/20191029/4f1d960a478f45b986fd8fb28172ea15.png",
       "https://china185.com/file/image/20191029/b82bd3bf437a441991b1f0ab472aea20.png"
-    ]
+    ],
+    visitState: false,
+    drawerBool: false
   },
 
   // 获取组件信息
@@ -53,11 +55,13 @@ Page({
         if (ComponentBool && !selectData) {
           this.selectComponent(".car").hiddenAnimation(this, {
             carPickerBool: true,
+            drawerBool: false
           })
         } else {
           this.selectComponent(".car").hiddenAnimation(this, {
             carPickerBool: true,
-            carSelectData: this.manageSelect(selectData)
+            carSelectData: this.manageSelect(selectData),
+            drawerBool: false
           })
         }
         break;
@@ -66,11 +70,13 @@ Page({
           // 隐藏动画
           this.selectComponent(".location").hiddenAnimation(this, {
             locationPickerBool: true,
+            drawerBool: false
           })
         } else {
           this.selectComponent(".location").hiddenAnimation(this, {
             locationPickerBool: true,
-            locationSelectData: this.manageSelect(selectData)
+            locationSelectData: this.manageSelect(selectData),
+            drawerBool: false
           })
         }
         break;
@@ -78,17 +84,23 @@ Page({
         if (ComponentBool && !selectData) {
           this.selectComponent(".deadline").hiddenAnimation(this, {
             deadlinePickerBool: true,
+            drawerBool: false
           })
         } else {
           this.selectComponent(".deadline").hiddenAnimation(this, {
             deadlinePickerBool: true,
-            deadlineSelectData: this.manageSelect(selectData)
+            deadlineSelectData: this.manageSelect(selectData),
+            drawerBool: false
           })
         }
         break;
       default:
         break;
     }
+    // setTimeout(() => {
+    //   //判断信息的完整性 
+    //   this.judgeMessageFull();
+    // }, 500);
   },
   /** 
    * 处理组件返回的数组转换成字符串
@@ -106,6 +118,7 @@ Page({
   changeValue: function (e) {
     let value = e.detail.value;
     let tag = e.target.dataset.tag;
+
     switch (tag) {
       case "username":
         this.setData({
@@ -125,13 +138,38 @@ Page({
       default:
         break;
     }
+    //判断信息的完整性 
+    // this.judgeMessageFull();
+
   },
+  /**
+   * 判断信息的完整性 
+   */
+  // judgeMessageFull: function () {
+  //   let {
+  //     usernameValue,
+  //     telValue,
+  //     moneyValue,
+  //     carSelectData,
+  //     locationSelectData,
+  //     deadlineSelectData
+  //   } = this.data;
+  //   let arr = [usernameValue, telValue, moneyValue, carSelectData, locationSelectData, deadlineSelectData]
+  //   if (!arr.includes("")) {
+  //     this.setData({
+  //       btnColorBool: true
+  //     })
+  //   }
+  // },
   /**
    * 展示组件
    * */
   showPicker: function (e) {
     // console.log(e.target.dataset.tag);
     let tag = e.target.dataset.tag;
+    this.setData({
+      drawerBool: true
+    })
     switch (tag) {
       case "car":
         this.setData({
@@ -165,6 +203,7 @@ Page({
    * 提交资料
    */
   submitMessage: function () {
+    let projectId = wx.getStorageSync('dataid');
     let {
       usernameValue,
       telValue,
@@ -173,6 +212,7 @@ Page({
       locationSelectData,
       deadlineSelectData
     } = this.data;
+    let cartype = "";
     let params = {}
 
     if (!usernameValue) {
@@ -233,13 +273,13 @@ Page({
     if (carSelectData) {
       switch (carSelectData) {
         case "单辆车":
-          carSelectData = 1;
+          cartype = 1;
           break;
         case "暂无车":
-          carSelectData = 2;
+          cartype = 2;
           break;
         case "多辆车":
-          carSelectData = 3;
+          cartype = 3;
           break;
         default:
           break;
@@ -249,11 +289,20 @@ Page({
     params.loanName = usernameValue; //用户姓名
     params.loanPhone = telValue; //申贷人手机号   填
     params.floadPhone = wx.getStorageSync('user').mobile; //发起人手机号 缓存
-    params.carType = carSelectData; //车辆情况
+    params.carType = cartype; //车辆情况
     params.loanMoney = moneyValue; //贷款金额
     params.regionInfo = locationSelectData; //意向区域
     params.loanTime = deadlineSelectData.split("年")[0]; //申请期限
+    params.projectId = projectId 
     // console.log(params);
+    let options = {};
+    options.loanName = usernameValue; //用户姓名
+    options.loanPhone = telValue; //申贷人手机号   填
+    options.floadPhone = wx.getStorageSync('user').mobile; //发起人手机号 缓存
+    options.carType = carSelectData; //车辆情况
+    options.loanMoney = moneyValue; //贷款金额
+    options.regionInfo = locationSelectData; //意向区域
+    options.loanTime = deadlineSelectData; //申请期限
 
     wx.request({
       url: app.url + '/product/auth0/loanInfo/addData',
@@ -267,19 +316,24 @@ Page({
         if (res.data.code === 0) {
           wx.showToast({
             title: '提交成功',
-            icon: 'success'
+            icon: 'loading',
+            success: function () {
+              wx.navigateTo({
+                url: '/pages/firstPage/loans/submitSuccess/success?params=' + JSON.stringify(options)
+              })
+            }
           })
-          this.setData({
-            usernameValue: "",
-            telValue: "",
-            moneyValue: "",
-            carSelectData: "",
-            locationSelectData: "",
-            deadlineSelectData: ""
-          })
+          // this.setData({
+          //   usernameValue: "",
+          //   telValue: "",
+          //   moneyValue: "",
+          //   carSelectData: "",
+          //   locationSelectData: "",
+          //   deadlineSelectData: ""
+          // })
         } else {
           wx.showToast({
-            title: '提交失败',
+            title: res.data.msg,
             icon: 'none'
           })
         }
@@ -290,12 +344,77 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.gainLocationMsg();
+    // 判断是否是第一次提交  false是true不是
+    this.judgeEnterState()
+
+  },
+  /**
+   * 回显数据
+   */
+  echoData: function () {
+    let projectId = wx.getStorageSync('dataid');
+    if (!this.data.visitState) {
+      return false;
+    }
+    wx.request({
+      url: app.url + '/product/auth0/loanInfo/getWxOneData?projectId='+projectId,
+      header: {
+        token: app.gettoken()
+      },
+      method: "get",
+      success: (res) => {
+        let result = res.data.data;
+        this.setData({
+          usernameValue: result.loanName,
+          telValue: result.loanPhone,
+          moneyValue: result.loanMoney,
+          deadlineSelectData: result.loanTime + "年",
+          locationSelectData: result.regionInfo,
+          carSelectData: (function (value) {
+            if (value === 1) {
+              return "单辆车"
+            } else if (value === 2) {
+              return "暂无车"
+            } else if (value === 3) {
+              return "多辆车"
+            }
+          })(result.carType),
+        })
+      }
+    })
+  },
+  /**
+   * 判断进入状态
+   */
+  judgeEnterState: function () {
+    let projectId = wx.getStorageSync('dataid');
+    wx.request({
+      url: app.url + '/product/auth0/loanInfo/userIsExist?projectId=' + projectId,
+      method: "get",
+      header: {
+        token: app.gettoken()
+      },
+      success: (res) => {
+        if (res.data.code === 0) {
+          this.setData({
+            visitState: res.data.data
+          }, () => {
+            // 获取区层栋信息
+            this.gainLocationMsg();
+            // 获取提交的贷款信息
+            this.echoData()
+          })
+        }
+      }
+    })
   },
   /**
    * 获取区层栋
    */
   gainLocationMsg: function () {
+    if (this.data.visitState) {
+      return false;
+    }
     let projectId = wx.getStorageSync('dataid');
     let params = new Array(3);
     let level1 = [];
@@ -312,6 +431,7 @@ Page({
         projectId
       },
       success: res => {
+        console.log(res.data)
         if (res.data.code == 0) {
           let result = res.data.data
           result.forEach(item => {

@@ -1,5 +1,6 @@
 <view class="container" >
-<image class="logoinPng" src="https://www.china185.com/static/image/logoinPng.png"></image>
+<!-- <image class="logoinPng" src="https://www.china185.com/static/image/logoinPng.png"></image> -->
+<image class="logoinPng" src="https://china185.com/file/image/20191128/8a8ad3afa0cc42d99f9b5b4fa9dcd3d9.png"></image>
   <view class='btview'>
     <button class='getappid' type='warn' bindtap='getappid' style='z-index:{{zindex}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登陆</button>
     <button type='warn'   bindtap='logoin' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权登陆</button>

@@ -1,23 +1,18 @@
 <wxs module="dateUtil" src="../../filter/dateFr.wxs"></wxs>
 <view class='plist'>
     <view class='items' wx:for='{{positionList}}' wx:key='index' bindtap='project' data-id='{{item.id}}' data-localStatus='{{item.localStatus}}' data-titlename="{{item.name}}">
-        <!-- <image wx:if='{{item.localStatus==1}}' class="ty_03" src="/image/ty_03.png"></image> -->
         <image wx:if='{{item.localStatus==2}}' class="ty_03" src="/image/ytj.png"></image>
         <image src='{{item.headImage}}'></image>
         <view class="desc">
             <text class='text1'>{{item.name}}</text>
             <view class='text2'>
-                <image src="/image/wzfb1.png"></image>
                 <text>{{item.address}}</text>
             </view>
-            <!-- <view class='time1' wx:if='{{item.openStatus==1}}'>{{item.nub}}个车位在售</view> -->
-            <!-- wx:else -->
+      
             <view class='time3' wx:if='{{item.openStatus!=1}}'>开盘时间: {{dateUtil.dateFormat1(item.statime)}}</view>
-            <view class='text3' wx:if='{{item.openStatus==0}}'>均价:待定</view>
-            <!-- <view wx:else class='text3'>均价:
-                <text style='font-size:36rpx;color:#fb3b0f'>{{item.avgPrice}}</text>
-                <text style='font-size:24rpx;color:#333333;'>元 /个</text>
-            </view> -->
+            <view class="item4" wx:else>已开盘</view>
+            <!-- <view class='text3' wx:if='{{item.openStatus==0}}'>均价:待定</view> -->
+      
         </view>
     </view>
     <van-popup show="{{ showCode }}" overlay="{{ true }}" bind:close="onClose">
@@ -30,9 +25,9 @@
                     <view>请点击扫码添加本项目</view>
                 </view>
             </view>
-            <view class="btns">
-                <text catchtap='cancle'>取消</text>
-                <text catchtap='confirm'>确定</text>
+             <view class="btns1">
+                <view  catchtap='cancle'>取消</view>
+                <view catchtap='confirm'>确定</view>
             </view>
         </view>
     </van-popup>

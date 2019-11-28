@@ -17,7 +17,6 @@ Page({
             title: '售车位',
         })
         let id = options.id
-        console.log(id)
         this.setData({
             id: id
         })
@@ -86,7 +85,6 @@ Page({
                 token: app.gettoken()
             },
             success: res => {
-                console.log(res.data)
                 this.setData({
                     info: res.data.data
                 })

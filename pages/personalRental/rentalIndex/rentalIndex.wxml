@@ -23,10 +23,10 @@
     <!-- 租售列表 -->
     <!-- 租 -->
     <view class="rentalList" wx:if="{{num==1}}">
-        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{item.id}}" catchtap='rentalDels' data-id="{{item.id}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:30rpx" wx:key="{{item.id}}" catchtap='rentalDels' data-id="{{item.id}}">
             <view class="top">
                 <view>
-                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <image src="https://china185.com/file/image/20191114/00fd4e1d13cf48e7b0b46eb438003e19.blob" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
                     <text>{{item.releaserName}}</text>
                 </view>
                 <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
@@ -49,13 +49,14 @@
                 </view>
             </view>
         </view>
+        <view style="height:140px;background-color:#f2f2f2;" wx:if="{{rentalInfo.length>=3}}"></view>
     </view>
     <!-- 售 -->
     <view class="rentalList" wx:if="{{num==2}}">
-        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{item.id}}" catchtap='saleDels' data-id="{{item.id}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:30rpx" wx:key="{{item.id}}" catchtap='saleDels' data-id="{{item.id}}">
             <view class="top">
                 <view>
-                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <image src="https://china185.com/file/image/20191114/00fd4e1d13cf48e7b0b46eb438003e19.blob" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
                     <text>{{item.releaserName}}</text>
                 </view>
                 <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
@@ -65,26 +66,27 @@
                     <text>{{item.title}}</text>
                 </view>
                 <view>
-                    <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:4rpx;"></image>
+                    <image src="{{item.images[0]}}" style="width:220rpx;height:180rpx;margin-right:30rpx;border-radius:10rpx;"></image>
                     <view class="info">
                         <text>{{item.code}}</text>
                         <text>{{item.location}}</text>
                         <scroll-view scroll-x class="tagList1" wx:if="{{item.truckSpaceTagArray.length>0}}">
                             <text wx:for="{{item.truckSpaceTagArray}}" wx:key="{{item}}" style="font-size: 20rpx;background-color: #F0F0F0;" >{{item}}</text>
                         </scroll-view>
-                        <text><text style="color:#FB3B0F;font-size:32rpx;">{{item.sellPrice}}</text> 元/月</text>
+                        <text><text style="color:#FB3B0F;font-size:32rpx;">{{item.sellPrice}}</text> 元</text>
                         <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
                     </view>
                 </view>
             </view>
         </view>
+        <view style="height:140px;background-color:#f2f2f2;" wx:if="{{rentalInfo.length>=3}}"></view>
     </view>
     <!-- 求租发布 -->
     <view class="rentalList" wx:if="{{num==3}}">
-        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{index}}" catchtap='rentRelease' data-id="{{item.id}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:30rpx" wx:key="{{index}}" catchtap='rentRelease' data-id="{{item.id}}">
             <view class="top">
                 <view>
-                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <image src="https://china185.com/file/image/20191114/00fd4e1d13cf48e7b0b46eb438003e19.blob" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
                     <text>{{item.releaserName}}</text>
                 </view>
                 <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
@@ -100,10 +102,15 @@
                             <text>{{item.location}}</text>
                         </view>
                         <view class="right view2">
-                            <text>意向价格</text> {{item.minPrice}}
-                            <text style="color:#777777;font-size:24rpx;">元/月 </text>
-                            <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>{{item.maxPrice}}
-                            <text style="color:#777777;font-size:24rpx;">元/月</text>
+                            <text>意向价格</text>
+                            <view wx:if="{{item.minPrice!=0}}">
+                                <text  style="color:#FB3B0F;">{{item.minPrice}}</text>
+                                <text style="color:#777777;font-size:24rpx;padding:0 10rpx;" >元/月 </text>
+                                <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>
+                                <text style="color:#FB3B0F;">{{item.maxPrice}}</text>
+                                <text style="color:#777777;font-size:24rpx;padding:0 10rpx;">元/月</text>
+                            </view>
+                            <text wx:if="{{item.minPrice==0}}" style="color:#333333;font-size:28rpx;">面议</text>
                         </view>
                         <!-- 车位标签 -->
                         <view class='right view2'>
@@ -117,13 +124,14 @@
                 <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
             </view>
         </view>
+        <view style="height:140px;background-color:#f2f2f2;" wx:if="{{rentalInfo.length>=3}}"></view>
     </view>
     <!-- 求售发布 -->
     <view class="rentalList" wx:if="{{num==4}}">
-        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:{{index>=1?'30':'46'}}rpx" wx:key="{{index}}" catchtap='saleReDels' data-id="{{item.id}}">
+        <view class="rentalItem" wx:for="{{rentalInfo}}" style="margin-top:30rpx" wx:key="{{index}}" catchtap='saleReDels' data-id="{{item.id}}">
             <view class="top">
                 <view>
-                    <image src="/image/F_03.png" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+                    <image src="https://china185.com/file/image/20191114/00fd4e1d13cf48e7b0b46eb438003e19.blob" style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
                     <text>{{item.releaserName}}</text>
                 </view>
                 <text>{{dateUtil.dateFormat1(item.createTime)}}</text>
@@ -139,10 +147,20 @@
                             <text>{{item.location}}</text>
                         </view>
                         <view class="right view2">
-                            <text>意向价格</text>{{item.minPrice}}
-                            <text style="color:#777777;font-size:24rpx;">元/月 </text>
-                            <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>{{item.maxPrice}}
-                            <text style="color:#777777;font-size:24rpx;">元/月</text>
+                            <text>意向价格</text>
+                            <view wx:if="{{item.minPrice!=0}}">
+                                <text style="color:#fb3b0f;">{{item.minPrice}}</text>
+                                <text style="color:#777777;font-size:24rpx;padding:0 10rpx;">元 </text>
+                                <text style="color:#777777;font-size:24rpx;margin:20rpx; 0;"> ~</text>
+                                <text style="color:#fb3b0f;">{{item.maxPrice}}</text>
+                                <text style="color:#777777;font-size:24rpx;padding:0 10rpx;">元</text>
+                            </view>
+                            <view class="faceTalk">
+                                <text wx:if="{{item.minPrice==0}}" style="color:#333333;font-size:28rpx;">
+                                    面议
+                                </text>
+                            </view>
+                            
                         </view>
                         <!-- 车位标签 -->
                         <view class='right view2'>
@@ -156,13 +174,12 @@
                 <image src="/image/call.png" style="width:60rpx;height:60rpx;" catchtap='call' class="call" data-phone="{{item.releaserMobile}}"></image>
             </view>
         </view>
+        <view style="height:140px;background-color:#f2f2f2;" wx:if="{{rentalInfo.length>=3}}"></view>
     </view>
-    <view style="height:140rpx;"></view>
+    
     <!-- 底部按钮 -->
     <view class="bomBtns">
-        <image src="/image/dhl.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==0}}"></image>
-        <image src="/image/dhll.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==1}}"></image>
-        <image src="/image/dhlll.png" style="width:750rpx;height:130rpx;" wx:if="{{btnum==3}}"></image>
+        <image src="https://china185.com/file/image/20191114/84de8bf77d1c4de7b82ac1bb64f3c14a.png" style="width:750rpx;height:130rpx;" ></image>
     </view>
     <view class="clickItems">
         <view catchtap='handleClick' data-num="1"></view>
@@ -170,3 +187,20 @@
         <view catchtap='handleClick' data-num="3"></view>
     </view>
 </view>
+<!-- 暂无消息 -->
+    <view class="promptInfo" wx:if="{{rentalInfo.length==0}}">
+      <image src="/image/noInfo.png"></image>
+      <view wx:if="{{rentalInfo.length==0&&num==1}}">
+        <text>暂时还没有出租车位的消息，\n返回我的小区看看其他车位吧</text>
+      </view>
+      <view wx:if="{{rentalInfo.length==0&&num==2}}">
+        <text>暂时还没有出售车位的消息，\n返回我的小区看看其他车位吧</text>
+      </view>
+      <view wx:if="{{rentalInfo.length==0&&num==3}}">
+        <text>暂时还没有求租车位的消息，\n返回我的小区看看其他车位吧</text>
+      </view>
+      <view wx:if="{{rentalInfo.length==0&&num==4}}">
+        <text>暂时还没有求售车位的消息，\n返回我的小区看看其他车位吧
+</text>
+      </view>
+    </view>

@@ -1,460 +1,133 @@
 /* pages/firstPage/addOilSaveMoney/addOilSaveMoney.wxss */
-.addOil {
-    width: 100%;
-    position: relative;
-    height: auto;
-    overflow: hidden;
-    background-image: url(https://china185.com/file/image/20191024/088e42e4fc574f9ba7e485c820b12101.png);
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 300rpx;
-    box-sizing: border-box;
+.page1{
+  height:2245rpx;
+  width: 750rpx;
+  background-image: url('https://www.china185.com/static/image/sq1.png');
+  background-size: 100% 100%;
+
 }
-
-.addOil .top {
-    width: 670rpx;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top-left-radius: 20rpx;
-    border-top-right-radius: 20rpx;
-    background-color: #fff;
-    padding-top: 80rpx;
-    position: relative;
-}
-
-.addOil .top .icon1 {
-    background-image: url(https://china185.com/file/image/20191024/1c4d7dfd09c64f6fb2d397b58777e874.png);
-    background-size: cover;
-    width: 135rpx;
-    height: 157rpx;
-    position: absolute;
-    right: 0;
-    top: -100rpx;
-    z-index: 10;
-}
-
-.addOil .top .icon2 {
-    background-image: url(https://china185.com/file/image/20191024/daf0413b15304d79aec06370f9404992.png);
-    background-size: cover;
-    width: 194rpx;
-    height: 221rpx;
-    position: absolute;
-    top: 280rpx;
-    left: -60rpx;
-    z-index: 10;
-}
-
-.addOil .tipsImg_2 {
-    width: 349rpx;
-    height: 94rpx;
-    flex-shrink: 0;
-}
-
-
-.addOil .wrap {
-    width: 560rpx;
-    margin: 80rpx 95rpx 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.addOil .wrap .redeemCode {
-    width: 100%;
-    height: 90rpx;
-    border-radius: 4rpx;
-    background-color: #eee;
-    line-height: 90rpx;
-    padding: 0 30rpx;
-    z-index: 0;
-    box-sizing: border-box;
-    min-height: 90rpx;
-    overflow: unset;
-    /* margin-bottom: 10rpx; */
-    /* margin-bottom: 30rpx; */
-}
-
-.addOil .wrap .redeemCode.no {
-    background-color: #fff;
-    width: 500rpx;
-    height: 83rpx;
-    background-size: cover;
-    background-image: url(https://china185.com/file/image/20191024/d3a50eaa6ab04b13963aa44ec88ddabe.png);
-}
-
-
-.addOil .wrap .success {
-    width: 399rpx;
-    height: 146rpx;
-    background-size: cover;
-    background-image: url(https://china185.com/file/image/20191024/16b2ca0c94e8402991209f65f9b21ab0.png);
-}
-
-
-.addOil .wrap .hint {
-    font-size: 22rpx;
-    color: #aaa;
-    height: 22rpx;
-    width: 100%;
-    text-align: center;
-    line-height: 22rpx;
-    margin-bottom: 68rpx;
-}
-
-
-.addOil .wrap .redeemCode.no .no_1,
-.addOil .wrap .redeemCode.no .no_2 {
-    font-size: 22rpx;
-    height: 45rpx;
-    line-height: 45rpx;
-    text-align: center;
-    color: #aaa;
-}
-
-
-
-.addOil .wrap .placeholder {
-    text-align: center;
-}
-
-.addOil .wrap .btn {
-    width: 240rpx;
-    height: 70rpx;
-    border-radius: 35rpx;
-    background-image: url(https://china185.com/file/image/20191023/9671ef0e4e3e4805a21e007ccb37a7fa.png);
-    background-size: cover;
-    color: #fff;
-    font-family: "PingFang SC Bold";
-    line-height: 70rpx;
-    text-align: center;
-    font-size: 36rpx;
-    margin-bottom: 30rpx;
-}
-
-.addOil .hr {
-    background-image: url(https://china185.com/file/image/20191024/2a6750a21a2341b9ace8c0b4c4859a88.png);
-    background-size: 100% auto;
-    width: 670rpx;
-    height: 100rpx;
-}
-
-.addOil .bottom {
-    border-bottom-left-radius: 20rpx;
-    border-bottom-right-radius: 20rpx;
-    width: 670rpx;
-    height: auto;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
+.page2{
+  height:2365rpx;
+  width: 750rpx;
+  background-image: url('https://www.china185.com/static/image/sq2.png');
+  background-size: 100% 100%;
+  position: relative
 
 }
 
-.addOil .bottom .info_img {
-    background-image: url(https://china185.com/file/image/20191024/e2f2d1cecc564c6080b14adf9cf739fc.png);
-    background-size: cover;
-    width: 594rpx;
-    height: 946rpx;
-}
-
-
-.addOil .label {
-    font-size: 28rpx;
-    color: #fff;
-    white-space: nowrap;
-    padding: 40rpx 0;
-}
-
-/* 选车位 */
-.addOil .selectCarport_wrap {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.addOil .mask {
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.addOil .selectCarport_wrap .window_wrap {
-    width: 654rpx;
-    height: 916rpx;
-    z-index: 999;
-    position: absolute;
-    left: calc(50% - 355rpx);
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.addOil .selectCarport_wrap .window_box {
-    background-image: url(https://china185.com/file/image/20191025/509b1ee35ec04c52842c8bf73d082ce2.png);
-    background-size: cover;
-    width: 100%;
-    height: 814rpx;
-    padding: 378rpx 28rpx 38rpx 84rpx;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.addOil .selectCarport_wrap .showCarport {
-    width: 100%;
-    height: 200rpx;
-}
-
-.addOil .selectCarport_wrap .carprot_title {
-    width: 100%;
-    height: 38rpx;
-    padding: 20rpx 0;
-    text-align: center;
-    font-size: 28rpx;
-    color: #fff;
-    line-height: 28rpx;
-}
-
-.addOil .selectCarport_wrap .showCarport swiper {
-    width: 100%;
-    height: 122rpx;
-    padding: 0 20rpx;
-    box-sizing: border-box;
+.page2 input{
+  width: 609rpx;
+  height: 98rpx;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  text-align: center;
+  color: #868686;
+  position: absolute;
+  top:835rpx;
+  left: 71rpx
 
 }
-
-.addOil .selectCarport_wrap .showCarport swiper swiper-item {
-    width: 100%;
-    height: 100%;
+.page2 .ljjy{
+  width: 321rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 220rpx;
+  top: 980rpx
+}
+.page3{
+  height:2477rpx;
+  width: 750rpx;
+  background-image: url('https://www.china185.com/static/image/sq3.png');
+  background-size: 100% 100%;
+  position: relative
+}
+.page3>view{
+  width: 670rpx;
+  position: absolute;
+  top: 980rpx;
+  left: 40rpx
 }
 
-.addOil .selectCarport_wrap swiper-item .item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 22rpx;
-    margin-bottom: 18rpx;
-    font-size: 18rpx;
-    font-family: "PingFang SC Regular";
-    color: #333;
-    overflow-x: auto;
-    white-space: nowrap;
+/* 车位动态弹窗 */
+.tc1{
+  width: 620rpx;
+  height: 916rpx;
+  background-image: url('https://www.china185.com/static/image/cwdt.png') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 180rpx;
+  left: 68rpx;
+  z-index: 999;
+  font-size: 28rpx;
+}
+.tc1 swiper{
+  width: 420rpx;
+  height:180rpx;
+  position: absolute;
+  top: 390rpx;
+  left: 100rpx
+}
+.tc1 swiper swiper-item{
+  width: 400rpx;
+  height: 30rpx;
+  line-height: 30px;
+  text-align: center
+}
+.tc1 .kxcw{
+  position: absolute;
+  top: 625rpx;
+  left: 110rpx;
+  font-weight: 600
+}
+.tc1 .msqBtn{
+width: 383rpx;
+height: 73rpx;
+position: absolute;
+top: 695rpx;
+left: 120rpx
+}
+.tc1 .closeBtn{
+  width: 383rpx;
+height: 73rpx;
+position: absolute;
+top: 835rpx;
+left: 120rpx
+}
+/* 秒杀预告弹窗 */
+.tc2{
+  width: 620rpx;
+  height: 916rpx;
+  background-image: url('https://www.china185.com/static/image/cwxsms.png') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 180rpx;
+  left: 68rpx;
+  z-index: 999;
+  font-size: 28rpx;
+}
+.tc2 .topMsg{
+  width: 360rpx;
+  height: 130rpx;
+  position: absolute;
+  top: 281rpx;
+  left: 130rpx;
+  color: #FFFFFF;
+  font-size: 34rpx;
+  text-align: center;
+  
 }
 
-.addOil .selectCarport_wrap swiper-item .item:last-of-type {
-    margin-bottom: 20rpx;
+.tc2 swiper{
+  width: 330rpx;
+  height: 74rpx;
+  position: absolute;
+  top: 510rpx;
+  left: 190rpx;
+  font-size: 28rpx;
+  font-weight: 600
 }
-
-.addOil .selectCarport_wrap swiper-item .item .dot {
-    width: 5rpx;
-    height: 5rpx;
-    border-radius: 50%;
-    background-color: #fff;
-    margin-right: 14rpx;
-}
-
-.addOil .selectCarport_wrap swiper-item .item .tel,
-.addOil .selectCarport_wrap swiper-item .item .address {
-    margin-right: 20rpx;
-}
-
-.addOil .selectCarport_wrap swiper-item .item .address text {
-    margin-right: 18rpx;
-}
-
-.addOil .selectCarport_wrap swiper-item .item .tel,
-.addOil .selectCarport_wrap swiper-item .item .address text,
-.addOil .selectCarport_wrap swiper-item .item .state {
-    color: #fff;
-}
-
-.addOil .selectCarport_wrap .msg {
-    width: 100%;
-    height: 30rpx;
-    line-height: 30rpx;
-    font-size: 30rpx;
-    color: #333;
-    text-align: center;
-    font-family: "PingFang SC Regular";
-    margin-top: 40rpx;
-    margin-bottom: 50rpx;
-}
-
-.addOil .selectCarport_wrap .carprot_btn {
-    width: 240rpx;
-    height: 70rpx;
-    text-align: center;
-    line-height: 70rpx;
-    background-image: url(https://china185.com/file/image/20191023/9671ef0e4e3e4805a21e007ccb37a7fa.png);
-    background-size: cover;
-    border-radius: 35rpx;
-    color: #fff;
-}
-
-
-.addOil .selectCarport_wrap .clear_box {
-    background-image: url(https://china185.com/file/image/20191023/d47421f3ddf649b5af988cd0c7e5f801.png);
-    background-size: cover;
-    height: 80rpx;
-    width: 80rpx;
-    margin-top: 20rpx;
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 10rpx);
-}
-
-/* 秒杀 */
-
-.addOil .seckill_wrap {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-.addOil .seckill_wrap .windows_wrap {
-    width: 750rpx;
-    z-index: 999;
-}
-
-.addOil .seckill_wrap .windows_box {
-    width: 750rpx;
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.addOil .seckill_wrap .window_content {
-    background-image: url(https://china185.com/file/image/20191025/5357baaee1eb4f69a82d1f59be668cf7.png);
-    background-size: cover;
-    height: 445rpx;
-    width: 100%;
-    padding: 70rpx 190rpx 90rpx 170rpx;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.addOil .seckill_wrap .window_content .windows_title {
-    font-size: 30rpx;
-    height: 30rpx;
-    width: 100%;
-    text-align: center;
-    line-height: 30rpx;
-    color: #fff;
-    font-family: "PingFang SC Medium";
-    margin-bottom: 26rpx;
-}
-
-
-.addOil .seckill_wrap .window_content .plummet,
-.addOil .seckill_wrap .window_content .low {
-    font-size: 36rpx;
-    height: 36rpx;
-    line-height: 36rpx;
-    width: 100%;
-    color: #fccc00;
-    margin-bottom: 26rpx;
-    text-align: center;
-}
-
-.addOil .seckill_wrap .window_content .plummet .text1 {
-    font-size: 30rpx;
-    color: #fff;
-    font-family: "PingFang SC Regular";
-}
-
-.addOil .seckill_wrap .window_content .plummet .text2 {
-    margin: 0 10rpx;
-    font-size: 28rpx;
-    color: #fff;
-    font-family: "PingFang SC Heavy";
-}
-
-.addOil .seckill_wrap .window_content .low {
-    margin-bottom: 60rpx;
-}
-
-.addOil .seckill_wrap .window_content .low .text1 {
-    font-size: 30rpx;
-    color: #fff;
-    font-family: "PingFang SC Regular";
-    margin-right: 5rpx;
-}
-
-.addOil .seckill_wrap .window_content .rob {
-    background-image: url(https://china185.com/file/image/20191023/9671ef0e4e3e4805a21e007ccb37a7fa.png);
-    background-size: cover;
-    width: 240rpx;
-    height: 70rpx;
-    text-align: center;
-    line-height: 70rpx;
-    border-radius: 35rpx;
-    color: #fff;
-}
-
-
-.addOil .seckill_wrap .content {
-    background-image: url(https://china185.com/file/image/20191025/930b9a9da7e94783ba878342fa7b5cc3.png);
-    background-size: cover;
-    /* 480 104 */
-    width: 538rpx;
-    padding: 26rpx 30rpx;
-    height: 164rpx;
-    box-sizing: border-box;
-    font-size: 28rpx;
-    font-family: "PingFang SC Medium";
-    color: #fb3b0f;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.addOil .seckill_wrap .content swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.addOil .seckill_wrap .content swiper swiper-item {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.addOil .seckill_wrap .clear_box {
-    background-image: url(https://china185.com/file/image/20191023/d47421f3ddf649b5af988cd0c7e5f801.png);
-    background-size: cover;
-    height: 80rpx;
-    width: 80rpx;
-    margin-top: 20rpx;
-    position: absolute;
-    left: calc(50% - 40rpx);
-}
-
 /* 拨打电话 */
 .addOil .phoneNumber {
     position: fixed;
@@ -465,6 +138,63 @@
     z-index: 999;
     box-shadow: 0 0 5px #999;
     border-radius: 50%;
+}
+.tc2 .msqBtn{
+width: 383rpx;
+height: 73rpx;
+position: absolute;
+top: 700rpx;
+left: 120rpx;
+
+}
+.tc2 .closeBtn{
+  width: 383rpx;
+height: 73rpx;
+position: absolute;
+top: 850rpx;
+left: 120rpx;
+
+}
+
+.tc3{
+   width: 620rpx;
+  height: 916rpx;
+  background-image: url('https://www.china185.com/static/image/meiyouxiaoxi.png') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 180rpx;
+  left: 68rpx;
+  z-index: 999;
+  font-size: 28rpx;
+}
+
+.tc3 .topMsg3{
+  width: 360rpx;
+  height: 130rpx;
+  position: absolute;
+  top: 395rpx;
+  left: 130rpx;
+  color: #333333;
+  font-size: 34rpx;
+  text-align: center;
+  
+}
+
+.tc3 .msqBtn1{
+width: 383rpx;
+height: 73rpx;
+position: absolute;
+top: 700rpx;
+left: 120rpx;
+}
+.tc3 .closeBtn1{
+  width: 383rpx;
+height: 93rpx;
+position: absolute;
+top: 845rpx;
+left: 120rpx;
+
 }
 
 /* 公众号盒子 */

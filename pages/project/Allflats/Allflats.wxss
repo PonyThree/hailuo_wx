@@ -1,8 +1,9 @@
 /* 搜索 */
 
 .page{
-    width: 750rpx;
-    overflow: hidden
+    overflow: hidden;
+    padding: 0 32rpx;
+    background: #f8f8f8
 }
 .top {
   height: 120rpx;
@@ -20,7 +21,6 @@
   border-radius: 10rpx;
   display: flex;
   align-items: center;
-  margin-left: 40rpx;
   background: white;
 }
 
@@ -36,99 +36,6 @@
 }
 
 /* 项目列表 */
-
-.nearbyprojects {
-
-  border-radius: 10rpx;
-
-}
-
-.items {
-  width: 702rpx;
-  height: 200rpx;
-  background: white;
-  border-radius: 10rpx;
-  margin-left: 24rpx;
-  box-shadow: -5rpx 0 20rpx 2rpx #f2f2f2;
-  display: flex;
-  margin-bottom: 20rpx;
-}
-
-.items>image {
-  height: 160rpx;
-  width: 160rpx;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  border-radius: 10rpx;
-}
-
-.items>view {
-  height: 160rpx;
-  width: 500rpx;
-  margin-top: 20rpx;
-  margin-left: 30rpx;
-  position: relative;
-}
-
-.items .text1 {
-  display: inline-block;
-  font-size: 30rpx;
-  color: rgb(51, 51, 51);
-  font-weight: 600;
-  width: 150rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.items .text2 {
-  font-size: 24rpx;
-  color: rgb(153, 153, 153);
-  margin-top: 13rpx;
-}
-.items .text3 {
-  font-size: 24rpx;
-  color: rgb(153, 153, 153);
-  margin-top: 35rpx;
-}
-
-.items .time1 {
-  font-size: 24rpx;
-  position: absolute;
-  top: 8rpx;
-  left: 220rpx;
-}
-
-.items .time2 {
-  font-size: 24rpx;
-  position: absolute;
-  top: 8rpx;
-  left: 160rpx;
-  color: rgb(169, 33, 18);
-}
-
-.items .time2 view {
-  width: 30rpx;
-  height: 30rpx;
-  background: rgb(169, 33, 18);
-  float: right;
-  margin-left: 10rpx;
-  color: white;
-  border-radius: 5rpx;
-}
-
-.items .time2 text {
-  float: right;
-  margin-left: 10rpx;
-}
-
-.items .time3 {
-  font-size: 24rpx;
-  position: absolute;
-  top: 8rpx;
-  left: 160rpx;
-  color: rgb(169, 33, 18);
-}
 
 /* 筛选 */
 
@@ -168,8 +75,7 @@
     position:   fixed ; 
     z-index:   0 ; 
 }
-.democlass {
-}
+
 .demo {
   width: 550rpx;
   height: 400rpx;

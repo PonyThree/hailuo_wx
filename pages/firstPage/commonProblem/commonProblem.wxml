@@ -1,0 +1,11 @@
+<!--pages/firstPage/commonProblem/commonProblem.wxml-->
+<view class="commonProblem">
+  <van-collapse value="{{ activeName }}" bind:change="onChange" border="{{bool}}">
+    <view wx:for="{{list}}" wx:key="{{item.id}}" class="item">
+      <van-collapse-item title="{{item.questionName}}" name="{{item.id}}" border="{{bool}}">
+        {{item.answer}}
+      </van-collapse-item>
+    </view>
+  </van-collapse>
+
+</view>

@@ -16,7 +16,6 @@ page {
     height: 166rpx;
     display: flex;
     margin-top: 40rpx;
-    /* background-color: #AAF; */
 }
 
 /* +按钮 */
@@ -47,14 +46,13 @@ page {
 .rentCarEdit .picList {
     width: 450rpx;
     overflow: hidden;
-    /* background-color: pink; */
-    display: flex;
     height: 166rpx;
 
 }
 
 .picList .item {
     position: relative;
+    display: inline-block;
     width: 200rpx;
     height: 166rpx;
     overflow: hidden;
@@ -65,7 +63,6 @@ page {
     color:#777777;
     font-size:28rpx;
     margin-top: 126rpx;
-    /* background-color: #aaf; */
 }
 /* 删除x */
 
@@ -86,38 +83,46 @@ page {
 .info .singleOne {
     display: flex;
     align-items: center;
-    /* background-color: #aaf; */
 }
 
 .info >view {
     display: flex;
     border-top: 1px solid #eee;
-    /* margin-bottom: 30rpx; */
 }
 
 .info >view.singleOne {
     display: flex;
     height: 90rpx;
     align-items: center;
-    /* background-color: pink; *//* border-top: 1px solid #eee; *//* border-bottom: 1px solid #eee; */
 }
-
+.info >view.singleOne.singleSpecial{
+    height: auto;
+    padding: 30rpx 0;
+}
+.info >view.singleOne.singleSpecial textarea{
+    width: 550rpx!important;
+    margin-left:24rpx;
+    color: #777777;
+    font-size: 28rpx;
+    padding: 0 6rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+}
 .info >view>text:nth-child(1) {
     width: 114rpx;
-    /* background-color: pink; */
     font-size: 28rpx;
     text-align: left;
     color: #333;
 }
 
 .info .singleOne >input {
-    /* width: 400rpx; *//* border:1px solid  #eeeeee; */
     margin-left: 30rpx;
     font-size: 28rpx;
     color: #777;
 }
 
-/* 租金详情选择框 */
+/* 车位性质选择框 */
 
 .thaw {
     width:auto;
@@ -143,7 +148,7 @@ page {
     margin-left: 10rpx;
 }
 
-/* 解冻下拉框选项 */
+/* 车位性质下拉框选项 */
 
 .opition {
     background: #fff;

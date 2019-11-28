@@ -1,0 +1,71 @@
+/* 头部图片上传 */
+
+.topPic {
+    width: 750rpx;
+    height: 166rpx;
+    display: flex;
+    margin-top: 40rpx;
+}
+
+/* +按钮 */
+
+.topPic .plusPic {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 200rpx;
+    height: 162rpx;
+    margin-left: 24rpx;
+    overflow: hidden;
+    border-radius: 6rpx;
+    border: 1px dashed #ccc;
+    margin-right: 40rpx;
+}
+.plusPic input {
+    position: absolute;
+    top:0;
+    left:0;
+    width:200rpx;
+    height: 162rpx;
+    border:1px solid #000;
+}
+.plusPic image {
+    border-radius: 6rpx;
+}
+
+.plusPic image:nth-child(1) {
+    width: 76rpx;
+    height: 78rpx;
+}
+
+.topPic .picList {
+    width: 470rpx;
+    overflow: hidden;
+    height: 166rpx;
+}
+.topPic .pic{
+  width: 470rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.picList .item {
+    position: relative;
+    display: inline-block;
+    width: 200rpx;
+    height: 166rpx;
+    border-radius: 6rpx;
+}
+.upLoadTxt{
+    display: block;
+    color:#777777;
+    font-size:28rpx;
+    margin-top: 126rpx;
+}
+/* 删除x */
+.item image:nth-child(2) {
+    position: absolute;
+    right: -20rpx;
+    top: 0;
+}

@@ -1,0 +1,45 @@
+ <view class='top' catchtap='onshow'>
+    <view>
+      <view>订单人</view>
+      <view>线下签约人</view>
+      <view>身份证号</view>
+    </view>
+    <view>
+      <view>{{username}}</view>
+      <view>{{contractName}} {{contractMobile}}</view>
+      <view> {{contractIdcard?contractIdcard:'请填写身份证号码'}}
+        <i-icon class="ic2" size='16' type="editor" />
+      </view>
+    </view>
+    <i-icon class="ic1" size='18' type="enter" color='rgb(153,153,153)' />
+
+  </view>
+  <view class="carList">
+    <view class="car">
+      <view>
+        <image src="{{data.truckSpaceListImages[0]}}"></image>
+      </view>
+      <view>
+        <view>{{data.name}}</view>
+        <view>{{data.projectInfo.name}}|{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</view>
+        <view>售价
+          <text style="font-size:30rpx;color:#FA5D43;font-weight: bold"> ￥{{data.sellPrice}}</text> </view>
+      </view>
+    </view>
+    <view class="Customerservice">
+      <view bindtap="call">
+        <van-icon name="phone" size="35rpx" />联系置业顾问</view>
+    </view>
+
+  </view>
+  <!-- 签约了吗信息人弹窗 -->
+  <van-popup show="{{show}}" bind:close="onClose" position='top'>
+  <view class='Personal '>
+    <view class='Title '>修改签约人信息</view>
+    <i-panel title="基础用法">
+      <i-input value="{{ contractName }}" bind:change='value2' title="预计签约人:" maxlength='5 ' placeholder="名字" />
+      <i-input value="{{ contractMobile }}" bind:change='value3' type="number" title="联系电话:" placeholder="请输入手机号" maxlength="11" />
+      <i-input value="{{ contractIdcard}}" bind:change='value4' type="number" title="身份证号码" placeholder="请输入身份证号码:" maxlength="18" />
+    </i-panel>
+  </view>
+</van-popup>

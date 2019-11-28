@@ -19,4 +19,5 @@
   </view>
   <view style="color:#777777;text-align: center;margin-top: 70rpx">根据该区域销控图选择您需要查看的楼栋</view>
   <button class="button" style="background:{{rightID.length==0?'#cccccc':''}}" bindtap="goParkinglist">确认楼栋 {{count}}</button>
+  <button class="button" style="background:#cccccc" bindtap="goindex">返回首页 </button>
 </view>

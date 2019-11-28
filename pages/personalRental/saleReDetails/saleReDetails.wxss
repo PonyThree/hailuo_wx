@@ -36,9 +36,30 @@ page{
 .rentRelease .carInfo view{
     display: flex;
     align-items: center;
-    height: 60rpx;
-    /* background-color: pink; */
-    /* margin-left: 24rpx; */
+    /* height: 60rpx; */
+    height: auto;
+    padding:10rpx 0;
+}
+.rentRelease .carInfo view.desc{
+    display: flex;
+    align-items: flex-start;
+    width: 702rpx;
+    padding: 20rpx 0;
+    margin-right: 20rpx;
+}
+.carInfo view.desc .descTil{
+    width: 180rpx;
+    display: block;
+    font-size: 24rpx;
+    color:#777777;
+}
+.carInfo view.desc .descTxt{
+    width: 550rpx;
+    font-size:30rpx;
+    padding: 0;
+    color: #333333;
+    margin-left: -40rpx;
+    /* background-color: #aaf; */
 }
 .carInfo view.right>text:nth-child(1){
     font-size: 24rpx;
@@ -52,7 +73,7 @@ page{
     /* background-color: #aaf; */
 }
 .tagList1{
-    width: 210rpx;
+    width: 570rpx;
     height: 34rpx;
     font-size: 20rpx;
     overflow-x: auto;

@@ -110,7 +110,6 @@ Page({
   },
   cutDownDate(time) {
 
-
     if (time == 0) {
       this.data.openStatus = 1;
       return;
@@ -214,63 +213,7 @@ Page({
 
     })
   },
-  //筛选列表加载
-  renderSXList() {
-    //一级区域
-    wx.request({
-      url: app.url + '/product/auth0/truckSpaceArea/selectMiniAllList',
-      header: {
-        token: app.gettoken()
-      },
-      data: {
-        projectId: this.data.projectId,
-      },
-      success: res => {
-        //   console.log(res.data.data)
-        if (res.data.code == 0) {
-          this.setData({
-            level1: res.data.data
-          })
-        }
-      }
-    })
-    //二级区域
-    wx.request({
-      url: app.url + '/product/auth0/truckSpaceFloor/doSelectMiniAllList',
-      header: {
-        token: app.gettoken()
-      },
-      data: {
-        projectId: this.data.projectId,
-      },
-      success: res => {
-        //   console.log(res.data.data)
-        if (res.data.code == 0) {
-          this.setData({
-            level2: res.data.data
-          })
-        }
-      }
-    })
-    //三级区域
-    wx.request({
-      url: app.url + '/product/auth0/truckSpaceRidgepole/doMiniSelectAllList',
-      header: {
-        token: app.gettoken()
-      },
-      data: {
-        projectId: this.data.projectId,
-      },
-      success: res => {
-        //   console.log(res.data.data)
-        if (res.data.code == 0) {
-          this.setData({
-            level3: res.data.data
-          })
-        }
-      }
-    })
-  },
+
   //进入大厅
   enterHall() {
     wx.navigateTo({
@@ -279,10 +222,6 @@ Page({
   },
   // 选位大厅跳转
   change2() {
-    this.setData({
-      active2: !this.data.active2,
-      active1: !this.data.active1
-    });
     clearInterval(timer);
     wx.navigateBack({
       delta: 1
@@ -318,14 +257,13 @@ Page({
   //直接抢购
   rightBuy(e) {
     let sub = e.currentTarget.dataset.sub
-    // if (sub==false){
-    //   wx.showToast({
-    //     title: '抱歉,您暂时不能认购',
-    //     icon: 'none'
-    //   })
-    //   return
-    // }
- 
+    if (this.data.openStatus == 0) {
+      wx.showToast({
+        title: '抱歉,开盘时间未到',
+        icon: 'none'
+      })
+      return
+    }
     var that=this;
     this.setData({
       buttonClicked: true

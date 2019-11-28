@@ -1,7 +1,7 @@
 /* pages/personalRental/rentalIndex/rentalIndex.wxss */
 page{
    font-family: 'Microsoft Yahei';
-   background:#ffffff !important;
+   background:#f2f2f2 !important;
 }
 .rentalPage{
     position: relative;
@@ -15,20 +15,30 @@ page{
     justify-content: space-between;
     align-items: center;
     width: 750rpx;
-    height: 109rpx;
+    height: 110rpx;
     border-top:1px solid #eeeeee;
     padding: 0 24rpx;
     font-size: 30rpx;
     font-weight: 600;
     color: #999999;
-    box-shadow:0px 0px 5px #888888;
+    /* background-color: #aaf; */
+}
+.item{
+  /* display: flex;
+  align-items: center;
+  height: 110rpx; */
+  padding:20rpx;
+  /* background-color: pink; */
 }
 /* 选中状态 */
 .item.tapActive{
     position: relative;
     color: #333333;
+    font-size:34rpx;
+    font-weight: 700;
 }
 .item.tapActive .line{
+    display: block;
     position: absolute;
     left: 0;
     right: 0;
@@ -42,28 +52,31 @@ page{
 }
 /* 租售列表 */
 .rentalList{
-    /* box-sizing: border-box; */
     width: 750rpx;
-    /* padding: 46rpx 24rpx 0; */
-    /* background-color: #faf; */
+    overflow: hidden;
+    background-color: #f2f2f2!important;
 }
 .rentalList .rentalItem{
     position: relative;
-    width: 704rpx;
-    height: 360rpx;
+    width: 702rpx;
+    height: 440rpx;
     overflow: hidden;
+    padding:0 24rpx;
+    background-color: #ffffff;
     /* background-color: #afa; */
-    margin-right:24rpx;
-    margin-left:24rpx;
-    border-bottom: 1px solid #eeeeee;
+    /* margin-right:24rpx; */
+    /* margin-left:24rpx; */
+    /* margin-top: 20rpx; */
+    /* border-bottom: 1px solid #eeeeee; */
 }
 /* 头部 */
  .top{
-    width: 704rpx;
+    width: 702rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70rpx;
+    height: 110rpx;
+    border-bottom: 1px solid #eeeeee;
 }
 .rentalItem .top >view{
     display: flex;
@@ -80,13 +93,13 @@ page{
 /* 中间信息 */
 .rentalItem .renInfo{
     position: relative;
-    width: 704rpx;
+    width: 702rpx;
     height: 256rpx;
     margin-left: 30rpx;
     /* background-color: pink; */
 }
 .rentalItem .renInfo >view:nth-child(1){
-    padding:14rpx 0;
+    padding:30rpx 0;
     font-size: 36rpx;
 }
 .rentalItem .renInfo >view:nth-child(1) >text{
@@ -100,6 +113,7 @@ page{
 }
 .rentalItem .renInfo .info{
     display: flex;
+    width: 350rpx;
     flex-direction: column;
     justify-content: space-between;
     color: rgb(51,51,51);
@@ -118,14 +132,17 @@ page{
     padding: 10rpx 0;
 }
 .scroll-view_H{
-    width: 210rpx;
+    width: 350rpx;
+    /* width: 210rpx; */
     height: 34rpx;
     margin-bottom: 10rpx;
 }
 .renInfo .info .tagList1{
-    width: 210rpx;
+    width: 350rpx;
+    /* width: 210rpx; */
     height: 34rpx;
     font-size: 20rpx;
+    padding:8rpx 0;
     overflow-x: auto;
     white-space: nowrap;
 }
@@ -141,6 +158,15 @@ page{
     position: absolute;
     bottom: 0;
     right: 30rpx;
+}
+.faceTalk{
+    height: 50rpx;
+    display: flex;
+    /* background-color: pink; */
+    align-items: center;
+}
+.faceTalk text{
+    line-height: 5rpx;
 }
 /* 求租标签样式 */
 .carInfo{
@@ -168,7 +194,8 @@ page{
     /* background-color: #aaf; */
 }
 .tagList1{
-    width: 210rpx;
+    width: 460rpx;
+    /* width: 210rpx; */
     height: 34rpx;
     font-size: 20rpx;
     overflow-x: auto;
@@ -189,7 +216,7 @@ page{
     height: 130rpx;
     overflow: hidden;
     z-index:99;
-    /* background-color: #ffffff; */
+    /* background-color: #aaf!important; */
 }
 .clickItems{
     width: 750rpx;
@@ -261,4 +288,25 @@ page{
     width: 100rpx;
     height: 100rpx;
     /* margin: auto 0; */
+}
+/* 无消息时的提示 */
+.promptInfo {
+  width: 750rpx;
+  margin-top: 320rpx;
+}
+.promptInfo image{
+  display: block;
+  width: 137rpx;
+  height: 151rpx;
+  margin: 0 auto 20rpx;
+}
+.promptInfo view{
+  width: 750rpx;
+  text-align: center;
+}
+.promptInfo view text{
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #999999;
 }

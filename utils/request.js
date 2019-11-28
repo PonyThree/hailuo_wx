@@ -18,6 +18,10 @@ function http(method, baseURL, data) {
         //判断状态码---errCode状态根据后端定义来判断
         if (res.data.code == 0) {
           resolve(res);
+          return
+        }
+        if(res.data.code==1){
+          resolve(res);
         }
         else if (res.data.code == 401 || res.statusCode == 401) {
           wx.redirectTo({

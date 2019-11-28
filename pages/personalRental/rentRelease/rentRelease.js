@@ -1,7 +1,9 @@
 // pages/personalRental/rentCarEdit/rentCarEdit.js
 const app = getApp()
 var getTag = require('../../../utils/getTag.js') //引入车位标签
-var form = {};
+var form = {
+};
+var picArr=[]
 Page({
 
     /**
@@ -10,24 +12,16 @@ Page({
     data: {
         option: false,
         showAddTag: false,
-        typeList: [{
-                id: '1',
-                value: '月租'
-            },
-            {
-                id: '2',
-                value: '年租'
-            },
-        ],
+        showType:'1',
         info: {
             typePrice: '请选择'
         },
+        show:true,
         // 表单数据
         form: {},
         picList: [],
         selectedTags: []
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -60,7 +54,6 @@ Page({
                 token: app.gettoken()
             },
             success: res => {
-                console.log(res.data)
                 if (res.data.code == 0) {
                     this.setData({
                         ProjectInfo: res.data.data
@@ -106,32 +99,11 @@ Page({
     onShareAppMessage: function() {
 
     },
-    upLoadPic() {
-        var that = this;
-        console.log('上传图片')
-        wx.chooseImage({
-            success: function(res) {
-                console.log(res)
-                that.setData({
-                    picList: res.tempFiles
-                })
-            },
-        })
-    },
-    // 删除图片
-    delPic(e) {
-        let id = e.currentTarget.dataset.id
-        console.log(id)
-        let myPicList = this.data.picList
-        myPicList.splice(id, 1)
-        this.setData({
-            picList: myPicList
-        })
-    },
     // 添加标签
     showTags() {
         console.log(this.data.taglist)
         this.setData({
+            show:false,
             showRight1: !this.data.showRight1,
         })
     },
@@ -144,16 +116,17 @@ Page({
     // },
     // 获取标题
     getTil(e) {
-        console.log(e.detail.value)
+      console.log(e)
         let title = e.detail.value
         form.title = title
         this.setData({
             form
         })
     },
+ 
+
     // 获取位置
     getLoc(e) {
-        console.log(e.detail.value)
         let location = e.detail.value
         form.location = location
         this.setData({
@@ -162,7 +135,6 @@ Page({
     },
     // 获取编号
     getCode(e) {
-        console.log(e.detail.value)
         let code = e.detail.value
         form.code = code
         this.setData({
@@ -171,7 +143,6 @@ Page({
     },
     // 获取车位面积
     getSize(e) {
-        console.log(e.detail.value)
         let outsideArea = e.detail.value
         form.outsideArea = outsideArea
         this.setData({
@@ -180,7 +151,6 @@ Page({
     },
     // 获取售价
     getSellPrice(e) {
-        console.log(e.detail.value)
         let sellPrice = e.detail.value
         form.sellPrice = sellPrice
         this.setData({
@@ -188,8 +158,7 @@ Page({
         })
     },
     // 获取车位描述
-    getDescription(e) {
-        console.log(e.detail.value)
+    bindTextAreaBlur(e){
         let description = e.detail.value
         form.description = description
         this.setData({
@@ -198,7 +167,6 @@ Page({
     },
     // 联系人
     getreleaserName(e) {
-        console.log(e.detail.value)
         let releaserName = e.detail.value
         form.releaserName = releaserName
         this.setData({
@@ -207,26 +175,90 @@ Page({
     },
     // 电话
     getPhone(e) {
-        console.log(e.detail.value)
         let releaserMobile = e.detail.value
         form.releaserMobile = releaserMobile
         this.setData({
             form
         })
     },
+    // 接收子组件传递的参数
+    rentalUpload(e){
+      let images=e.detail
+      form.images=images
+      this.setData({
+        form
+      })
+    },
     // 发布信息
     releaseInfo() {
-        let images = [];
-        this.data.picList.map(item => {
-            images.push(item.path)
-        })
-        form.images = images
+        // form.images = this.data.picList
         // 出租1 出售2
         form.releaseType = 1
         form.truckSpaceTagArray = this.data.selectedTags
         form.projectId = this.data.projectId;
-        console.log(this.data.ProjectInfo)
         form.projectName = this.data.ProjectInfo.name;
+        console.log(form)
+        if(!form.images){
+            wx.showToast({
+                title: '请先上传图片',
+            })
+            return;
+        }
+        if(!form.title){
+            wx.showToast({
+                title: '请先填写标题',
+            })
+            return ;
+        }
+        if(!form.location){
+            wx.showToast({
+                title: '请填写位置',
+            })
+            return ;
+        }
+        if(!form.code){
+            wx.showToast({
+                title: '请填写编号',
+            })
+            return ;
+        }
+        
+        if(!form.outsideArea){
+            wx.showToast({
+                title: '请填写大小',
+            })
+            return ;
+        }
+        if(!form.sellPrice){
+            wx.showToast({
+                title: '请填写租金',
+            })
+            return ;
+        }
+        if(form.truckSpaceTagArray.length<=0){
+            wx.showToast({
+                title: '请选择标签',
+            })
+            return;
+        }
+        if(!form.description){
+            wx.showToast({
+                title:'请填写描述'
+            })
+            return ;
+        }
+        if(!form.releaserName){
+            wx.showToast({
+                title:'请填写联系人'
+            })
+            return ;
+        }
+        if(!form.releaserMobile){
+            wx.showToast({
+                title:'请填写电话号码'
+            })
+            return ;
+        }
         wx.request({
             method: 'post',
             url: app.url + '/product/auth0/truckSpaceReleaseInfo/rentalSale/insertOrUpdate',
@@ -236,24 +268,26 @@ Page({
             },
             data: JSON.stringify(form),
             success: res => {
-                console.log(res)
                 if (res.data.code == 0) {
                     wx.showToast({
                         title: '添加成功',
                     })
                     let timer = setTimeout(() => {
-                        wx.navigateTo({
-                            url: '/pages/personalRental/rentalIndex/rentalIndex?num=' + form.releaseType,
+                        wx.redirectTo({
+                            url: '/pages/personalRental/myRelease/myRelease?num=0',
                         })
                         clearTimeout(timer)
                     }, 1000)
+                }else{
+                  wx.showToast({
+                    title: res.data.msg,
+                  })
                 }
             }
         })
     },
     //更多筛选
     morescreen(e) {
-        console.log(e)
         var tieleindex = e.currentTarget.dataset.tieleindex
         var index1 = e.currentTarget.dataset.index
         var item = this.data.taglist
@@ -265,10 +299,8 @@ Page({
     // 删除标签
     delTag(e) {
         var baseTags = this.data.selectedTags;
-        console.log(baseTags)
         var i = e.currentTarget.dataset.index
         baseTags.splice(i, 1)
-        console.log(this.data.selectedTags)
         this.setData({
             selectedTags: baseTags
         })
@@ -276,16 +308,15 @@ Page({
     // 取消
     cancle() {
         this.setData({
-            showRight1: false
+            showRight1: false,
+            show:true
         })
     },
     // 确定
     corfim() {
         var chooseTags = [];
-        console.log(this.data.taglist)
         this.data.taglist.map(item => {
             item.tagRespDtos.map(item => {
-                console.log(item.isSelected)
                 if (item.isSelected == true) {
                     chooseTags.push(item.name)
                 }
@@ -294,6 +325,7 @@ Page({
         console.log(chooseTags)
         this.setData({
             showRight1: false,
+            show:true,
             selectedTags: chooseTags
         })
     },
@@ -311,7 +343,6 @@ Page({
     },
     // 租售方式
     myOpition(e) {
-        console.log(e.currentTarget.dataset.name)
         this.setData({
             info: {
                 typePrice: e.currentTarget.dataset.name == 1 ? '月租' : '年租'

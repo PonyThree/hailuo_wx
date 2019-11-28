@@ -6,14 +6,21 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    // 2认购 1落位
+    type:2
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(e) {
+    console.log(e.type)
     wx.setNavigationBarTitle({
       title: '核销码',
     });
+    this.setData({
+      type: e.type
+    })
     if (e.id) this.setData({
       orderFormId: e.id,
       userName: wx.getStorageSync('wx').nickName,

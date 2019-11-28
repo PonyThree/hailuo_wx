@@ -1,0 +1,13 @@
+<view class="myTabs">
+  <!-- 头部搜索 -->
+  <view class="search">
+    <!-- <scroll-view class="myScroll" scroll-x> -->
+      <view class="item {{actNnum==index?'tapActive':''}}" catchtap='handleTap' data-num="{{index}}" wx:for="{{tabList}}" wx:key="{{index}}">
+        <text>{{item}}</text>
+        <view class="{{actNnum==index?'line':''}}"></view>
+      </view>
+    <!-- </scroll-view> -->
+
+  </view>
+</view>
+  

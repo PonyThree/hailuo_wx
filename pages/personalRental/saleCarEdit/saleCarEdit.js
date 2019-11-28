@@ -2,6 +2,7 @@
 const app = getApp()
 var getTag = require('../../../utils/getTag.js') //引入车位标签
 var form = {};
+var oldPicList=[];
 Page({
 
     /**
@@ -10,6 +11,8 @@ Page({
     data: {
         option: false,
         showRight1: false,
+        show:true,
+        showType: '2',  
         typeList: [{
                 id: '产权车位',
                 value: '产权车位'
@@ -26,7 +29,6 @@ Page({
         info: {
             truckSpaceProperty: '请选择'
         },
-        // picList: []
     },
 
     /**
@@ -35,7 +37,6 @@ Page({
     onLoad: function(options) {
        
         let id = options.id
-        // console.log(id)
         this.setData({
             projectId: wx.getStorageSync('dataid')
         })
@@ -47,6 +48,7 @@ Page({
         })
         //获取所有的筛选条件
         getTag(wx.getStorageSync('dataid'), this)
+        this.getData()
     },
 
     /**
@@ -60,7 +62,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.getData()
+        // this.getData()
     },
 
     /**
@@ -101,59 +103,95 @@ Page({
     getData() {
         wx.request({
             method: 'get',
-            url: app.url + '/product/auth0/truckSpaceReleaseInfo/demand/' + this.data.id,
+            url: app.url + '/product/auth0/truckSpaceReleaseInfo/rentalSaleNoCache/' + this.data.id,
             header: {
                 token: app.gettoken()
             },
             success: res => {
                 console.log(res.data)
                 form = res.data.data
+                oldPicList=res.data.data.images
                 this.setData({
+                    showFirst:1,
                     // 基本信息
                     info: res.data.data,
                     // 标签
                     info1: res.data.data,
                     // 图片
                     info2: res.data.data,
-                    checked: res.data.data.priceOnFace == 1 ? 'true' : 'false'
+                    // 车位性质
+                    info3: res.data.data,
                 })
             }
         })
     },
-    upLoadPic() {
-        var that = this;
-        let oldPicList=this.data.info2.images
-        console.log('上传图片')
-        wx.chooseImage({
-            success: function (res) {
-                // console.log(res)
-                let newPicList = oldPicList.concat(res.tempFiles)
-                // console.log(newPicList)
-                that.setData({
-                    info2:{
-                        images:newPicList
-                    }
-                })
-            },
-        })
-    },
+    // upLoadPic() {
+    //     var that = this;
+    //   wx.chooseImage({
+    //     success: res => {
+    //       var tempFilePaths = res.tempFilePaths
+    //       let oldPicList = this.data.info2.images
+    //       var len = tempFilePaths.length;
+    //       for (var i = 0; i < len; i++) {
+    //         wx.uploadFile({
+    //           url: app.url + '/project/auth0/image/upload',
+    //           method: 'post',
+    //           header: {
+    //             token: app.gettoken()
+    //           },
+    //           filePath: tempFilePaths[i],
+    //           name: 'file',
+    //           success: res => {
+    //             var data = res.data
+    //             var pic = JSON.parse(data).data
+    //             oldPicList.push(pic)
+    //             that.setData({
+    //               [`info2.images`]: oldPicList
+    //             })
+
+    //           }
+    //         })
+    //       }
+    //     },
+    //   })
+        // wx.chooseImage({
+        //     success: function (res) {
+        //         let newPicList = oldPicList.concat(res.tempFilePaths)
+        //         that.setData({
+        //            [`info2.images`]:newPicList
+        //         })
+        //     },
+        // })
+    // },
     // 删除图片
-    delPic(e) {
-        let id = e.currentTarget.dataset.id
-        console.log(id)
-        let myPicList = this.data.info2.images
-        myPicList.splice(id, 1)
-        this.setData({
-            info2:{
-                images:myPicList
-            }
-        })
-    },
+    // delPic(e) {
+    //     let id = e.currentTarget.dataset.id
+    //     console.log(id)
+    //         var  myPicList = this.data.info2.images
+    //         myPicList.splice(id, 1)
+    //         wx.showToast({
+    //             title: '删除成功',
+    //         })
+    //         this.setData({
+    //             info2:{
+    //                 images:myPicList
+    //             }
+    //         })
+    // },
+  // 接收子组件传递的参数
+  rentalUpload(e) {
+    let images = e.detail
+    form.images = images
+    this.setData({
+      form
+    })
+  },
     // 添加标签
     showTags() {
         console.log(this.data.taglist)
         this.setData({
             showRight1: !this.data.showRight1,
+            show:false,
         })
     },
     // 面议
@@ -165,7 +203,6 @@ Page({
     // },
     // 获取标题
     getTil(e) {
-        console.log(e.detail.value)
         let title = e.detail.value
         form.title = title
         this.setData({
@@ -174,7 +211,6 @@ Page({
     },
     // 获取位置
     getLoc(e) {
-        console.log(e.detail.value)
         let location = e.detail.value
         form.location = location
         this.setData({
@@ -183,7 +219,6 @@ Page({
     },
     // 获取编号
     getCode(e) {
-        console.log(e.detail.value)
         let code = e.detail.value
         form.code = code
         this.setData({
@@ -192,7 +227,6 @@ Page({
     },
     // 获取车位面积
     getSize(e) {
-        console.log(e.detail.value)
         let outsideArea = e.detail.value
         form.outsideArea = outsideArea
         this.setData({
@@ -201,7 +235,6 @@ Page({
     },
     // 获取售价
     getSellPrice(e) {
-        console.log(e.detail.value)
         let sellPrice = e.detail.value
         form.sellPrice = sellPrice
         this.setData({
@@ -209,8 +242,7 @@ Page({
         })
     },
     // 获取车位描述
-    getDescription(e) {
-        console.log(e.detail.value)
+    bindTextAreaBlur(e) {
         let description = e.detail.value
         form.description = description
         this.setData({
@@ -219,7 +251,6 @@ Page({
     },
     // 联系人
     getreleaserName(e) {
-        console.log(e.detail.value)
         let releaserName = e.detail.value
         form.releaserName = releaserName
         this.setData({
@@ -228,7 +259,6 @@ Page({
     },
     // 电话
     getPhone(e) {
-        console.log(e.detail.value)
         let releaserMobile = e.detail.value
         form.releaserMobile = releaserMobile
         this.setData({
@@ -240,11 +270,78 @@ Page({
         form.images = this.data.info2.images
         // 出租1 出售2
         form.releaseType = 2
-        form.truckSpaceTagArray = this.data.info1.truckSpaceTagArray
         form.projectId = this.data.projectId
+        form.truckSpaceTagArray=this.data.info1.truckSpaceTagArray
         form.projectName = this.data.info.projectName
         form.id=this.data.info.id
-        form.truckSpaceProperty=this.data.info.truckSpaceProperty
+        form.truckSpaceProperty=this.data.info3.truckSpaceProperty
+      if (form.images.length <= 0) {
+        wx.showToast({
+          title: '请先上传图片',
+        })
+        return;
+      }
+      if (!form.title) {
+        wx.showToast({
+          title: '请先填写标题',
+        })
+        return;
+      }
+      if (!form.location) {
+        wx.showToast({
+          title: '请填写位置',
+        })
+        return;
+      }
+      if (!form.code) {
+        wx.showToast({
+          title: '请填写编号',
+        })
+        return;
+      }
+
+      if (!form.outsideArea) {
+        wx.showToast({
+          title: '请填写大小',
+        })
+        return;
+      }
+      if (form.truckSpaceProperty == '请选择') {
+        wx.showToast({
+          title: '请选择车位属性',
+        })
+        return;
+      }
+      if (!form.sellPrice) {
+        wx.showToast({
+          title: '请填写租金',
+        })
+        return;
+      }
+      if (form.truckSpaceTagArray.length <= 0) {
+        wx.showToast({
+          title: '请选择标签',
+        })
+        return;
+      }
+      if (!form.description) {
+        wx.showToast({
+          title: '请填写描述'
+        })
+        return;
+      }
+      if (!form.releaserName) {
+        wx.showToast({
+          title: '请填写联系人'
+        })
+        return;
+      }
+      if (!form.releaserMobile) {
+        wx.showToast({
+          title: '请填写电话号码'
+        })
+        return;
+      }
         wx.request({
             method: 'post',
             url: app.url + '/product/auth0/truckSpaceReleaseInfo/rentalSale/insertOrUpdate',
@@ -254,14 +351,13 @@ Page({
             },
             data: JSON.stringify(form),
             success: res => {
-                console.log(res)
                 if (res.data.code == 0) {
                     wx.showToast({
                         title: '修改成功',
                     })
                     let timer = setTimeout(() => {
-                        wx.navigateTo({
-                            url: '/pages/personalRental/myRelease/myRelease',
+                        wx.navigateBack({
+                            delta: 1
                         })
                         clearTimeout(timer)
                     }, 1000)
@@ -275,7 +371,6 @@ Page({
     },
     //更多筛选
     morescreen(e) {
-        console.log(e)
         var tieleindex = e.currentTarget.dataset.tieleindex
         var index1 = e.currentTarget.dataset.index
         var item = this.data.taglist
@@ -287,10 +382,8 @@ Page({
     // 删除
     delTag(e) {
         var baseTags = this.data.info1.truckSpaceTagArray;
-        console.log(baseTags)
         var i = e.currentTarget.dataset.index
         baseTags.splice(i, 1)
-        console.log(this.data.info1.truckSpaceTagArray)
         this.setData({
             info1: {
                 truckSpaceTagArray: baseTags
@@ -300,7 +393,8 @@ Page({
     // 取消
     cancle() {
         this.setData({
-            showRight1: false
+            showRight1: false,
+            show:true,
         })
     },
     // 确定
@@ -308,19 +402,16 @@ Page({
         var chooseTags = [];
         this.data.taglist.map(item => {
             item.tagRespDtos.map(item => {
-                console.log(item.isSelected)
                 if (item.isSelected == true) {
                     chooseTags.push(item.name)
                 }
             })
         })
         let oldTag = this.data.info1.truckSpaceTagArray
-        console.log(chooseTags)
-        console.log(oldTag)
         var newTag = Array.from(new Set(oldTag.concat(chooseTags)))
-        console.log(newTag)
         this.setData({
             showRight1: false,
+            show:true,
             info1: {
                 truckSpaceTagArray: newTag
             }
@@ -329,7 +420,8 @@ Page({
     // 关闭标签弹窗
     onClose() {
         this.setData({
-            showRight1: false
+            showRight1: false,
+            show:true,
         })
     },
     // 租金选择下拉框
@@ -340,10 +432,9 @@ Page({
     },
     // 租售方式
     myOpition(e) {
-        console.log(e.currentTarget.dataset.name)
         let name = e.currentTarget.dataset.name
         this.setData({
-            info: {
+            info3: {
                 truckSpaceProperty: name
             },
             option: false

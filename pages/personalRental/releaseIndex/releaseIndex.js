@@ -28,7 +28,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            myHeight:wx.getSystemInfoSync().windowHeight
+        })
     },
 
     /**
@@ -67,31 +69,16 @@ Page({
     },
     handleClick(e) {
         let num = e.currentTarget.dataset.num;
-        console.log(num)
         this.setData({
             btnum: num
         })
         let mark = this.data.btnum
         if (mark == 1) {
-            console.log('返回首页')
-            // wx.navigateTo({
-            //     url: '/pages/firstPage/projectIndex/projectIndex',
-            // })
             wx.switchTab({
                 url: '/pages/firstPage/projectIndex/projectIndex',
             })
         }
         if (mark == 0) {
-            console.log('去发布信息')
-            // this.setData({
-            //     show:!this.data.show
-            // })
-            // this.setData({
-            //     show: true
-            // })
-            // wx.navigateTo({
-            //     url: '/pages/personalRental/releaseIndex/releaseIndex',
-            // })
             wx.navigateBack({
                 delta:1
             })
@@ -105,7 +92,6 @@ Page({
     },
     // 选择跳转出售页面
     jumpPage(e) {
-        console.log(e)
         let num = e.currentTarget.dataset.num
         if (num == 1) {
             wx.navigateTo({

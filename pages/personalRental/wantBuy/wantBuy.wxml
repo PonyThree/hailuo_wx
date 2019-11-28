@@ -8,14 +8,17 @@
         </view>
         <view class="singleOne">
             <text>期望位置</text>
-            <input v-model="一期二栋3单元" placeholder="请填写" bindinput="getLoc">一期二栋3单元</input>
+            <input v-model="一期二栋3单元" placeholder="请填写" bindinput="getLoc" maxlength="17">一期二栋3单元</input>
         </view>
         <view class="singleSpecial">
-            <text>租金范围</text>
-            <input placeholder="填写 元/月 " wx:if="{{!checked}}" bindinput="getMinPrice">A-101</input>
+            <text>售价范围</text>
+            <input type="number" placeholder="填写" wx:if="{{!checked}}" bindinput="getMinPrice">A-101</input>
             <text style="color: #777777;font-size:28rpx;padding:0 10rpx;width:32rpx;text-align:center;" wx:if="{{!checked}}">~</text>
-            <input placeholder="填写 元/月" wx:if="{{!checked}}" bindinput="getMaxPrice">A-101</input>
-            <van-checkbox value="{{ checked }}" bind:change="onChange" shape="square" custom-class="" label-class="font-size:28rpx;color:#777777;margin-left:10rpx;">面议</van-checkbox>
+            <input type="number" placeholder="填写" wx:if="{{!checked}}" bindinput="getMaxPrice">A-101</input>
+            <text style="color: #777777;font-size:28rpx;width:70rpx;text-align:center;line-height:5rpx;" wx:if="{{!checked}}">
+                元
+            </text>
+            <van-checkbox value="{{ checked }}" bind:change="onChange" shape="round" custom-class="" label-class="font-size:28rpx;color:#777777;margin-left:10rpx;" checked-color="#777777">面议</van-checkbox>
         </view>
         <view class="farTag">
             <text class="til">意向标签</text>
@@ -29,17 +32,17 @@
                 </view>
             </view>
         </view>
-        <view class="singleOne">
-            <text>备注</text>
-            <input placeholder="填写" bindinput="getRemark">绝版电梯口车位,过时不候</input>
+        <view class="singleOne singleSpecial" wx:if="{{show}}">
+            <text>车位备注</text>
+            <textarea bindblur="getRemark" auto-height placeholder="请填写"  placeholder-style='font-size:28rpx;padding-left:20rpx;color:#777777;'/>
         </view>
         <view class="singleOne">
             <text>联系人</text>
-            <input placeholder="我的微信ID" bindinput="getReleaserName">我的微信ID</input>
+            <input  bindinput="getReleaserName" placeholder="请填写">我的微信ID</input>
         </view>
         <view class="singleOne">
             <text>联系电话</text>
-            <input placeholder="填写" bindinput="getPhone">填写</input>
+            <input placeholder="填写" bindinput="getPhone" type="number" maxlength="11">填写</input>
         </view>
         <view class="singleOne" style="border-bottom: 1px solid #eee; ">
             <text>区域</text>
@@ -51,7 +54,7 @@
     <view class="releaseBtn" catchtap='releaseInfo'>
         发布
     </view>
-    <van-popup show="{{ showRight1 }}" position="bottom" custom-style="height: 75%;" bind:close="toggleRight1">
+    <van-popup show="{{ showRight1 }}" position="bottom" custom-style="height: 75%;z-index:999;" bind:close="toggleRight1">
         <view class='demo1'>
             <view class='time price'>更多筛选</view>
             <view class='Label' wx:for='{{taglist}}' wx:key='index'>

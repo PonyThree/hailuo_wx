@@ -1,4 +1,4 @@
-@import '/component/step/step.wxss';  /* 引入步骤条css */
+
 .page {
   width: 100%;
   padding: 0 24rpx;
@@ -31,38 +31,32 @@
   transition: all 1s
 }
 /* 待确认提示 */
+/* 待确认提示 */
 .confirm {
-  height: 137rpx;
+  height: 162rpx;
   width: 100%;
-  background: #e8e4d1;
+  background: #FA6D39;
   border-radius: 10rpx;
   margin-top: 20rpx;
   position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.confirm>image {
-  width: 50rpx;
-  height: 50rpx;
-  position: absolute;
-  top: 50%;
-  left: 20rpx;
-  transform: translateY(-50%);
-}
-
-.confirm>view:nth-child(2) {
-  margin-left: 90rpx;
   font-size: 28rpx;
-  color: #a92112;
-}
+  padding: 20rpx 54rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  color: white;
+  box-sizing: border-box
+ 
+  
 
-.confirm>view:nth-child(3) {
-  height: 70rpx;
-  width: 360rpx;
-  line-height: 35rpx;
-  margin-left: 40rpx;
-  font-size: 20rpx;
+}
+.confirm>view:nth-child(1) {
+width: 584rpx;
+
+}
+.confirm>view:nth-child(2) {
+width: 584rpx;
+font-size: 26rpx
 }
 
 /* 订单人 */
@@ -320,16 +314,21 @@
   padding: 0 40rpx;
   box-sizing: border-box;
 }
+.gopay>view{
+  font-size: 28rpx;
+  font-weight: bold
+}
 
 .gopay>button {
-  width: 200rpx;
-  height: 70rpx;
-  background: #a92112;
+  width: 168rpx;
+  height: 80rpxrpx;
+  background: #FA6D39;
   color: white;
-  font-size: 28rpx;
-  border-radius: 35rpx;
+  font-size: 30rpx;
+  border-radius: 10rpx;
   margin: 0;
 }
+
 
 /* 修改订单人信息 */
 

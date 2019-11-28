@@ -1,85 +1,49 @@
-<!-- pages/firstPage/addOilSaveMoney/addOilSaveMoney.wxml -->
-<view class="addOil">
-    <view class="top">
-        <image mode="aspectFill" class="tipsImg_2"
-            src="https://china185.com/file/image/20191023/e8a80e1e457e4df8a7a3d5d95ef1f8ed.png" />
-        <view class="wrap">
-            <view class="icon1"></view>
-            <view class="icon2"></view>
-
-            <input type="text" wx:if="{{status}}" style="margin-bottom: 30rpx;" class="redeemCode"
-                placeholder-class="placeholder" placeholder="请输入加油卡上的兑换码" bindinput="telChange" />
-
-            <view class="redeemCode no" wx:if="{{!status&&!sceneBool}}" style="margin-bottom: 80rpx;"></view>
-            
-            <view class="success" wx:if="{{!status && sceneBool}}"></view>
-            <view class="hint" wx:if="{{status}}">*请联系置业顾问获取加油兑换码</view>
-            <view class="btn" bindtap="instantlyAddOil" wx:if="{{status}}">立即加油</view>
-            <official-account wx:if="{{!status && sceneBool}}"></official-account>
-        </view>
-    </view>
-    <view class="hr"></view>
-    <view class="bottom">
-        <view class="info_img"></view>
-    </view>
-    <view class="label">*本次活动最终解释权归「海螺找位」所有方</view>
-    <!--选车位 -->
-    <view class="selectCarport_wrap" wx:if="{{carportBool}}">
-        <view class="mask"></view>
-        <view class="window_wrap">
-            <view class="window_box">
-                <view class="showCarport">
-                    <view class="carprot_title">车位实时动态</view>
-                    <swiper vertical="true" autoplay="true" interval="2000" easing-function="linear" duration="2000"
-                        circular="true">
-                        <block wx:for="{{carportData}}" wx:key="index">
-                            <swiper-item>
-                                <block wx:for="{{item}}" wx:key="index+item">
-                                    <view class="item">
-                                        {{item}}
-                                        <!-- <view class="dot"></view>
-                                        <view class="tel">159****9968</view>
-                                        <view class="address"><text>A402</text> [A去1栋负一层]</view>
-                                        <view class="state">已落位</view> -->
-                                    </view>
-                                </block>
-                            </swiper-item>
-                        </block>
-                    </swiper>
-                </view>
-                <view class="msg">您的小区只剩 {{nuber}}个 可选车位了</view>
-                <view class="carprot_btn" bind:tap="goCarport">去选位</view>
-            </view>
-            <view class="clear_box" bind:tap="carportClear"></view>
-        </view>
-    </view>
-    <!-- 秒杀 -->
-    <view class="seckill_wrap" wx:if="{{seckillBool}}">
-        <view class="mask"></view>
-        <view class="windows_wrap">
-            <view class="windows_box">
-                <view class="window_content">
-                    <view class="windows_title">您小区的车位限时秒杀中</view>
-                    <view class="plummet"><text class="text1">直降</text><text
-                            class="text2">↓</text>{{miniFavorablePrice}}元!</view>
-                    <view class="low"><text class="text1">低至</text>{{miniPrice}}元/个</view>
-                    <view class="rob" bind:tap="goSeckill">马上抢</view>
-                </view>
-                <view class="content" wx:if="{{msgInfo.length}}">
-                    <swiper vertical="true" autoplay="true" interval="2000" duration="2000" circular="true">
-                        <block wx:for="{{msgInfo}}" wx:key="index">
-                            <swiper-item>
-                                <view class="item">
-                                    {{item}}
-                                </view>
-                            </swiper-item>
-                        </block>
-                    </swiper>
-                </view>
-            </view>
-            <view class="clear_box" bind:tap="seckillClear"></view>
-        </view>
-    </view>
-
-    <image src="../../../image/kefu.png" mode="aspectFill" class="phoneNumber" bind:tap="phoneNumber"></image>
+<view class='page1' wx:if='{{status==1 && !sceneBool}}'></view>
+<view class='page2' wx:if='{{status==0}}'>
+  <input bindinput="telChange" placeholder="请输入加油兑换码"></input>
+  <view class="ljjy" catchtap="instantlyAddOil"></view>
+</view>
+<view class='page3' wx:if='{{status==1 && sceneBool}}'>
+  <view>
+    <official-account></official-account>
+  </view>
+</view>
+<!-- 弹出层 -->
+<van-overlay duration='0.1' show="{{(carportBool&&carportData.listMsg.length>2) ||seckillBool }}" bind:click="carportClear" />
+<!-- 车位动态弹窗 -->
+<view class="tc1" wx:if='{{carportBool&&carportData.listMsg.length>2}}'>
+  <swiper vertical="true" autoplay="true" display-multiple-items='3' interval="2000" easing-function="linear" duration="2000" circular="true">
+    <swiper-item wx:for='{{carportData.listMsg}}' wx:key='index'>
+      <view>{{item.phone}} {{item.carCode}} {{item.stateStr}}</view>
+    </swiper-item>
+  </swiper>
+  <view class="kxcw">您的小区只剩
+    <text style="color:#FF4E1E">{{carportData.nuber}}个</text>可选车位了</view>
+  <view class="msqBtn" bind:tap="goCarport"></view>
+  <view class="closeBtn" bind:tap="carportClear"></view>
+</view>
+<!-- 秒杀弹窗 -->
+<view class="tc2" wx:if="{{seckillBool&& msgInfo.length>0}}">
+  <view class="topMsg">
+    <text>你的小区限时秒杀中\n</text>
+    <text>↓直降<text style="color:#FFFBB8;font-size:40rpx;font-weight:600">{{miniFavorablePrice}}元</text> \n</text>
+    <text>低至<text style="color:#FFFBB8;font-size:40rpx;font-weight:600">{{miniPrice}}元</text>/个</text>
+  </view>
+  <swiper vertical="true" autoplay="true" interval="3000" circular="true">
+    <swiper-item wx:for='{{msgInfo}}' wx:key='index'>
+      <view>{{item}}</view>
+    </swiper-item>
+  </swiper>
+  <view class="msqBtn" bind:tap="goSeckill"></view>
+  <view class="closeBtn" bind:tap="carportClear"></view>
+</view>
+<!-- 秒杀弹窗没有消息 -->
+<view class="tc3" wx:if='{{seckillBool && msgInfo.length==0}}'>
+  <view class="topMsg3">
+    <text>你的小区限时秒杀中\n</text>
+    <text><text style="color:#FF4E1E;font-size:40rpx;font-weight:600">↓直降{{miniFavorablePrice}}元</text> \n</text>
+    <text>低至<text style="color:#FF4E1E;font-size:40rpx;font-weight:600">{{miniPrice}}元</text>/个</text>
+  </view>
+  <view class="msqBtn1" bind:tap="goSeckill"></view>
+  <view class="closeBtn1" bind:tap="carportClear"></view>
 </view>

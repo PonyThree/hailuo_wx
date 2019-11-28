@@ -20,6 +20,7 @@ Page({
       });
       this.getAgreeMent();
       app.stopShare();
+
   },
 
   /**
@@ -33,6 +34,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    //根据项目ID获取用户是否需要选择区层栋
+    wx.request({
+      method: "POST",
+      url: app.url + '/user/auth0/userProjectSelected/getByParams',
+      header: {
+        token: app.gettoken(),
+        "content-type": 'application/json'
+      },
+      data: {
+        projectId: this.data.projectId
+
+      },
+      success: res => {
+        if (res.data.code == 0) {
+          if (res.data.data == null) {
+            wx.removeStorageSync('searchcriteria')
+          } else {
+            let data = res.data.data
+            delete data.id
+            data.level1 = [res.data.data.level1]
+            data.level2 = res.data.data.level2
+            data.level3 = [res.data.data.level3]
+            wx.setStorageSync('searchcriteria', res.data.data)
+          }
+        }
+      }
+    })
      
   },
 
@@ -77,9 +105,16 @@ Page({
   // 跳转到销售大厅 
   gosellectionHall() {
       if(this.data.showDot==true){
-          wx.navigateTo({
+        if (wx.getStorageSync('searchcriteria')){
+          wx.redirectTo({
             url: '/pages/opening/sellectionHall/sellectionHall?projectId=' + this.data.projectId,
           })
+        }
+        else{
+          wx.redirectTo({
+            url: '/pages/project/selection/selection?projectId=' + this.data.projectId,
+          })
+        }
       }
       else{
         wx.showToast({

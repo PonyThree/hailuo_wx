@@ -14,34 +14,24 @@ Page({
     hasMask: false,
     pageSize: 1,
     SwitchList: 1,
-    statusBarHeight: 0,
-    navigationBarHeight: 0,
     back: true,
     home: true,
     currentId:'2',
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(e) {
-    this.setData({ //获取头部导航栏高度
-      statusBarHeight: wx.getSystemInfoSync().statusBarHeight + 40,
-      navigationBarHeight: wx.getSystemInfoSync().statusBarHeight + 40,
-    })
-    
     wx.showLoading({
       title: '列表加载中.',
       mask: true
     })
+    let searchcriteria = wx.getStorageSync('searchcriteria')
+    searchcriteria.pageSize=1
     this.setData({
       projectId: e.projectId,
-      searchcriteria: wx.getStorageSync('searchcriteria'),
-      [`searchcriteria.pageSize`]: 1
-     
+      searchcriteria: searchcriteria
     })
-  
-
     let projectId = this.data.projectId
     //条件查询车位列表
     wx.request({
@@ -100,6 +90,7 @@ Page({
       scrollTop: 0
     })
   },
+
   sort() { //排序筛选
     wx.showLoading({
       title: '加载中',
@@ -118,19 +109,12 @@ Page({
 
   },
   moreSelect() {  //选择楼栋
-
     this.setData({
       showRight1: !this.data.showRight1,
       hasMask: !this.data.hasMask
     })
   },
 
-  toggleRight2() {
-    this.setData({
-      showRight2: !this.data.showRight2,
-      hasMask: !this.data.hasMask
-    })
-  },
   // 更多筛选 抽屉1
   toggleRight1() {
     this.setData({
@@ -157,14 +141,6 @@ Page({
    */
   onHide: function() {
 
-  },
-  /**
-   * 计算屏幕滚动高度
-   */
-  onPageScroll: function(e) {
-    this.setData({
-      scrollTop: e.scrollTop
-    })
   },
 
   /**
@@ -229,29 +205,9 @@ Page({
 
   //更多筛选
   morescreen(e) {
+   
     var title = e.currentTarget.dataset.title
-    if (title == '区域') {
-      var index = e.currentTarget.dataset.index;
-      var item = this.data.level1[index];
-      item.isSelected = !item.isSelected;
-      this.setData({
-        level1: this.data.level1
-      })
-    } else if (title == '楼层') {
-      var index = e.currentTarget.dataset.index;
-      var item = this.data.level2[index];
-      item.isSelected = !item.isSelected;
-      this.setData({
-        level2: this.data.level2
-      })
-    } else if (title == '楼栋') {
-      var index = e.currentTarget.dataset.index;
-      var item = this.data.level3[index];
-      item.isSelected = !item.isSelected;
-      this.setData({
-        level3: this.data.level3
-      })
-    } else if (title == '更多筛选') {
+      if (title == '更多筛选') {
       var tieleindex = e.currentTarget.dataset.tieleindex
       var index1 = e.currentTarget.dataset.index
       var item = this.data.taglist
@@ -261,53 +217,17 @@ Page({
       })
     }
   },
-  //输入价格和面积
-  maxArea(e) {
-    this.setData({
-      maxArea: e.detail.value
-    })
-  },
-  minArea(e) {
-
-    this.setData({
-      minArea: e.detail.value
-    })
-  },
-  minPrice(e) {
-    this.setData({
-      minPrice: e.detail.value
-    })
-  },
-  maxPrice(e) {
-    this.setData({
-      maxPrice: e.detail.value
-    })
-  },
   //提交更多筛选
   corfim(e) {
-    var level1 = [] //区域id
-    var level2 = [] //楼层id
-    var level3 = [] //楼栋id
-    let list1 = this.data.level1
-    let list2 = this.data.level3
-    let list3 = this.data.level2
-    list1.map(i => {
-      if (i.isSelected) {
-        level1.push(i.id)
+    var list4=[]
+    var tagIds=[]
+    try{
+      if (e.detail) { //子组件传递的方法
+        list4 = e.detail || []
+        //标签ID
+      }}
+      catch(err){ 
       }
-    })
-    list2.map(i => {
-      if (i.isSelected) {
-        level2.push(i.id)
-      }
-    })
-    list3.map(i => {
-      if (i.isSelected) {
-        level3.push(i.id)
-      }
-    })
-    let list4 = this.data.taglist || []
-    let tagIds = [] //标签ID
     list4.map(i => {
       if (i.tagRespDtos) {
         i.tagRespDtos.map(i1 => {
@@ -325,19 +245,17 @@ Page({
       data.maxArea = this.data.maxArea,
       data.sortType = this.data.sortType,
       data.onlySelling = 0,
-      data.pageSize=this.data.pageSize
-
+      data.pageSize=this.data.pageSize,
+      data.tagIds = tagIds
     this.setData({
       searchcriteria: data,
       showRight1: false,
-      showRight2: false,
       pageSize: 1
     })
     searhlist(data, true, this)
     wx.pageScrollTo({ //回到顶部
       scrollTop: 0
     })
-
   },
   previewImage(e) {
     
@@ -437,9 +355,7 @@ Page({
     this.onReachBottom()
   },
   goprojectIndex() {
-    // wx.navigateTo({
-    //   url: '/pages/firstPage/projectIndex/projectIndex?projectId=' + this.data.ProjectInfo.id,
-    // })
+ 
     wx.switchTab({
         url: '/pages/firstPage/projectIndex/projectIndex',
     })
@@ -455,6 +371,10 @@ Page({
           url: '/pages/project/selection/selection?projectId=' + this.data.projectId
       })
     wx.removeStorageSync('searchcriteria')
+  },
+  doNotMove(){
+    console.log('112121')
+    return
   }
 
 })

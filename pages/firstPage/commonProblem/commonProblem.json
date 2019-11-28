@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-collapse": "/zan/lib/collapse/index",
+    "van-collapse-item": "/zan/lib/collapse-item/index"
+  }
+}

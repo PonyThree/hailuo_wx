@@ -9,7 +9,7 @@
     "van-cell-group": "/zan/lib/cell-group/index",
     "van-radio": "/zan/lib/radio/index",
     "van-radio-group": "/zan/lib/radio-group/index",
-    "carlist": "/component/carlist/carlist",
-    "step": "/component/step/step"
+     "purchaseInformation": "/component/orderComponent/purchaseInformation/purchaseInformation",
+        "orderStep": "/component/orderComponent/orderStep/orderStep"
   }
 }

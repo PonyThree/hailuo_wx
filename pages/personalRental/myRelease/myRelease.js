@@ -13,9 +13,9 @@ Page({
             width: 100,
             height: 324,
             // icon: 'like',
-            background: 'red'
+            background: '#FB3B0F'
         }, ],
-        myReleaseInfo:{}
+        myReleaseInfo:{},
     },
 
     /**
@@ -94,8 +94,12 @@ Page({
                 token: app.gettoken(),
             },
             success: res => {
-                console.log(res.data.data)
                 var data = res.data.data
+                var currentTime=new Date().getTime()
+                console.log(currentTime)
+                this.setData({
+                    currentTime:currentTime
+                })
                 data.demandInfos.records.map(item=>{
                     console.log(item.releaseType)
                     // 乙方 demandInfos
@@ -125,76 +129,85 @@ Page({
                 rentalSaleInfos=twoRentInfo.concat(twoSaleInfo)
                 obj.demandInfos = demandInfos
                 obj.rentalSaleInfos = rentalSaleInfos
-                // console.log(obj)
                 this.setData({
                     myReleaseInfo: obj
                 })
             }
         })
     },
-    changeRent(e) {
-        console.log(e)
-    },
     // 需求方删除
     changeRent(e){
         let id = e.currentTarget.dataset.id
-        console.log(`点了需求方${id}删除`)
-        wx.request({
-            method:'post',
-            url: app.url +'/product/auth0/truckSpaceReleaseInfo/demand/delete',
-            header:{
-                token:app.gettoken(),
-                "content-type":'application/json'
-            },
-            data:id,
+        wx.showModal({
+            title: '提示',
+            content: '确定要删除此项目吗?',
             success:res=>{
-                if(res.data.code==0){
-                    wx.showToast({
-                        title: '删除成功',
-                    })
-                    this.getData()
-                }else{
-                    wx.showToast({
-                        title: res.data.msg,
+                if(res.confirm){
+                    wx.request({
+                        method:'post',
+                        url: app.url +'/product/auth0/truckSpaceReleaseInfo/demand/delete',
+                        header:{
+                            token:app.gettoken(),
+                            "content-type":'application/json'
+                        },
+                        data:id,
+                        success:res=>{
+                            if(res.data.code==0){
+                                wx.showToast({
+                                    title: '删除成功',
+                                })
+                                this.getData()
+                            }else{
+                                wx.showToast({
+                                    title: res.data.msg,
+                                })
+                            }
+                        }
+
                     })
                 }
             }
-
         })
     },
     // 租售方删除
     changeSale(e) {
         let id=e.currentTarget.dataset.id
-        console.log(`点了租售方${id}删除`)
-        wx.request({
-            method: 'post',
-            url: app.url + '/product/auth0/truckSpaceReleaseInfo/rentalSale/delete',
-            header: {
-                token: app.gettoken(),
-                "content-type": 'application/json'
-            },
-            data: id,
-            success: res => {
-                if (res.data.code == 0) {
-                    wx.showToast({
-                        title: '删除成功',
-                    })
-                    this.getData()
-                } else {
-                    wx.showToast({
-                        title: res.data.msg,
+        wx.showModal({
+            title: '提示',
+            content: '确定要删除此项目吗?',
+            success:res=>{
+                if(res.confirm){
+                    wx.request({
+                        method: 'post',
+                        url: app.url + '/product/auth0/truckSpaceReleaseInfo/rentalSale/delete',
+                        header: {
+                            token: app.gettoken(),
+                            "content-type": 'application/json'
+                        },
+                        data: id,
+                        success: res => {
+                            if (res.data.code == 0) {
+                                wx.showToast({
+                                    title: '删除成功',
+                                })
+                                this.getData()
+                            } else {
+                                wx.showToast({
+                                    title: res.data.msg,
+                                })
+                            }
+                        }
+            
                     })
                 }
             }
-
         })
+        
     },
     // 求租详情
     wantRentDetail(e) {
         let id = e.currentTarget.dataset.id
         let type = e.currentTarget.dataset.type
-        console.log(id)
-        console.log(type)
         if(id){
             // 求租
             if(type==1){
@@ -216,8 +229,6 @@ Page({
     goSaleDetail(e){
         let id = e.currentTarget.dataset.id
         let type = e.currentTarget.dataset.type
-        console.log(id)
-        console.log(type)
         if (id) {
             if (type == 1) {
                 wx.navigateTo({
@@ -231,5 +242,27 @@ Page({
             }
 
         }
-    }
+    },
+    handleClick(e){
+        let num=e.currentTarget.dataset.num;
+        this.setData({
+            btnum:num
+        })
+        let mark=this.data.btnum
+        if (mark==1){
+            wx.switchTab({
+                url: '/pages/firstPage/projectIndex/projectIndex',
+            })
+        }
+        if (mark == 0) {
+            wx.navigateTo({
+                url: '/pages/personalRental/releaseIndex/releaseIndex',
+            })
+        }
+        if (mark == 3) {
+            wx.navigateTo({
+                url: '/pages/personalRental/myRelease/myRelease',
+            })
+        }
+    },
 })

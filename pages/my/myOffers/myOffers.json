@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "newTabs":"/component/newTabs/newTabs"
+  }
+}

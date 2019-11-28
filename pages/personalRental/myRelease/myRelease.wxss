@@ -24,14 +24,16 @@ page {
 
 .i-swipeout-demo-item {
     width: 750rpx;
-    height: 360rpx;
+    height: 390rpx;
     background-color: #aaf;
 }
-
+.i-swipeout-demo-item.item2{
+    height: 440rpx;
+}
 .i-swipeout-des {
     width: 750rpx;
     box-sizing: border-box;
-    height: 360rpx;
+    height: 440rpx;
     /* margin-top:20rpx; */
     overflow: hidden;
     /* margin-top:30rpx; */
@@ -45,7 +47,7 @@ page {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90rpx;
+    height: 110rpx;
     margin: 0 auto;
     border-bottom: 1px solid #eee;
     /* background-color: pink; */
@@ -76,17 +78,15 @@ page {
 
 .renInfo {
     position: relative;
-    width: 704rpx;
+    /* width: 704rpx; */
     height: 256rpx;
     margin-left: 30rpx;
     padding-left:30rpx;
     /* background-color: pink; */
 }
 /* 求租信息 */
-.renInfo >view:nth-child(1) {
-    /* width:auto; */
-    /* background-color: pink; */
-    padding: 14rpx 0;
+.renInfo >view:nth-child(1){
+    padding: 30rpx 0;
     font-size: 36rpx;
 }
 
@@ -97,12 +97,12 @@ page {
 }
 /* 期望信息 */
 .info >view:nth-child(2) {
-    width:704rpx;
+    /* width:704rpx; */
     font-size: 36rpx;
 }
 .carInfo{
     /* display: flex; */
-    width: 702rpx;
+    /* width: 702rpx; */
     height: 200rpx;
     /* background-color: pink; */
 }
@@ -112,7 +112,7 @@ page {
     /* background-color: #ff0; */
 }
 .carInfo .view2{
-    height: 50rpx;
+    height: 40rpx;
     margin-bottom:10rpx;
     
 }
@@ -122,18 +122,36 @@ page {
     margin-right:40rpx;
 }
 .scroll-view_H{
-    width: 220rpx;
+    width: 90%;
     height: 34rpx;
     overflow:hidden;
 }
 .tagList1{
-    width: 210rpx;
+    /* width: 210rpx; */
+    width: 530rpx;
     height: 34rpx;
     font-size: 20rpx;
     overflow-x: auto;
     white-space: nowrap;
 }
+
 .tagList1 text{
+    height: 34rpx;
+    line-height: 34rpx;
+    display: inline-block;
+    padding:0 10rpx;
+    margin-right: 10rpx;
+    color:#999999;
+    background-color: #F0F0F0;
+}
+.tagList2{
+    width: 420rpx;
+    height: 34rpx;
+    font-size: 20rpx;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tagList2 text{
     height: 34rpx;
     line-height: 34rpx;
     display: inline-block;
@@ -163,14 +181,23 @@ page {
     /* height: 200rpx; */
     /* background-color: pink; */
 }
+.renInfo1{
+    position: relative;
+}
 .renInfo1 >view:nth-child(1) {
     /* width:auto; */
     /* background-color: pink; */
-    padding: 14rpx 0;
+    padding: 30rpx 0;
     font-size: 36rpx;
     margin-left:50rpx;
 }
-
+.renInfo1 view.tilLogo image{
+    position: absolute;
+    right: 0;
+    top:36rpx;
+    width: 120rpx;
+    height: 50rpx;
+}
 .renInfo1 >view:nth-child(1) >text {
     color: rgb(51, 51, 51);
     height: 36rpx;
@@ -201,4 +228,60 @@ page {
 .saleCarInfo text:nth-child(3){
     font-size: 28rpx;
     color: #333333;
+}
+/* 底部按钮 */
+.bomBtns{
+    position: fixed;
+    bottom: 0;
+    height: 130rpx;
+    overflow: hidden;
+    z-index:99;
+    /* background-color: #aaf!important; */
+}
+.clickItems{
+    width: 750rpx;
+    position: fixed;
+    bottom: 0;
+    height: 130rpx;
+    z-index: 999;
+}
+.clickItems view{
+    position: absolute;
+    bottom: 0;
+    /* border:1px solid #000000; */
+    height:100rpx;
+}
+.clickItems view:nth-child(1){
+    left:30rpx;
+    width: 120rpx;
+}
+.clickItems view:nth-child(2){
+    left:310rpx;
+    height: 128rpx;
+    width: 120rpx;
+}
+.clickItems view:nth-child(3){
+    right: 33rpx;
+    width: 120rpx;
+}
+/* 无消息时的提示 */
+.promptInfo {
+  width: 750rpx;
+  margin-top: 260rpx;
+}
+.promptInfo image{
+  display: block;
+  width: 137rpx;
+  height: 151rpx;
+  margin: 0 auto 20rpx;
+}
+.promptInfo view{
+  width: 750rpx;
+  text-align: center;
+}
+.promptInfo view text{
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #999999;
 }

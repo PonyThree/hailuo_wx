@@ -3,7 +3,11 @@
         "i-icon": "/dist/icon/index",
         "i-drawer": "/dist/drawer/index",
         "i-button": "/dist/button/index",
-        "goindex":"/component/goindex/goindex",
+        "i-load-more": "/dist/load-more/index",
+        "search": "/component/search1/search",
+        "goindex": "/component/goindex/goindex",
+        "van-popup": "/zan/lib/popup/index",
+        "screnList": "/component/screenList/screnList",
         "opentime":"/component/opentime/opentime"
     },
     "navigationBarTitleText": "选位大厅"

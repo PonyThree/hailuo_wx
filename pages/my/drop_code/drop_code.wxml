@@ -1,7 +1,7 @@
 <!--pages/my/drop_code/drop_code.wxml-->
 <view class="pages">
   <!-- 订单信息 -->
-  <view class="info" bindtap='onshow'>
+  <!-- <view class="info" bindtap='onshow'>
     <image src="/image/qy.png"></image>
     <view class="main">
       <view class="name">订单人：{{userName}}</view>
@@ -13,19 +13,30 @@
       </view>
     </view>
     <image src="/image/jiantou1.png"></image>
-  </view>
+  </view> -->
   <!-- 核销码 -->
-  <view class="drop">
+  <!-- <view class="drop">
     <image src="/image/luoweima_03.png" class="img"></image>
-    <!-- <image src="/image/rengouma_03.png" class="img"></image> -->
     <view class="title">核销码</view>
-    <!-- <view class="title">认购核销码</view> -->
     <view class="font">展示此二维码，由置业顾问扫码核销</view>
     <image src="data:image/png;base64,{{data.ewmBase64}}" class="code1"></image>
     <text class="num">{{data.verifyCode}}</text>
+  </view> -->
+  <!-- 新版核销码 -->
+  <view class="writeOffCode">
+    <view class="til" style="background-color:{{type==2?'#FF9231':'#FFDE8B'}}">
+      <image src="/image/xiaoma.png" wx:if="{{type==2}}"></image>
+      <image src="/image/hxm.png" wx:else></image>
+      <text style="color:{{type==2?'#FFFFFF;':'#1B1B1B'}}">展示此二维码,由置业顾问扫码核销</text>
+    </view>
+    <view class="codeInfo" style="background-color:{{type==2?'#FF7F0E':'#FFD46A'}}">
+      <text style="color:{{type==2?'#FFFFFF;':'#313131'}}">{{type==2?'认购':'落位'}}码ID: {{data.verifyCode}}</text>
+      <image src="data:image/png;base64,{{data.ewmBase64}}" class="code1"></image>
+      <!-- <image src="https://china185.com/file/image/20191126/24ba78b54167435f83718009e6b4b2cd.png" class="code1"></image> -->
+    </view>
   </view>
   <!-- 置业顾问信息 -->
-  <view class="adviser" catchtap='onshow1'>
+  <!-- <view class="adviser" catchtap='onshow1'>
     <image src="https://www.china185.com/static/image/xsjy.png"></image>
     <view class="ownership" catchtap='call'>
       <text>{{consultantlist[0].name}}</text>
@@ -34,16 +45,14 @@
       </view>
     </view>
     <image src="/image/jiantou1.png"></image>
-  </view>
+  </view> -->
   <!-- 车位信息 -->
-  <view class="project">
+  <!-- <view class="project">
     <carlist data="{{data.truckSpace}}"></carlist>
-  </view>
-  <!-- 支付信息 -->
- 
+  </view> -->
 </view>
 <!-- 修改订单信息 -->
-<van-popup show="{{show}}" bind:close="onClose" position='top'>
+<!-- <van-popup show="{{show}}" bind:close="onClose" position='top'>
   <view class='Personal'>
     <view class='Title'>修改支付人信息</view>
     <i-panel title="基础用法">
@@ -52,9 +61,9 @@
       <i-input value="{{ contractIdcard}}" bind:change='value4' type="number" title="身份证号码:" placeholder="请输入身份证号码" maxlength="18" />
     </i-panel>
   </view>
-</van-popup>
+</van-popup> -->
 <!-- 选择职业顾问 -->
-<van-popup show="{{show1}}" bind:close="onClose1" close-on-click-overlay='fales'>
+<!-- <van-popup show="{{show1}}" bind:close="onClose1" close-on-click-overlay='fales'>
   <view class='Personal1'>
 
     <van-radio-group value="{{Personal1}}">
@@ -65,4 +74,4 @@
       </van-cell-group>
     </van-radio-group>
   </view>
-</van-popup>
+</van-popup> -->

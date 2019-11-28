@@ -1,7 +1,7 @@
 <!--pages/firstPage/loans/loans.wxml-->
 <!-- 头部图片 -->
 <!-- https://www.china185.com/static/image/dk.png -->
-<view class="wrap">
+<view class="wrap" wx:if="{{!visitState}}">
 
     <view class="head_img">
         <image src="https://www.china185.com/static/image/dk.png" mode="aspectFill"></image>
@@ -11,29 +11,30 @@
         <view class="item user_name">
             <label>您的姓名:</label>
             <view class="form_box">
-                <input placeholder-class="placeholderClass" value="{{usernameValue}}" data-tag="username"
-                    bindinput="changeValue" placeholder="请填写您的姓名" />
+                <input placeholder-class="placeholderClass" value="{{usernameValue}}" disabled="{{drawerBool}}"
+                    data-tag="username" bindinput="changeValue" placeholder="请填写您的姓名" />
             </view>
         </view>
         <view class="item tel">
             <label>手机号码:</label>
             <view class="form_box">
-                <input placeholder-class="placeholderClass" type="number" value="{{telValue}}" data-tag="tel"
-                    bindinput="changeValue" placeholder="请填写您的手机号码" />
+                <input placeholder-class="placeholderClass" type="number" value="{{telValue}}" disabled="{{drawerBool}}"
+                    data-tag="tel" bindinput="changeValue" placeholder="请填写您的手机号码" />
             </view>
         </view>
         <view class="item money">
             <label>贷款金额:</label>
             <view class="form_box">
-                <input placeholder-class="placeholderClass" type="number" value="{{moneyValue}}" data-tag="money"
-                    bindinput="changeValue" placeholder="输入贷款的金额5-20万" />
+                <input placeholder-class="placeholderClass" type="number" value="{{moneyValue}}"
+                    disabled="{{drawerBool}}" data-tag="money" bindinput="changeValue"
+                    placeholder="输入贷款的金额50000-200000" />
             </view>
         </view>
-        <view class="item car">
-            <label>车辆情况:</label>
-            <view class="form_box" data-tag="car" bind:tap="showPicker">
-                {{carSelectData}}
-                <view class="item_icon" data-tag="car" bind:tap="showPicker"></view>
+        <view class="item deadline">
+            <label>申请期限:</label>
+            <view class="form_box" data-tag="deadline" bind:tap="showPicker">
+                {{deadlineSelectData}}
+                <view class="item_icon" data-tag="deadline" bind:tap="showPicker"></view>
             </view>
         </view>
         <view class="item location">
@@ -43,11 +44,11 @@
                 <view class="item_icon" data-tag="location" bind:tap="showPicker"></view>
             </view>
         </view>
-        <view class="item deadline">
-            <label>申请期限:</label>
-            <view class="form_box" data-tag="deadline" bind:tap="showPicker">
-                {{deadlineSelectData}}
-                <view class="item_icon" data-tag="deadline" bind:tap="showPicker"></view>
+        <view class="item car">
+            <label>车辆情况:</label>
+            <view class="form_box" data-tag="car" bind:tap="showPicker">
+                {{carSelectData}}
+                <view class="item_icon" data-tag="car" bind:tap="showPicker"></view>
             </view>
         </view>
         <view class="info">提交真实信息更有助于完成贷款。我们将为您严格保密。</view>
@@ -81,5 +82,49 @@
         <pickerPlus pickerData="{{deadlinePickerData}}" class="deadline" type="deadline" title="{{deadlinePickerTitle}}"
             bind:prick="gainComponentMsg">
         </pickerPlus>
+    </view>
+</view>
+<view class="noWrap" wx:else="{{visitState}}">
+    <view class="head_img">
+        <image src="https://www.china185.com/static/image/dk.png" mode="aspectFill"></image>
+    </view>
+    <view class="content_box">
+        <view class="title">您的贷款信息</view>
+        <view class="item user_name">
+            <label>您的姓名:</label>
+            <view class="form_box">
+                {{usernameValue}}
+            </view>
+        </view>
+        <view class="item tel">
+            <label>手机号码:</label>
+            <view class="form_box">
+                {{telValue}}
+            </view>
+        </view>
+        <view class="item money">
+            <label>贷款金额:</label>
+            <view class="form_box">
+                {{moneyValue}}
+            </view>
+        </view>
+        <view class="item deadline">
+            <label>申请期限:</label>
+            <view class="form_box">
+                {{deadlineSelectData}}
+            </view>
+        </view>
+        <view class="item location">
+            <label>意向区域:</label>
+            <view class="form_box">
+                {{locationSelectData}}
+            </view>
+        </view>
+        <view class="item car">
+            <label>车辆情况:</label>
+            <view class="form_box">
+                {{carSelectData}}
+            </view>
+        </view>
     </view>
 </view>

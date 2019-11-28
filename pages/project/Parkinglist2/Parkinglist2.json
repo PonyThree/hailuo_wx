@@ -6,10 +6,11 @@
     "i-load-more": "/dist/load-more/index",
     "search": "/component/search1/search",
     "goindex": "/component/goindex/goindex",
-    "van-popup":"/zan/lib/popup/index"
+    "van-popup":"/zan/lib/popup/index",
+    "screnList":"/component/screenList/screnList"
   },
   "navigationBarTitleText": "车位列表",
-  "enablePullDownRefresh": true,
-  "onReachBottomDistance": 5,
-  "navigationStyle": "custom"
+  "enablePullDownRefresh": true
+ 
+
 }

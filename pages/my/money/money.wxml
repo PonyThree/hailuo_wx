@@ -11,7 +11,7 @@
     <text>我的零钱</text>
     <text>￥{{moeny.cashMoney}}</text>
     <text bindtap='gofrozen'>剩余{{moeny.notCashMoney}}元不可提现?</text>
-    <button class="recharge" bindtap='recharge'>充值</button>
+    <!-- <button class="recharge" bindtap='recharge'>充值</button> -->
     <button class="cash" bindtap='extract_money'>提现</button>
   </view>
   <!-- 零钱记录 -->

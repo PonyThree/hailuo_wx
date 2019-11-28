@@ -1,0 +1,71 @@
+page {
+  background-color:  #F5F5F5 !important;
+}
+
+.myTabs {
+  width: 750rpx;
+  border-top: 1px solid #eee;
+  height: 110rpx;
+  background-color: #ffffff;
+}
+
+/* 头部搜索 */
+
+.search {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  width: 750rpx;
+  height: 110rpx;
+  /* border-top:1px solid #eeeeee; */
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #999;
+  /* background-color: #aaf; */
+}
+
+/* .myScroll {
+  width: 750rpx;
+  height: 110rpx;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  white-space: nowrap;
+  overflow-x: auto;
+} */
+
+/* .myScroll .item{
+  display: inline-block;
+  padding:20rpx;
+} */
+
+.item {
+  display: inline-block;
+  padding: 20rpx;
+}
+
+/* 选中状态 */
+
+.item.tapActive {
+  position: relative;
+  color: #333;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.item.tapActive .line {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70rpx;
+  margin: auto;
+  width: 40rpx;
+  height: 6rpx;
+  border-radius: 4rpx;
+  background-color: #ffd46a;
+}

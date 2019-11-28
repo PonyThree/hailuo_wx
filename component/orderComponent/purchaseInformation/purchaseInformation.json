@@ -1,0 +1,19 @@
+{
+  "component": true,
+  "usingComponents": {
+        "i-icon": "/dist/icon/index",
+        "i-radio-group": "/dist/radio-group/index",
+        "i-radio": "/dist/radio/index",
+        "van-popup": "/zan/lib/popup/index",
+        "i-input": "/dist/input/index",
+        "van-cell": "/zan/lib/cell/index",
+        "van-cell-group": "/zan/lib/cell-group/index",
+        "van-radio": "/zan/lib/radio/index",
+        "van-radio-group": "/zan/lib/radio-group/index",
+        "pay": "/component/paypassword/paypassword",
+        "i-checkbox-group": "/dist/checkbox-group/index",
+        "i-checkbox": "/dist/checkbox/index",
+        "popcenter": "/component/popcenter/popcenter",
+        "van-icon": "/zan/lib/icon/index"}
+  
+}

@@ -35,7 +35,23 @@ page {
     align-items: center;
     /* background-color: pink; *//* border-top: 1px solid #eee; *//* border-bottom: 1px solid #eee; */
 }
-
+.info >view.singleOne.singleSpecial{
+    height: auto;
+    padding: 30rpx 0;
+    /* background-color: #ffa; */
+}
+.info >view.singleOne.singleSpecial textarea{
+    width: 550rpx!important;
+    margin-left:24rpx;
+    color: #777777;
+    font-size: 28rpx;
+    padding: 0 10rpx;
+    line-height: 34rpx;
+    /* background-color: #aaf; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+}
 .info >view>text:nth-child(1) {
     width: 114rpx;
     /* background-color: pink; */
@@ -282,4 +298,18 @@ page {
     line-height: 70rpx;
     border-radius: 35rpx;
     margin: 120rpx auto 0;
+}
+.van-checkbox__icon {
+    display: block;
+    font-size: 14px;
+    width: 16px!important;
+    height: 16px !important;
+    color: transparent;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    transition: 0.2s;
+}
+.van-icon.van-icon.van-icon-success.van-icon-success{
+    line-height: 10px!important;
 }

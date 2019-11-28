@@ -15,6 +15,7 @@
       "i-checkbox-group": "/dist/checkbox-group/index",
       "i-checkbox": "/dist/checkbox/index",
       "popcenter": "/component/popcenter/popcenter",
-      "step": "/component/step/step"
+        "purchaseInformation": "/component/orderComponent/purchaseInformation/purchaseInformation",
+        "orderStep": "/component/orderComponent/orderStep/orderStep"
   }
 }

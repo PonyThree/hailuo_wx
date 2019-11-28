@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:0
+    index1:0,
+    tabList:['进行中','已完成','已失效']
   },
   /**
    * 生命周期函数--监听页面加载
@@ -28,7 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getorderList(this.data.index)
+    this.getorderList(this.data.index1)
   },
 
   /**
@@ -65,15 +66,23 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 点击标签时触发
-  click(e){
-    console.log(e)
-    let status = e.detail.index 
+  choseNum(e){
+    console.log(e.detail)
+    let status = e.detail
     this.setData({
-      index: status
+      index1:e.detail
     })
     this.getorderList(status)
   },
+  // 点击标签时触发
+  // click(e){
+  //   console.log(e)
+  //   let status = e.detail.index 
+  //   this.setData({
+  //     index: status
+  //   })
+  //   this.getorderList(status)
+  // },
   //小程序获取订单列表
   getorderList(status){
     wx.showLoading({
@@ -163,7 +172,7 @@ Page({
       },
       success: res => {
         if (res.data.code == 0) {
-          this.getorderList(this.data.index)
+          this.getorderList(this.data.index1)
           wx.showToast({
             title: '删除成功',
           })
@@ -192,7 +201,7 @@ Page({
             },
             success: res => {
               if (res.data.code == 0) {
-                this.getorderList(this.data.index)
+                this.getorderList(this.data.index1)
                 wx.showToast({
                   title: '取消订单成功',
                 })

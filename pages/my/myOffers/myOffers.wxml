@@ -1,0 +1,121 @@
+<!--pages/my/myOffers/myOffers.wxml-->
+<view class="myOffers">
+  <newTabs tabList="{{tabList}}" actNum="{{actNum}}" bindchoseNum="choseNum"></newTabs>
+  <view class="selectList">
+    <!-- 未使用 -->
+    <view class="list" style="height:{{show?'220':'390'}}rpx" wx:for="{{4}}" wx:if="{{actNum==0}}" wx:key="{{index}}">
+      <image src="https://china185.com/file/image/20191125/c4d2931150a442f388aa36a25a9f2edb.png" wx:if="{{show}}" style="height:220rpx"></image>
+      <image src="https://china185.com/file/image/20191125/f26d8e3946514d4d98aee724aa247d5d.png" wx:if="{{!show}}" style="height:390rpx;"></image>
+      <view class="content">
+        <view class="leftInfo">
+          <view>
+            <text>￥</text>
+            <text>1000</text>
+          </view>
+          <text>抵扣券</text>
+        </view>
+        <view class="rightInfo">
+          <view class="til">
+            <text>落位抵扣券落位抵扣券落位抵扣券落位抵扣券落位抵扣券</text>
+          </view>
+          <view class="info">
+            <text>适用项目: 天骄星城</text>
+            <text>有效时间: 19.05.19</text>
+          </view>
+          <view class="regular" catchtap="showRegular">
+            <text>抵扣券使用条件限制</text>
+            <!-- 展开箭头 -->
+            <image src="/image/sbom.png" wx:if="{{show}}" style="width:17rpx;height:10rpx;"></image>
+            <image src="/image/zk.png" wx:if="{{!show}}" style="width:10rpx;height:17rpx;"></image>
+          </view>
+        </view>
+      </view>
+      <view class="goUse">去使用</view>
+      <!-- 底部信息 -->
+      <view class="regularInfo" wx:if="{{!show}}" catchtap="goUse">
+        <scroll-view class="rInfo" scroll-y="true">
+          <view wx:for="{{6}}" class="item" wx:key="{{index}}"><text>.</text> <text>111111</text></view>
+        </scroll-view>
+
+      </view>
+    </view>
+    <!-- 已使用 -->
+    <view class="list" style="height:{{show?'220':'390'}}rpx" wx:for="{{4}}" wx:if="{{actNum==1}}" wx:key="{{index}}">
+      <image src="https://china185.com/file/image/20191126/2434c01dca67466a892f96040c72a729.png" wx:if="{{show}}" style="height:220rpx"></image>
+      <image src="https://china185.com/file/image/20191126/71b95be318224b458274cdbc2df1f7b6.png" wx:if="{{!show}}" style="height:390rpx;"></image>
+      <view class="content">
+        <view class="leftInfo">
+          <view>
+            <text>￥</text>
+            <text>1000</text>
+          </view>
+          <text>抵扣券</text>
+        </view>
+        <view class="rightInfo">
+          <view class="til">
+            <text>落位抵扣券落位抵扣券落位抵扣券落位抵扣券落位抵扣券</text>
+          </view>
+          <view class="info">
+            <text>适用项目: 天骄星城</text>
+            <text>有效时间: 19.05.19</text>
+          </view>
+          <view class="regular" catchtap="showRegular">
+            <text>抵扣券使用条件限制</text>
+            <!-- 展开箭头 -->
+            <image src="/image/sbom.png" wx:if="{{show}}" style="width:17rpx;height:10rpx;"></image>
+            <image src="/image/zk.png" wx:if="{{!show}}" style="width:10rpx;height:17rpx;"></image>
+          </view>
+        </view>
+      </view>
+      <view class="hasUsed">
+        <image src="https://china185.com/file/image/20191126/7b286d5fe13441c4bbf957d7638dc749.png"></image>
+      </view>
+      <!-- 底部信息 -->
+      <view class="regularInfo" wx:if="{{!show}}" catchtap="goUse">
+        <scroll-view class="rInfo" scroll-y="true">
+          <view wx:for="{{6}}" class="item" wx:key="{{index}}"><text>.</text> <text>111111</text></view>
+        </scroll-view>
+
+      </view>
+    </view>
+    <!-- 已过期 -->
+    <view class="list" style="height:{{show?'220':'390'}}rpx" wx:for="{{4}}" wx:if="{{actNum==2}}" wx:key="{{index}}">
+      <image src="https://china185.com/file/image/20191126/2434c01dca67466a892f96040c72a729.png" wx:if="{{show}}" style="height:220rpx"></image>
+      <image src="https://china185.com/file/image/20191126/71b95be318224b458274cdbc2df1f7b6.png" wx:if="{{!show}}" style="height:390rpx;"></image>
+      <view class="content">
+        <view class="leftInfo">
+          <view>
+            <text>￥</text>
+            <text>1000</text>
+          </view>
+          <text>抵扣券</text>
+        </view>
+        <view class="rightInfo">
+          <view class="til">
+            <text>落位抵扣券落位抵扣券落位抵扣券落位抵扣券落位抵扣券</text>
+          </view>
+          <view class="info">
+            <text>适用项目: 天骄星城</text>
+            <text>有效时间: 19.05.19</text>
+          </view>
+          <view class="regular" catchtap="showRegular">
+            <text>抵扣券使用条件限制</text>
+            <!-- 展开箭头 -->
+            <image src="/image/sbom.png" wx:if="{{show}}" style="width:17rpx;height:10rpx;"></image>
+            <image src="/image/zk.png" wx:if="{{!show}}" style="width:10rpx;height:17rpx;"></image>
+          </view>
+        </view>
+      </view>
+      <view class="hasUsed">
+        <image src="https://china185.com/file/image/20191126/c6ff7bcef8b64beaa90c43240a3077fc.png"></image>
+      </view>
+      <!-- 底部信息 -->
+      <view class="regularInfo" wx:if="{{!show}}" catchtap="goUse">
+        <scroll-view class="rInfo" scroll-y="true">
+          <view wx:for="{{6}}" class="item" wx:key="{{index}}"><text>.</text> <text>111111</text></view>
+        </scroll-view>
+
+      </view>
+    </view>
+  </view>
+</view>

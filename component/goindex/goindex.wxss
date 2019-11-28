@@ -19,8 +19,10 @@
   position: fixed;
   right: 24rpx;
   bottom: 100rpx;
-  width: 80rpx;
-  height: 80rpx;
-    box-shadow:0px 0px 5px #888888;
-      border-radius: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  box-shadow:0px 0px 2px #888888;
+  
+
 }

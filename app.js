@@ -2,7 +2,9 @@
 
 App({
   onLaunch: function (e) {
+      
     //检查更新
+    wx.setStorageSync('e', e)
     const updateManager = wx.getUpdateManager()
     updateManager.onCheckForUpdate(function (res) {
       // 请求完新版本信息的回调
@@ -47,6 +49,11 @@ App({
       var scanid = e.query.q.substring(e.query.q.lastIndexOf('D') + 1)
       wx.setStorageSync('scanid', scanid)
     }
+    if (e.query.projectId){  //判断是否为小程序扫码进入
+      let scanid = e.query.projectId
+      // wx.setStorageSync('scanid', scanid)
+    }
+    
   },
   //获取微信信息
   globalData: {
@@ -99,15 +106,14 @@ App({
       url: '/pages/index/index'
     })
   },
-//   url: "https://www.hailuo123.com/api",
+  // url: "https://www.hailuo123.com/api",
   // url: "http://118.25.60.79:7999",
-  // url: "http://192.168.1.32:7999", //徐联林// 
+  url: "http://192.168.1.32:7999", //徐联林// 
   // url:'http://192.168.1.92:7999',//陈星余
   // url:'https://pre.api.hailuo123.com/api'
-   url:'http://192.168.1.140:7999',//陈星余
-//   url:'https://www.hailuozhaowei.com/api',
-//    url:"http://192.168.1.101:7999" , /////
-  //url:'https://www.hailuozhaowei.com/api',
-  //  url:"http://192.168.1.101:7999"  
+  // url:'http://192.168.1.140:7999',//陈星余
+  //  url: 'https://www.hailuozhaowei.com/api',
+  //  url: "http://192.168.1.102:7999",
+//  url: "https://hellohailuo.com/api",
   http: require('./utils/request.js') //引入自定义请求
 })

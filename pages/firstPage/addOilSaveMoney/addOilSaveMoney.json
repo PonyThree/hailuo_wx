@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-overlay": "/zan/lib/overlay/index"
+  },
   "navigationBarTitleText": "加油省钱"
+
 }

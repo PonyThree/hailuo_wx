@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据jiaz
    */
   data: {
+    swiperCurrent:0,
     down: false,
     firstEntry: wx.getStorageSync('firstEntry'),
     titlename: '定位中...'
@@ -15,17 +16,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     wx.setNavigationBarTitle({
       title: "海螺找位"
     })
     var that = this;
-    console.log(options)
     if (options.q) { //判断是否为扫码项目二维码进入
       console.log(options.q)
       var scanid = options.q.substring(options.q.lastIndexOf('D') + 1)
       wx.setStorageSync('scanid', scanid)
     }
- 
     if (wx.getStorageSync('scanid')) { //判断是否通过二维码进入
       let projectId = wx.getStorageSync('scanid')
       wx.request({
@@ -62,23 +62,7 @@ Page({
         url: '/pages/project/webview/webview?url=' + options.shareUrl,
       })
     }
-      
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
- 
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function(e) {
-    setTimeout(function() {
-     
-      app.stopre()
-    }, 1000)
     //获取首页banner
     wx.request({
       url: app.url + '/platform/auth0/banner/miniBannerList',
@@ -139,11 +123,11 @@ Page({
     })
     //获取首页消息
     wx.request({
-      method:'post',
+      method: 'post',
       url: app.url + '/user/auth0/indexMessage/getMessages',
       header: {
         token: app.gettoken(),
-          "content-type":'application/x-www-form-urlencoded'
+        "content-type": 'application/x-www-form-urlencoded'
       },
       success: res => {
 
@@ -154,7 +138,25 @@ Page({
         }
       }
     })
-    this.getLocation() //通过当前位置查询附近的项目
+    this.getLocation() 
+      
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+ 
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function(e) {
+    setTimeout(function() {
+     
+      app.stopre()
+    }, 1000)
+ //通过当前位置查询附近的项目
      this.getNotRede() //获取未读消息条数
   },
 
@@ -449,6 +451,11 @@ Page({
       console.log('不跳转')
     }
   },
-
+  swiperChange(e) {  //轮播图小点
+    let current = e.detail.current;
+    let that = this;
+    that.setData({
+      swiperCurrent: current,
+    })}
  
 })

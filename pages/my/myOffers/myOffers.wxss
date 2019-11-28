@@ -1,0 +1,193 @@
+/* pages/my/myOffers/myOffers.wxss */
+.myOffers{
+  background-color: #f5f5f5;
+}
+/* 选中的列表 */
+.selectList{
+  width: 686rpx;
+  margin:24rpx auto 0;
+  background-color: #f5f5f5;
+}
+.list{
+  position: relative;
+  width: 686rpx;
+  height: 220rpx;
+  margin-top: 24rpx;
+  overflow: hidden;
+}
+.list >image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:686rpx;
+  z-index: 10;
+}
+.list{
+  width: 686rpx;
+  height: 220rpx;
+}
+/* 列表信息 */
+.list .content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 686rpx;
+  height: 100%;
+  /* background-color: pink; */
+  z-index: 99;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.content .leftInfo{
+  display: flex;
+  width: 182rpx;
+  height:220rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+.leftInfo >view >text:nth-child(1){
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+.leftInfo >view >text:nth-child(2){
+  font-size: 44rpx;
+  font-weight: bold;
+}
+.leftInfo >text{
+  font-size: 24rpx;
+  margin-top: 16rpx;
+}
+/* 右边信息 */
+.list .rightInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding:0 20rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 504rpx;
+  height: 220rpx;
+}
+.rightInfo .til{
+  width: calc(686-182)rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.til text{
+  color:#1B1B1B;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.rightInfo .info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #757575;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px dashed #D4D4D4;
+}
+.info text:nth-child(1){
+  margin-bottom: 4rpx;
+  margin-top: 15rpx;
+}
+.info text:nth-child(2){
+  padding-bottom: 15rpx;
+}
+/* 去使用按钮 */
+.list .goUse{
+  position: absolute;
+  width: 130rpx;
+  height: 56rpx;
+  right: 20rpx;
+  font-size: 26rpx;
+  top: 70rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #FA6D39;
+  border:1px solid #FA6D39;
+  border-radius:28rpx;
+  z-index: 1000!important;
+  background-color: #ffffff; 
+}
+/* 已使用 */
+.list .hasUsed{
+  position: absolute;
+  width: 100rpx;
+  height: 93rpx;
+  top: 0;
+  right: 0;
+  z-index: 1000!important;
+}
+.hasUsed image{
+  width: 100rpx;
+  height: 93rpx;
+}
+/* 条件限制 */
+.rightInfo .regular{
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 50rpx;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #ffa; */
+}
+.regular text{
+  font-size: 22rpx;
+  color: #9F9F9F;
+}
+/* 底部信息 */
+.list .regularInfo{
+  position: absolute;
+  width: 686rpx;
+  height: 170rpx;
+  bottom: 0;
+  z-index: 99;
+  /* background-color: pink; */
+}
+.regularInfo .rInfo{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 686rpx;
+  height: 110rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  /* background-color: #aaf; */
+  overflow-y: auto;
+}
+.rInfo view.item{
+  display:block;
+  font-size: 24rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  color: #757575;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+view.item::after{
+  clear: both;
+  display: block;
+  content:'';
+}
+view.item >text:nth-child(1){
+  float: left;
+  margin-right: 20rpx;
+  line-height: 26rpx;
+}
+view.item >text:nth-child(2){
+  float: left;
+}

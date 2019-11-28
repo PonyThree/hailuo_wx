@@ -1,0 +1,13 @@
+<!--pages/firstPage/loans/submitSuccess/success.wxml-->
+<view class="wrap">
+    <view class="title">
+        <view class="title_icon" bind:tap="selectCar"></view>
+        提交成功
+    </view>
+    <image src="https://china185.com/file/image/20191105/ef55da1987a2456691c182cbb14f0695.png" mode="aspectFill"
+        class="icon"></image>
+    <view class="icon_text">资料提交成功</view>
+    <view class="info">置业顾问将尽快联系您，请留意您的电话信息</view>
+    <view class="selectCar" bind:tap="selectCar">去选车位</view>
+    <view class="look" bind:tap="lookData">查看资料</view>
+</view>

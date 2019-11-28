@@ -1,0 +1,162 @@
+.screenList{
+  padding: 0 32rpx;
+  position: absolute;
+  width: 750rpx;
+  background:#ffffff;
+  left: -32rpx;
+  top: 120rpx;
+  box-sizing: border-box;
+  height: 0rpx;
+}
+.demo1 {
+  text-align: center;
+  width: 750rpx;
+  background: #fff;
+  overflow: auto;
+  z-index: 999;
+  position: relative;
+  top: 0;
+  height: 100%
+}
+
+.demo2 {
+  text-align: center;
+  /* height: 600rpx; */
+  height: 746rpx;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.demo1 .time {
+  text-align: center;
+  height: 60rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  /* margin-top:10rpx; */
+  margin-top: 67rpx;
+  /* margin-top:198rpx; */
+}
+
+.demo1 .time.price {
+  width: 555rpx;
+  margin: 0 auto;
+  display: block;
+  padding: 12rpx 10rpx;
+  /* border-top: 1px solid #f2f2f2; */
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.demo1 .smallTitle {
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #000000;
+  font-size: 28rpx;
+  margin-left: 14rpx;
+  font-weight: 600;
+  /* margin-bottom: 8rpx; */
+}
+
+.demo1 .Label {
+  text-align: left;
+  overflow: hidden;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+}
+
+.demo1 .Label> view {
+  width: 148rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  background: #eeeeee;
+  /* border-radius: 5rpx; */
+  float: left;
+  border:1px solid #eeeeee;
+  margin-top: 20rpx;
+  margin-right: 25rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.demo1 .Label> view.active{
+    border:1px solid #e5c478 !important;
+}
+.demo1 .Label2> view.active{
+    border:1px solid #e5c478 !important;
+}
+.demo1 .input {
+  display: flex;
+  justify-content: space-between;
+  /* margin-left: 30rpx; */
+  margin: 10rpx auto 0;
+  height: 70rpx;
+  width: 490rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.demo1 .input input.price {
+  width: 300rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #eeeeee;
+  /* float: left; */
+  font-size: 24rpx;
+  color: #999999;
+  /* margin-left: 100rpx; */
+}
+
+.demo1 .confirm {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 40rpx;
+  color: #000000;
+  font-weight: 600;
+}
+.demo1 .confirm>view:nth-child(1) {
+  width: 250rpx;
+  height: 90rpx;
+ 
+}
+
+.demo1 .confirm>view:nth-child(2) {
+width: 422rpx;
+height: 90rpx;
+background: #FFD46A;
+border-radius: 10rpx
+}
+.demo1 .line {
+  height: 1rpx;
+  /* width: 490rpx; */
+  background: #f2f2f2;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+.demo1 .Label2 {
+  text-align: center;
+  overflow: hidden;
+}
+.demo1 .Label2> view {
+  width: 400rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  border:1px solid #eeeeee;
+  border-radius: 40rpx;
+  background: #eeeeee;
+  color:#333333;
+  /* border-radius: 5rpx; */
+  margin-top: 20rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.demo1 .Label> view.active{
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAAA8CAMAAAC3rWNlAAAAM1BMVEVMaXH/2Hb/8cf/4ZX/1mv/1Wn/1W3/67L/1W3/1m7/1Gr//O7/2nr/+eL/8s3/4ZX///xo7YlxAAAACnRSTlMA1+nQQ1KM/vXAFf9t7wAAAQZJREFUeNrt2rGuwyAMhWEDITbGJnn/p23vpVSVqs6cwf+Q+ROOWAzN6tlENyftrPRRKzy8b84Hl0arQ3IHKcvxMqUOVJoq6VAJPWsZC5UbUS0drFLpZDQUn9QGGmo0EkdDuZB2uDRQgQpUoAIVqEAFKlCBClSgAhWoQPXugKhheChWRUP5pXAoN4VDsSocihUO5aZwqGEKh2JVNJSbwqGGKRyKF8b6BYLyS1fjtokSh/mdrnv6ZPcahP9Nxn+fe0xc2rww4nVGbu/h6Um1IIzO/B6v4alUopYRbgLj23VN75nsHd3qWsS12N52E3z3XrdL3jW67459jyX4xzElmuE8K0nrWckDm3R276jYreAAAAAASUVORK5CYII=');
+    background-size: 100%,100%;
+    color: #333333;
+    font-weight: 600
+}

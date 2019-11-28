@@ -4,18 +4,22 @@
     <view class="info">
         <view class="singleOne">
             <text>标题</text>
-            <input v-model="靠近电梯口"  placeholder="请填写" value="{{info.title}}" bindinput="getTil">靠近电梯口</input>
+            <input   placeholder="请填写" value="{{info.title}}" bindinput="getTil">靠近电梯口</input>
         </view>
         <view class="singleOne">
             <text>期望位置</text>
-            <input v-model="一期二栋3单元" placeholder="请填写" value="{{info.location}}" bindinput="getLoc">一期二栋3单元</input>
+            <input  placeholder="请填写" value="{{info.location}}" bindinput="getLoc">一期二栋3单元</input>
         </view>
         <view class="singleSpecial">
-            <text>租金范围</text>
-            <input  placeholder="填写 元/月 " wx:if="{{!checked}}" value="{{info.minPrice}}" bindinput="getMinPrice">A-101</input>
-            <text style="color: #777777;font-size:28rpx;padding:0 10rpx;width:32rpx;text-align:center;" wx:if="{{!checked}}">~</text>
-            <input  placeholder="填写 元/月" wx:if="{{!checked}}" value="{{info.maxPrice}}" bindinput="getMaxPrice">A-101</input>
-            <van-checkbox value="{{ checked }}" bind:change="onChange" shape="square" custom-class="" label-class="font-size:24rpx;color:#777777;margin-left:10rpx;">面议</van-checkbox>
+            <text>售价范围</text>
+            <input  placeholder="填写" wx:if="{{checked==0}}" type="number" value="{{info.minPrice}}" bindinput="getMinPrice">A-101</input>
+            <text style="color: #777777;font-size:28rpx;padding:0 10rpx;width:32rpx;text-align:center;" wx:if="{{checked==0}}">~</text>
+            <input  placeholder="填写" wx:if="{{checked==0}}" value="{{info.maxPrice}}" type="number" bindinput="getMaxPrice">A-101</input>
+            <text style="color: #777777;font-size:28rpx;width:32rpx;text-align:center;line-height: 5rpx;"  wx:if="{{checked==0}}">
+                元
+            </text>
+
+            <van-checkbox value="{{ checked==1 }}" bind:change="onChange" shape="round" custom-class="" label-class="font-size:24rpx;color:#777777;margin-left:10rpx;" checked-color="#777777">面议</van-checkbox>
         </view>
         <view class="farTag">
             <text class="til">意向标签</text>
@@ -29,17 +33,17 @@
                 </view>
             </view>
         </view>
-        <view class="singleOne">
-            <text>备注</text>
-            <input placeholder="请填写" value="{{info.remark}}" bindinput="getRemark">绝版电梯口车位,过时不候</input>
+        <view class="singleOne singleSpecial" wx:if="{{show}}">
+            <text>车位备注</text>
+            <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请填写"  placeholder-style='font-size:28rpx;padding-left:20rpx;color:#777777;' value="{{info.remark}}"/>
         </view>
         <view class="singleOne">
             <text>联系人</text>
-            <input placeholder="我的微信ID" value="{{info.releaserName}}" bindinput="getReleaserName">我的微信ID</input>
+            <input value="{{info.releaserName}}" bindinput="getReleaserName" placeholder="请填写">我的微信ID</input>
         </view>
         <view class="singleOne">
             <text>联系电话</text>
-            <input placeholder="15213210102" value="{{info.releaserMobile}}" bindinput="getPhone"></input>
+            <input placeholder="请输入电话号码" value="{{info.releaserMobile}}" bindinput="getPhone" maxlength="11" type="number"></input>
         </view>
         <view class="singleOne" style="border-bottom: 1px solid #eee; ">
             <text>区域</text>
@@ -47,14 +51,14 @@
         </view>
         
     </view>
-    <view class="saveInfo">
-        请您确认业主的产权证,身份证等信息后再签订协议。您汇款或者不见面交易,可能涉嫌欺诈。
-    </view>
     <!-- 发布按钮 -->
     <view class="releaseBtn" catchtap='releaseInfo'>
         发布
     </view>
-    <van-popup show="{{ showRight1 }}" position="bottom" custom-style="height: 75%;" bind:close="toggleRight1">
+    <view class="saveInfo">
+        请您确认业主的产权证,身份证等信息后再签订协议。您汇款或者不见面交易,可能涉嫌欺诈。
+    </view>
+    <van-popup show="{{ showRight1 }}" position="bottom" custom-style="height: 75%;z-index:999;" bind:close="toggleRight1">
         <view class='demo1'>
             <view class='time price'>更多筛选</view>
             <view class='Label' wx:for='{{taglist}}' wx:key='index'>

@@ -1,0 +1,18 @@
+<!-- 头部图片上传 -->
+<view class="topPic">
+  <view class="plusPic" catchtap='upLoadPic'>
+    <image src="/image/plus.png"></image>
+  </view>
+  <view class="picList">
+    <scroll-view scroll-x class="pic" >
+      <view class="item" wx:for="{{picList}}" style="margin-left:{{index>0?'50':'0'}}rpx" wx:key="{{index}}" showType="{{showType}}">
+        <image src="{{item}}" style="width:220rpx;height:166rpx;"></image>
+        <image src="/image/del.png" style="width:30rpx;height:30rpx;" catchtap='delPic' data-id="{{index}}"></image>
+      </view>
+    </scroll-view>
+
+    <view wx:if="{{picList.length==0||info2.images==0}}">
+      <text class="upLoadTxt">上传照片</text>
+    </view>
+  </view>
+</view>

@@ -16,7 +16,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options)
         if(options.num){
             this.setData({
                 num:options.num||1
@@ -96,7 +95,6 @@ Page({
                     releaseType: releaseType
                 },
                 success: res => {
-                    console.log(res.data.data.records)
                     this.setData({
                         rentalInfo: res.data.data.records
                     })
@@ -118,7 +116,6 @@ Page({
                     releaseType: releaseType==3?1:2
                 },
                 success: res => {
-                    console.log(res.data.data.records)
                     this.setData({
                         rentalInfo: res.data.data.records
                     })
@@ -129,7 +126,6 @@ Page({
     },
     // 切换数据
     handleTap(e){
-        console.log(e)
         let num=e.currentTarget.dataset.num
         this.setData({
             num
@@ -138,7 +134,6 @@ Page({
     },
     // 打电话
     call(e){
-        // console.log(e.currentTarget.dataset.phone)
         let phone = e.currentTarget.dataset.phone
         wx.makePhoneCall({
             phoneNumber: phone,
@@ -152,22 +147,11 @@ Page({
         })
         let mark=this.data.btnum
         if (mark==1){
-            console.log('返回首页')
-            // wx.navigateTo({
-            //     url: '/pages/firstPage/projectIndex/projectIndex',
-            // })
             wx.switchTab({
                 url: '/pages/firstPage/projectIndex/projectIndex',
             })
         }
         if (mark == 0) {
-            console.log('去发布信息')
-            // this.setData({
-            //     show:!this.data.show
-            // })
-            // this.setData({
-            //     show: true
-            // })
             wx.navigateTo({
                 url: '/pages/personalRental/releaseIndex/releaseIndex',
             })
@@ -214,7 +198,6 @@ Page({
     },
     // 选择跳转出售页面
     jumpPage(e){
-        console.log(e)
         let num=e.currentTarget.dataset.num
         if(num==1){
             wx.navigateTo({

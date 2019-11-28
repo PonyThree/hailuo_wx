@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "van-tab": "/zan/lib/tab/index",
-    "van-tabs": "/zan/lib/tabs/index"
+    "van-tabs": "/zan/lib/tabs/index",
+    "newTabs": "/component/newTabs/newTabs"
   }
 }

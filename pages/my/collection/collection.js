@@ -11,7 +11,15 @@ Page({
     checked: false,
     checked1: false,
     disabled: false,
-    isChecked: false
+    isChecked: false,
+    actions: [{
+      name: '删除',
+      color: '#ffffff',
+      fontsize: '20',
+      width: 100,
+      height: 324,
+      background: '#FB3B0F'
+    },],
   },
 
   /**
@@ -132,24 +140,34 @@ Page({
   },
   // 删除收藏
   del(e){
+    var that=this;
     console.log(e)
     let truckSpaceIds = [e.currentTarget.dataset.id] 
-    wx.request({
-      url: app.url + '/user/auth0/user/carNotCollect',
-      method: 'post',
-      header: {
-        token: app.gettoken()
-      },
-      data: truckSpaceIds,
-      success: res => {
-        if (res.data.code == 0) {
-          wx.showToast({
-            title: '取消收藏',
+    wx.showModal({
+      title: '取消收藏',
+      content: '是否要真的取消对该车位的收藏',
+      success:res=>{
+        if(res.confirm){
+          wx.request({
+            url: app.url + '/user/auth0/user/carNotCollect',
+            method: 'post',
+            header: {
+              token: app.gettoken()
+            },
+            data: truckSpaceIds,
+            success: res => {
+              if (res.data.code == 0) {
+                wx.showToast({
+                  title: '取消收藏',
+                })
+                that.onShow()
+              }
+            }
           })
-          this.onShow()
         }
       }
     })
+    
   },
   //跳转到车位详情
   goParkInfoOpened(e){

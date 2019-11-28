@@ -1,0 +1,30 @@
+/* pages/firstPage/commonProblem/commonProblem.wxss */
+page{
+  background-color: #ffffff!important;
+}
+.commonProblem{
+  width: 750rpx;
+  margin-top: 30rpx;
+  background-color: #ffffff!important;
+}
+.item{
+  width: 688rpx;
+  margin: 0 auto;
+  height: auto;
+  padding: 0 0 15rpx;
+  border-bottom: 1px solid #E1E1E1;
+  /* background-color: #E1E1E1; */
+}
+/* .myTitle{
+  background-color: pink;
+} */
+.van-cell{
+  padding:20rpx 0 !important;
+}
+.van-cell__title,.van-cell__value{
+  font-weight: bold;
+  border:none!important;
+}
+.van-collapse-item__content{
+  font-size: 26rpx;
+}

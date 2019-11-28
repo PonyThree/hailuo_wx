@@ -1,79 +1,89 @@
 <!--pages/my/my/my.wxml-->
 <view class="pages">
-  <!-- 信息 -->
+  <!-- 新版个人信息 -->
   <view class="top">
-    <!-- 个人信息 -->
-    <view class="title" bindtap='jumpInfo'>
-      <image src="{{userimg}}"></image>
-      <view class="info">
-        <view class="name">{{name}}</view>
-        <view class="tel">Tel: {{phone}}</view>
+    <view class="personalInfo">
+      <view>
+        <image src="{{userimg}}"></image>
       </view>
-      <image src="/image/jiantou.png"></image>
+      <view class="myInfo">
+        <text>{{name}}</text>
+        <text>{{phone}}</text>
+      </view>
     </view>
-    <!-- 账户信息 -->
-    <view class="deatil">
-      <view class="code" bindtap='scan'>
-        <image src="/image/code.png"></image>
+    <view class="money">
+      <view>
+        <text>{{moeny.cashMoney}}</text>
+        <text>余额</text>
+      </view>
+      <view bindtap="jump" data-num="1">
+        <image src="/image/hxm.png" style="width:40rpx;height:40rpx;margin-bottom:6rpx;" ></image>
         <text>核销码</text>
       </view>
-      <view class="money" catchtap='gomoeny'>
-        <image src="/image/money.png"></image>
-        <text>￥{{moeny.balance}}</text>
-      </view>
-      <!-- <view class="sign" bindtap='register'>
-        <image src="/image/qinadao.png"></image>
-        <text>我要签到</text>
-      </view> -->
     </view>
   </view>
   <!-- 各个页面展示信息 -->
   <view class='content'>
-    <view class="li" bindtap="jump2">
-      <image src="/image/dingdan.png" style="width:40rpx;height:37rpx;"></image>
+    <!-- <view class="li" bindtap="jump" data-num="1">
+      <image src="/image/hxm.png" style="width:40rpx;height:40rpx;"></image>
+      <view class="main">
+        <view class="text">核销码</view>
+        <image src="/image/zk.png"></image>
+      </view>
+    </view> -->
+    <view class="li" bindtap="jump" data-num="2">
+      <image src="/image/dd.png" style="width:40rpx;height:40rpx;"></image>
       <view class="main">
         <view class="text">我的订单</view>
-        <image src="/image/jiantou.png"></image>
+        <image src="/image/zk.png"></image>
       </view>
     </view>
-    <view class="li" bindtap="jump4">
-      <image src="/image/shoucanj.png" style="width:40rpx;height:39rpx;"></image>
+    <!-- <view class="li" bindtap="jump" data-num="3">
+      <image src="/image/qqqq.png" style="width:40rpx;height:37rpx;"></image>
+      <view class="main">
+        <view class="text">我的优惠</view>
+        <image src="/image/zk.png"></image>
+      </view>
+    </view> -->
+    <view class="li" bindtap="jump" data-num="4">
+      <image src="/image/mysave.png" style="width:40rpx;height:40rpx;"></image>
       <view class="main">
         <view class="text">我的收藏</view>
-        <image src="/image/jiantou.png"></image>
+        <image src="/image/zk.png"></image>
       </view>
     </view>
-    <view class="li" bindtap="jump5">
-      <image src="/image/yijian.png" style="width:40rpx;height:35rpx;"></image>
+    <view class="li" bindtap="jump" data-num="5">
+      <image src="/image/yj.png" style="width:40rpx;height:40rpx;"></image>
       <view class="main">
         <view class="text">意见反馈</view>
-        <image src="/image/jiantou.png"></image>
+        <image src="/image/zk.png"></image>
       </view>
     </view>
-    <view class="li" bindtap="jump6">
-      <image src="/image/anquanbaozhang.png" style="width:35rpx;height:40rpx;"></image>
+    <view class="li" bindtap="jump" data-num="6">
+      <image src="/image/zfmm.png" style="width:40rpx;height:40rpx;"></image>
       <view class="main">
-        <view class="text">安全中心</view>
-        <image src="/image/jiantou.png"></image>
+        <view class="text">支付密码</view>
+        <image src="/image/zk.png"></image>
       </view>
     </view>
-    <view class="li" bindtap="jump7">
-      <image src="/image/aboutme.png" style="width:35rpx;height:40rpx;"></image>
+    <view class="li" bindtap="jump" data-num="7">
+      <image src="/image/gy.png" style="width:40rpx;height:40rpx;"></image>
       <view class="main">
         <view class="text">关于我们</view>
-        <image src="/image/jiantou.png"></image>
+        <image src="/image/zk.png"></image>
+      </view>
+    </view>
+    <view class="li" bindtap="jump" data-num="7">
+      <image src="/image/gy.png" style="width:40rpx;height:40rpx;"></image>
+      <view class="main">
+        <view class="text">我的钱包</view>
+        <image src="/image/zk.png"></image>
       </view>
     </view>
   </view>
-  <!-- 客服热线 -->
-  <!-- <view class="customer" bindtap='hotLine'>
-    <image src="/image/客服@2x.png"></image>
-    <view>客服热线</view>
-  </view> -->
   <view class="showUrl" bindlongtap="showUrl"></view>
 </view>
-
-<van-popup show="{{showUrl}}" position="bottom" style="height: 20%" bind:close="onClose" >
+<van-popup show="{{showUrl}}" position="bottom" style="height: 20%" bind:close="onClose">
   <van-cell-group>
     <van-cell title="{{index}}" value="{{item}}" wx:for='{{httpUrl}}' data-url='{{item}}' catchtap='hotLine' wx:key='index' />
   </van-cell-group>

@@ -1,0 +1,14 @@
+<view class="screenList" style="{{showRight1?' height:1000rpx':''}}" catchtouchmove="doNotMove">
+  <view class='demo1'>
+    <view class='Label' wx:for='{{tagList}}' wx:key='index'>
+      <text class='smallTitle' wx:if='{{item.tagRespDtos.length>0}}'>{{item.typeName}}</text>
+      <view data-index='{{index1}}' catchtap='morescreen' data-title='更多筛选' wx:for='{{item.tagRespDtos}}' wx:for-index='index1' wx:key='index' data-tieleindex='{{index}}' class="{{item.isSelected?'active':''}}">
+        {{item.name}}</view>
+    </view>
+    <view class='confirm' style='margin-bottom:50rpx'>
+      <view bindtap='toggleRight1'>取消</view>
+      <view catchtap='corfim' bindtap='zhuan'>确定</view>
+    </view>
+  </view>
+  <view  style="background: white;width: 750rpx;margin-left: -32rpx;{{showRight1?' height:500rpx':''}}" ></view>
+</view>

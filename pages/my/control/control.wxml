@@ -1,31 +1,56 @@
 <wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
 <view class="pages">
   <!-- 列表信息 -->
-  <view class="content" wx:for="{{list}}" wx:key='index'>
-    <view class="top" wx:if="{{item.buyType==1}}">已落位</view>
-    <view class="top" wx:if="{{item.buyType==2}}">已认购</view>
-    <view class="main" bindtap="flag" data-id='{{item.id}}'>
-      <!-- 车位信息 -->
+  <!-- wx:for="{{list}}" -->
+  <view class="content" wx:for="{{list}}" wx:key='index' wx:if="{{list.length>=1}}">
+    <!-- <view class="top" wx:if="{{item.buyType==1}}">已落位</view> -->
+    <!-- <view class="top" wx:if="{{item.buyType==2}}">已认购</view> -->
+    <!-- <view class="main" bindtap="flag" data-id='{{item.id}}'>
       <view class="left">
-      <view>
-        <image src="/image/hexiaoma.png"></image>
-        <text>车位号</text>
-      </view>
+        <view>
+          <image src="/image/ewm.png"></image>
+          <text>车位号</text>
+        </view>
         <view class="number">{{item.truckSpaceName}}</view>
       </view>
-      <!-- 项目名称 -->
       <view class="middle">
         <view class="name">{{item.projectName}}</view>
         <view class="data">{{dateUtil.dateFormat1(item.expireTime)}}到期</view>
       </view>
-      <!-- 按钮 -->
       <view class="button">立即使用</view>
     </view>
-    <!-- 查看规则 -->
-    <view class="bottom"  bindtap="searchRel" data-pid='{{item.projectId}}' data-ptype="{{item.buyType}}">
+    <view class="bottom" bindtap="searchRel" data-pid='{{item.projectId}}' data-ptype="{{item.buyType}}">
       <text>查看规则</text>
       <image src="/image/jiantou.png"></image>
+    </view> -->
+    <view class="left">
+      <image src="https://china185.com/file/image/20191126/8bb14e2adfab45458f97bc96cce17de2.png" ></image>
+      <view>
+        <text wx:if="{{item.buyType==1}}" style="color:#FFD46A">落位码</text>
+        <text style="color:#FF7F0E" wx:if="{{item.buyType==2}}">认购码</text>
+      </view>
     </view>
+    <view class="rightInfo">
+      <view>
+        <view class="name">
+          <text>{{item.projectName}}</text>
+          <text>{{item.truckSpaceName}}</text>
+        </view>
+        <view class="time">
+          <text style="margin-right:10rpx;">{{dateUtil.dateFormat1(item.expireTime)}}</text>
+          <text>到期</text>
+        </view>
+        <view class="regular" bindtap="searchRel" data-pid='{{item.projectId}}' data-ptype="{{item.buyType}}">
+          <text>查看规则</text>
+          <image src="/image/zk.png" style="width:10rpx;height:17rpx;"></image>
+        </view>
+      </view>
+      <view class="btns">
+        <text style="color:#000000;background-color:#FFD46A;top:60rpx" wx:if="{{hasUse}}" bindtap="flag" data-id='{{item.id}}' data-type="{{item.buyType}}">去使用</text>
+        <text style="color:#C8C8C8;background-color:#E8E8E8;top:80rpx;" wx:if="{{!hasUse}}">已使用</text>
+      </view>
+    </view>
+    
   </view>
 
   <view class="blank" wx:if="{{list.length<1 || !list}}">

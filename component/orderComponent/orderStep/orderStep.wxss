@@ -1,0 +1,67 @@
+/* 订单步骤条 */
+
+.step {
+  width: 686rpx;
+  background: white;
+  padding: 20rpx 24rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #757575;
+  position: relative;
+  border-radius: 10rpx
+ 
+}
+.dashedfff{
+  position: absolute;
+  background: white;
+  width: 608rpx;
+  height: 40rpx;
+  top: 0;
+ 
+}
+.step .stepList {
+  width: 608rpx;
+  /* background: red; */
+  margin-left: 24rpx
+}
+.step .stepList>view{
+  display: flex;
+  justify-content: space-between;
+  height: 40rpx;
+  padding: 20rpx 20rpx;
+}
+.step .stepList>view:nth-child(1){
+  padding-top: 40rpx
+}
+.step .dashed{
+  border-left:1px dashed #C7C7C7;
+  position: relative;
+    padding-top: 20rpx;
+    box-sizing: border-box
+}
+
+
+.step .yuan {
+  height: 24rpx;
+  width: 24rpx;
+  border: 4rpx solid #C7C7C7;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left: -16rpx;
+  background: white;
+
+}
+.step .title {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 40rpx;
+  font-size: 30rpx
+}
+
+.step .stepListON{
+ color:#333333; font-weight: 600
+}
+.yuan.yuanactive{
+  border: 4rpx solid #333333
+}

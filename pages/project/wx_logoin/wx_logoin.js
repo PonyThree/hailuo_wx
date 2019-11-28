@@ -153,9 +153,25 @@ Page({
             title: '登陆成功',
           })
           setTimeout(()=>{
+            let e = wx.getStorageSync('e')
+          try{
+            if (Object.keys(e.query).length !== 0 && e.query.projectId) {
+              wx.reLaunch({
+                url: '/' + e.path + `?projectId=${e.query.projectId}`,
+              })
+            }
+            else {
+              wx.reLaunch({
+                url: '/pages/index/index',
+              })
+            }
+          }catch(err){
             wx.reLaunch({
               url: '/pages/index/index',
-            })   
+            })
+          }
+           
+           
           },1000)
         }
       }

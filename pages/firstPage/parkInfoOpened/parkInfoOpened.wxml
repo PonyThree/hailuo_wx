@@ -1,5 +1,19 @@
 <wxs module="dateUtil" src="../../../filter/dateFr.wxs"></wxs>
 <view class='page'>
+  <!-- 活动提示 -->
+  <view class="notification" wx:if='{{data.actityInfo.actStatus==2}}'>
+    <!-- <text>本车位将于2019-09-13 19:00开始认购</text>
+    <view class="dateTime">
+      <text>26</text>天
+      <text>13</text>时
+      <text>55</text>分
+      <text>55</text>秒
+    </view> -->
+    <!-- 秒杀预告 -->
+    <text>本车位将于{{dateUtil.dateFormat(data.actityInfo.staTime)}}开始秒杀</text>
+    <!-- 未开通落位 不支持认购落位 -->
+    <!-- <text>本车位暂未开启落位, 请拨打页面下方置业顾问电话进行咨询</text> -->
+  </view>
   <!-- banner图 -->
   <view class='banner'>
     <swiper autoplay circular indicator-dots="{{data.truckSpaceDetailImages.length>1?'1':0}}">
@@ -7,6 +21,37 @@
         <image src='{{item}}'>
         </image>
       </swiper-item>
+      <!-- 秒杀活动价格以及优惠活动时间 -->
+      <!-- <view class="spikeDownSub" >
+        <image src="https://china185.com/file/image/20191118/ff22fc914a36407f8292739617a20315.png"></image>
+        
+        <view class="spikePrice">
+      
+          <view class="price">
+            <text>开盘销售价</text>
+            <text>￥155000</text>
+          </view>
+          <image src="/image/miaojiantou.png" class="jiantou marl10"></image>
+          <view class="price">
+            <text>秒杀优惠</text>
+            <text>￥40000</text>
+          </view>
+    
+        </view>
+     
+        <view class="EstimatedPrice">
+          <view class="txt">
+            <text>预计到手价</text>
+          </view>
+          <view>
+            <text>￥</text>
+            <text>114000</text>
+          </view>
+          <view class="fallPrice">
+            <text>直降 ￥41000</text>
+          </view>
+        </view>
+      </view> -->
     </swiper>
   </view>
   <!-- 黑色阴影 -->
@@ -14,65 +59,80 @@
     <image src='/image/ellipse.png'></image>
     <text>限本小区业主购买</text>
   </view>
+
   <!-- 落位情况 -->
   <view class="fallingInfo">
     <image src="/image/carList.png" style="width:750rpx;height:120rpx;"></image>
     <view class="carInfo">
-      <view class='price' wx:if='{{data.sellStatus!=2 && data.sellStatus!=3 }}'>
+      <!-- <view class='price' wx:if='{{data.sellStatus!=2 && data.sellStatus!=3 }}'>
         <text wx:if='{{data.actityInfo.actStatus==1}}'>{{data.sellPrice+data.actityInfo.reducePrice}}元</text>
         <text wx:else>{{data.sellPrice}}元</text>
         <text>{{data.facePrice}}元</text>
+      </view> -->
+      <view class="priceInfo" wx:if='{{data.sellStatus!=2 && data.sellStatus!=3 }}'>
+        <image src="/image/miaosha.png" style="width:73rpx;height:33rpx;" wx:if='{{data.actityInfo.actStatus==2 || data.actityInfo.actStatus==1}}'></image>
+        <text style="padding-left:6rpx;" wx:else>原价 <text class="originPrice">￥{{data.facePrice}}</text></text>
+        <view class="specialPrice">
+          <text>￥{{data.sellPrice}}</text>
+          <text wx:if='{{!data.actityInfo}}'>特惠价</text>
+          <!-- 不能落位,车位人数已满 -->
+          <view class="noDown" wx:if='{{data.actityInfo.actStatus==2 || data.actityInfo.actStatus==1}}'>
+            <text>特惠价<text>￥{{data.sellPrice+data.actityInfo.reducePrice}}</text></text>
+            <text>原价<text> ￥{{data.facePrice}}</text></text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 总价待定-->
+      <view class='price' wx:if="{{data.sellStatus==2||data.sellStatus==3}}">
+        <text><text style="margin-left:20rpx;">已售出</text></text>
       </view>
     </view>
-    <view class="pInfo">
-      <view class='p luowei' wx:if='{{data.sellStatus==0 && data.ableDown}}'>
-        <text>{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}人</text>
-        <text>已落位</text>
-      </view>
-      <view class='p luowei' wx:if='{{data.sellStatus==1 && data.ableDown}}'>
-        <text>{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}人</text>
-        <text>已落位</text>
-      </view>
-      <view class='p sell' wx:if='{{data.sellStatus==2}}'>
-        <text>已售出</text>
-      </view>
-      <view class='p sell' wx:if='{{data.sellStatus==3}}'>
-        <text>已售出</text>
-      </view>
-      <view class='p sell' wx:if='{{data.sellStatus==5}}'>
-        <text>暂停销售</text>
-      </view>
-      <!-- 不能落位倒计时 -->
-      <view class='time time1' wx:if='{{ data.ableDown==false && data.sellStatus==4}}'>
-        <text class='text1'>距开盘 {{djs[0]}}天 {{djs[1]}}:{{djs[2]}}:{{djs[3]}}</text>
-        <!-- <text></text> -->
-      </view>
-      <!-- 已落位倒计时 -->
-      <view class='time time2' wx:if='{{data.ableDown==true && data.sellStatus==4 }}'>
-        <text class="text2">{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}人</text>
-        <text class="text2">已落位</text>
-        <view class='text1'>距开盘 {{djs[0]}}天 {{djs[1]}}:{{djs[2]}}:{{djs[3]}}</view>
-        <!-- <text></text> -->
+
+    <!-- 秒杀倒计时-->
+    <view class="spikeDjs" wx:if='{{(data.actityInfo.actStatus==2 || data.actityInfo.actStatus==1)&&(data.sellStatus!=2 &&data.sellStatus!=3)}}'>
+      <text wx:if='{{data.actityInfo.actStatus==2}}'>距开始</text>
+      <text wx:if='{{data.actityInfo.actStatus==1}}'>距结束</text>
+      <view class="djs">
+        <text>{{activetiyDjs[0]}}天 {{activetiyDjs[1]}}:{{activetiyDjs[2]}}:{{activetiyDjs[3]}}</text>
       </view>
     </view>
   </view>
-  <!-- 活动提示 -->
-  <view class="activityTop" wx:if='{{data.actityInfo.actStatus==2}}'>
-    <image src="/image/ms@2x.png"></image>
-    <text>时间: {{dateUtil.dateFormat4(data.actityInfo.staTime)}}</text>
-    <text style="margin-left:30rpx">秒杀价: ￥</text>
-    <text style="font-size:36rpx;font-weight: 600">{{data.actityInfo.seckillPrice}}</text>
-  </view>
-  <view style=" width: 750rpx;background: white">
-    <view class="carname">
-      <text style="font-size:48rpx;color:black">{{data.name}}</text>
-      <text style="margin-left:20rpx">{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</text>
+  <!-- 车位信息 -->
+  <view style=" " class="shareInfo">
+    <view class="carname" style="border-bottom:1px solid #E1E1E1">
+      <view>
+        <text style="font-size:36rpx;color:#1B1B1B;font-weight:600;">{{data.name}}</text>
+        <text style="font-size:28rpx;color:#757575;margin-left:10rpx">{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</text>
+      </view>
+      <view class="downNum">
+        <text>{{data.downPlaceNum}}/{{data.controlRespDto.downLimitNum}}</text>
+        <view>
+          <text>落位</text>
+        </view>
+      </view>
+      <!-- 车位标签 -->
+      <scroll-view class='tagview' scroll-x wx:if="{{data.tagRespDtos.length>0}}">
+        <text class="tag" wx:for="{{data.tagRespDtos}}" wx:key='index' wx:if="{{index<=2}}">{{item.name}}</text>
+      </scroll-view>
+    </view>
+    <!-- 收藏分享按钮 -->
+    <view class="shareAndSave">
+      <button class='share' open-type="share">
+        <image src="/image/share.png" style="width:42rpx;height:44rpx;"></image>
+        <text>分享</text>
+      </button>
+      <view class="collect" catchtap="Collection">
+        <image src="/image/save.png" style="width:48rpx;height:42rpx;" wx:if='{{!data.collect}}'></image>
+        <image src="/image/sss.png" style="width:48rpx;height:42rpx;" wx:else></image>
+        <text>收藏</text>
+      </view>
     </view>
   </view>
   <!-- 分期价格、车位特点、车位热度等信息 -->
   <view class="threeInfo">
     <!-- 车位热度 -->
-    <view class='desc parkHot border'>
+    <view class='desc parkHot'>
       <view class='descTxt hotDesc'>
         <text>{{data.seeNum}}人浏览</text>
         <text class="dot">·</text>
@@ -81,135 +141,180 @@
         <text>{{data.collectNum}}人收藏</text>
       </view>
     </view>
-    <!-- 分期价格 -->
-    <view class='desc staging' wx:if='{{data.configDto.whetherShow}}'>
-      <view class='descTxt'>
-        <text>当分期价格为{{data.configDto.payPrice}}元时,最低首付{{data.configDto.lowNum}}元,最长分期{{data.configDto.longTime}},最低还款{{data.configDto.lowPayNub}}元</text>
+    <!-- 车位贷款 -->
+    <view class="carLoans" catchtap="goLoans">
+      <image src="https://china185.com/file/image/20191116/fdf118b76ec84cacb794e4e873d0a025.png" style="width:210rpx;height:52rpx;"></image>
+    </view>
+
+  </view>
+
+  <view class="steps" catchtap="goProblem">
+    <view class="sptop">
+      <text>购买流程</text>
+      <image src="/image/ans.png"></image>
+    </view>
+    <view class="spPic">
+      <image src="/image/step.png" style="width:582rpx;height:54rpx;"></image>
+    </view>
+    <view class="spInfo">
+      <view class="item" >
+        <text>线上付款</text>
+        <text wx:if='{{data.controlRespDto.locationStatus}}'>( {{data.controlRespDto.locationStatus?'落位':''}} {{data.controlRespDto.onlineBuyStatus?data.controlRespDto.buyName:''}})</text>
+      </view>
+      <view class="item">
+        <text>系统审核</text>
+        <text></text>
+      </view>
+      <view class="item">
+        <text>线下签约</text>
+        <text>(结清尾款)</text>
       </view>
     </view>
   </view>
-  <!-- 步骤条 -->
-  <step wx:if='{{data.controlRespDto.locationStatus || data.controlRespDto.onlineBuyStatus}}' data='{{data}}' show='{{false}}' id='filter-cmp' actityInfo='true'></step>
-  <!-- 所在位置 所属社区等信息 -->
-  <view class='detailInfo'>
-    <view class='detailList'>
-      <view class='dalList'>
-        <text>所在位置</text>
-        <text>{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</text>
+  <!-- 拼团活动列表信息 -->
+  <!-- <view class="fightGroupInfo">
+    <view class="groupTil">
+      <text>优惠活动</text>
+      <text>最高优惠可达￥8000</text>
+      <view>
+        <text>查看全部活动</text>
+        <image src="/image/jiantou2.png" style="width:13rpx;height:21rpx;"></image>
       </view>
-      <view class='dalList'>
-        <text>所属小区</text>
-        <text>{{data.projectInfo.name}}</text>
+    </view>
+  
+  
+  </view> -->
+  <!-- 车位介绍 -->
+  <view class="spaceIntro">
+    <view class="title">
+      <text>车位介绍</text>
+      <text wx:if='{{data.controlRespDto.local}}'>车位仅限本小区车主购买</text>
+    </view>
+    <view class="intro">
+      <view class="introItem introItem1">
+        <text>车位编号</text>
+        <text>{{data.name}}</text>
       </view>
-      <view class='dalList'>
+      <view class="introItem">
         <text>建筑面积</text>
         <text>{{data.outsideArea}}㎡</text>
       </view>
-      <view class='dalList' wx:if='{{data.configDto.coverArea}}'>
+      <view class="introItem" wx:if="{{data.insideArea}}">
         <text>套内面积</text>
         <text>{{data.insideArea}}㎡</text>
       </view>
-      <view class='dalList' wx:if='{{data.configDto.openTimeShow}}'>
-        <text>开盘时间</text>
-        <text> {{dateUtil.dateFormat2(data.openStartTime)}}</text>
+    </view>
+  </view>
+  <!-- 业主数 -->
+  <view class="noTitle">
+    <view class="intro">
+      <view class="introItem" wx:if="{{data.districtVo.ownerNobuy}}">
+        <text>业主数量</text>
+        <text>{{data.districtVo.ownerNobuy}}</text>
       </view>
-      <view class='dalList' wx:if='{{data.configDto.openStatusShow}}'>
-        <text>开盘状态</text>
-        <text wx:if='{{data.openStatus==-1}}'></text>
-        <text wx:if='{{data.openStatus==0}}'>未开盘</text>
-        <text wx:if='{{data.openStatus==1}}'>已开盘</text>
-        <text wx:if='{{data.openStatus==2}}'>开盘结束</text>
-        <text wx:if='{{data.openStatus==3}}'>暂停销售</text>
+      <view class="introItem" wx:if="{{data.districtVo.compareA&&data.districtVo.compareB}}">
+        <text>车位配比</text>
+        <text>{{data.districtVo.compareA}}:{{data.districtVo.compareB}}</text>
       </view>
-      <view class='dalList' wx:for='{{data.expansionValues}}' wx:key='index'>
-        <text>{{item.fieldName}}</text>
-        <text> {{item.value}}</text>
+      <view class="introItem">
+        <text>车位位置</text>
+        <text>{{data.level1Name}}{{data.level2Name}}{{data.level3Name}}</text>
       </view>
     </view>
   </view>
-  <!-- 车位特点 -->
-  <view class='parkingF' wx:if='{{data.tagRespDtos.length>0}}'>
-    <view class='desc parkFeature'>
-      <scroll-view class="feature" scroll-x>
-        <view>
-          <text wx:for='{{data.tagRespDtos}}' wx:key='index'>{{item.name}}</text>
-        </view>
-      </scroll-view>
+  <!-- 车位标签 -->
+  <view class="noTitle">
+    <view class="intro">
+      <!-- <view class="introItem">
+          <text>车位性质</text>
+          <text>产权车位</text>
+        </view> -->
+      <view class="introItem" wx:if="{{data.districtVo.surplusTruckSpace}}">
+        <text>剩余车位</text>
+        <text>{{data.districtVo.surplusTruckSpace}}个</text>
+      </view>
+      <view class="introItem" wx:if="{{data.districtVo.manageExpenses}}">
+        <text>车位管理费</text>
+        <text style="margin-left:-28rpx;">{{data.districtVo.manageExpenses}} 元/年</text>
+      </view>
     </view>
   </view>
-  <!-- 车位分布图 -->
-  <view class='parkingMap' wx:if='{{data.truckSpaceImages.length>0}}'>
-    <view class='title'>车位分布图</view>
-    <view class='mapPic'>
-      <swiper autoplay circular indicator-dots="{{bannerlist.length>1?'1':0}}">
-        <swiper-item wx:for='{{data.truckSpaceImages}}' wx:key='index'>
-          <image src='{{item}}' bindtap='previewImage1' data-url="{{item}}" data-list="{{data.truckSpaceImages}}">
-          </image>
-        </swiper-item>
-      </swiper>
+  <!-- 车位标签-->
+  <view class="noTitle">
+    <view class="intro">
+      <view class="introItem introItem2" wx:if="{{data.tagRespDtos.length>0}}">
+        <text>车位标签</text>
+        <!-- wx:if="{{data.tagRespDtos.length>0}}" -->
+        <scroll-view class='introTags' scroll-x>
+          <text class="tag" wx:for="{{data.tagRespDtos}}" wx:key='index' wx:if="{{index<=2}}">{{item.name}}</text>
+        </scroll-view>
+      </view>
+      <view class="introItem">
+        <text>销售地址</text>
+        <text>{{data.projectInfo.name}}</text>
+      </view>
     </view>
   </view>
-  <view class='box'>
-  </view>
-  <!-- 底部tab导航栏 -->
-  <view class='bomTab' wx:if='{{lookup && isInit==1}}'>
-    <view class='telPhone' catchtap='call'>
-      <image src='/image/dianhua.png'></image>
+  <i-toast id="toast" />
+
+  <view style="height:100rpx;"></view>
+
+  <!-- 新版本 底部按钮组 -->
+  <!-- 只认购 -->
+  <view class="bomTab" wx:if='{{!data.ableDown && data.ableSub}}'>
+    <view class="consultant">
+      <image src="/image/phone.png" style="width:25rpx;height:35rpx;" catchtap="call"></image>
       <text>置业顾问</text>
     </view>
-    <view class='fallBuy1'>
-      <view>
-        <text class="ckdd" catchtap='goorder'>查看订单</text>
-      </view>
+    <view class="subscription bigBtn" catchtap="gosubscription">
+      <text>{{data.controlRespDto.buyName}}</text>
+      <text>￥{{data.controlRespDto.buyMoney}}</text>
     </view>
   </view>
-  <view class='bomTab' wx:if='{{!lookup && isInit==1}}'>
-    <view class='telPhone' catchtap='call'>
-      <image src='/image/dianhua.png'></image>
+  <!-- 只落位 -->
+  <view class="bomTab" wx:if='{{data.ableDown && !data.ableSub}}'>
+    <view class="consultant">
+      <image src="/image/phone.png" style="width:25rpx;height:35rpx;" catchtap="call"></image>
       <text>置业顾问</text>
     </view>
-    <button class='telPhone' open-type="share">
-      <image src='/image/fenxiang.png'></image>
-      <text>分享</text>
-    </button>
-    <view class="shoucangPic" bindtap='Collection'>
-      <image wx:if='{{!data.collect}}' src='/image/shoucang2x.png'></image>
-      <image wx:else src='/image/wujiaoxing_03.png'></image>
-      <text>收藏</text>
+    <view class="bigBtn downSpace" catchtap="godrop">
+      <text>落位</text>
+      <text>￥{{data.controlRespDto.downMoney}}</text>
     </view>
-    <view class='fallBuy' wx:if='{{data.ableDown && data.ableSub }}'>
-      <view>
-        <text catchtap='godrop'>落位</text>
-        <text wx:if='{{data.actityInfo.actStatus==2||data.actityInfo.actStatus==1}}' bindtap="showPrice">计算价格</text>
-        <text catchtap='gosubscription' wx:else>{{data.controlRespDto.buyName}}</text>
-      </view>
+  </view>
+  <!-- 已售出 -->
+  <view class="bomTab" wx:if='{{data.sellStatus==2 || data.sellStatus==3}}'>
+    <view class="consultant">
+      <image src="/image/phone.png" style="width:25rpx;height:35rpx;" catchtap="call"></image>
+      <text>置业顾问</text>
     </view>
-    <view class='fallBuy1' wx:if='{{data.ableDown && !data.ableSub}}'>  
-      <view>
-        <text catchtap='godrop'>落位</text>
-      </view>
-    </view>
-    <view class='fallBuy1 downLocation' wx:if='{{!data.ableDown && data.ableSub}}'>
-      <view>
-        <text wx:if='{{data.actityInfo.actStatus==2||data.actityInfo.actStatus==1}}' bindtap="showPrice">计算价格</text>
-        <text catchtap='gosubscription' wx:else>{{data.controlRespDto.buyName}}</text>
-      </view>
-    </view>
-    <view class='fallBuy1' wx:if='{{!data.ableDown && !data.ableSub}}'>
-      <view>
-        <text catchtap='goback'>不可落位</text>
-      </view>
+    <view class="bigBtn saleOut">
+      <text>该车位已售出</text>
+
     </view>
   </view>
 
+  <!-- 有落位认购 -->
+  <view class="bomTab" wx:if='{{data.ableDown && data.ableSub}}'>
+    <view class="consultant">
+      <image src="/image/phone.png" style="width:25rpx;height:35rpx;" catchtap="call"></image>
+      <text>置业顾问</text>
+    </view>
+    <view class="middleBtn downSpace" catchtap="godrop">
+      <text>落位</text>
+      <text>￥{{data.controlRespDto.downMoney}}</text>
+    </view>
+    <view class="middleBtn  spikeBtn1" catchtap="gosubscription">
+      <text>{{data.controlRespDto.buyName}}</text>
+      <text>￥{{data.controlRespDto.buyMoney}}</text>
+    </view>
+  </view>
+  <view catchtap="call" class="bomTab" wx:if='{{!data.ableDown && !data.ableSub && data.sellStatus!=2 &&data.sellStatus!=3&&isInit }}'>
+    <view class="zygw">
+      <van-icon custom-style='vertical-align: middle' name="phone" size='18px' />
+      <text style="margin-left:5rpx">置业顾问</text>
+    </view>
+  </view>
   <goindex></goindex>
 
-</view>
-<!-- 活动倒计时 -->
-<view class="activityTime" bindtap="showPrice" wx:if='{{data.actityInfo && data.actityInfo.actStatus!=3 && data.sellStatus!=2 &&data.sellStatus!=3 && data.ableSub}}'>
-  <text style="font-size:30rpx">{{data.actityInfo.seckillPrice}}</text>
-  <text> 秒杀价</text>
-  <view wx:if='{{data.actityInfo.actStatus==2}}'>距开始 {{activetiyDjs[0]}} 天 {{activetiyDjs[1]}}: {{activetiyDjs[2]}}: {{activetiyDjs[3]}}</view>
-  <view wx:if='{{data.actityInfo.actStatus==1}}'>距结束 {{activetiyDjs[0]}} 天 {{activetiyDjs[1]}}: {{activetiyDjs[2]}}: {{activetiyDjs[3]}}</view>
-  <view wx:if='{{data.actityInfo.actStatus==0}}'>点击此处,即刻秒杀</view>
 </view>

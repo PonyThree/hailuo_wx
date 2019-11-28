@@ -1,3 +1,3 @@
-@import '/component/step/step.wxss';  /* 引入步骤条css */
+
 @import '/pages/order/subscription/subscription.wxss';  
 

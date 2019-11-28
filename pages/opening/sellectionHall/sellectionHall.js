@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    projectId: '',
-    name: '',
+    topNum:0,
+    pageSize:1,
     onlySelling: 0,
     // 开盘倒计时 0未开盘 1已开盘 2已过期
     openStatus: '',
@@ -19,13 +19,8 @@ Page({
     countDown: '',
     //开盘倒计时
     msg: '',
-    truckSpaces: [{
-      nodeRespDtos: []
-    }],
-    level1: [],
-    level2: [],
-    level3: [],
-    radio: 0
+    currentId:2
+  
   },
 
   /**
@@ -36,9 +31,36 @@ Page({
       projectId: e.projectId
     })
     app.stopShare();
-    this.push();
     this.renderTime();
-    getTag(e.projectId, this)  //获取车位区层栋标签
+
+    let searchcriteria = wx.getStorageSync('searchcriteria')
+    searchcriteria.pageSize = 1
+    this.setData({
+      projectId: e.projectId,
+      searchcriteria: searchcriteria
+    })
+    let projectId = this.data.projectId
+    //条件查询车位列表
+    wx.request({
+      url: app.url + '/product/auth0/truckSpace/conditionSearch',
+      method: 'post',
+      header: {
+        token: app.gettoken()
+      },
+      data: this.data.searchcriteria || {
+        projectId: this.data.projectId
+      },
+      success: res => {
+        wx.hideLoading()
+        if (res.data.code == 0) {
+          this.setData({
+            carlist: res.data.data,
+            serchActivty: 0
+          })
+        }
+      }
+    })
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -83,8 +105,11 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
-    if (this.data.carlist==false) {
+  tip() { //点击加载更多
+    this.bindscrolltolower()
+  },
+  bindscrolltolower() {//滚动到底部
+    if (this.data.carlist.hasData == false) {
       this.setData({
         tip: true
       })
@@ -94,42 +119,25 @@ Page({
       showloding: true,
       pageSize: this.data.pageSize += 1
     })
+    wx.showLoading({
+      title: '加载中',
+    })
     let data = this.data.searchcriteria
     data.pageSize = this.data.pageSize
-     searhlist(data,false,this)
+    searhlist(data, false, this)
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {},
-  //筛选列表加载
 
-  // 用来控制筛选的抽屉
-  showSelect() {
-    console.log('抽屉出现');
-    this.setData({
-      showRight1: !this.data.showRight1
-    })
-  },
-  toggleRight1() {
-    this.setData({
-      showRight1: !this.data.showRight1
-    })
-  },
   // 收藏跳转
   change1() {
     wx.navigateTo({
       url: '/pages/opening/collection/collection?projectId=' + this.data.projectId,
     })
   },
-  // 只看待售
-  choose() {
-    clearInterval(timer);
-    this.setData({
-      radio: this.data.radio == 1 ? 0 : 1
-    })
-    this.push()
-  },
+
   // 跳转到真实开盘出价页面
   gobid(e) {
     clearInterval(timer);
@@ -141,106 +149,13 @@ Page({
       })
       return
     }
-    var id = e.currentTarget.dataset.id;
-    var projectId = e.currentTarget.dataset.projectid
-    console.log(projectId)
+    var id = e.currentTarget.dataset.carid;
     wx.navigateTo({
-      url: '/pages/opening/bid/bid?carid=' + id + '&projectId=' + projectId
+      url: '/pages/opening/bid/bid?carid=' + id 
     })
   },
 
-  //楼栋筛选
-  morescreen(e) {
-    console.log(e)
-    var title = e.currentTarget.dataset.title
-    if (title == '组团') {
-      //   console.log('这是区域')
-      var index = e.currentTarget.dataset.index;
-      var item = this.data.level1[index];
-      item.isSelected = !item.isSelected;
-      this.setData({
-        level1: this.data.level1
-      })
-    } else if (title == '楼层') {
 
-      var index = e.currentTarget.dataset.index;
-      var item = this.data.level2[index];
-      item.isSelected = !item.isSelected;
-      this.setData({
-        level2: this.data.level2
-      })
-    } else if (title == '楼栋') {
-      var index = e.currentTarget.dataset.index;
-      var item = this.data.level3[index];
-      item.isSelected = !item.isSelected;
-      this.setData({
-        level3: this.data.level3
-      })
-
-    }
-    console.log(this.data);
-  },
-  //筛选提交
-  push() {
-    wx.hideLoading()
-    this.data.showRight1 = !this.data.showRight1;
-    var level1 = [] //区域id
-    var level2 = [] //楼层id
-    var level3 = [] //楼栋id
-    let list1 = this.data.level1
-    let list2 = this.data.level3
-    let list3 = this.data.level2
-    list1.map(i => {
-      if (i.isSelected) {
-        level1.push(i.id)
-      }
-    })
-    list2.map(i => {
-      if (i.isSelected) {
-        level2.push(i.id)
-      }
-    })
-    list3.map(i => {
-      if (i.isSelected) {
-        level3.push(i.id)
-      }
-    })
-    let data = {
-      projectId: this.data.projectId,
-      level1,
-      level2,
-      level3,
-      onlySelling: this.data.radio,
-      pageSize: 1
-    }
-     searhlist(data,true,this)
-    this.setData({
-      searchcriteria: data,
-      showRight1: false,
-      showRight2: false,
-      pageSize: 1
-    })
-  },
-  //列表数据
-  renderData(data) {
-    var that = this;
-    wx.request({
-      method: 'post',
-      url: app.url + "/product/auth0/truckSpace/conditionSearch",
-      header: {
-        token: app.gettoken(),
-      },
-      data: data,
-      success: res => {
-
-        this.setData({
-          carList: res.data.data,
-          showloding: false, //加载提示
-          tip: false //无更多数据提示
-        })
-      }
-    })
-  },
   addZero(n) {
     return n < 10 ? '0' + n : n;
   },
@@ -256,7 +171,6 @@ Page({
     return y + '-' + this.addZero(mon) + '-' + this.addZero(d) + " " + this.addZero(h) + ":" + this.addZero(m) + ":" + this.addZero(s);
   },
   cutDownDate(time) {
-    // console.log(time,this.data.msg);
     if (time == 0) {
       this.data.openStatus = 1;
       return;
@@ -282,7 +196,6 @@ Page({
         var openStartTime = that.transformDate(res.data.data.startTime);
         nowTime = app.newDate();
         that.setData({
-
           openStatus: res.data.data.openStatus,
           startTime: openStartTime,
           projectName: res.data.data.projectName,
@@ -309,30 +222,66 @@ Page({
       }
     })
   },
-  //刷新
-  fresh() {
-    console.log('刷新');
-    wx.showLoading({
-      title: '数据加载中...',
-      duration: 1000,
-    });
-    let clock = setTimeout(() => {
-      this.renderTime();
-      wx.hideLoading();
-      clearInterval(clock)
-    }, 2000)
 
-  },
-  //
+ 
   Reload() { //重新加载.
-    wx.showLoading({
-      title: '加载中..',
+    this.setData({
+      topNum:0
     })
-    let data={
-      projectId:this.data.projectId
-    }
-    searhlist(data,true,this)
+    wx.showLoading({
+      title: '加载中',
+    })
+    let data = this.data.searchcriteria
+    data.pageSize=1
+    this.setData({
+      pageSize:1
+    })
+    searhlist(data, true, this)
   
+  },
+  refreshChose(e) { // 重选楼栋
+
+    wx.redirectTo({
+      url: `/pages/project/selection/selection?projectId=${ this.data.projectId}&from=zskp` 
+    })
+    wx.removeStorageSync('searchcriteria')
+  },
+  screen(e) { //可选筛选
+    wx.showLoading({
+      title: '加载中',
+    })
+    let type = e.currentTarget.dataset.id
+    let data = this.data.searchcriteria || {
+      projectId: this.data.projectId,
+
+    }
+    this.setData({
+      currentId: type
+    })
+    data.pageSize = 1
+    data.onlySelling = type
+    this.setData({
+      searchcriteria: data,
+      pageSize: 1
+    })
+    searhlist(data, true, this)
+  },
+  handlesearch(e) { //搜索车位
+    wx.showLoading({
+      title: '加载中',
+    })
+    this.setData({
+      pageSize: 1
+    })
+    let name = e.detail.searchValue
+    let data = wx.getStorageSync('searchcriteria')
+    data.name = name
+    data.pageSize = this.data.pageSize
+    this.setData({
+      searchcriteria: data
+    })
+    searhlist(data, true, this)
 
   },
+ 
 })

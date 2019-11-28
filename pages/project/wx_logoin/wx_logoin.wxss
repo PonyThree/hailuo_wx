@@ -1,6 +1,6 @@
 /**index.wxss**/
 page{
-  background: white
+  background: white!important;
 }
 .userinfo {
   display: flex;
@@ -19,7 +19,7 @@ page{
 .usermotto {
   margin-top: 70rpx;
   color: #999999;
-  font-size: 30rpx;
+  font-size: 24rpx;
   padding: 0 30rpx;
   line-height: 50rpx;
   text-align: center
@@ -31,7 +31,7 @@ button{
   border-radius: 40rpx;
   margin-top: 50rpx;
   height: 80rpx;
-  width: 500rpx;
+  width: 600rpx;
   line-height: 80rpx
 }
 .user{

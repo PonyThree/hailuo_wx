@@ -88,7 +88,7 @@ page{
   line-height: 80rpx;
   font-size: 30rpx;
   border-radius: 40rpx;
-  margin-top: 70rpx;
+  margin-top: 25rpx;
 }
 .topActive {
   background: #e5c478 !important;

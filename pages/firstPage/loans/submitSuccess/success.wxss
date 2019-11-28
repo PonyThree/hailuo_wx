@@ -1,0 +1,78 @@
+/* pages/firstPage/loans/submitSuccess/success.wxss */
+.wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrap .title {
+    height: 130rpx;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 60rpx 0 30rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 32rpx;
+    color: #333;
+    position: relative;
+    font-family: "FZLanTingHei-R-GBK Regular";
+}
+
+.wrap .title_icon {
+    background-image: url("https://china185.com/file/image/20191105/f78eb3039ad74600bc389f6c329635d2.png");
+    background-size: cover;
+    width: 22rpx;
+    height: 40rpx;
+    position: absolute;
+    left: 24rpx;
+    bottom: 25rpx;
+}
+
+.wrap .icon {
+    width: 120rpx;
+    height: 120rpx;
+    margin-top: 117rpx;
+    margin-bottom: 40rpx;
+}
+
+.wrap .icon_text {
+    font-size: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    width: 100%;
+    text-align: center;
+    color: #E5C478;
+    margin-bottom: 40rpx;
+}
+
+.wrap .info {
+    width: 100%;
+    height: 28rpx;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #777;
+    margin-bottom: 198rpx;
+    text-align: center;
+}
+
+.wrap .selectCar,
+.wrap .look {
+    width: 600rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    margin-bottom: 44rpx;
+    background-color: #E5C478;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 44rpx;
+    line-height: 80rpx;
+}
+
+.wrap .look {
+    background-color: #fff;
+    color: #E5C478;
+    margin-bottom: 0;
+    line-height: 80rpx;
+}

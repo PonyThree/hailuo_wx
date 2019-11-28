@@ -57,7 +57,7 @@ Component({
       if (data.controlRespDto.onlineBuyStatus) {
         textJson.push({
           text: `线上${data.controlRespDto.buyName}`,
-          desc: `线上支付${data.controlRespDto.buyMoneyName}(￥${data.controlRespDto.buyMoney - data.controlRespDto.downMoney})`
+          desc: `线上支付${data.controlRespDto.buyMoneyName}`
         })
       }
       textJson.push({

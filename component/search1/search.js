@@ -17,6 +17,9 @@ Component({
             var {value:searchValue}=e.detail;
             // console.log(searchValue)
             this.triggerEvent('gosearch', { searchValue}, { bubbles: true, composed: true})
-        }
+        },
+      refreshChose(){//重选楼栋
+        this.triggerEvent('refreshChose', {})
+      }
     }
 })

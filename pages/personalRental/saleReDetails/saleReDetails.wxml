@@ -9,9 +9,15 @@
             </view>
             <view class="right">
                 <text>车位价格</text>
-                {{info.minPrice}}<text style="color:#777777;font-size:24rpx;">元/月</text>
-                <text style="color:#777777;font-size:24rpx;margin:0 20rpx;">~</text>
-                {{info.maxPrice}}<text style="color:#777777;font-size:24rpx;">元/月</text>
+                <view class="" wx:if="{{info.minPrice!=0}}">
+                    <text style="color:#fb3b0f">{{info.minPrice}}</text><text style="color:#777777;font-size:24rpx;margin-left:10rpx;">元</text>
+                    <text style="color:#777777;font-size:24rpx;margin:0 20rpx;">~</text>
+                    <text style="color:#fb3b0f">{{info.maxPrice}}</text><text style="color:#777777;font-size:24rpx;margin-left:10rpx;">元</text>
+                </view>
+                <text style="color: #333333;font-size:28rpx;line-height:2rpx;" wx:if="{{info.minPrice==0}}">
+                    面议
+                </text>
+               
             </view>
             <view class='right'>
                 <text>车位标签</text>
@@ -19,13 +25,15 @@
                         <text wx:for="{{info.truckSpaceTagArray}}" wx:key="{{index}}">{{item}}</text>
                 </scroll-view>
             </view>
-            <view class="right">
-                <text>求租备注</text>
-                <text><text style="margin-right:20rpx;"></text>{{info.remark}}</text>
+            <view class="desc">
+                <text class="descTil">出售备注</text>
+                <view class="descTxt">
+                    <text>{{info.remark}}</text>
+                </view>
             </view>
         </view>
         <view class="relationPer">
-            <image src='/image/F_03.png' style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
+            <image src='https://china185.com/file/image/20191114/00fd4e1d13cf48e7b0b46eb438003e19.blob' style="width:60rpx;height:60rpx;margin-right:10rpx;"></image>
             <text>{{info.releaserName}}</text>
             <text class="phone" catchtap='call'  data-phone="{{info.releaserMobile}}">电话咨询</text>
         </view>

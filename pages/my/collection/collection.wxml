@@ -1,21 +1,15 @@
 <!--pages/my/collection/collection.wxml-->
-<!-- height:{{widHeight}}rpx;position: relative; -->
-<view style="height:{{widHeight}}rpx;position: relative;">
-  <!-- 头部 -->
-  <view class="title">
-    <!-- 收藏个数 -->
+<!-- <view style="height:{{widHeight}}rpx;position: relative;"> -->
+<!-- 头部 -->
+<!-- <view class="title">
     <view class="number">
       <view>您已收藏了
         <span>{{data.length}}</span> 个车位</view>
     </view>
-  </view>
-  <!-- 列表 -->
-  <swiper current="{{currentTab}}" duration="300" style='height:{{widHeight}}rpx'>
-    <!-- 车位收藏 -->
+  </view> -->
+<!-- <swiper current="{{currentTab}}" duration="300" style='height:{{widHeight}}rpx'>
     <swiper-item>
       <view class="style" wx:for="{{data}}" wx:key='index'>
-        <!-- <i-checkbox disabled="{{disabled}}" checked="{{checked}}" bindchange="handleChange" color="#a92112" i-class="radio" wx:key="index">
-        </i-checkbox> -->
         <view class="content {{isChecked?'is_checked':'normal'}}">
           <view class="project" catchtap='goParkInfoOpened' data-id='{{item.id}}'>
             <view class="top">
@@ -31,8 +25,6 @@
                         <span>收藏人数：{{item.collectNum}}</span>
                     </view>
                 </view>
-                <!-- <image src="/image/置顶@2x.png"></image> -->
-                <!-- <view class="good">这是最好的车位！</view> -->
                 <scroll-view class="tagview" scroll-x wx:if="{{item.tagRespDtos.length>0}}">
                   <text class="tag" wx:for="{{item.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
                 </scroll-view>
@@ -47,19 +39,49 @@
         </view>
       </view>
     </swiper-item>
-  </swiper>
-  <!-- 收藏为空 -->
-<!-- 全选取消
-  <view class="drawer {{isChecked?'block':'none'}}">
-    <i-radio disabled="{{disabled}}" checked="{{checked1}}" bindchange="handleChange1" color="#a92112" i-class="radios">
-    </i-radio>
-    <text>全选</text>
-    <button>取消收藏</button>
-  </view> -->
-
+  </swiper> -->
+<!-- </view> -->
+<view class="saveList">
+  <view class="list"  wx:for="{{data}}" wx:key='index' catchtap='goParkInfoOpened' data-id='{{item.id}}'>
+    <view class="info">
+      <image src="{{item.detailImage[0]}}"  class="pic"></image>
+      <view class="rightInfo">
+        <text>{{item.name}}</text>
+        <view>
+          <text>{{item.outsideArea}}㎡ |</text>
+          <text> {{item.projectName}} |</text>
+          <text> {{item.level1Name}}{{item.level2Name}}{{item.level3Name}}</text>
+        </view>
+        <!-- wx:if="{{item.tagRespDtos.length>=1}}" -->
+        <scroll-view class='tagview' scroll-x wx:if="{{item.tagRespDtos.length>=1}}">
+        <!-- item.tagRespDtos {{item.name}}-->
+          <text class="tag" wx:for="{{item.tagRespDtos}}" wx:key='index'>{{item.name}}</text>
+        </scroll-view>
+      </view>
+      <image src="/image/delete.png" class="delImg" catchtap='del' data-id="{{item.id}}"></image>
+    </view>
+    <view class="bomInfo">
+      <view class="price">
+        <view>
+          <text>特惠价</text>
+          <text>￥</text>
+          <text>{{item.sellPrice}}</text>
+        </view>
+        <view>
+          <text>￥{{item.facePrice}}</text>
+        </view>
+      </view>
+      <view class="num">
+        <text>{{item.downPlaceNum}}人落位</text>
+        <text>{{item.collectNum}}人收藏</text>
+      </view>
+    </view>
+    <image src="/image/saveSaled.png"  wx:if="{{item.sellStatus==2||item.sellStatus==3}}"></image>
+  </view>
 </view>
+<view style="height:20px;" wx:if="{{data.length>=4}}"></view>
 <view class="main" wx:if='{{data.length<1}}'>
-    <image src="/image/kongbai.png"></image>
-    <text>您还没有收藏心仪车位</text>
-    <button catchtap="goindex">去车位商城看看</button>
+  <image src="/image/kongbai.png"></image>
+  <text>您还没有收藏心仪车位</text>
+  <button catchtap="goindex">去车位商城看看</button>
 </view>

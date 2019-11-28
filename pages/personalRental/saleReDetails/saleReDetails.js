@@ -17,7 +17,6 @@ Page({
             title: '求售发布详情',
         })
         let id = options.id
-        console.log(id)
         this.setData({
             id: id
         })
@@ -73,7 +72,6 @@ Page({
     },
     // 打电话
     call(e) {
-        // console.log(e.currentTarget.dataset.phone)
         let phone = e.currentTarget.dataset.phone
         wx.makePhoneCall({
             phoneNumber: phone,
@@ -86,7 +84,6 @@ Page({
                 token: app.gettoken()
             },
             success: res => {
-                console.log(res.data)
                 this.setData({
                     info: res.data.data
                 })

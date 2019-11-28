@@ -6,8 +6,8 @@ Page({
    */
   data: {
     radio: '车位',
-     list: wx.getStorageSync('serchList'),
-  
+    list: wx.getStorageSync('serchList'),
+
   },
 
 
@@ -90,7 +90,7 @@ Page({
   search(e) {
     let list = wx.getStorageSync('serchList') || []
     let value = e.detail.value
-    if(value.length==0) return
+    if (value.length == 0) return
     if (this.data.radio == '小区') {
       wx.navigateTo({
         url: '/pages/project/Allflats/Allflats?projectName=' + value,
@@ -104,7 +104,7 @@ Page({
         list: list
       })
       wx.setStorageSync('serchList', list)
-    
+
 
     } else {
       let list = wx.getStorageSync('serchList1') || []
@@ -115,11 +115,11 @@ Page({
           value
         }
         wx.navigateTo({
-          url: '/pages/project/searchlist/searchlist?name=' + value +'&projectId='+wx.getStorageSync('dataid'),
+          url: '/pages/project/searchlist/searchlist?name=' + value + '&projectId=' + wx.getStorageSync('dataid'),
         })
         list.push(serch)
         this.setData({
-          list1:list
+          list1: list
         })
         wx.setStorageSync('serchList1', list)
         console.log(list)
@@ -127,31 +127,30 @@ Page({
     }
   },
   // 清除历史搜索记录
-  clear(){
-  
+  clear() {
+
     wx.removeStorageSync('serchList1')
     wx.removeStorageSync('serchList')
     this.setData({
-      list:[],
-      list1:[],
+      list: [],
+      list1: [],
     })
-    
+
 
   },
-  listsearch(e){
+  listsearch(e) {
     console.log(e)
     let type = e.target.dataset.type
     let name = e.target.dataset.name
-    if(type==1){
+    if (type == 1) {
       wx.navigateTo({
         url: '/pages/project/Allflats/Allflats?projectName=' + name,
       })
-    }
-    else{
+    } else {
       wx.navigateTo({
         url: '/pages/project/searchlist/searchlist?name=' + name + '&projectId=' + wx.getStorageSync('dataid'),
       })
     }
-    
+
   }
 })
