@@ -1,0 +1,183 @@
+<!--pages/activity/MultiplayerGroup/MultiplayerGroup.wxml-->
+<view class="MultiplayerGroup" >
+  <!-- 倒计时 -->
+  <view class="date" style="background:{{type==1||type==4?'#FA6D39':type==2?'#FFD46A':'#AAAAAA'}}" wx:if="{{hasJoinGroup}}">
+    <image src="/image/time.png" wx:if="{{type==1||type==4}}"></image>
+    <!-- 成团成功 -->
+    <image src="/image/times.png" wx:if="{{type==2}}"></image>
+    <!-- 成团失败 -->
+    <image src="/image/timef.png" wx:if="{{type==3}}"></image>
+    <view class="txt" wx:if="{{type==1||type==4}}">
+      <text>成团倒计时</text>
+      <view>
+        <text>19</text>天
+        <text>09</text>时
+        <text>00</text>分
+        <text>00</text>秒
+      </view>
+    </view>
+    <!-- 成功失败文本 -->
+    <view class="txts" wx:else>
+      <text wx:if="{{type==2}}" style="color:#1b1b1b;">恭喜您拼团成功,去领奖励吧!</text>
+      <text wx:if="{{type==3}}">该团未能按时凑齐人数,拼团失败下次加油吧</text>
+    </view>
+  </view>
+  <!-- 图片 -->
+  <view class="bgc" style=" height:{{hasJoinGroup==false?'1100':'1240'}}rpx">
+    <!-- 默认图 -->
+    <view>
+      <image src="https://china185.com/file/image/20191202/36f5d99c413942f3b6402ef2dbade549.gif" mode="widthFix"></image>
+      <image src="https://china185.com/file/image/20191202/cbc09cc7989c417492e415c0d8038037.png" mode="widthFix"></image>
+    </view>
+    <!-- 后台上传图 -->
+    <!-- <view>
+      <image src="https://china185.com/file/image/20191021/8b7017288bd54959a05bf591b40ba287.blob"></image>
+    </view> -->
+    <!-- 拼团信息 -->
+    <view class="multiplayInfo">
+      <view class="top">
+        <image src="/image/F_03.png"></image>
+        <text>您还没有资格领取优惠</text>
+        <view>
+          <text>10人团</text>
+          <text class="line">|</text>
+          <text>拼团成功, 各货</text>
+          <text class="price">￥500 </text>
+          <text>优惠</text>
+        </view>
+      </view>
+      <!-- 进度条 -->
+      <view class="processInfo" wx:if="{{hasJoinGroup}}">
+        <view class="process">
+          <view style="width:{{4/10*100}}%"></view>
+        </view>
+        <text><text style="font-weight:bold;">4</text>/10</text>
+      </view>
+      <!-- 拼团用户头像 -->
+      <view class="mulUser" wx:if="{{hasJoinGroup}}">
+        <view class="userList" catchtap="readMoreUser">
+          <image src="https://china185.com/file/image/20191021/8b7017288bd54959a05bf591b40ba287.blob" wx:for="{{4}}" style="left:{{index*38}}rpx;z-index:{{(index+1)*10}}" wx:if="{{index<=3}}" class="pic" wx:key="index"></image>
+          <image src="/image/dot.png" style="width:53rpx;height:53rpx;z-index:100;left:{{(53-18)*4}}rpx"></image>
+        </view>
+        <view class="Utxt">
+          <text>4人已参团,还差6人</text>
+        </view>
+      </view>
+      <view class="btn" wx:if="{{hasJoinGroup==false}}" catchtap="buildGroup">
+        <text style="background-color: #FFD46A;color: #313131;">创建团 (活动报名费￥ 100)</text>
+      </view>
+      <view class="btn" wx:if="{{hasJoinGroup==true}}">
+        <button open-type="share" wx:if="{{type!=2&&type!=3}}" style="" class="sharePage">邀请好友参团</button>
+        <text wx:if="{{type==2}}" style="background-color: #FFD46A;color: #313131;">领取优惠 (￥ 100)</text>
+        <text wx:if="{{type==3}}" style="background-color: #AAAAAA;color: #ffffff;">再开一团</text>
+      </view>
+    </view>
+
+  </view>
+  <!-- 活动规则车位 -->
+  <view class="actCarRel">
+    <image src="/image/carlist1.png" catchtap="goActParking"></image>
+    <image src="/image/actRel.png" catchtap="seeRegular"></image>
+  </view>
+  <view style="width:750rpx;height:24rpx;background-color:#f8f8f8;"></view>
+  <!-- 直接拼团 -->
+  <view class="mul">
+    <view class="til">
+      <text>无需开团,直接去拼</text>
+      <text><text style="font-weight:bold;">127</text>人正在拼团</text>
+    </view>
+    <view class="con">
+      <view class="teamList">
+        <view class="item" wx:for="{{4}}" wx:if="{{index<=2}}" style="margin-top:{{index>=1?'32':'0'}}rpx" wx:key="index">
+          <view class="itemPic">
+            <image src="/image/F_03.png" style="width:60rpx;height:60rpx;"></image>
+          <text>Jiesion</text>
+          </view>
+          <view class="rightInfo">
+            <text>差<text style="color:#FA6D39">1</text>人拼团</text>
+            <view catchtap="joinGroup" wx:if="{{hasJoinGroup==false}}">参团</view>
+          </view>
+        </view>
+        <view class="findMore" catchtap="findMore">
+          <text>查看更多</text>
+          <image src="/image/zk.png" style="width:10rpx;height:17rpx;margin-left:10rpx;"></image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view style="width:750rpx;height:24rpx;background-color:#f8f8f8;"></view>
+  <!-- 拼团玩法 -->
+  <view class="mul">
+    <view class="til">
+      <text>拼团玩法</text>
+    </view>
+    <view class="con">
+      <image src="/image/mulStep.png" style="width:665rpx;height:117rpx;margin:0 auto;"></image>
+      <view class="safeInfo">
+        <text>本活动最终解释权归项目方所有</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 规则弹窗 -->
+<van-popup show="{{ showRegular }}" overlay="{{ true }}" bind:close="onClose" round close-on-click-overlay="{{fasle}}" closeable close-icon="close" close-icon-position="top-right" custom-style="width: 620rpx;height: 780rpx;overflow: hidden;border-radius: 20rpx;background-color: #ffffff;">
+  <view class="reguInfo">
+    <text class="til">活动规则</text>
+    <view class="relCon">
+      <text>1.活动时间:即日起至2019年7月31日\n
+    2.优惠可用时间:即日起至2019年8月31日\n
+    3.活动门槛:需缴纳保证金方可参与活动\n
+    4.活动内容:\n
+      4.1活动期间,用户发起活动,邀请好友;\n 
+      4.2奖品直接发放到用户账户中。
+    </text>
+    </view>
+    <text class="spe" >活动车位数量有限,抢完即止。</text>
+    <view class="rBtn" catchtap="onClose">我知道了</view>
+    <image src="/image/close1.png" class="close1" catchtap="onClose"></image>
+  </view>
+</van-popup>
+<!-- 更多参团人 团 -->
+<van-popup show="{{ moreMulPerson }}" overlay="{{ true }}" bind:close="onClose1" round close-on-click-overlay="{{fasle}}" closeable close-icon="close" close-icon-position="top-right" custom-style="width: 686rpx;height: 800rpx;overflow: hidden;border-radius: 20rpx;background-color: #ffffff;" close-on-click-overlay="{{false}}">
+  <view class="moreUser" >
+    <view class="util" wx:if="{{type==1}}">
+      参团人数 (4)
+    </view>
+    <view class="util" wx:if="{{type==2}}">
+      
+    </view>
+    <view class="ulist" >
+      <scroll-view scroll-y="true" style="height: 600rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+        <view class="teamList teamList1}}">
+          <view class="item" wx:for="{{10}}"  style="margin-top:{{index>=1?'32':'0'}}rpx" wx:key="index">
+            <view class="itemPic">
+              <image src="/image/F_03.png" style="width:60rpx;height:60rpx;"></image>
+              <text>胡汉三好汉！</text>
+            </view>
+            <view class="rightInfo" wx:if="{{type==1}}">
+              <text style="margin-left:0rpx;">2019.11.14 16:32:32加入团</text>
+            </view>
+            <view class="rightInfo" wx:if="{{type==2}}">
+              <text>差<text style="color:#FA6D39">1</text>人拼团</text>
+              <view catchtap="joinGroup">参团</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <image src="/image/close1.png" class="close1" catchtap="onClose1"></image>
+  </view>
+</van-popup>
+<!-- 参团成功 -->
+<van-popup show="{{ joinSuc }}" overlay="{{ true }}" bind:close="onClose2" round close-on-click-overlay="{{fasle}}" closeable close-icon="close" close-icon-position="top-right" custom-style="width: 620rpx;height:600rpx;overflow: hidden;border-radius: 20rpx;background-color: #ffffff;">
+  <view class="reguInfo">
+    <view class="joinSuc">
+      <image src="/image/joinSuc.png"></image>
+      <text>创建成功</text>
+    </view>
+    <text>去邀请好友一起参加吧!</text>
+    <view class="confirm" catchtap="onClose2">确定</view>
+    <image src="/image/close1.png" class="close1" catchtap="onClose2"></image>
+  </view>
+</van-popup>

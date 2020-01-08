@@ -1,0 +1,44 @@
+<!--component/orderDetail/orderDetail/orderDetail.wxml-->
+
+<view class="{{showBool?'wrap show':'wrap hidden'}}">
+    <view class="gold_wrap">
+        <block wx:for="{{orderMessage.item}}" wx:key="index">
+            <view class="gold_item">
+                <view class="title_wrap">
+                    <view class="title_name">{{item.name}}</view>
+                    <view class="title_price"><text>（核销完成原路退款）</text><text>￥</text>{{item.price}}</view>
+                </view>
+                <view class="addition_wrap">
+                    <block wx:for="{{item.deduction}}" wx:key="index">
+                        <view class="addition_item">
+                            <view class="addition_label">{{item.name}}</view>
+                            <view wx:if="{{item.status==='sub'}}" class="addition_num">
+                                <text>（核销完成原路退款）</text>
+                                -<text>￥</text>{{item.price}}
+                            </view>
+                            <view wx:if="{{item.status==='add'}}" class="addition_num">
+                                <text>（核销完成原路退款）</text>
+                                <text>￥</text>{{item.price}}
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="all_price">
+        <view class="price_item">
+            <view class="price_label">车位销售价</view>
+            <view class="price_num"><text>￥</text>{{orderMessage.salePrice}}</view>
+        </view>
+        <view class="price_item">
+            <view class="price_label">活动优惠</view>
+            <view class="price_num">-<text>￥</text>{{orderMessage.discountsPrice}}</view>
+        </view>
+
+        <view class="price_item">
+            <view class="price_label">车位最终价</view>
+            <view class="price_num"><text>￥</text>{{orderMessage.salePrice-orderMessage.discountsPrice}}</view>
+        </view>
+    </view>
+</view>

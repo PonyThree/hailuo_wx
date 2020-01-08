@@ -1,0 +1,50 @@
+.page {
+  width: 686rpx;
+  padding: 0 32rpx;
+}
+
+.detail {
+  height: 690rpx;
+  background: white;
+  margin-top: 50rpx;
+  padding: 20rpx 50rpx;
+}
+
+.detail .title {
+  font-size: 30rpx;
+  font-weight: 600;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.detail .center .li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.detail .center .li>text:nth-child(1) {
+  color: #757575;
+}
+
+.botoom {
+  width: 636rpx;
+  height: 261rpx;
+  background: url("https://china185.com/file/image/20200107/3fda5bc6886d4046bb08cd5381da8a5f.blob") no-repeat center/100% 100%;
+  margin-left: -24rpx;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 24rpx
+}
+
+.botoom .li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx
+}
+
+.botoom .li>text:nth-child(1) {
+  color: #757575;
+}

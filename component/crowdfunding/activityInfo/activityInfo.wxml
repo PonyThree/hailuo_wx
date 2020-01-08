@@ -1,0 +1,38 @@
+<!--component/crowdfunding/activityInfo/activityInfo.wxml-->
+<view class="wrap">
+    <!-- 活动即将开始 -->
+    <view class="item aboutColor" wx:if="{{showBool==='about'}}">
+        <view class="box">
+            <view class="about_wrap">
+                <icon class="ice" size="24rpx" color="#fff" type="waiting"></icon>
+                <text class="info">{{infoText}}</text>
+                <view class="time">{{day}}</view>
+                <text class="about_text">天</text>
+                <view class="time">{{hours}}</view>
+                <text class="about_text">时</text>
+                <view class="time">{{minute}}</view>
+                <text class="about_text">分</text>
+                <view class="time">{{second}}</view>
+                <text class="about_text">秒</text>
+            </view>
+        </view>
+    </view>
+    <!-- 活动失败 -->
+    <view class="item errorColor" wx:if="{{showBool==='error'}}">
+        <view class="box">
+            <view class="error_wrap">
+                <icon class="ice" color="#fff" size="24rpx" type="cancel"></icon>
+                <view>{{infoText}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 活动成功 -->
+    <view class="item successColor" wx:if="{{showBool==='success'}}">
+        <view class="box">
+            <view class="success_wrap">
+                <icon class="ice" size="24rpx" type="success"></icon>
+                <view>{{infoText}}</view>
+            </view>
+        </view>
+    </view>
+</view>

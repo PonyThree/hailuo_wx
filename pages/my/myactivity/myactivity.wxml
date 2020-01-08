@@ -1,0 +1,17 @@
+<view class="page">
+  <view class="list"  bindtap="goDetail">
+    <view class="top">
+      <text>活动进行中</text>
+      <van-icon name="arrow" size="15px" style="vertical-align: middle"/> 
+    </view>
+    <view class="center">
+      <image></image>
+      <view class="right">
+        <text>秒杀聚划算落位立减40000</text>
+        <text>项目: 北大资源博雅东</text>
+        <text>2020.01.05 - 2020.06.05</text>
+      </view>
+    </view>
+    
+  </view>
+</view>

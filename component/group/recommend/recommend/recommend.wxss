@@ -1,0 +1,154 @@
+/* component/group/recommend/recommend.wxss */
+.group_wrap {
+    border-radius: 10rpx;
+    width: 686rpx;
+    height: 562rpx;
+    background-color: #FA6D39;
+    margin-left: 32rpx;
+}
+
+
+.group_wrap .group_title {
+    background-color: #FC865A;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left: 30rpx;
+    font-size: 28rpx;
+    color: #fff;
+    font-weight: bold;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+
+.group_wrap .group_title text:nth-of-type(1) {
+    margin-right: 10rpx;
+}
+
+.group_wrap .group_box {
+    width: 654rpx;
+    height: 424rpx;
+    margin: 24rpx auto 34rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10rpx;
+    padding: 17rpx 17rpx 0;
+}
+
+.group_wrap .activity_item {
+    height: 148rpx;
+    width: 100%;
+    border-bottom: 1rpx solid #e1e1e1;
+    display: flex;
+    align-items: center;
+}
+
+.group_wrap .activity_img {
+    width: 76rpx;
+    height: 76rpx;
+    border-radius: 50%;
+    margin-right: 15rpx;
+    background-size: cover;
+}
+
+.group_wrap .activity_name {
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 26rpx;
+    color: #1b1b1b;
+    margin-right: 46rpx;
+    max-width: 150rpx;
+}
+
+.group_wrap .activity_time {
+    height: 72rpx;
+    width: 180rpx;
+    margin-right: 35rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.group_wrap .activity_time .time_info {
+    height: 33rpx;
+    line-height: 33rpx;
+    font-size: 24rpx;
+    color: #1b1b1b;
+    text-align: left;
+}
+
+.group_wrap .activity_time .time {
+    font-size: 26rpx;
+    color: #FA6D39;
+    height: 36rpx;
+    line-height: 36rpx;
+}
+
+.group_wrap .activity_btn {
+    height: 83rpx;
+    width: 145rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.group_wrap .btn {
+    width: 120rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    background-color: #ffd46a;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    /* font-weight: bold; */
+    color: #1b1b1b;
+    text-align: center;
+    margin-bottom: 6rpx;
+
+}
+
+.group_wrap .btn_info {
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    color: #1b1b1b;
+}
+
+.group_wrap .btn_info text {
+    color: #FA6D39;
+}
+
+.activity_info {
+    height: 110rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity_info .info_text {
+    font-size: 28rpx;
+    color: #1b1b1b;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.activity_info .more_btn {
+    color: #757575;
+    font-size: 24rpx;
+    height: 32rpx;
+    width: 78rpx;
+    padding-right: 30rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.activity_info .more_btn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: calc(50% - 12.5rpx);
+    height: 21rpx;
+    width: 13rpx;
+    background-image: url("https://china185.com/file/image/20191226/00c589832b1b4220a7e7b763d8fc1a48.png");
+    background-size: cover;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-icon": "/zan/lib/icon/index"
+  },
+  "navigationBarTitleText": "我的活动"
+}

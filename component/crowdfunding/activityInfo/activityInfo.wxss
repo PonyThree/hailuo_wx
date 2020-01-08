@@ -1,0 +1,89 @@
+/* component/crowdfunding/activityInfo/activityInfo.wxss */
+.wrap {
+    position: relative;
+    height: 50rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.wrap .item {
+    height: 50rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.wrap .item.aboutColor {
+    background-color: #8A93FE;
+}
+
+.wrap .item.errorColor {
+    background-color: #aaa;
+}
+
+.wrap .item.successColor {
+    background-color: #FFD46A;
+}
+
+
+.box {
+    height: 100%;
+    display: inline-block;
+}
+
+/* 即将开始 */
+.wrap .about_wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.wrap .ice {
+    height: 24rpx;
+    width: 24rpx;
+    margin-right: 16rpx;
+}
+
+
+.wrap .about_wrap .info {
+    height: 36rpx;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #fff;
+    margin-right: 26rpx;
+}
+
+.wrap .about_wrap .time {
+    height: 36rpx;
+    min-width: 36rpx;
+    background-color: #1b1b1b;
+    border-radius: 6rpx;
+    line-height: 36rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+    padding: 0 5rpx;
+    box-sizing: border-box;
+    margin-right: 8rpx;
+}
+
+.wrap .about_wrap .about_text {
+    font-size: 24rpx;
+    color: #fff;
+    margin-right: 14rpx;
+}
+
+
+/* 失败 */
+.wrap .error_wrap,
+.wrap .success_wrap {
+    font-size: 26rpx;
+    color: #fff;
+    height: 100%;
+    line-height: 50rpx;
+    display: flex;
+    align-items: center;
+}
+
+.wrap .success_wrap {
+    color: #1b1b1b;
+}

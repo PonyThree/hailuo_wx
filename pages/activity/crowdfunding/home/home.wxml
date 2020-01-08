@@ -1,0 +1,134 @@
+<!--pages/crowdfunding/home/home.wxml-->
+<view class="wrap">
+  <view class="header">
+    <view class="activity_box">
+      <activityInfo data="{{currentStatusData}}"></activityInfo>
+    </view>
+    <view class="ticket_warp">
+      <view class="text_wrap">
+        <view class="text_box">
+          <text class="ticket_label">车位最高可优惠</text>
+          <text>￥</text>
+          <text>10000</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 活动进程 -->
+  <view class="{{scheduleStatus?'schedule_wrap':'schedule_wrap little'}}">
+    <view class="schedule_box">
+      <view class="schedule_title about" wx:if="{{activityStatus==='notStart'}}">活动未开始 敬请期待</view>
+      <view class="schedule_title begin" wx:if="{{activityStatus==='proceed'}}">
+        <text>15人</text>参与活动</view>
+      <view class="schedule_title begin" wx:if="{{activityStatus==='end-success'}}">
+        <text>15人</text>参与活动</view>
+      <view class="schedule_title begin" wx:if="{{activityStatus==='end-error'}}">
+        <text>15人</text>参与活动</view>
+      <!-- 目标 -->
+      <view class="schedule_content">
+        <!-- 多目标 -->
+        <view class="schedule_many" wx:if="{{scheduleStatus}}">多目标</view>
+        <!-- 少目标 -->
+        <view class="schedule_little" wx:else>
+          <progress percent="{{percent}}" show-info="true" border-radius="14rpx" font-size="28rpx" stroke-width="28rpx" backgroundColor="#f0f0f0" activeColor="#fa6d39" active duration="10"></progress>
+        </view>
+      </view>
+      <!-- 活动人数 -->
+      <view class="target_info">
+        <view class="target_item">
+          <view class="people_num">50人</view>
+          <view class="people_label">目标人数</view>
+        </view>
+        <view class="target_item">
+          <view class="people_num">10000元</view>
+          <view class="people_label">单人最高优惠</view>
+        </view>
+        <view class="btn_wrap">
+          <button loading="{{activityBtnLoading}}" class="activity_btn not" wx:if="{{activityStatus==='notStart'}}">加入活动</button>
+          <button loading="{{activityBtnLoading}}" class="activity_btn" wx:if="{{activityStatus==='proceed'}}" catchtap="addActivity">加入活动</button>
+          <button loading="{{activityBtnLoading}}" class="activity_btn success" catchtap="getAward" wx:if="{{activityStatus==='end-success'}}">领取奖励</button>
+          <button loading="{{activityBtnLoading}}" class="activity_btn error" wx:if="{{activityStatus==='end-error'}}">活动失败</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 导航 -->
+  <view class="nav">
+    <view class="nav_item">
+      <view class="nav_icon"></view>
+      <view class="nav_label">活动车位</view>
+    </view>
+    <view class="nav_item">
+      <view class="nav_icon"></view>
+      <view class="nav_label">邀请好友</view>
+    </view>
+  </view>
+  <!-- 操作流程 -->
+  <view class="rule_wrap">
+    <view class="rule_title">活动规则</view>
+    <view class="rule_flow">
+      <view class="flow_item">
+        <view class="flow_wrap">
+          <view class="flow_box">
+            <view class="flow_icon"></view>
+          </view>
+          <view class="flow_label">参团</view>
+        </view>
+      </view>
+      <view class="flow_node"></view>
+      <view class="flow_item">
+        <view class="flow_wrap">
+          <view class="flow_box">
+            <view class="flow_icon"></view>
+          </view>
+          <view class="flow_label">邀请好友</view>
+        </view>
+      </view>
+      <view class="flow_node"></view>
+      <view class="flow_item">
+        <view class="flow_wrap">
+          <view class="flow_box">
+            <view class="flow_icon"></view>
+          </view>
+          <view class="flow_label">拼团成功</view>
+        </view>
+      </view>
+      <view class="flow_node"></view>
+      <view class="flow_item">
+        <view class="flow_wrap">
+          <view class="flow_box">
+            <view class="flow_icon"></view>
+          </view>
+          <view class="flow_label">享福利</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    本活动最终解释权归项目方所有
+  </view>
+  <!-- 参与成功弹窗提示 -->
+  <view class="window_info" wx:if="{{infoWindowBool}}">
+    <view class="mask" data-tag="info" catchtap="clearWindow"></view>
+    <view class="info_wrap">
+      <view class="clear" data-tag="info" catchtap="clearWindow"></view>
+      <view class="info_icon"></view>
+      <view class="info_title">参加成功</view>
+      <view class="info_message">去邀请好友一起参加吧！</view>
+      <view class="info_btn" data-tag="info" catchtap="clearWindow">我知道了</view>
+    </view>
+  </view>
+  <!-- 报名缴费弹窗提示 -->
+  <view class="window_pay" wx:if="{{payWindowBool}}">
+    <view class="mask" data-tag="pay" catchtap="clearWindow"></view>
+    <view class="info_wrap">
+      <view class="info_title">缴纳报名费</view>
+      <view class="info_message">请支付报名费￥100后参加活动， 报名缴纳后可退还
+      </view>
+      <view class="btn_box">
+        <view class="refuse" data-tag="pay" catchtap="clearWindow">暂时不了</view>
+        <view class="pay" catchtap="pay">去支付</view>
+      </view>
+    </view>
+  </view>
+</view>

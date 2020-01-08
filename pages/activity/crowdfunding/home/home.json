@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "activityInfo": "../../../component/crowdfunding/activityInfo/activityInfo"
+  }
+}

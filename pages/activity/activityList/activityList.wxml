@@ -1,0 +1,23 @@
+<!--pages/activity/activityList/activityList.wxml-->
+<view class="actList">
+    <view class="til">
+      <text>活动列表</text>
+      <view>找世间车位,为您的爱车按一个家。</view>
+    </view>
+    <view class="list">
+      <view class="item" wx:for="{{6}}" wx:key="{{index}}">
+        <image src="/image/sss_03.png"></image>
+        <view class="content" style="height:{{num!=0?'140':'120'}}rpx;">
+          <view type="{{type}}" class="info">
+            <text class="actil">秒杀聚划算落位立减40000是开放的空间工行卡</text>
+            <view class="time" wx:if="{{type==1}}" style="color:#FA6D39;margin-top:{{num==0?'20':'0'}}rpx">6月15日 16:00结束。</view>
+            <view class="time" wx:if="{{type==2}}" style="color:#757575;margin-top:{{num==0?'20':'0'}}rpx">6月15日 16:00结束。</view>
+            <text class="num"wx:if="{{num!=0}}">155人参与</text>
+          </view>
+        </view>
+      </view>
+    
+    
+    </view>
+
+</view>

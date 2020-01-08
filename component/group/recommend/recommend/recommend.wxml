@@ -1,0 +1,26 @@
+<!--component/group/recommend/recommend.wxml-->
+<view class="group_wrap" style="margin-bottom:{{marginBom}}rpx">
+    <view class="group_title"><text>拼团已就位</text><text>车位不再贵</text></view>
+    <view class="group_box">
+        <view class="activity_box">
+            <block wx:for="{{2}}" wx:key="index">
+                <view class="activity_item">
+                    <view class="activity_img" style="background-image: url(https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg);"></view>
+                    <view class="activity_name">呃呃挺好</view>
+                    <view class="activity_time">
+                        <view class="time_info">距结束</view>
+                        <view class="time">26天13:33:33</view>
+                    </view>
+                    <view class="activity_btn">
+                        <view class="btn" catchtap="joinGroup">参团</view>
+                        <view class="btn_info">还差<text>99</text>人拼团</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="activity_info" catchtap="goGroupAct">
+            <view class="info_text">66人正在拼团中，去参加活动吧</view>
+            <view class="more_btn">详情</view>
+        </view>
+    </view>
+</view>

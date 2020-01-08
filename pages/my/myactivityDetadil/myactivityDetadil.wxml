@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="detail">
+    <view class="title">秒杀聚划算落位立减40000</view>
+    <view class="center">
+      <view class="li">
+        <text>活动编号</text>
+        <text>20200105181808</text>
+      </view>
+      <view class="li">
+        <text>项目</text>
+        <text>20200105181808</text>
+      </view>
+      <view class="li">
+        <text>活动时间</text>
+        <text>20200105181808</text>
+      </view>
+      <view class="li">
+        <text>活动优惠</text>
+        <text>20200105181808</text>
+      </view>
+      <view class="li">
+        <text>活动编号</text>
+        <text>20200105181808</text>
+      </view>
+    </view>
+    <view class='botoom'>
+     <view class="li">
+        <text>活动报名费</text>
+        <text></text>
+      </view>
+       <view class="li">
+        <text>金额</text>
+        <text>￥100</text>
+      </view>
+       <view class="li">
+        <text>缴纳时间</text>
+        <text>20200105181808</text>
+      </view>
+        <view class="li">
+        <text>报名费退款</text>
+        <text>不可退</text>
+      </view>
+    </view>
+  </view>
+</view>

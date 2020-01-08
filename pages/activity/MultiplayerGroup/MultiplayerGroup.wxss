@@ -1,0 +1,472 @@
+/* pages/activity/MultiplayerGroup/MultiplayerGroup.wxss */
+page{
+  background: #ffffff!important;
+  height: auto!important;
+}
+.MultiplayerGroup{
+  width: 750rpx;
+  height: 100%;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+/* 头部倒计时 */
+.date{
+  position: fixed;
+  z-index: 1000!important;
+  /* top:0;
+  left: 0;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 70rpx;
+  color: #ffffff;
+  font-size: 24rpx;
+}
+.date image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.txt text{
+  vertical-align: middle;
+}
+.txt view{
+  display: inline-block;
+  margin-left: 30rpx;
+  line-height: 35rpx;
+}
+.txt view text{
+  display: inline-block;
+  text-align: center;
+  background-color: #D64E1C;
+  width: 35rpx;
+  height: 35rpx;
+  padding: 1rpx 2rpx;
+  margin-right: 6rpx;
+  border-radius: 6rpx;
+}
+/* 图片 */
+.bgc{
+  position: relative;
+  width: 750rpx;
+  background-color: #ffffff;
+  overflow: hidden;
+  /* border:1px solid #000; */
+}
+.bgc >view>image{
+  width: 750rpx;
+  height: 870rpx;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.bgc >view>image:nth-child(1){
+  z-index: 100;
+}
+.bgc >image:nth-child(12){
+  z-index: 10;
+}
+/* 拼团信息 */
+.multiplayInfo{
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 26rpx;
+  padding-top: 16rpx;
+  top: 770rpx;
+  left: 0;
+  right:0;
+  margin:auto; 
+  width: 686rpx;
+  /* height: 450rpx; */
+  /* height: auto; */
+  padding-bottom: 60rpx;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 30px 0px rgba(90,57,60,0.1)
+}
+.multiplayInfo >view.top{
+  width: 640rpx;
+  height: auto;
+}
+.multiplayInfo >view.top image{
+  width: 53rpx;
+  height: 53rpx;
+  vertical-align: middle;
+  margin-right: 12rpx;
+}
+.multiplayInfo >view.top >text{
+  font-size: 22rpx;
+  color: #1b1b1b;
+  vertical-align: middle;
+}
+view.top >view{
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  width: 100%;
+  margin-top: 6rpx;
+  font-size: 30rpx;
+  height: 56rpx;
+  color: #1B1B1B;
+  font-weight: bold;
+}
+/* 竖线 */
+view.top >view >text.line{
+  width: 1rpx;
+  height: 47rpx;
+  line-height: 40rpx;
+  margin: 0 20rpx;
+  color: #707070;
+}
+/* 价格 */
+view.top >view >text.price{
+  font-size:40rpx;
+  color:#FA6D39;
+  margin:0 10rpx;
+}
+/* 底部按钮 */
+.multiplayInfo .btn{
+  width: 640rpx;
+  height: 70rpx;
+  text-align: center;
+  border-radius: 36rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  margin-top: 52rpx;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.btn text{
+  display: block;
+  box-sizing: border-box;
+  width: 640rpx;
+  height: 70rpx;
+  text-align: center;
+  border-radius: 36rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+button.sharePage{
+  display: block;
+  box-sizing: border-box;
+  width: 640rpx;
+  height: 70rpx;
+  text-align: center;
+  border-radius: 36rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  background-color: #ffffff;
+  color:#FA6D39;
+  border:1px solid #FA6D39;
+}
+.processInfo{
+  display: flex;
+  align-items: center;
+  width: 640rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #1B1B1B;
+  margin:20rpx 0;
+}
+.processInfo .process{
+  position: relative;
+  width: 545rpx;
+  height: 24rpx;
+  overflow: hidden;
+  background-color: #F0F0F0;
+  border-radius: 12rpx;
+  margin-right: 32rpx;
+}
+.processInfo .process >view{
+  height:24rpx;
+  background-color: #FA6D39;
+  border-radius: 12rpx;
+}
+/* 用户头像信息 */
+.mulUser{
+  display: flex;
+  width: 640rpx;
+  height: 53rpx;
+  overflow: hidden;
+}
+.mulUser .userList{
+  position: relative;
+  width: 200rpx;
+  height: 53rpx;
+  overflow: hidden;
+}
+.userList >image{
+  position: absolute;
+  top: 0;
+}
+.userList >image.pic{
+  position: absolute;
+  top: 0;
+  width: 53rpx;
+  height: 53rpx;
+  box-sizing: border-box;
+  border:2rpx solid #F0F0F0;
+  border-radius: 50%;
+}
+.mulUser >view.Utxt{
+  margin-left: 30rpx;
+}
+.mulUser >view.Utxt>text{
+  font-size: 28rpx;
+  color: #1B1B1B;
+  line-height: 53rpx;
+  font-weight: bold;
+}
+/* 活动规则车位 */
+.actCarRel{
+  display: flex;
+  justify-content: space-between;
+  width: 686rpx;
+  height: 120rpx;
+  margin:60rpx auto;
+}
+.actCarRel >image{
+  width: 300rpx;
+  height: 120rpx;
+}
+/* 无需开团 拼团玩法 */
+.mul{
+  width: 750rpx;
+  background-color: #ffffff;
+}
+/* 头部标题 */
+.til{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 686rpx;
+  margin: 52rpx auto 62rpx;
+  color: #313131;
+}
+.mul .til >text:nth-child(1){
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.mul .til >text:nth-child(2){
+  font-size: 26rpx;
+}
+/* 信息页 */
+.mul .con{
+  width: 686rpx;
+  margin: 0 auto;
+}
+/* 拼团列表 */
+.teamList{
+  width: 100%;
+  height: 480rpx;
+  overflow: hidden;
+}
+.teamList.teamList1{
+  height: auto;
+  padding-bottom: 20rpx;
+}
+.teamList .item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60rpx;
+  width: 100%;
+  color: #1B1B1B;
+  padding-bottom: 30rpx;
+  /* background-color: pink; */
+  border-bottom: 1px solid #E1E1E1;
+}
+.item .itemPic{
+  display: flex;
+  width: 190rpx;
+  align-items: center;
+}
+.item  .itemPic>image{
+  width:60rpx;
+  height: 60rpx;
+  margin-right: 22rpx;
+}
+.item  .itemPic>text{
+  display: block;
+  width: 100rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 24rpx;
+}
+.item .rightInfo{
+  display: flex;
+  height: 60rpx;
+  color: #1B1B1B;
+  line-height: 60rpx;
+}
+.rightInfo >text{
+  font-size: 26rpx;
+  color: #1B1B1B;
+  /* margin-left: 206rpx; */
+}
+.rightInfo view{
+  display: inline-block;
+  width: 120rpx;
+  height: 50rpx;
+  text-align: center;
+  border-radius: 26rpx;
+  margin-left: 60rpx;
+  margin-top: 5rpx;
+  line-height: 50rpx;
+  background-color: #FFD46A;
+}
+.rightInfo view{
+  font-size: 28rpx;
+}
+/* 查看更多 */
+.teamList .findMore{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 56rpx;
+  /* background-color: pink; */
+  padding-top: 44rpx;
+}
+.findMore text{
+  font-size:26rpx;
+  color: #1B1B1B;
+  font-weight: bold; 
+}
+.safeInfo{
+  text-align: center;
+  width: 686rpx;
+  height: 102rpx;
+  line-height: 102rpx;
+  margin-top: 40rpx;
+  border-top: 1px solid #E1E1E1;
+}
+.safeInfo text{
+  font-size: 20rpx;
+  color: #999999;
+}
+/* 弹窗规则 */
+.reguInfo{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-left: 44rpx;
+  box-sizing: border-box;
+  text-align: left;
+  overflow: hidden;
+}
+.reguInfo .til{
+  display: block;
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: bold;
+  width: 100%;
+  margin:52rpx auto 44rpx;
+  text-align: center;
+}
+.reguInfo .relCon{
+  font-size: 24rpx;
+  color: #999999;
+}
+.reguInfo .spe{
+  display: block;
+  text-align: center;
+  font-size: 24rpx;
+  color: #FA6D39;
+  margin:40rpx auto 56rpx;
+}
+.reguInfo .rBtn{
+  width: 240rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #000000;
+  margin:0 auto;
+  border-radius: 36rpx;
+  text-align: center;
+  background-color: #FFD46A;
+}
+/* 拼团成功弹窗 */
+.reguInfo .joinSuc{
+  width: 100%;
+  margin-top: 80rpx; 
+  margin-bottom: 66rpx;
+  text-align: center;
+}
+.reguInfo >text{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #757575;
+}
+/* 确定按钮 */
+.reguInfo .confirm{
+  width: 240rpx;
+  height: 70rpx;
+  margin:40rpx auto 0;
+  line-height: 70rpx;
+  border-radius: 36rpx;
+  text-align: center;
+  color: #1B1B1B;
+  font-weight: bold;
+  background-color: #FFD46A;
+}
+.joinSuc  >image{
+  display: block;
+  width: 112rpx;
+  height: 112rpx;
+  margin: 0 auto 16rpx;
+}
+.joinSuc text{
+  font-size: 32rpx;
+  color: #1B1B1B;
+  font-weight: bold;
+} 
+/* 规则关闭按钮 */
+.close1{
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  top:20rpx;
+  right: 20rpx;
+  z-index: 200;
+}
+/* 更多参团人 */
+.moreUser{
+  width: 686rpx;
+  height: 800rpx;
+  overflow: hidden;
+}
+.moreUser .util{
+  width: 100%;
+  height:40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #1B1B1B;
+  font-size: 28rpx;
+  margin:40rpx auto 46rpx;
+  font-weight: bold;
+}
+.util.util1{
+  margin:0 auto 52rpx;
+}
+.moreUser .ulist{
+  width: 638rpx;
+  height: 600rpx;
+  margin:0 auto;
+  /* background-color: pink; */
+  overflow: hidden;
+}
+.ulist .scroll-view-item{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid #E1E1E1;
+}

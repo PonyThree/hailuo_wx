@@ -1,0 +1,36 @@
+<!--component/orderDetail/discountsActivity/discountsActivity.wxml-->
+<view class="wrap">
+    <view class="header">
+        <view class="header_text">优惠活动</view>
+        <view class="help"></view>
+    </view>
+    <scroll-view scroll-x="true">
+        <view class="scroll_wrap">
+            <back wx:for="{{activityData}}" wx:key="index">
+                <view class="activity_item">
+                    <view class="top">
+                        <view class="title">{{item.activityName}}</view>
+                        <view class="discountsPrice">{{item.info}}</view>
+                    </view>
+                    <view class="bottom">
+                        <view class="doorsill">活动门槛</view>
+                        <view class="price_box">
+                            <view class="price"><text>￥</text>{{item.price}}</view>
+                            <view class="{{item.flag?'select_btn active':'select_btn'}}" data-index="{{index}}" bindtap="selectActivity"></view>
+                        </view>
+                    </view>
+                </view>
+            </back>
+        </view>
+    </scroll-view>
+    <view class="money_box">
+        <view class="money_item">
+            <view class="money_label">优惠金共计</view>
+            <view class="money_num"><text>￥</text>15000</view>
+        </view>
+        <view class="money_item">
+            <view class="money_label">最终车位价</view>
+            <view class="money_num"><text>￥</text>15000</view>
+        </view>
+    </view>
+</view>

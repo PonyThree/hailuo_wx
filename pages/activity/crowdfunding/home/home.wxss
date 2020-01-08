@@ -1,0 +1,539 @@
+/* pages/crowdfunding/home/home.wxss */
+
+.wrap {
+    position: relative;
+}
+
+.wrap .activity_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.wrap .header {
+    position: relative;
+    height: 800rpx;
+    width: 100%;
+    background-image: url(https://china185.com/file/image/20191223/52248987ead0451d957194619a37bc15.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrap .ticket_warp {
+    position: absolute;
+    height: 120rpx;
+    width: 570rpx;
+    left: calc(50%);
+    transform: translateX(-50%);
+    bottom: 135rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap .text_wrap {
+    display: inline-block;
+    height: 84rpx;
+}
+
+.wrap .text_box {
+    height: 84rpx;
+    display: flex;
+    align-items: center;
+}
+
+.wrap .ticket_label {
+    font-size: 24rpx;
+    color: #757575;
+    margin-right: 28rpx;
+}
+
+.wrap .ticket_warp text:nth-of-type(2) {
+    font-size: 50rpx;
+    color: #FA6D39;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.wrap .ticket_warp text:nth-of-type(3) {
+    font-size: 84rpx;
+    color: #FA6D39;
+    font-weight: bold;
+
+}
+
+.wrap .schedule_wrap {
+    height: 532rpx;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 12px;
+    background-color: #fff;
+}
+
+.wrap .schedule_wrap.little {
+    height: 432rpx;
+}
+
+.wrap .schedule_box {
+    height: 100%;
+    width: 686rpx;
+    position: absolute;
+    top: -78rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10rpx;
+    background-color: #fff;
+    box-shadow: 2rpx 5rpx 15rpx rgba(0, 0, 0, .1);
+}
+
+.wrap .schedule_title {
+    width: 100%;
+    height: 50rpx;
+    margin-top: 40rpx;
+    line-height: 50rpx;
+    margin-bottom: 40rpx;
+}
+
+.wrap .schedule_title.about {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36rpx;
+    color: #1b1b1b;
+}
+
+.wrap .schedule_title.begin {
+    color: #757575;
+    font-size: 32rpx;
+    text-align: left;
+    padding-left: 24rpx;
+    box-sizing: border-box;
+}
+
+.wrap .schedule_title.begin text {
+    font-weight: bold;
+    font-size: 36rpx;
+    color: #1b1b1b;
+}
+
+.wrap .schedule_content {
+    height: calc(100% - 316rpx);
+    width: calc(100% - 40rpx);
+    margin: 0 auto;
+    border-bottom: 1rpx solid #eee;
+}
+
+
+/* 少目标 */
+.wrap .schedule_little {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.wrap .schedule_little progress {
+    width: 100%;
+    font-weight: bold;
+}
+
+
+/* 活动人数 */
+.wrap .target_info {
+    height: 186rpx;
+    width: 100%;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrap .target_item {
+    display: inline-block;
+    height: 108rpx;
+}
+
+.wrap .target_item .people_num {
+    font-size: 36rpx;
+    font-weight: bold;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: left;
+    margin-bottom: 18rpx;
+    color: #1b1b1b;
+}
+
+.wrap .target_item .people_label {
+    font-size: 28rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: left;
+    color: #757575;
+}
+
+.wrap .target_item:nth-of-type(2) .people_label {
+    text-align: center;
+}
+
+.wrap .target_item:nth-of-type(2) .people_num {
+    text-align: center;
+}
+
+.wrap .btn_wrap {
+    height: 90rpx;
+    width: 260rpx;
+}
+
+.wrap .btn_wrap .activity_btn {
+    height: 100%;
+    border-radius: 45rpx;
+    line-height: 90rpx;
+    font-size: 36rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #FA6D39;
+    font-weight: bold;
+}
+
+.wrap .btn_wrap .activity_btn.not {
+    background-color: #eee;
+    color: #757575;
+}
+
+.wrap .btn_wrap .activity_btn.success {
+    background-color: #fdd677;
+    color: #1b1b1b;
+}
+
+.wrap .btn_wrap .activity_btn.error {
+    background-color: #aaa;
+    color: #fff;
+}
+
+/* 导航 */
+
+.wrap .nav {
+    height: 180rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24rpx;
+    padding: 0 32rpx 60rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+
+}
+
+
+.wrap .nav .nav_item {
+    height: 100%;
+    width: 300rpx;
+    background-color: #F9F9F9;
+    border-radius: 10rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 58rpx;
+    border: 1px solid #e1e1e1;
+    box-sizing: border-box;
+}
+
+.wrap .nav_item .nav_icon {
+    height: 55rpx;
+    width: 60rpx;
+    background-size: cover;
+}
+
+.wrap .nav_item:nth-of-type(1) .nav_icon {
+    background-image: url("https://china185.com/file/image/20191223/0b831c2aa8554fc2bebd917eaf56d906.png");
+}
+
+.wrap .nav_item:nth-of-type(2) .nav_icon {
+    background-image: url("https://china185.com/file/image/20191223/853ac328f04a4625a7145e08dab249a6.png");
+}
+
+.wrap .nav_item .nav_label {
+    font-size: 26rpx;
+    color: #1b1b1b;
+    height: 26rpx;
+    line-height: 26rpx;
+}
+
+.wrap .rule_wrap {
+    height: 364rpx;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+.wrap .rule_title {
+    height: 110rpx;
+    box-sizing: border-box;
+    padding: 56rpx 38rpx 0;
+    font-size: 38rpx;
+    color: #313131;
+    font-weight: bold;
+    text-align: left;
+    line-height: 54rpx;
+    margin-bottom: 48rpx;
+}
+
+.wrap .rule_flow {
+    display: flex;
+    align-items: center;
+    height: 117rpx;
+    width: 100%;
+    padding: 0 55rpx;
+    box-sizing: border-box;
+}
+
+.wrap .flow_item {
+    display: inline-block;
+    height: 100%;
+    margin: 0 20rpx;
+}
+
+.wrap .flow_item:last-of-type {
+    margin: 0 0 0 20rpx;
+}
+
+.wrap .flow_item:first-of-type {
+    margin: 0 20rpx 0 0;
+}
+
+.wrap .flow_wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrap .flow_item .flow_box {
+    height: 59rpx;
+    width: 58rpx;
+    border-radius: 50%;
+    border: 3rpx solid #FA6D39;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap .flow_item .flow_label {
+    font-size: 24rpx;
+    display: inline-block;
+    height: 32rpx;
+    line-height: 32rpx;
+    color: #999;
+}
+
+
+.wrap .flow_item:nth-child(1) .flow_box .flow_icon {
+    height: 26rpx;
+    width: 30rpx;
+    background-image: url("https://china185.com/file/image/20191223/11a1ec2a729841ad8cb01bec6a329907.png");
+    background-size: cover;
+}
+
+.wrap .flow_item:nth-child(3) .flow_box .flow_icon {
+    height: 26rpx;
+    width: 29rpx;
+    background-image: url("https://china185.com/file/image/20191223/564bfac17aeb49628303b67ab2c6edc8.png");
+    background-size: cover;
+}
+
+.wrap .flow_item:nth-child(5) .flow_box .flow_icon {
+    height: 29rpx;
+    width: 29rpx;
+    background-image: url("https://china185.com/file/image/20191223/f851ccda966a40088388e27c69fb069c.png");
+    background-size: cover;
+}
+
+.wrap .flow_item:nth-child(7) .flow_box .flow_icon {
+    height: 29rpx;
+    width: 27rpx;
+    background-image: url("https://china185.com/file/image/20191223/41d6c088cbd046be8956637632915929.png");
+    background-size: cover;
+}
+
+.wrap .flow_node {
+    width: 60rpx;
+    height: 60rpx;
+    background-image: url("https://china185.com/file/image/20191223/8b0b9ecf7fc24fe0a55a2f6ccfcbea78.png");
+    background-size: cover;
+    align-self: flex-start;
+}
+
+.wrap .footer {
+    height: 74rpx;
+    border-top: 2rpx solid #e1e1e1;
+    line-height: 72rpx;
+    box-sizing: border-box;
+    font-size: 20rpx;
+    color: #999;
+    text-align: center;
+    background-color: #fff;
+}
+
+
+
+/* 提示弹窗 */
+.wrap .window_info,
+.wrap .window_pay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap .window_info .mask,
+.wrap .window_pay .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+}
+
+
+.wrap .window_info .info_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 620rpx;
+    height: 600rpx;
+    border-radius: 20rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.wrap .window_info .clear {
+    position: absolute;
+    right: 20rpx;
+    top: 10rpx;
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 50%;
+    background-image: url("https://china185.com/file/image/20191224/47b38383d39a4aba998a79bab4b1557b.png");
+    background-size: cover;
+}
+
+
+.wrap .window_info .info_icon {
+    width: 112rpx;
+    height: 112rpx;
+    background-image: url("https://china185.com/file/image/20191224/23204c4e48494ce080a89dfa76df6286.png");
+    background-size: cover;
+    margin-bottom: 16rpx;
+    margin-top: 80rpx;
+}
+
+
+.wrap .window_info .info_title {
+    font-size: 32rpx;
+    line-height: 45rpx;
+    height: 45rpx;
+    width: 130rpx;
+    text-align: center;
+    color: #1b1b1b;
+    margin-bottom: 50rpx;
+    font-weight: bold;
+}
+
+
+.wrap .window_info .info_message {
+    color: #757575;
+    height: 38rpx;
+    line-height: 38rpx;
+    text-align: center;
+    width: 290rpx;
+    font-size: 26rpx;
+    margin-bottom: 42rpx;
+}
+
+.wrap .window_info .info_btn {
+    width: 240rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    background-color: #ffd46a;
+    color: #1b1b1b;
+    font-size: 30rpx;
+    border-radius: 35rpx;
+}
+
+
+.wrap .window_pay .info_wrap {
+    width: 573rpx;
+    height: 382rpx;
+    border-radius: 10rpx;
+    padding: 43rpx 33rpx 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+}
+
+.wrap .window_pay .info_title {
+    height: 45rpx;
+    width: 100%;
+    font-size: 32rpx;
+    color: #1b1b1b;
+    text-align: center;
+    line-height: 45rpx;
+    font-weight: bold;
+    margin-bottom: 24rpx;
+}
+
+.wrap .window_pay .info_message {
+    height: 85rpx;
+    width: 384rpx;
+    color: #757575;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 48rpx;
+}
+
+.wrap .window_pay .btn_box {
+    height: 86rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 69rpx;
+}
+
+
+.wrap .window_pay .btn_box .refuse,
+.wrap .window_pay .btn_box .pay {
+    text-align: center;
+    line-height: 86rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    width: 217rpx;
+    height: 100%;
+}
+
+.wrap .window_pay .btn_box .refuse {
+    border: 1rpx solid #e8e8e8;
+    color: #1b1b1b;
+    background-color: #fff;
+}
+
+.wrap .window_pay .btn_box .pay {
+    color: #fff;
+    background-color: #FA6D39;
+}

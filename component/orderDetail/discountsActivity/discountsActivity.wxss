@@ -1,0 +1,192 @@
+/* component/orderDetail/discountsActivity/discountsActivity.wxss */
+.wrap {
+    width: 686rpx;
+    position: relative;
+    border-radius: 10rpx;
+    background-color: #fff;
+    padding: 30rpx 0;
+    margin: 26rpx 0 22rpx;
+    box-sizing: border-box;
+}
+
+.wrap .header {
+    height: 42rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+
+.wrap .header .header_text {
+    height: 100%;
+    margin-right: 10rpx;
+    line-height: 42rpx;
+    font-size: 30rpx;
+    color: #1b1b1b;
+    font-weight: bold;
+}
+
+.wrap .header .help {
+    border-radius: 50%;
+    width: 30rpx;
+    height: 30rpx;
+    background-image: url("https://china185.com/file/image/20191227/361078f998994ab7812c11580e3c8f48.png");
+    background-size: cover;
+}
+
+.wrap scroll-view {
+    height: 255rpx;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+}
+
+.wrap .scroll_wrap {
+    height: 220;
+    display: flex;
+    align-items: center;
+    margin-bottom: 35rpx;
+}
+
+.wrap .activity_item {
+    height: 100%;
+    width: 250rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+    box-shadow: 5rpx 5rpx 10rpx rgba(0, 0, 0, .1);
+}
+
+.wrap .activity_item .top {
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+    height: 122rpx;
+    background-color: #7A8BFD;
+    padding: 19rpx 9rpx;
+    box-sizing: border-box;
+}
+
+.wrap .activity_item .title {
+    width: 176rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 36rpx;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #fff;
+    padding-right: 16rpx;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 14rpx;
+}
+
+.wrap .activity_item .title::after {
+    content: "";
+    background-image: url("https://china185.com/file/image/20191226/ba49cc6e01d349fbb6fcd5b9a3801e87.png");
+    background-size: cover;
+    height: 18rpx;
+    width: 11rpx;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 9rpx);
+}
+
+.wrap .activity_item .discountsPrice {
+    margin: 0 auto;
+    border: 1rpx solid #fff;
+    height: 40rpx;
+    line-height: 38rpx;
+    font-size: 24rpx;
+    border-radius: 6rpx;
+    color: #fff;
+    padding: 0 11rpx;
+    box-sizing: border-box;
+}
+
+
+
+.wrap .activity_item .bottom {
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    height: 98rpx;
+    width: 100%;
+    padding: 16rpx 10rpx 9rpx;
+    box-sizing: border-box;
+}
+
+.wrap .activity_item .doorsill {
+    height: 28rpx;
+    line-height: 28rpx;
+    color: #757575;
+    margin-bottom: 5rpx;
+    font-size: 20rpx;
+}
+
+.wrap .activity_item .price_box {
+    height: 40rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrap .price_box .price {
+    color: #FA6D39;
+    font-size: 28rpx;
+    height: 100%;
+    line-height: 40rpx;
+}
+
+.wrap .price_box .price text {
+    font-size: 24rpx;
+}
+
+.wrap .price_box .select_btn {
+    height: 40rpx;
+    width: 40rpx;
+    background-size: cover;
+    border-radius: 50%;
+    border: 2rpx solid #aaa;
+    box-sizing: border-box;
+}
+
+.wrap .price_box .select_btn.active {
+    border: none;
+    background-image: url("https://china185.com/file/image/20191226/d79056fc25aa4c96baca70c5a500bfa8.png");
+}
+
+.wrap .money_box {
+    height: 90rpx;
+    width: 100%;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.wrap .money_box .money_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40rpx;
+}
+
+.wrap .money_box .money_item:nth-of-type(1) {
+    margin-bottom: 10rpx;
+}
+
+.wrap .money_item .money_label {
+    height: 100%;
+    line-height: 40rpx;
+    color: #1b1b1b;
+    font-size: 28rpx;
+}
+
+.wrap .money_item .money_num {
+    height: 100%;
+    line-height: 40rpx;
+    color: rgb(250, 116, 67);
+    font-size: 28rpx;
+
+}
+
+.wrap .money_item .money_num text {
+    font-size: 24rpx;
+}
